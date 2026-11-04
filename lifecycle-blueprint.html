@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<!--
+  財顧芸人生航海圖 — 人生財務地圖〈總整理〉。靜態 HTML，與 index.html 同資料夾上站。
+  本篇是系列的行動收斂頁：依階段對照「現在最該做的事」，並串接全部文章＋測驗＋諮詢。
+  封面待補 static/img/articles/cover-blueprint.png。
+-->
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>你現在最該做的財務規劃是什麼？｜人生財務地圖總整理 · 財顧芸</title>
+<meta name="description" content="依照人生階段整理財務任務，協助你找到下一步行動。從社會新鮮人到退休傳承，一張表看懂你現在最該優先做的財務規劃。">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { paper:'#fffdf8', moss:'#3f6b4f', gold:'#c79a4a', rose:'#cf7f73', ocean:'#1b4751', sea:'#e6efee', ink:'#2e3a33' },
+    fontFamily: { serif:['"Noto Serif TC"','serif'], sans:['"Noto Sans TC"','sans-serif'] },
+  } } };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color:#fffdf8; color:#2e3a33; }
+  .bearing { letter-spacing:.32em; font-size:.72rem; font-weight:500; }
+  #progress { position:fixed; top:0; left:0; height:3px; width:0; background:#c79a4a; z-index:60; transition:width .1s linear; }
+  .prose h2 { font-family:"Noto Serif TC",serif; font-weight:600; color:#1b4751; font-size:1.5rem; margin:2.2rem 0 .9rem; scroll-margin-top:90px; }
+  .prose p  { line-height:1.95; margin:.9rem 0; color:rgba(46,58,51,.88); }
+  .prose strong { color:#1b4751; }
+  .stage-card { display:block; background:#fff; border:1px solid rgba(63,107,79,.14); border-radius:1rem; padding:1.2rem 1.3rem; transition:transform .2s, box-shadow .2s; height:100%; }
+  .stage-card:hover { transform:translateY(-3px); box-shadow:0 14px 30px -18px rgba(27,71,81,.45); }
+  .stage-card .tag { font-size:.8rem; color:#cf7f73; font-weight:500; }
+  .stage-card h3 { font-family:"Noto Serif TC",serif; font-weight:600; color:#1b4751; font-size:1.15rem; margin:.25rem 0 .5rem; }
+  .stage-card ul { list-style:disc; padding-left:1.1rem; margin:.4rem 0 .7rem; }
+  .stage-card li { font-size:.9rem; line-height:1.7; color:rgba(46,58,51,.82); }
+  .stage-card .go { font-size:.88rem; color:#1b4751; font-weight:500; }
+  .reminder { position:relative; background:#fffaf0; border:1px solid rgba(199,154,74,.4); border-left:4px solid #c79a4a; border-radius:1rem; padding:1.5rem 1.6rem 1.6rem; margin:2rem 0; }
+  .reminder .seal { position:absolute; top:-16px; left:20px; height:36px; width:36px; border-radius:9999px; background:#c79a4a; color:#fff; display:flex; align-items:center; justify-content:center; font-family:"Noto Serif TC",serif; box-shadow:0 4px 10px -4px rgba(199,154,74,.7); }
+  .reminder .label { font-size:.74rem; letter-spacing:.2em; color:#c79a4a; font-weight:600; }
+  .reminder p { font-family:"Noto Serif TC",serif; color:#5a4a2a; line-height:1.95; margin-top:.5rem; font-size:1.06rem; }
+  .reveal { opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity:1; transform:none; }
+  .card-lift { transition:transform .25s ease, box-shadow .25s ease; }
+  .card-lift:hover { transform:translateY(-4px); box-shadow:0 14px 30px -18px rgba(27,71,81,.45); }
+  a:focus-visible, button:focus-visible { outline:2px solid #1b4751; outline-offset:3px; border-radius:4px; }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} .reveal{opacity:1;transform:none;transition:none} .card-lift{transition:none} }
+  :root { font-size: 112.5%; }
+  body { -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; }
+
+  .nav-hint { position: relative; display: inline-flex; align-items: center; justify-content: center; }
+  .nav-hint::after {
+    content: attr(data-tip);
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 12px);
+    transform: translate(-50%, 6px);
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    background: #1b4751;
+    color: #fffdf8;
+    border: 1px solid rgba(199,154,74,.35);
+    border-radius: 999px;
+    padding: .42rem .72rem;
+    font-size: .78rem;
+    line-height: 1;
+    box-shadow: 0 14px 30px -18px rgba(27,71,81,.55);
+    transition: opacity .18s ease, transform .18s ease;
+    z-index: 80;
+  }
+  .nav-hint:hover::after,
+  .nav-hint:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
+  .nav-disabled { cursor: default; color: rgba(46,58,51,.55); }
+</style>
+</head>
+<body class="font-sans antialiased">
+
+<div id="progress"></div>
+
+<header class="sticky top-0 z-50 bg-paper/90 backdrop-blur border-b border-moss/15">
+  <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <div class="flex items-baseline gap-2">
+      <a href="about-angie-profile.html" class="font-serif text-xl font-700 text-ocean tracking-wide no-underline">財顧芸</a>
+      <details class="relative block group">
+        <summary class="list-none cursor-pointer text-sm text-moss/70 hover:text-ocean transition select-none" style="list-style:none">人生航海圖 ▾</summary>
+        <div class="absolute left-0 mt-3 w-64 rounded-2xl border border-moss/15 bg-paper shadow-xl p-2 text-sm text-ink/80 z-50">
+          <a href="index.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">回首頁</a>
+          
+          <a href="detective.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">人生金錢偵探社</a>
+          <a href="koguti.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">人生考古題</a>
+          <a href="comic.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">胖胖幣財商漫畫</a>
+          <a href="observatory.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">財顧芸觀察室</a>
+          <a href="teacher-recruitment.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">第二曲線</a>
+          <a href="lifecycle-legacy.html#second-half-blueprint" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">50+傳承規劃</a>
+        </div>
+      </details>
+    </div>
+        <ul class="hidden lg:flex items-center gap-5 text-[0.9rem] text-ink/80">
+      <li><span class="hover:text-ocean transition nav-hint nav-disabled" data-tip="建置中" tabindex="0">會員專區</span></li>
+      <li></li>
+      <li><a href="teacher-recruitment.html" title="退休後的專業延續與第二人生方向" class="hover:text-ocean transition nav-hint" data-tip="退休後的專業延續與第二人生方向">第二曲線</a></li>
+      <li><a href="lifecycle-legacy.html#second-half-blueprint" class="hover:text-ocean transition nav-hint" data-tip="打造人生下半場幸福藍圖">50+傳承規劃</a></li>
+      <li><a href="asset-checkup-lite.html" class="hover:text-ocean transition nav-hint" data-tip="開始 60 秒財務體質快篩">財務健診</a></li>
+      <li></li>
+    </ul>
+    <a href="consultation.html#booking" class="inline-flex items-center rounded-full bg-ocean text-paper text-sm px-4 py-2 hover:bg-ocean/90 transition">預約諮詢</a>
+  </nav>
+</header>
+
+<main>
+  <div class="max-w-6xl mx-auto px-5 pt-8 pb-16 md:pb-24">
+
+    <nav class="text-sm text-ink/55 reveal" aria-label="麵包屑">
+      <a href="index.html" class="hover:text-ocean">首頁</a><span class="mx-1.5">/</span>
+      <a href="lifecycle-overview.html" class="hover:text-ocean">人生財務地圖</a><span class="mx-1.5">/</span>
+      <span class="text-ink/70">總整理</span>
+    </nav>
+
+    <header class="mt-6 reveal">
+      <span class="text-sm text-rose font-500">人生財務地圖 · 總整理</span>
+      <h1 class="font-serif font-700 text-ocean text-3xl md:text-4xl leading-tight mt-2">
+        你現在最該做的財務規劃是什麼？
+      </h1>
+      <p class="text-ink/65 mt-3 leading-relaxed">不用一次做完所有事。先找到你現在的人生階段，看這一格——它就是你的下一步。</p>
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-5 text-sm text-ink/60">
+        <span class="flex items-center gap-2">
+          <span class="inline-flex h-9 w-9 rounded-full bg-ocean/10 text-ocean items-center justify-center font-serif">芸</span>
+          <span class="text-ink/80 font-500">財顧芸</span>
+        </span>
+        <span>·</span><span>待填日期</span><span>·</span><span>閱讀 5 分鐘</span>
+      </div>
+    </header>
+
+    <article class="prose max-w-none mt-8 reveal">
+      <p>看完整個「人生財務地圖」系列，最常被問的還是同一句：「<strong>那我現在到底該先做什麼？</strong>」這篇就是答案——把五個階段、加上長照與傳承兩個跨階段課題，整理成一張「現在最該做」的對照表。找到你的格子，照著走第一步就好。</p>
+    </article>
+
+    <!-- 階段對照行動表 -->
+    <section class="mt-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <a href="lifecycle-newgrad.html" class="stage-card reveal">
+          <p class="tag">🌱 財富種子期 · 20–30 歲</p>
+          <h3>社會新鮮人</h3>
+          <ul>
+            <li>先存後花、建立緊急預備金</li>
+            <li>及早定期定額，讓複利開始跑</li>
+            <li>基本醫療意外＋管好信用卡</li>
+          </ul>
+          <span class="go">看這篇 →</span>
+        </a>
+
+        <a href="lifecycle-family.html" class="stage-card reveal">
+          <p class="tag">🌿 成長扎根期 · 30–40 歲</p>
+          <h3>成家立業</h3>
+          <ul>
+            <li>夫妻共建家庭財務地圖</li>
+            <li>補上責任型保障（房貸、家用）</li>
+            <li>為教育金、退休及早累積</li>
+          </ul>
+          <span class="go">看這篇 →</span>
+        </a>
+
+        <a href="lifecycle-midlife.html" class="stage-card reveal">
+          <p class="tag">🌳 責任高峰期 · 40–55 歲</p>
+          <h3>中壯年（風險熱區）</h3>
+          <ul>
+            <li>用賓士圖補滿保障防線</li>
+            <li>還責任之餘持續累積</li>
+            <li>開始資產保全與分散</li>
+          </ul>
+          <span class="go">看這篇 →</span>
+        </a>
+
+        <a href="lifecycle-retirement.html" class="stage-card reveal">
+          <p class="tag">🍎 收成準備期 · 55–65 歲</p>
+          <h3>退休準備</h3>
+          <ul>
+            <li>從資產累積轉向資產保全</li>
+            <li>把退休後「月薪」畫出來</li>
+            <li>風險重心移到醫療、長照</li>
+          </ul>
+          <span class="go">看這篇 →</span>
+        </a>
+
+        <a href="lifecycle-retirement-life.html" class="stage-card reveal">
+          <p class="tag">🌼 幸福收成年 · 65 歲以上</p>
+          <h3>退休生活</h3>
+          <ul>
+            <li>把資產變成穩定現金流</li>
+            <li>守住健康與長照底線</li>
+            <li>提早安排資產傳承</li>
+          </ul>
+          <span class="go">看這篇 →</span>
+        </a>
+
+        <a href="lifecycle-overview.html" class="stage-card reveal" style="background:#eef3f1;">
+          <p class="tag">🧭 不確定自己在哪一段？</p>
+          <h3>先看母文章</h3>
+          <ul>
+            <li>生命週期風險曲線總覽</li>
+            <li>看懂五階段與四大策略</li>
+            <li>找到自己的位置再出發</li>
+          </ul>
+          <span class="go">回到地圖 →</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- 兩個跨階段課題 -->
+    <section class="mt-10">
+      <h2 class="font-serif font-600 text-ocean text-2xl mb-5">兩個「越早想越好」的跨階段課題</h2>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <a href="lifecycle-longtermcare.html" class="stage-card reveal">
+          <p class="tag">守護種子 · 長照</p>
+          <h3>長照可能吃掉你一輩子的存款</h3>
+          <ul>
+            <li>把長照當風險、和退休費分開準備</li>
+            <li>善用長照 2.0 與保險轉嫁</li>
+          </ul>
+          <span class="go">看這篇 →</span>
+        </a>
+        <a href="lifecycle-legacy.html" class="stage-card reveal">
+          <p class="tag">開花種子 · 傳承</p>
+          <h3>遺囑真的只有有錢人才需要嗎？</h3>
+          <ul>
+            <li>傳承四面向：價值觀、財富、知識、精神</li>
+            <li>提早安排，照你的意思、少爭議</li>
+          </ul>
+          <span class="go">看這篇 →</span>
+        </a>
+      </div>
+    </section>
+
+    <div class="reminder reveal">
+      <span class="seal">芸</span>
+      <p class="label">財顧芸提醒</p>
+      <p>財務規劃不是一張要一次寫完的考卷，而是一張會陪你一輩子的地圖。你不需要每件事都做到滿分，只要在每個階段，把「這一格最該做的那一件」做好，就已經走在對的航線上。找到你的位置，挑一個最小的行動，今天就開始——這就是最好的規劃。</p>
+    </div>
+
+    <!-- 測驗入口 -->
+    <section class="mt-10 bg-sea/40 rounded-2xl p-8 md:p-10 text-center reveal">
+      <p class="bearing text-gold uppercase mb-2">財務健康測驗</p>
+      <h2 class="font-serif font-600 text-ocean text-2xl md:text-3xl">你現在在哪個人生財務階段？</h2>
+      <p class="text-ink/70 mt-3 max-w-xl mx-auto leading-relaxed">選擇最符合你的狀況，看看目前最需要優先規劃什麼。</p>
+      <a href="#" class="inline-flex items-center justify-center rounded-full bg-ocean text-paper px-7 py-3 font-500 mt-6 hover:bg-ocean/90 transition">開始財務健康測驗（即將上線）</a>
+    </section>
+
+    <!-- 諮詢 CTA -->
+    <section class="mt-8 bg-ocean text-paper rounded-2xl p-8 md:p-10 reveal">
+      <p class="bearing text-gold uppercase mb-2">下一步</p>
+      <h2 class="font-serif font-600 text-2xl md:text-3xl">想知道自己的財務地圖走到哪裡了嗎？</h2>
+      <p class="text-paper/85 mt-3 leading-relaxed">如果你不確定目前最該先做保單健檢、退休試算、資產整理，還是傳承規劃，歡迎預約人生財務藍圖諮詢，我陪你把下一步釐清。</p>
+      <div class="flex flex-col sm:flex-row gap-3 mt-6">
+        <a href="consultation.html#booking" class="inline-flex items-center justify-center rounded-full bg-paper text-ocean px-7 py-3 font-500 hover:bg-paper/90 transition">預約諮詢</a>
+        
+      </div>
+      <p class="text-paper/55 text-xs mt-5">＊本系列為一般財務規劃觀念分享，非個別投資、稅務或法律建議；實際規劃請依個人狀況評估，或與專業人員討論。</p>
+    </section>
+
+  </div>
+</main>
+
+<footer class="bg-ocean text-paper/80">
+  <div class="max-w-6xl mx-auto px-5 py-12">
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+      <div>
+        <p class="font-serif text-lg text-paper">財顧芸人生航海圖</p>
+        <p class="text-paper/60 text-sm mt-2">幸福財務領航員 · Angie｜陪你航向更有選擇權的人生。</p>
+      </div>
+      <nav class="flex flex-wrap gap-x-8 gap-y-3 text-sm">
+        <a href="https://www.facebook.com/IFA.Fans/" class="hover:text-paper transition">Facebook 粉專</a>
+        <a href="https://open.spotify.com/show/1us537rWraGs4qdY8beG5a" class="hover:text-paper transition">Podcast · 心海羅盤幸福航行誌</a>
+        <a href="https://www.youtube.com/@IFA-Fans" class="hover:text-paper transition">YouTube</a>
+        <a href="https://lin.ee/uMYPHQc" class="hover:text-paper transition">LINE@ 官方群組</a>
+      </nav>
+    </div>
+    <p class="text-paper/45 text-xs mt-10">© <span id="year"></span> 馥芸財富學苑. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const progress = document.getElementById('progress');
+  const onScroll = () => { const h=document.documentElement; const max=h.scrollHeight-h.clientHeight; progress.style.width = max>0?(h.scrollTop/max*100)+'%':'0%'; };
+  document.addEventListener('scroll', onScroll, { passive:true }); onScroll();
+</script>
+  <script src="public-assets/js/image-loader.js" defer></script>
+  <script src="public-assets/js/fuyun-cursor.js" defer></script>
+  <script src="assets/article-share.js" defer></script>
+<script src="assets/report.js" defer></script>
+<script src="assets/footer-recruitment-link-v1.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

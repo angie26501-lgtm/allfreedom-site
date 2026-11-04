@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<!--
+  財顧芸人生航海圖 — 生命週期系列〈退休生活〉第 5 階段（開花／傳承）。
+  沿用 article-template.html 結構。部署：與 index.html 同資料夾。
+  待補：封面圖 lifecycle-retirement-life-cover.png。上一篇已接 lifecycle-retirement.html。
+-->
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>退休生活：從「累積」走向「使用與傳承」——穩定現金流，安心開花｜財顧芸人生航海圖</title>
+<meta name="description" content="退休生活，課題從『存夠了嗎』變成『怎麼安心地用、怎麼好好傳下去』。把資產轉成穩定現金流、守住健康與長照底線、提早安排資產傳承。">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { paper:'#fffdf8', moss:'#3f6b4f', gold:'#c79a4a', rose:'#cf7f73', ocean:'#1b4751', sea:'#e6efee', ink:'#2e3a33' },
+    fontFamily: { serif:['"Noto Serif TC"','serif'], sans:['"Noto Sans TC"','sans-serif'] },
+  } } };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color:#fffdf8; color:#2e3a33; }
+  .bearing { letter-spacing:.32em; font-size:.72rem; font-weight:500; }
+  #progress { position:fixed; top:0; left:0; height:3px; width:0; background:#c79a4a; z-index:60; transition:width .1s linear; }
+  .prose h2 { font-family:"Noto Serif TC",serif; font-weight:600; color:#1b4751; font-size:1.5rem; margin:2.2rem 0 .9rem; scroll-margin-top:90px; }
+  .prose h3 { font-family:"Noto Serif TC",serif; font-weight:600; color:#3f6b4f; font-size:1.18rem; margin:1.6rem 0 .6rem; scroll-margin-top:90px; }
+  .prose p  { line-height:1.95; margin:.9rem 0; color:rgba(46,58,51,.88); }
+  .prose ul { margin:.8rem 0; padding-left:1.2rem; list-style:disc; }
+  .prose li { line-height:1.9; margin:.3rem 0; color:rgba(46,58,51,.85); }
+  .prose strong { color:#1b4751; }
+  .chip { display:inline-block; background:#e6efee; color:#1b4751; border:1px solid rgba(63,107,79,.18); border-radius:9999px; padding:.15rem .7rem; margin:.15rem .15rem; font-size:.86rem; font-weight:500; }
+  .formula { background:#fff; border:1px solid rgba(63,107,79,.16); border-radius:1rem; padding:1rem 1.1rem; margin:1.1rem 0; line-height:2.1; }
+  .reminder { position:relative; background:#fffaf0; border:1px solid rgba(199,154,74,.4); border-left:4px solid #c79a4a; border-radius:1rem; padding:1.5rem 1.6rem 1.6rem; margin:2rem 0; }
+  .reminder .seal { position:absolute; top:-16px; left:20px; height:36px; width:36px; border-radius:9999px; background:#c79a4a; color:#fff; display:flex; align-items:center; justify-content:center; font-family:"Noto Serif TC",serif; box-shadow:0 4px 10px -4px rgba(199,154,74,.7); }
+  .reminder .label { font-size:.74rem; letter-spacing:.2em; color:#c79a4a; font-weight:600; }
+  .reminder p { font-family:"Noto Serif TC",serif; color:#5a4a2a; line-height:1.95; margin-top:.5rem; font-size:1.06rem; }
+  .ai-box { background:#10241f; color:#e9efe9; border-radius:1rem; padding:1.3rem 1.4rem; margin:1.4rem 0; }
+  .ai-box .head { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+  .ai-box .title { font-weight:600; color:#e7c987; }
+  .ai-box pre { white-space:pre-wrap; word-break:break-word; font-size:.9rem; line-height:1.75; margin-top:.8rem; color:#d6e0d8; font-family:inherit; }
+  .copy-btn { flex:none; background:#c79a4a; color:#10241f; border:none; border-radius:9999px; padding:.4rem .9rem; font-size:.82rem; font-weight:600; cursor:pointer; transition:background .2s; }
+  .copy-btn:hover { background:#d8ab5b; }
+  .toc a { display:block; padding:5px 0; color:rgba(46,58,51,.7); font-size:.9rem; border-left:2px solid transparent; padding-left:12px; transition:color .2s,border-color .2s; }
+  .toc a:hover { color:#1b4751; } .toc a.lvl3 { padding-left:26px; font-size:.85rem; } .toc a.active { color:#1b4751; border-left-color:#c79a4a; }
+  .reveal { opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity:1; transform:none; }
+  .card-lift { transition:transform .25s ease, box-shadow .25s ease; }
+  .card-lift:hover { transform:translateY(-4px); box-shadow:0 14px 30px -18px rgba(27,71,81,.45); }
+  a:focus-visible, button:focus-visible { outline:2px solid #1b4751; outline-offset:3px; border-radius:4px; }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} .reveal{opacity:1;transform:none;transition:none} .card-lift{transition:none} }
+  :root { font-size: 112.5%; }
+  body { -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; }
+
+  .nav-hint { position: relative; display: inline-flex; align-items: center; justify-content: center; }
+  .nav-hint::after {
+    content: attr(data-tip);
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 12px);
+    transform: translate(-50%, 6px);
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    background: #1b4751;
+    color: #fffdf8;
+    border: 1px solid rgba(199,154,74,.35);
+    border-radius: 999px;
+    padding: .42rem .72rem;
+    font-size: .78rem;
+    line-height: 1;
+    box-shadow: 0 14px 30px -18px rgba(27,71,81,.55);
+    transition: opacity .18s ease, transform .18s ease;
+    z-index: 80;
+  }
+  .nav-hint:hover::after,
+  .nav-hint:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
+  .nav-disabled { cursor: default; color: rgba(46,58,51,.55); }
+</style>
+  <link rel="stylesheet" href="assets/public-site-navigation.css">
+</head>
+<body class="font-sans antialiased">
+
+<div id="progress"></div>
+
+<header class="sticky top-0 z-50 bg-paper/90 backdrop-blur border-b border-moss/15">
+  <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <div class="flex items-baseline gap-2">
+      <a href="about-angie-profile.html" class="font-serif text-xl font-700 text-ocean tracking-wide no-underline">財顧芸</a>
+      <details class="relative block group">
+        <summary class="list-none cursor-pointer text-sm text-moss/70 hover:text-ocean transition select-none" style="list-style:none">人生航海圖 ▾</summary>
+        <div class="absolute left-0 mt-3 w-64 rounded-2xl border border-moss/15 bg-paper shadow-xl p-2 text-sm text-ink/80 z-50">
+          <a href="index.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">回首頁</a>
+          
+          <a href="detective.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">人生金錢偵探社</a>
+          <a href="koguti.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">人生考古題</a>
+          <a href="comic.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">胖胖幣財商漫畫</a>
+          <a href="observatory.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">財顧芸觀察室</a>
+          <a href="teacher-recruitment.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">第二曲線</a>
+          <a href="lifecycle-legacy.html#second-half-blueprint" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">50+傳承規劃</a>
+        </div>
+      </details>
+    </div>
+        <ul class="hidden lg:flex items-center gap-5 text-[0.9rem] text-ink/80">
+      <li><span class="hover:text-ocean transition nav-hint nav-disabled" data-tip="建置中" tabindex="0">會員專區</span></li>
+      <li></li>
+      <li><a href="teacher-recruitment.html" title="退休後的專業延續與第二人生方向" class="hover:text-ocean transition nav-hint" data-tip="退休後的專業延續與第二人生方向">第二曲線</a></li>
+      <li><a href="lifecycle-legacy.html#second-half-blueprint" class="hover:text-ocean transition nav-hint" data-tip="打造人生下半場幸福藍圖">50+傳承規劃</a></li>
+      <li><a href="asset-checkup-lite.html" class="hover:text-ocean transition nav-hint" data-tip="開始 60 秒財務體質快篩">財務健診</a></li>
+      <li></li>
+    </ul>
+    <a href="consultation.html#booking" class="inline-flex items-center rounded-full bg-ocean text-paper text-sm px-4 py-2 hover:bg-ocean/90 transition">預約諮詢</a>
+  </nav>
+</header>
+
+<main>
+  <div class="max-w-6xl mx-auto px-5 pt-8 pb-16 md:pb-24">
+
+    <nav class="text-sm text-ink/55 reveal" aria-label="麵包屑">
+      <a href="index.html" class="hover:text-ocean">首頁</a><span class="mx-1.5">/</span>
+      <a href="lifecycle-legacy.html" class="hover:text-ocean">開花種子</a><span class="mx-1.5">/</span>
+      <span class="text-ink/70">退休生活</span>
+    </nav>
+
+    <header class="mt-6 reveal">
+      <span class="text-sm text-rose font-500">開花種子 · 生命週期系列 ⑤ 退休生活</span>
+      <h1 class="font-serif font-700 text-ocean text-3xl md:text-4xl leading-tight mt-2">
+        退休生活：從「累積」走向「使用與傳承」
+      </h1>
+      <p class="font-serif font-600 text-gold text-lg md:text-xl mt-2">退休最大的風險，不是沒錢</p>
+      <p class="text-ink/65 mt-3 leading-relaxed">航程的終點，是那棵結滿果實的樹。課題不再是「存夠了嗎」，而是「怎麼安心地用，怎麼好好地傳下去」。</p>
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-5 text-sm text-ink/60">
+        <span class="flex items-center gap-2">
+          <span class="inline-flex h-9 w-9 rounded-full bg-ocean/10 text-ocean items-center justify-center font-serif">芸</span>
+          <span class="text-ink/80 font-500">財顧芸</span>
+        </span>
+        <span class="hidden sm:flex flex-wrap gap-1">
+          <span class="text-xs rounded-full bg-ocean/8 text-ocean px-2 py-0.5">MDRT</span>
+          <span class="text-xs rounded-full bg-ocean/8 text-ocean px-2 py-0.5">RFC</span>
+          <span class="text-xs rounded-full bg-ocean/8 text-ocean px-2 py-0.5">RFA</span>
+          <span class="text-xs rounded-full bg-ocean/8 text-ocean px-2 py-0.5">RFP</span>
+        </span>
+        <span>·</span><span>2026/06/29</span><span>·</span><span>閱讀 7 分鐘</span>
+      </div>
+    </header>
+
+    <figure class="mt-7 reveal">
+      <div class="w-full aspect-[16/7] rounded-2xl bg-ocean/10 flex items-center justify-center text-ocean/40 font-serif">封面圖</div>
+    </figure>
+
+    <div class="mt-6 reveal">
+      <div class="flex flex-wrap items-center gap-2 text-sm">
+        <span class="text-ink/50">生命週期五階段：</span>
+        <span class="chip">社會新鮮人</span>
+        <span class="chip">成家立業</span>
+        <span class="chip">中壯年</span>
+        <span class="chip">退休準備</span>
+        <span class="chip" style="background:#c79a4a;color:#fff;border-color:#c79a4a;">退休生活 ←你在這</span>
+      </div>
+    </div>
+
+    <div class="mt-8 grid lg:grid-cols-[1fr_260px] gap-10">
+
+      <article id="articleBody" class="prose max-w-none reveal">
+        <p>有對退休夫妻來找我，先生開口第一句不是問錢夠不夠，而是：「芸，我們存了一輩子，現在反而<strong>不太敢花</strong>。但又怕，萬一哪天走了，留下來的反而讓孩子為了分配傷感情……」</p>
+        <p>這句話，道出了退休生活最真實的兩個課題：<strong>怎麼安心地把錢用在自己身上，以及怎麼把剩下的，好好地傳下去。</strong>累積的時代結束了，現在要學的，是「使用」與「傳承」。</p>
+
+        <h2>退休生活，課題從「累積」變成「使用與傳承」</h2>
+        <p>前面四個階段，財務的主軸都是「往上長」——賺、存、累積、保全。到了退休生活，<strong>方向第一次反過來</strong>：你要開始有計畫地把累積的成果，一點一點變成生活，並且想清楚最後要怎麼交棒。</p>
+        <p>在「生命週期風險曲線」上，這是最後一段——曲線往下走，責任與大波動的風險都降低了。但有兩件事反而浮上來成為主角：<strong>長壽</strong>（錢要夠用得久）和<strong>傳承</strong>（怎麼把愛與財富有序交給下一代）。這正是那棵結滿果實的樹要回答的問題。</p>
+
+        <h2>退休生活，最該做對的三件事</h2>
+
+        <h3>一、把資產變成穩定的「現金流」</h3>
+        <p>退休後最重要的能力，是讓資產<strong>持續、穩定地產生生活費</strong>，而不是一次領出來放著慢慢花。可以用「分桶」的概念：一桶放短期一兩年的生活費（穩、隨時動得到）、一桶放中期、一桶留著長期成長，對抗通膨與長壽。</p>
+        <p>提領也要有紀律——既不要太省，把自己活成守財奴；也不要前幾年花太快，後面不夠用。先把「每月要多少」和「每月領得到多少」對起來，讓現金流穩穩流動，是退休安心的關鍵。</p>
+        <div class="formula">
+          <span class="chip">退休每月現金流</span> ＝ <span class="chip">年金（勞保＋勞退）</span> ＋ <span class="chip">資產提領</span> ＋ <span class="chip">被動收入</span>
+        </div>
+
+        <h3>二、守住健康與長照的底線</h3>
+        <p>退休後最大的不確定，往往不是投資報酬，而是<strong>健康</strong>。一場長期的醫療或長照需求，可能是退休生活裡最大的一筆支出。所以要<strong>預留一筆「長照／醫療專用」的準備</strong>，和日常生活費分開放，別讓它哪天被迫一次吃掉大半本金。</p>
+        <p>這筆準備可以是保險、可以是專款專用的資產，重點是<strong>事先就把它圈出來</strong>，讓自己和家人都知道：真的需要照顧時，錢從這裡來，不用臨時湊、也不用拖累子女。</p>
+
+        <h3>三、提早安排「傳承」</h3>
+        <p>傳承不是有錢人才需要，也不是等老到走不動才做。<strong>越早安排，越能照自己的意思、也越能避免日後的紛爭。</strong>傳承要傳的，其實有四種：價值觀、財富、知識，還有精神。財富只是其中一塊。</p>
+        <p>財富這塊，可以提早了解贈與、遺產的稅務規劃，以及遺囑、信託等工具，把「想給誰、怎麼給、什麼時候給」先想清楚。重點不是省多少稅，而是<strong>讓愛與財富有序地交棒，不要變成家人之間的難題</strong>。這部分屬於開花種子（傳承）的範圍，也是「人生金錢偵探社」最常處理的案件。</p>
+
+        <h2>一個退休現金流的簡單檢查</h2>
+        <p>退休安不安心，先看現金流對不對得起來：</p>
+        <div class="formula">
+          <div><span class="chip">每月結餘</span> ＝（年金 ＋ 資產提領 ＋ 被動收入）− 期望退休月支出</div>
+          <div class="mt-2">另外圈出 <span class="chip">長照／醫療專用準備</span> 與 <span class="chip">緊急預備金</span>，與日常現金流分開放。</div>
+        </div>
+        <p>如果每月結餘是正的、專用準備也圈好了，你就有了退休最珍貴的東西：<strong>安心把錢花在自己身上的底氣</strong>。</p>
+
+        <div class="reminder reveal">
+          <span class="seal">芸</span>
+          <p class="label">財顧芸提醒</p>
+          <p>很多人辛苦一輩子，到了退休卻「不敢花」，把自己活得很節省，最後反而留下一筆讓家人為難的財產。退休生活的功課，是學會安心地享用自己種出來的果實，也提早把傳承安排好——讓你給出去的，是祝福，不是難題。這，才是花園真正開花的時候。</p>
+        </div>
+
+        <h2>現在就能做的第一步</h2>
+        <p>這週先把<strong>「每月一定領得到的錢」（年金＋穩定提領）列出來，對照你想要的退休生活費</strong>，看看現金流夠不夠穩。同時，找個輕鬆的時間，和另一半或孩子聊一次「以後想怎麼安排」——傳承最難的不是稅，是開口。先聊開了，後面就好辦了。</p>
+
+        <div class="ai-box reveal">
+          <div class="head">
+            <span class="title">🎨 AI 生成指示詞（封面圖）</span>
+            <button class="copy-btn" id="copyPrompt">複製</button>
+          </div>
+          <pre id="promptText">A warm, minimal editorial illustration of a serene retired couple sitting together on a bench under a large fruit-laden tree at golden sunset, a small bird nearby, ripe apples glowing. Conveys harvest, peace, abundance and gentle legacy. Flat vector style, soft textures, muted palette of moss green, warm gold and cream paper tones, generous negative space, no text. 16:7 banner composition.</pre>
+        </div>
+      </article>
+
+      <aside class="lg:sticky lg:top-24 self-start reveal">
+        <div class="bg-white rounded-2xl border border-moss/12 p-5">
+          <button id="tocToggle" class="w-full flex items-center justify-between text-left" aria-expanded="true">
+            <span class="font-serif font-600 text-ocean">文章目錄</span>
+            <svg id="tocChevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1b4751" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <nav id="toc" class="toc mt-3" aria-label="文章目錄"></nav>
+        </div>
+      </aside>
+    </div>
+
+    <section class="mt-12 bg-ocean text-paper rounded-2xl p-8 md:p-10 reveal">
+      <p class="bearing text-gold uppercase mb-2">下一步</p>
+      <h2 class="font-serif font-600 text-2xl md:text-3xl">想把退休現金流與傳承一起安排好？</h2>
+      <p class="text-paper/85 mt-3 leading-relaxed">我可以陪你把每月現金流對起來、圈出長照專用準備，並提早規劃資產傳承——讓你安心享用，也安心交棒。</p>
+      <div class="flex flex-col sm:flex-row gap-3 mt-6">
+        <a href="consultation.html#booking" class="inline-flex items-center justify-center rounded-full bg-paper text-ocean px-7 py-3 font-500 hover:bg-paper/90 transition">預約諮詢</a>
+        
+      </div>
+      <p class="text-paper/55 text-xs mt-5">＊本文為一般退休與傳承觀念分享，非個別投資、稅務或法律建議；實際規劃請依個人狀況評估，或與專業人員討論。</p>
+    </section>
+
+    <nav class="mt-10 grid sm:grid-cols-2 gap-4 reveal" aria-label="上一篇與下一篇">
+      <a href="lifecycle-retirement.html" class="card-lift bg-white rounded-2xl border border-moss/12 p-6">
+        <span class="text-xs text-ink/50">← 上一篇 · 生命週期 ④</span>
+        <p class="font-serif font-600 text-ink mt-1 leading-snug">退休準備：從「拼命累積」轉向「穩穩領出」</p>
+      </a>
+      <a href="lifecycle-legacy.html" class="card-lift bg-white rounded-2xl border border-moss/12 p-6 sm:text-right">
+        <span class="text-xs text-ink/50">延伸 · 開花種子 →</span>
+        <p class="font-serif font-600 text-ink mt-1 leading-snug">傳承與人生：把愛與財富，好好交到下一代手上</p>
+      </a>
+    </nav>
+
+    <section class="mt-14 reveal">
+      <h2 class="font-serif font-600 text-ocean text-2xl mb-6">開花種子 · 你可能也想看</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="inheritance-house.html" class="card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden">
+          <img src="static/img/articles/cover-legacy-house-transfer.jpg" alt="傳承房子先過戶比較省稅圖卡" class="h-32 w-full object-cover object-top" loading="lazy" decoding="async" fetchpriority="low" width="562" height="847">
+          <div class="p-5">
+            <span class="text-xs text-rose font-500">開花種子 · 傳承</span>
+            <h3 class="font-serif font-600 text-ink mt-1.5 leading-snug">傳承房子先過戶比較省稅？真相沒那麼簡單</h3>
+            <p class="text-ink/55 text-xs mt-2">財顧芸 · 2026/04 · 閱讀 6 分鐘</p>
+          </div>
+        </a>
+        <a href="detective.html" class="card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden">
+          <img src="static/img/articles/cover-detective-inheritance-case.jpg" alt="人生金錢偵探社破解遺產與傳承真實案件圖卡" class="h-32 w-full object-cover object-top" loading="lazy" decoding="async" fetchpriority="low" width="552" height="847">
+          <div class="p-5">
+            <span class="text-xs text-rose font-500">航道 I · 偵探社</span>
+            <h3 class="font-serif font-600 text-ink mt-1.5 leading-snug">人生金錢偵探社：用案例破解遺產與傳承的迷團</h3>
+            <p class="text-ink/55 text-xs mt-2">財顧芸 · 2026/06/29 · 閱讀 6 分鐘</p>
+          </div>
+        </a>
+        <a href="lifecycle-retirement.html" class="card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden">
+          <div class="h-32 bg-moss/10 flex items-center justify-center text-moss/40 font-serif text-sm">封面圖</div>
+          <div class="p-5">
+            <span class="text-xs text-rose font-500">成長種子 · 退休</span>
+            <h3 class="font-serif font-600 text-ink mt-1.5 leading-snug">退休準備：從「拼命累積」轉向「穩穩領出」</h3>
+            <p class="text-ink/55 text-xs mt-2">財顧芸 · 2026/06/29 · 閱讀 7 分鐘</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="bg-ocean text-paper/80">
+  <div class="max-w-6xl mx-auto px-5 py-12">
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+      <div>
+        <p class="font-serif text-lg text-paper">財顧芸人生航海圖</p>
+        <p class="text-paper/60 text-sm mt-2">幸福財務領航員 · Angie｜陪你航向更有選擇權的人生。</p>
+      </div>
+      <nav class="flex flex-wrap gap-x-8 gap-y-3 text-sm">
+        <a href="https://www.facebook.com/IFA.Fans/" class="hover:text-paper transition">Facebook 粉專</a>
+        <a href="https://open.spotify.com/show/1us537rWraGs4qdY8beG5a" class="hover:text-paper transition">Podcast · 心海羅盤幸福航行誌</a>
+        <a href="https://www.youtube.com/@IFA-Fans" class="hover:text-paper transition">YouTube</a>
+        <a href="https://lin.ee/uMYPHQc" class="hover:text-paper transition">LINE@ 官方群組</a>
+      </nav>
+    </div>
+    <p class="text-paper/45 text-xs mt-10">© <span id="year"></span> 馥芸財富學苑. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const progress = document.getElementById('progress');
+  const onScroll = () => { const h=document.documentElement; const max=h.scrollHeight-h.clientHeight; progress.style.width = max>0?(h.scrollTop/max*100)+'%':'0%'; };
+  document.addEventListener('scroll', onScroll, { passive:true }); onScroll();
+  const body=document.getElementById('articleBody'), toc=document.getElementById('toc');
+  const heads=Array.from(body.querySelectorAll('h2, h3'));
+  const slug=(t,i)=>'sec-'+i+'-'+t.trim().replace(/\s+/g,'-').replace(/[^\w\u4e00-\u9fa5-]/g,'').slice(0,24);
+  const links=[];
+  heads.forEach((h,i)=>{ if(!h.id) h.id=slug(h.textContent,i);
+    const a=document.createElement('a'); a.href='#'+h.id; a.textContent=h.textContent;
+    if(h.tagName==='H3') a.classList.add('lvl3');
+    a.addEventListener('click',(e)=>{ e.preventDefault(); document.getElementById(h.id).scrollIntoView({behavior:'smooth'}); });
+    toc.appendChild(a); links.push({a, el:h}); });
+  const tocToggle=document.getElementById('tocToggle'), tocChevron=document.getElementById('tocChevron');
+  tocToggle.addEventListener('click', ()=>{ const open=toc.style.display!=='none'; toc.style.display=open?'none':'block';
+    tocToggle.setAttribute('aria-expanded',String(!open)); tocChevron.style.transform=open?'rotate(-90deg)':'none'; });
+  const spy=new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.a.classList.toggle('active', l.el===e.target)); } }); }, { rootMargin:'-80px 0px -70% 0px', threshold:0 });
+  heads.forEach(h=>spy.observe(h));
+  const copyBtn=document.getElementById('copyPrompt');
+  copyBtn.addEventListener('click', async ()=>{ try{ await navigator.clipboard.writeText(document.getElementById('promptText').textContent.trim());
+    copyBtn.textContent='已複製 ✓'; setTimeout(()=>copyBtn.textContent='複製',1800); }catch(e){ copyBtn.textContent='請手動選取'; } });
+</script>
+  <script src="public-assets/js/fuyun-cursor.js" defer></script>
+  <script src="assets/article-share.js" defer></script>
+<script src="assets/report.js" defer></script>
+  <script src="assets/public-site-navigation.js" defer></script>
+<script src="assets/footer-recruitment-link-v1.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

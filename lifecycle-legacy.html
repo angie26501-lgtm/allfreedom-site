@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<!--
+  財顧芸人生航海圖 — 人生財務地圖〈傳承規劃〉。靜態 HTML，與 index.html 同資料夾上站。
+  封面：static/img/articles/cover-legacy.png；圖卡：static/img/articles/50plus-happiness-blueprint.png。
+-->
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>遺囑真的只有有錢人才需要嗎？｜人生財務地圖 · 財顧芸</title>
+<meta name="description" content="傳承不是只有高資產族群才需要，而是讓家人少一點爭議、多一點愛。遺囑、傳承四面向、提早安排的好處，一次看懂。">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { paper:'#fffdf8', moss:'#3f6b4f', gold:'#c79a4a', rose:'#cf7f73', ocean:'#1b4751', sea:'#e6efee', ink:'#2e3a33' },
+    fontFamily: { serif:['"Noto Serif TC"','serif'], sans:['"Noto Sans TC"','sans-serif'] },
+  } } };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color:#fffdf8; color:#2e3a33; }
+  .bearing { letter-spacing:.32em; font-size:.72rem; font-weight:500; }
+  #progress { position:fixed; top:0; left:0; height:3px; width:0; background:#c79a4a; z-index:60; transition:width .1s linear; }
+  .prose h2 { font-family:"Noto Serif TC",serif; font-weight:600; color:#1b4751; font-size:1.5rem; margin:2.2rem 0 .9rem; scroll-margin-top:90px; }
+  .prose h3 { font-family:"Noto Serif TC",serif; font-weight:600; color:#3f6b4f; font-size:1.18rem; margin:1.6rem 0 .6rem; scroll-margin-top:90px; }
+  .prose p  { line-height:1.95; margin:.9rem 0; color:rgba(46,58,51,.88); }
+  .prose ul { margin:.8rem 0; padding-left:1.2rem; list-style:disc; }
+  .prose li { line-height:1.9; margin:.3rem 0; color:rgba(46,58,51,.85); }
+  .prose strong { color:#1b4751; }
+  .chip { display:inline-block; background:#e6efee; color:#1b4751; border:1px solid rgba(63,107,79,.18); border-radius:9999px; padding:.15rem .7rem; margin:.15rem .15rem; font-size:.86rem; font-weight:500; }
+  .formula { background:#fff; border:1px solid rgba(63,107,79,.16); border-radius:1rem; padding:1rem 1.1rem; margin:1.1rem 0; line-height:2.1; }
+  .reminder { position:relative; background:#fffaf0; border:1px solid rgba(199,154,74,.4); border-left:4px solid #c79a4a; border-radius:1rem; padding:1.5rem 1.6rem 1.6rem; margin:2rem 0; }
+  .reminder .seal { position:absolute; top:-16px; left:20px; height:36px; width:36px; border-radius:9999px; background:#c79a4a; color:#fff; display:flex; align-items:center; justify-content:center; font-family:"Noto Serif TC",serif; box-shadow:0 4px 10px -4px rgba(199,154,74,.7); }
+  .reminder .label { font-size:.74rem; letter-spacing:.2em; color:#c79a4a; font-weight:600; }
+  .reminder p { font-family:"Noto Serif TC",serif; color:#5a4a2a; line-height:1.95; margin-top:.5rem; font-size:1.06rem; }
+  .ai-box { background:#10241f; color:#e9efe9; border-radius:1rem; padding:1.3rem 1.4rem; margin:1.4rem 0; }
+  .ai-box .head { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+  .ai-box .title { font-weight:600; color:#e7c987; }
+  .ai-box pre { white-space:pre-wrap; word-break:break-word; font-size:.9rem; line-height:1.75; margin-top:.8rem; color:#d6e0d8; font-family:inherit; }
+  .copy-btn { flex:none; background:#c79a4a; color:#10241f; border:none; border-radius:9999px; padding:.4rem .9rem; font-size:.82rem; font-weight:600; cursor:pointer; transition:background .2s; }
+  .copy-btn:hover { background:#d8ab5b; }
+  .toc a { display:block; padding:5px 0; color:rgba(46,58,51,.7); font-size:.9rem; border-left:2px solid transparent; padding-left:12px; transition:color .2s,border-color .2s; }
+  .toc a:hover { color:#1b4751; } .toc a.lvl3 { padding-left:26px; font-size:.85rem; } .toc a.active { color:#1b4751; border-left-color:#c79a4a; }
+  .reveal { opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity:1; transform:none; }
+  .card-lift { transition:transform .25s ease, box-shadow .25s ease; }
+  .card-lift:hover { transform:translateY(-4px); box-shadow:0 14px 30px -18px rgba(27,71,81,.45); }
+  a:focus-visible, button:focus-visible { outline:2px solid #1b4751; outline-offset:3px; border-radius:4px; }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} .reveal{opacity:1;transform:none;transition:none} .card-lift{transition:none} }
+  :root { font-size: 112.5%; }
+  body { -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; }
+
+  .nav-hint { position: relative; display: inline-flex; align-items: center; justify-content: center; }
+  .nav-hint::after {
+    content: attr(data-tip);
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 12px);
+    transform: translate(-50%, 6px);
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    background: #1b4751;
+    color: #fffdf8;
+    border: 1px solid rgba(199,154,74,.35);
+    border-radius: 999px;
+    padding: .42rem .72rem;
+    font-size: .78rem;
+    line-height: 1;
+    box-shadow: 0 14px 30px -18px rgba(27,71,81,.55);
+    transition: opacity .18s ease, transform .18s ease;
+    z-index: 80;
+  }
+  .nav-hint:hover::after,
+  .nav-hint:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
+  .nav-disabled { cursor: default; color: rgba(46,58,51,.55); }
+
+
+  #second-half-blueprint {
+    scroll-margin-top: 9.5rem;
+  }
+  #second-half-blueprint .tile-image {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+  #second-half-blueprint .tile-image__tile {
+    object-fit: fill;
+  }
+  @media (max-width: 768px) {
+    #second-half-blueprint { scroll-margin-top: 7.5rem; }
+  }
+
+  .embedded-checkup-section {
+    scroll-margin-top: 5.2rem;
+    background: linear-gradient(180deg, #fffdf8 0%, #f6f1e6 100%);
+    border-bottom: 1px solid rgba(63,107,79,.14);
+  }
+  .embedded-checkup-section[hidden] { display: none; }
+  .embedded-checkup-shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 1.35rem 1.25rem 2rem;
+  }
+  .embedded-checkup-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .embedded-checkup-head p { margin: .2rem 0 0; color: rgba(46,58,51,.66); }
+  .embedded-checkup-frame {
+    width: 100%;
+    min-height: 760px;
+    border: 1px solid rgba(63,107,79,.18);
+    border-radius: 1.4rem;
+    background: #fff;
+  }
+  @media (max-width: 760px) {
+    .embedded-checkup-head { align-items: flex-start; flex-direction: column; }
+    .embedded-checkup-frame { min-height: 720px; border-radius: 1rem; }
+  }
+</style>
+  
+</head>
+<body class="font-sans antialiased">
+
+<div id="progress"></div>
+
+<header class="sticky top-0 z-50 bg-paper/90 backdrop-blur border-b border-moss/15">
+  <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <div class="flex items-baseline gap-2">
+      <a href="about-angie-profile.html" class="font-serif text-xl font-700 text-ocean tracking-wide no-underline">財顧芸</a>
+      <details class="relative block group">
+        <summary class="list-none cursor-pointer text-sm text-moss/70 hover:text-ocean transition select-none" style="list-style:none">人生航海圖 ▾</summary>
+        <div class="absolute left-0 mt-3 w-64 rounded-2xl border border-moss/15 bg-paper shadow-xl p-2 text-sm text-ink/80 z-50">
+          <a href="index.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">回首頁</a>
+          
+          <a href="detective.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">人生金錢偵探社</a>
+          <a href="koguti.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">人生考古題</a>
+          <a href="comic.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">胖胖幣財商漫畫</a>
+          <a href="observatory.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">財顧芸觀察室</a>
+          <a href="teacher-recruitment.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">第二曲線</a>
+          <a href="lifecycle-legacy.html#second-half-blueprint" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">50+傳承規劃</a>
+        </div>
+      </details>
+    </div>
+        <ul class="hidden lg:flex items-center gap-5 text-[0.9rem] text-ink/80">
+      <li><span class="hover:text-ocean transition nav-hint nav-disabled" data-tip="建置中" tabindex="0">會員專區</span></li>
+      <li></li>
+      <li><a href="teacher-recruitment.html" title="退休後的專業延續與第二人生方向" class="hover:text-ocean transition nav-hint" data-tip="退休後的專業延續與第二人生方向">第二曲線</a></li>
+      <li><a href="lifecycle-legacy.html#second-half-blueprint" class="hover:text-ocean transition nav-hint" data-tip="打造人生下半場幸福藍圖">50+傳承規劃</a></li>
+      <li><a href="#financial-checkup" class="hover:text-ocean transition nav-hint" data-tip="開始 60 秒財務體質快篩" data-checkup-trigger>財務健診</a></li>
+      <li></li>
+    </ul>
+    <a href="consultation.html#booking" class="inline-flex items-center rounded-full bg-ocean text-paper text-sm px-4 py-2 hover:bg-ocean/90 transition">預約諮詢</a>
+  </nav>
+</header>
+
+
+<section id="financial-checkup" class="embedded-checkup-section" aria-labelledby="financial-checkup-title" hidden>
+  <div class="embedded-checkup-shell">
+    <div class="embedded-checkup-head">
+      <div>
+        <p class="bearing text-gold uppercase">60 秒快篩</p>
+        <h2 id="financial-checkup-title" class="font-serif font-600 text-ocean text-2xl md:text-3xl">財務健診</h2>
+        <p>在同一個頁面完成快篩，上方選單會保留，方便你隨時切換其他內容。</p>
+      </div>
+      <a href="asset-checkup-lite.html" class="inline-flex items-center rounded-full bg-ocean text-paper text-sm px-4 py-2 hover:bg-ocean/90 transition" aria-label="開啟完整財務健診頁">開啟完整頁</a>
+    </div>
+    <iframe id="financialCheckupFrame" class="embedded-checkup-frame" title="財務健診快篩" data-src="asset-checkup-lite.html" loading="lazy"></iframe>
+  </div>
+</section>
+
+
+<main>
+  <div class="max-w-6xl mx-auto px-5 pt-8 pb-16 md:pb-24">
+
+    <nav class="text-sm text-ink/55 reveal" aria-label="麵包屑">
+      <a href="index.html" class="hover:text-ocean">首頁</a><span class="mx-1.5">/</span>
+      <a href="lifecycle-overview.html" class="hover:text-ocean">人生財務地圖</a><span class="mx-1.5">/</span>
+      <span class="text-ink/70">傳承規劃</span>
+    </nav>
+
+    <header class="mt-6 reveal">
+      <span class="text-sm text-rose font-500">開花種子 · 人生財務地圖 · 傳承規劃</span>
+      <h1 class="font-serif font-700 text-ocean text-3xl md:text-4xl leading-tight mt-2">
+        遺囑真的只有有錢人才需要嗎？
+      </h1>
+      <p class="text-ink/65 mt-3 leading-relaxed">傳承不是高資產族群的專利，而是讓家人少一點爭議、多一點愛。它要傳的，從來不只是錢。</p>
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-5 text-sm text-ink/60">
+        <span class="flex items-center gap-2">
+          <span class="inline-flex h-9 w-9 rounded-full bg-ocean/10 text-ocean items-center justify-center font-serif">芸</span>
+          <span class="text-ink/80 font-500">財顧芸</span>
+        </span>
+        <span class="hidden sm:flex flex-wrap gap-1">
+          <span class="text-xs rounded-full bg-ocean/8 text-ocean px-2 py-0.5">MDRT</span>
+          <span class="text-xs rounded-full bg-ocean/8 text-ocean px-2 py-0.5">RFC</span>
+          <span class="text-xs rounded-full bg-ocean/8 text-ocean px-2 py-0.5">RFA</span>
+          <span class="text-xs rounded-full bg-ocean/8 text-ocean px-2 py-0.5">RFP</span>
+        </span>
+        <span>·</span><span>待填日期</span><span>·</span><span>閱讀 6 分鐘</span>
+      </div>
+    </header>
+
+    <figure class="mt-7 reveal">
+      <img src="static/img/articles/cover-legacy.png" class="w-full rounded-2xl border border-moss/12 shadow-xl shadow-ocean/10 object-cover" alt="遺囑真的只有有錢人才需要嗎？一對熟齡夫妻與顧問討論傳承規劃。" width="1672" height="941" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+    </figure>
+
+
+    <section id="second-half-blueprint" class="mt-8 reveal" aria-labelledby="blueprintCardTitle">
+      <div class="rounded-2xl border border-moss/12 bg-white shadow-xl shadow-ocean/10 overflow-hidden">
+        <img src="static/img/articles/50plus-happiness-blueprint.png" class="w-full" alt="50+ 人生下半場幸福藍圖，提醒 55 到 65 歲可預先安排意定監護、預立醫療、預立遺囑、預留稅源、遺囑信託。" width="1448" height="1086" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+        <div class="p-5 md:p-6 bg-paper/80">
+          <p class="bearing text-gold uppercase mb-2">50+ 人生下半場</p>
+          <h2 id="blueprintCardTitle" class="font-serif font-700 text-ocean text-2xl md:text-3xl leading-tight">傳承幸福藍圖</h2>
+          <div class="text-ink/70 leading-relaxed mt-3 space-y-3">
+            <p>我們可以預先安排、先了解的事，其實都是為了讓家人未來少一點擔心。</p>
+            <p>人生下半場，傳承不只是把財產留給誰，更是把照顧方式、醫療選擇、資產分配與家人的安心，一起想清楚。</p>
+            <p>55 到 65 歲，是開始整理傳承安排的好時機。不用一次全部完成，可以先有概念，再一步一步補齊家庭需要的安排。</p>
+            <p>先說清楚，愛就不容易變成壓力。先安排好，家人未來就能少一點爭議、多一份安心。</p>
+          </div>
+          <a href="legacy-planning.html" class="inline-flex items-center mt-5 rounded-full bg-ocean px-5 py-3 text-paper font-700 hover:bg-ocean/90 transition">了解人生下半場可以先安排什麼 →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-8 reveal" aria-labelledby="realEstateLegacyTitle">
+      <div class="rounded-2xl border border-moss/12 bg-white p-6 md:p-8 shadow-lg shadow-ocean/5">
+        <p class="bearing text-gold uppercase mb-2">房產 × 退休 × 傳承</p>
+        <h2 id="realEstateLegacyTitle" class="font-serif font-700 text-ocean text-2xl md:text-3xl leading-tight">房子不只要想怎麼留，也要先想現在怎麼用</h2>
+        <p class="text-ink/70 leading-relaxed mt-3 max-w-4xl">很多家庭的大部分資產都放在房子裡，但退休後真正需要的，往往是每個月可以安心使用的生活費。傳承規劃因此不只是決定房子最後給誰，也要一起思考：住在哪裡、錢從哪裡來、需要照顧時怎麼支付，以及家人能不能接受這樣的安排。</p>
+        <div class="grid md:grid-cols-2 gap-4 mt-6">
+          <article class="rounded-xl border border-moss/12 bg-paper p-5"><span class="text-sm text-gold font-700">01｜先看現在怎麼住</span><h3 class="font-serif font-700 text-ocean text-xl mt-2">房子適不適合陪你住到老？</h3><p class="text-ink/65 text-sm leading-relaxed mt-2">從地點、樓梯、醫療交通、無障礙與照顧需求開始，先看這間房子能不能支持未來的生活。</p></article>
+          <article class="rounded-xl border border-moss/12 bg-paper p-5"><span class="text-sm text-gold font-700">02｜把資產變成生活費</span><h3 class="font-serif font-700 text-ocean text-xl mt-2">以房養老、出租或換屋，哪一種適合？</h3><p class="text-ink/65 text-sm leading-relaxed mt-2">房子可以透過不同方式提供退休現金流，但每種安排都有條件、成本與取捨，要連同居住安全一起比較。</p></article>
+          <article class="rounded-xl border border-moss/12 bg-paper p-5"><span class="text-sm text-gold font-700">03｜先談清楚再安排</span><h3 class="font-serif font-700 text-ocean text-xl mt-2">要留房，還是先照顧自己的晚年？</h3><p class="text-ink/65 text-sm leading-relaxed mt-2">父母想安穩生活，子女可能期待保留老家。提早說清楚需求與界線，才能減少日後的誤解與壓力。</p></article>
+          <article class="rounded-xl border border-moss/12 bg-paper p-5"><span class="text-sm text-gold font-700">04｜安排未來怎麼接手</span><h3 class="font-serif font-700 text-ocean text-xl mt-2">共有、分配、稅務與居住權要一起看</h3><p class="text-ink/65 text-sm leading-relaxed mt-2">房產不容易切分，也可能牽動稅務與家人的居住安排。先盤點，再由財務、法律、稅務與地政專業共同協助。</p></article>
+        </div>
+        <div class="mt-6 rounded-xl bg-ocean/5 border border-ocean/10 p-5"><p class="font-serif font-700 text-ocean text-lg">可以先和家人聊的一句話</p><p class="text-ink/70 leading-relaxed mt-2">「如果未來需要更多生活費或照顧費，這間房子要繼續住、出租、換小一點，還是評估其他方式？」</p></div>
+        <p class="text-ink/50 text-xs leading-relaxed mt-4">＊不動產活化、以房養老、贈與、繼承與信託各有不同條件及成本；實際安排應依家庭、房產與財務狀況，向銀行、地政士、律師、會計師或稅務專業人員確認。</p>
+      </div>
+    </section>
+
+    <section class="mt-8 reveal" aria-labelledby="checkupToolsTitle">
+      <div class="rounded-2xl border border-moss/12 bg-white p-6 md:p-7 shadow-lg shadow-ocean/5">
+        <p class="bearing text-gold uppercase mb-2">互動檢測</p>
+        <h2 id="checkupToolsTitle" class="font-serif font-700 text-ocean text-2xl md:text-3xl leading-tight">先檢查財務體質，再安排人生下半場</h2>
+        <p class="text-ink/70 leading-relaxed mt-3">以下四個檢測工具與一個傳承故事體驗，可協助你看見現金流、漏財習慣、資產健康與家庭傳承選擇。完成檢測後，頁面會提醒加 LINE@ 一對一群組留言「7 天補漏行動表」，領取補漏行動表。</p>
+        <div class="grid md:grid-cols-2 xl:grid-cols-5 gap-4 mt-5">
+          <a href="#financial-checkup" class="card-lift block rounded-xl border border-moss/12 bg-paper p-5 hover:border-gold/60 transition" data-checkup-trigger>
+            <span class="text-sm text-gold font-700">60 秒快篩</span>
+            <h3 class="font-serif font-700 text-ocean text-xl mt-2">漏財體質快篩</h3>
+            <p class="text-ink/65 text-sm leading-relaxed mt-2">用 6 個生活題，快速估算一年可能默默漏掉多少錢。</p>
+          </a>
+          
+          
+          <a href="asset-checkup.html" class="card-lift block rounded-xl border border-moss/12 bg-paper p-5 hover:border-gold/60 transition">
+            <span class="text-sm text-gold font-700">資產健診</span>
+            <h3 class="font-serif font-700 text-ocean text-xl mt-2">資產健診</h3>
+            <p class="text-ink/65 text-sm leading-relaxed mt-2">16 題檢視風險管理、資產累積、資產保全與現金流管理。</p>
+          </a>
+          
+        </div>
+      </div>
+    </section>
+
+    <div class="mt-8 grid lg:grid-cols-[1fr_260px] gap-10">
+
+      <article id="articleBody" class="prose max-w-none reveal">
+        <p>「芸，我又沒幾個錢，立遺囑是不是太誇張了？」這是我最常聽到的一句話。但我看過太多<strong>不是因為錢多、而是因為「沒講清楚」而失和的家庭</strong>——一棟老房子、一筆不大的存款，足以讓本來感情很好的兄弟姊妹，從此不再往來。</p>
+        <p>傳承真正的功能，不是炫耀財富，而是<strong>替愛你的人，把「以後怎麼辦」先說清楚</strong>。從這個角度看，遺囑從來就不只是有錢人的事。</p>
+
+        <h2>傳承，要傳的不只是錢</h2>
+        <p>我常跟朋友說，傳承其實有<strong>四個面向</strong>，財富只是其中一塊：</p>
+        <ul>
+          <li><strong>價值觀</strong>：你希望孩子怎麼看待金錢、家庭與責任。</li>
+          <li><strong>財富</strong>：房子、存款、保單、投資，怎麼分、給誰、什麼時候給。</li>
+          <li><strong>知識</strong>：你累積的經驗、做決定的方法，怎麼傳下去。</li>
+          <li><strong>精神</strong>：家族的故事、情感與牽掛，那些比錢更難取代的東西。</li>
+        </ul>
+        <p>很多人以為傳承就是「分財產」，但真正讓家人受用一輩子的，往往是前後那幾項。財富只是載體，愛才是要傳的東西。</p>
+
+        <h2>為什麼「提早安排」這麼重要</h2>
+        <p>沒有事先安排，財產會依法律的預設方式分配——那不一定是你想要的，也很容易在親人最脆弱的時候，引爆「誰拿多、誰拿少」的爭執。提早安排有三個好處：</p>
+        <ul>
+          <li><strong>照你的意思</strong>：把「想給誰、怎麼給」明確寫下來，減少模糊地帶。</li>
+          <li><strong>減少爭議</strong>：白紙黑字，比口頭承諾更能避免日後誤會。</li>
+          <li><strong>更從容</strong>：稅務、過戶、現金流都能事先安排，不必在匆忙與悲傷中倉促決定。</li>
+        </ul>
+
+        <h2>常見的傳承工具，先有概念就好</h2>
+        <p>你不需要馬上變專家，但可以先認識幾個常被用到的工具，知道它們大概在做什麼：</p>
+        <ul>
+          <li><strong>遺囑</strong>：把你的意願正式寫下來。台灣遺囑有法定形式要件，寫之前最好先諮詢，避免因格式無效。</li>
+          <li><strong>保險</strong>：可作為指定受益人的現金傳承工具，也能預留繳稅或照顧特定家人的資金。</li>
+          <li><strong>生前贈與</strong>：在世時逐年安排，但要留意贈與稅與自身退休現金流，別給了之後反而自己不夠用。</li>
+          <li><strong>信託</strong>：當你希望「分次給、附條件給、或照顧無法自理的家人」時，可以了解的進階工具。</li>
+        </ul>
+        <p>這些工具沒有標準答案，重點是<strong>依你的家庭狀況組合</strong>。怎麼搭，建議和專業（地政士、律師、財務顧問）一起討論。</p>
+
+        <div class="reminder reveal">
+          <span class="seal">芸</span>
+          <p class="label">財顧芸提醒</p>
+          <p>傳承規劃最難的，從來不是稅，是「開口」。很多人怕談這個太觸霉頭，結果一拖再拖，把最重要的話留到來不及說。其實提早安排，反而是一種溫柔——你把「以後怎麼辦」先扛起來，讓孩子在最難過的時候，不用再為錢和分配傷神。你給出去的，會是祝福，不是難題。</p>
+        </div>
+
+        <h2>現在就能做的第一步</h2>
+        <p>不用一次到位。這週先做一件最小的事：<strong>拿一張紙，寫下你名下主要的資產（房子、存款、保單、投資），以及「如果有一天我不在了，我希望它們怎麼安排」</strong>。光是把這份清單列出來，你的傳承規劃就有了最重要的起點——剩下的工具和細節，再慢慢補。</p>
+
+        <div class="ai-box reveal">
+          <div class="head">
+            <span class="title">🎨 AI 生成指示詞（封面圖）</span>
+            <button class="copy-btn" id="copyPrompt">複製</button>
+          </div>
+          <pre id="promptText">A warm, minimal editorial illustration of three generations of a family planting and tending a tree together, passing a small seedling from older hands to younger hands, soft sunlight. Conveys legacy, love and passing things on across generations — not wealth display. Flat vector style, soft textures, muted palette of morandi green, warm gold and cream paper tones, generous negative space, no text. 16:7 banner composition.</pre>
+        </div>
+      </article>
+
+      <aside class="lg:sticky lg:top-24 self-start reveal">
+        <div class="bg-white rounded-2xl border border-moss/12 p-5">
+          <button id="tocToggle" class="w-full flex items-center justify-between text-left" aria-expanded="true">
+            <span class="font-serif font-600 text-ocean">文章目錄</span>
+            <svg id="tocChevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1b4751" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <nav id="toc" class="toc mt-3" aria-label="文章目錄"></nav>
+        </div>
+      </aside>
+    </div>
+
+    <section class="mt-12 bg-ocean text-paper rounded-2xl p-8 md:p-10 reveal">
+      <p class="bearing text-gold uppercase mb-2">下一步</p>
+      <h2 class="font-serif font-600 text-2xl md:text-3xl">想把愛與財富，好好交到下一代手上？</h2>
+      <p class="text-paper/85 mt-3 leading-relaxed">我可以陪你盤點資產、釐清意願，並依家庭狀況了解合適的傳承工具。若還不確定從哪裡開始，可以先填寫50+規劃問卷，把家庭、照顧、醫療、稅源與資產想法整理成一份可討論的清單。</p>
+      <div class="flex flex-col sm:flex-row gap-3 mt-6">
+        <a href="financial-needs-check.html" class="inline-flex items-center justify-center rounded-full bg-paper text-ocean px-7 py-3 font-500 hover:bg-paper/90 transition">先找出想整理的方向</a>
+        <a href="consultation.html#booking" class="inline-flex items-center justify-center rounded-full border border-paper/40 text-paper px-7 py-3 font-500 hover:bg-paper/10 transition">預約諮詢</a>
+      </div>
+      <p class="text-paper/55 text-xs mt-5">＊本文為一般傳承觀念分享，非個別法律、稅務或投保建議；遺囑與信託有法定要件，實際規劃請諮詢律師、地政士或專業人員。</p>
+    </section>
+
+    <nav class="mt-10 grid sm:grid-cols-2 gap-4 reveal" aria-label="上一篇與下一篇">
+      <a href="lifecycle-retirement-life.html" class="card-lift bg-white rounded-2xl border border-moss/12 p-6">
+        <span class="text-xs text-ink/50">← 相關 · 退休生活</span>
+        <p class="font-serif font-600 text-ink mt-1 leading-snug">退休生活：從「累積」走向「使用與傳承」</p>
+      </a>
+      <a href="lifecycle-blueprint.html" class="card-lift bg-white rounded-2xl border border-moss/12 p-6 sm:text-right">
+        <span class="text-xs text-ink/50">總整理 →</span>
+        <p class="font-serif font-600 text-ink mt-1 leading-snug">你現在最該做的財務規劃是什麼？</p>
+      </a>
+    </nav>
+
+    <section class="mt-14 reveal">
+      <h2 class="font-serif font-600 text-ocean text-2xl mb-6">財富傳承系列 · 你可能也想看</h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <a href="legacy-family-conversation.html" class="card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden">
+          <img src="public-assets/img/articles/legacy-family-conversation.jpg" alt="家庭傳承整理六格漫畫" class="h-32 w-full object-cover object-center" loading="lazy" decoding="async" fetchpriority="low" width="1148" height="1338">
+          <div class="p-5">
+            <span class="text-xs text-rose font-500">財富傳承 · 家庭對話</span>
+            <h3 class="font-serif font-600 text-ink mt-1.5 leading-snug">先把愛與重要資料說清楚</h3>
+            <p class="text-ink/55 text-xs mt-2">財顧芸 · 閱讀 6 分鐘</p>
+          </div>
+        </a>
+        <a href="legacy-aging-support-network.html" class="card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden">
+          <img src="public-assets/img/articles/aging-support-network-01.jpg" alt="晚年支持網與高齡照護文章封面" class="h-32 w-full object-cover object-center" loading="lazy" decoding="async" fetchpriority="low" width="1254" height="1254">
+          <div class="p-5">
+            <span class="text-xs text-rose font-500">財富傳承 · 晚年照護</span>
+            <h3 class="font-serif font-600 text-ink mt-1.5 leading-snug">有資產，也要有人能及時靠近</h3>
+            <p class="text-ink/55 text-xs mt-2">財顧芸 · 閱讀 7 分鐘</p>
+          </div>
+        </a>
+        <a href="inheritance-house.html" class="card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden">
+          <img src="static/img/articles/cover-legacy-house-transfer.jpg" alt="傳承房子先過戶比較省稅圖卡" class="h-32 w-full object-cover object-top" loading="lazy" decoding="async" fetchpriority="low" width="562" height="847">
+          <div class="p-5">
+            <span class="text-xs text-rose font-500">開花種子 · 傳承</span>
+            <h3 class="font-serif font-600 text-ink mt-1.5 leading-snug">傳承房子先過戶比較省稅？真相沒那麼簡單</h3>
+            <p class="text-ink/55 text-xs mt-2">財顧芸 · 2026/04 · 閱讀 6 分鐘</p>
+          </div>
+        </a>
+        <a href="detective.html" class="card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden">
+          <img src="static/img/articles/cover-detective-inheritance-case.jpg" alt="人生金錢偵探社破解遺產與傳承真實案件圖卡" class="h-32 w-full object-cover object-top" loading="lazy" decoding="async" fetchpriority="low" width="552" height="847">
+          <div class="p-5">
+            <span class="text-xs text-rose font-500">航道 I · 偵探社</span>
+            <h3 class="font-serif font-600 text-ink mt-1.5 leading-snug">人生金錢偵探社：破解遺產與傳承的真實案件</h3>
+            <p class="text-ink/55 text-xs mt-2">財顧芸 · 待填日期 · 閱讀 6 分鐘</p>
+          </div>
+        </a>
+        <a href="legacy-digital-assets.html" class="card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden">
+          <img src="public-assets/img/articles/legacy-digital-assets.jpg" alt="新世代數位資產傳承整理圖卡" class="h-32 w-full object-cover object-center" loading="lazy" decoding="async" fetchpriority="low" width="1254" height="1254">
+          <div class="p-5">
+            <span class="text-xs text-rose font-500">財富傳承 · 數位資產</span>
+            <h3 class="font-serif font-600 text-ink mt-1.5 leading-snug">數位遺產怎麼整理？把帳號、照片與數位資產交代清楚</h3>
+            <p class="text-ink/55 text-xs mt-2">財顧芸 · 閱讀 6 分鐘</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="bg-ocean text-paper/80">
+  <div class="max-w-6xl mx-auto px-5 py-12">
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+      <div>
+        <p class="font-serif text-lg text-paper">財顧芸人生航海圖</p>
+        <p class="text-paper/60 text-sm mt-2">幸福財務領航員 · Angie｜陪你航向更有選擇權的人生。</p>
+      </div>
+      <nav class="flex flex-wrap gap-x-8 gap-y-3 text-sm">
+        <a href="https://www.facebook.com/IFA.Fans/" class="hover:text-paper transition">Facebook 粉專</a>
+        <a href="https://open.spotify.com/show/1us537rWraGs4qdY8beG5a" class="hover:text-paper transition">Podcast · 心海羅盤幸福航行誌</a>
+        <a href="https://www.youtube.com/@IFA-Fans" class="hover:text-paper transition">YouTube</a>
+        <a href="https://lin.ee/uMYPHQc" class="hover:text-paper transition">LINE@ 官方群組</a>
+      </nav>
+    </div>
+    <p class="text-paper/45 text-xs mt-10">© <span id="year"></span> 馥芸財富學苑. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const progress = document.getElementById('progress');
+  const onScroll = () => { const h=document.documentElement; const max=h.scrollHeight-h.clientHeight; progress.style.width = max>0?(h.scrollTop/max*100)+'%':'0%'; };
+  document.addEventListener('scroll', onScroll, { passive:true }); onScroll();
+  const body=document.getElementById('articleBody'), toc=document.getElementById('toc');
+  const heads=Array.from(body.querySelectorAll('h2, h3'));
+  const slug=(t,i)=>'sec-'+i+'-'+t.trim().replace(/\s+/g,'-').replace(/[^\w\u4e00-\u9fa5-]/g,'').slice(0,24);
+  const links=[];
+  heads.forEach((h,i)=>{ if(!h.id) h.id=slug(h.textContent,i);
+    const a=document.createElement('a'); a.href='#'+h.id; a.textContent=h.textContent;
+    if(h.tagName==='H3') a.classList.add('lvl3');
+    a.addEventListener('click',(e)=>{ e.preventDefault(); document.getElementById(h.id).scrollIntoView({behavior:'smooth'}); });
+    toc.appendChild(a); links.push({a, el:h}); });
+  const tocToggle=document.getElementById('tocToggle'), tocChevron=document.getElementById('tocChevron');
+  tocToggle.addEventListener('click', ()=>{ const open=toc.style.display!=='none'; toc.style.display=open?'none':'block';
+    tocToggle.setAttribute('aria-expanded',String(!open)); tocChevron.style.transform=open?'rotate(-90deg)':'none'; });
+  const spy=new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.a.classList.toggle('active', l.el===e.target)); } }); }, { rootMargin:'-80px 0px -70% 0px', threshold:0 });
+  heads.forEach(h=>spy.observe(h));
+  const copyBtn=document.getElementById('copyPrompt');
+  copyBtn.addEventListener('click', async ()=>{ try{ await navigator.clipboard.writeText(document.getElementById('promptText').textContent.trim());
+    copyBtn.textContent='已複製 ✓'; setTimeout(()=>copyBtn.textContent='複製',1800); }catch(e){ copyBtn.textContent='請手動選取'; } });
+</script>
+  <script src="public-assets/js/image-loader.js" defer>
+  // Financial checkup: keep the original header and open the quiz below this page.
+  const checkupSection = document.getElementById('financial-checkup');
+  const checkupFrame = document.getElementById('financialCheckupFrame');
+  function openFinancialCheckup(event) {
+    if (event) event.preventDefault();
+    if (!checkupSection || !checkupFrame) return;
+    if (!checkupFrame.getAttribute('src')) {
+      checkupFrame.setAttribute('src', checkupFrame.dataset.src || 'asset-checkup-lite.html');
+    }
+    checkupSection.hidden = false;
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', '#financial-checkup');
+    }
+    requestAnimationFrame(() => checkupSection.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  }
+  document.querySelectorAll('[data-checkup-trigger]').forEach(link => link.addEventListener('click', openFinancialCheckup));
+  if (window.location.hash === '#financial-checkup') openFinancialCheckup();
+</script>
+  <script src="public-assets/js/fuyun-cursor.js" defer></script>
+  
+  <script src="assets/article-share.js" defer></script>
+<script src="assets/report.js" defer></script>
+<script src="assets/footer-recruitment-link-v1.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

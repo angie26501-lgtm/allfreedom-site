@@ -1,0 +1,22 @@
+# Explicit public static files only
+.env
+.env.*
+*.dump
+*.sql
+*.backup
+*.csv
+*.xlsx
+*.xls
+*.sqlite*
+*.log
+*.pem
+*.key
+*.json
+!content/public-articles.json
+node_modules/
+data/
+db/
+imports/
+uploads/
+backups/
+_備份*/

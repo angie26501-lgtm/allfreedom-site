@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!-- 財顧芸人生航海圖 — 航道 II：人生考古題（內容航道落地頁）。部署於 blog.html 同資料夾。待補：考題卡 href 換真實文章網址。 -->
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人生考古題｜那些人生遲早會考的財務題，先幫你解過一遍 · 財顧芸</title>
+<meta name="description" content="該先還房貸還是先投資？退休金要準備多少？人生考古題把每個人遲早會遇到的財務問題，一題一題拆解、給你解題方向。">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { paper:'#fffdf8', moss:'#3f6b4f', gold:'#c79a4a', rose:'#cf7f73', ocean:'#1b4751', sea:'#e6efee', ink:'#2e3a33' },
+    fontFamily: { serif:['"Noto Serif TC"','serif'], sans:['"Noto Sans TC"','sans-serif'] },
+  } } };
+</script>
+<style>
+  html{scroll-behavior:smooth} body{background:#fffdf8;color:#2e3a33}
+  .bearing{letter-spacing:.3em;font-size:.72rem;font-weight:500}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  .card-lift{transition:transform .25s ease,box-shadow .25s ease}
+  .card-lift:hover{transform:translateY(-4px);box-shadow:0 14px 30px -18px rgba(27,71,81,.45)}
+  a:focus-visible,button:focus-visible{outline:2px solid #1b4751;outline-offset:3px;border-radius:4px}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.card-lift{transition:none}}
+  /* 可讀性：預設字級放大≈18px，並尊重使用者裝置/瀏覽器的文字縮放 */
+  :root { font-size: 112.5%; }
+  body { -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; }
+
+  .nav-hint { position: relative; display: inline-flex; align-items: center; justify-content: center; }
+  .nav-hint::after {
+    content: attr(data-tip);
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 12px);
+    transform: translate(-50%, 6px);
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    background: #1b4751;
+    color: #fffdf8;
+    border: 1px solid rgba(199,154,74,.35);
+    border-radius: 999px;
+    padding: .42rem .72rem;
+    font-size: .78rem;
+    line-height: 1;
+    box-shadow: 0 14px 30px -18px rgba(27,71,81,.55);
+    transition: opacity .18s ease, transform .18s ease;
+    z-index: 80;
+  }
+  .nav-hint:hover::after,
+  .nav-hint:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
+  .nav-disabled { cursor: default; color: rgba(46,58,51,.55); }
+  .scenario-card img { transition: transform .45s ease; }
+  .scenario-card:hover img { transform: scale(1.035); }
+  .scenario-card .arrow { transition: transform .2s ease, background .2s ease; }
+  .scenario-card:hover .arrow { transform: translateX(3px); background:#1b4751; color:#fffdf8; }
+  .soft-leaf-bg {
+    background:
+      radial-gradient(circle at 12% 12%, rgba(199,154,74,.16), transparent 28%),
+      radial-gradient(circle at 85% 8%, rgba(63,107,79,.13), transparent 26%),
+      linear-gradient(180deg, #fffdf8 0%, #fbf4e8 100%);
+  }
+</style>
+  <link rel="stylesheet" href="public-assets/css/site-usability.css">
+  <link rel="stylesheet" href="assets/public-site-navigation.css">
+</head>
+<body class="font-sans antialiased">
+
+<header class="sticky top-0 z-50 bg-paper/90 backdrop-blur border-b border-moss/15">
+  <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <div class="flex items-baseline gap-2">
+      <a href="about-angie-profile.html" class="font-serif text-xl font-700 text-ocean tracking-wide no-underline">財顧芸</a>
+      <details class="relative block group">
+        <summary class="list-none cursor-pointer text-sm text-moss/70 hover:text-ocean transition select-none" style="list-style:none">人生航海圖 ▾</summary>
+        <div class="absolute left-0 mt-3 w-64 rounded-2xl border border-moss/15 bg-paper shadow-xl p-2 text-sm text-ink/80 z-50">
+          <a href="index.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">回首頁</a>
+          
+          <a href="detective.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">人生金錢偵探社</a>
+          <a href="koguti.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">人生考古題</a>
+          <a href="comic.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">胖胖幣財商漫畫</a>
+          <a href="observatory.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">財顧芸觀察室</a>
+          <a href="teacher-recruitment.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">第二曲線</a>
+          <a href="lifecycle-legacy.html#second-half-blueprint" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">50+傳承規劃</a>
+        </div>
+      </details>
+    </div>
+        <ul class="hidden lg:flex items-center gap-5 text-[0.9rem] text-ink/80">
+      <li></li>
+      <li><a href="teacher-recruitment.html" title="退休後的專業延續與第二人生方向" class="hover:text-ocean transition nav-hint" data-tip="退休後的專業延續與第二人生方向">第二曲線</a></li>
+      <li><a href="lifecycle-legacy.html#second-half-blueprint" class="hover:text-ocean transition nav-hint" data-tip="打造人生下半場幸福藍圖">50+傳承規劃</a></li>
+      <li><a href="asset-checkup-lite.html" class="hover:text-ocean transition nav-hint" data-tip="開始 60 秒財務體質快篩">財務健診</a></li>
+      <li></li>
+    </ul>
+    <div class="flex items-center gap-2">
+      <a href="consultation.html#booking" class="inline-flex items-center rounded-full bg-ocean text-paper text-sm px-4 py-2 hover:bg-ocean/90 transition">預約諮詢</a>
+    </div>
+    
+</nav>
+</header>
+
+<main>
+  <section class="soft-leaf-bg">
+    <div class="max-w-6xl mx-auto px-5 pt-14 pb-10 md:pt-20 text-center">
+      <p class="bearing text-gold uppercase mb-4 reveal">人生情境 · 財富花園</p>
+      <h1 class="font-serif font-700 text-ocean text-4xl md:text-5xl leading-tight reveal">在每個人生階段，種下適合的種子</h1>
+      <p class="text-ink/75 text-lg mt-5 max-w-3xl mx-auto reveal">從房貸、退休、傳承到教育金，陪你從生活情境看懂每一個選擇。每張卡片都是一道人生題，讓你用自己的步調慢慢想、慢慢找到適合的方向。</p>
+      <div class="flex flex-wrap justify-center gap-3 mt-8 text-sm text-ocean/80 reveal" aria-label="財富花園特色">
+        <span class="inline-flex items-center rounded-full bg-white/75 border border-moss/15 px-4 py-2">適合的時機，種下對的種子</span>
+        <span class="inline-flex items-center rounded-full bg-white/75 border border-moss/15 px-4 py-2">專業澆灌，陪伴成長</span>
+        <span class="inline-flex items-center rounded-full bg-white/75 border border-moss/15 px-4 py-2">用心規劃，開花結果</span>
+        <span class="inline-flex items-center rounded-full bg-white/75 border border-moss/15 px-4 py-2">代代相傳，幸福延續</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="exams" class="soft-leaf-bg">
+    <div class="max-w-6xl mx-auto px-5 pb-16 md:pb-24">
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+        <a href="exam-illness-income-interruption.html" class="scenario-card card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden reveal">
+          <div class="relative overflow-hidden"><img src="public-assets/img/articles/exam-illness-income-interruption.jpg" alt="生病造成收入中斷與家庭照顧壓力" class="w-full aspect-[16/10] object-cover" loading="eager" decoding="async" fetchpriority="high"><span class="absolute left-4 top-4 rounded-full bg-ocean/80 text-paper text-sm px-3 py-1">人生考古題 Q1</span></div>
+          <div class="p-6"><span class="font-serif text-gold text-base">守護種子 · 風險管理</span><h2 class="font-serif font-600 text-xl text-ink mt-2 leading-snug">生病這題，你準備了嗎？</h2><p class="text-ink/65 text-sm mt-3">收入停下來後，家庭生活與照顧責任還能撐多久？</p><span class="arrow mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-sea text-ocean">→</span></div>
+        </a>
+        <a href="exam-assets-without-security.html" class="scenario-card card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden reveal">
+          <div class="relative overflow-hidden"><img src="public-assets/img/articles/exam-assets-without-security.jpg" alt="有資產卻缺乏現金流安全感" class="w-full aspect-[16/10] object-cover" loading="lazy" decoding="async"><span class="absolute left-4 top-4 rounded-full bg-moss/85 text-paper text-sm px-3 py-1">人生考古題 Q2</span></div>
+          <div class="p-6"><span class="font-serif text-gold text-base">整理種子 · 現金流</span><h2 class="font-serif font-600 text-xl text-ink mt-2 leading-snug">明明有資產，為什麼還是沒有安全感？</h2><p class="text-ink/65 text-sm mt-3">資產不等於流動現金；真正的安全感來自選擇權。</p><span class="arrow mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-sea text-ocean">→</span></div>
+        </a>
+        <a href="exam-loan-vs-invest.html" class="scenario-card card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden reveal">
+          <div class="relative overflow-hidden"><img src="static/img/articles/cover-exam-loan-vs-invest-home.jpg" alt="該先還房貸還是先投資" class="w-full aspect-[16/10] object-cover" loading="lazy" decoding="async"><span class="absolute left-4 top-4 rounded-full bg-gold/85 text-ink text-sm px-3 py-1">人生考古題 Q3</span></div>
+          <div class="p-6"><span class="font-serif text-gold text-base">整理種子 · 房貸</span><h2 class="font-serif font-600 text-xl text-ink mt-2 leading-snug">該先還房貸，還是先投資？</h2><p class="text-ink/65 text-sm mt-3">比的不只是利率，也是風險承受度與安心程度。</p><span class="arrow mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-sea text-ocean">→</span></div>
+        </a>
+        <a href="exam-retire-first-year.html" class="scenario-card card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden reveal">
+          <div class="relative overflow-hidden"><img src="static/img/articles/cover-exam-retire-first-year-home.jpg" alt="退休第一年的現金流安排" class="w-full aspect-[16/10] object-cover" loading="lazy" decoding="async"><span class="absolute left-4 top-4 rounded-full bg-gold/85 text-ink text-sm px-3 py-1">人生考古題 Q4</span></div>
+          <div class="p-6"><span class="font-serif text-gold text-base">成長種子 · 退休</span><h2 class="font-serif font-600 text-xl text-ink mt-2 leading-snug">退休第一年，最容易犯的錯</h2><p class="text-ink/65 text-sm mt-3">先把現金流穩住，別急著做不可逆的大決定。</p><span class="arrow mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-sea text-ocean">→</span></div>
+        </a>
+        <a href="exam-succession.html" class="scenario-card card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden reveal">
+          <div class="relative overflow-hidden"><img src="static/img/articles/cover-exam-succession-home.jpg" alt="子女不接班與家族傳承" class="w-full aspect-[16/10] object-cover" loading="lazy" decoding="async"><span class="absolute left-4 top-4 rounded-full bg-moss/80 text-paper text-sm px-3 py-1">人生考古題 Q5</span></div>
+          <div class="p-6"><span class="font-serif text-gold text-base">開花種子 · 傳承</span><h2 class="font-serif font-600 text-xl text-ink mt-2 leading-snug">子女不接班，怎麼辦？</h2><p class="text-ink/65 text-sm mt-3">分清所有權與經營權，傳承價值不只傳位子。</p><span class="arrow mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-sea text-ocean">→</span></div>
+        </a>
+        <a href="exam-kids-insurance-vs-education.html" class="scenario-card card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden reveal">
+          <div class="relative overflow-hidden"><img src="static/img/articles/cover-exam-kids-insurance-education-home.jpg" alt="孩子的保障與教育金準備" class="w-full aspect-[16/10] object-cover" loading="lazy" decoding="async"><span class="absolute left-4 top-4 rounded-full bg-rose/80 text-paper text-sm px-3 py-1">人生考古題 Q6</span></div>
+          <div class="p-6"><span class="font-serif text-gold text-base">守護種子 · 教育金</span><h2 class="font-serif font-600 text-xl text-ink mt-2 leading-snug">幫孩子買保單，還是存教育金？</h2><p class="text-ink/65 text-sm mt-3">兩者解決的問題不同，先分清楚目的。</p><span class="arrow mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-sea text-ocean">→</span></div>
+        </a>
+        <a href="life-turning-fund.html" class="scenario-card card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden reveal">
+          <div class="relative overflow-hidden aspect-[16/10] bg-gradient-to-br from-[#fff0c9] via-sea to-[#dce9e5] flex items-center justify-center"><strong class="font-serif text-ocean text-2xl px-6 text-center">女人除了退休金，還需要一筆人生轉身金</strong><span class="absolute left-4 top-4 rounded-full bg-ocean/80 text-paper text-sm px-3 py-1">人生考古題 Q7</span></div>
+          <div class="p-6"><span class="font-serif text-gold text-base">守護種子 · 選擇權</span><h2 class="font-serif font-600 text-xl text-ink mt-2 leading-snug">人生轉彎時，你有沒有重新選擇的底氣？</h2><p class="text-ink/65 text-sm mt-3">這筆錢不是為了離開誰，而是讓自己在生病、照顧或收入中斷時，仍能做決定。</p><span class="arrow mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-sea text-ocean">→</span></div>
+        </a>
+      </div>    </div>
+  </section>
+
+  <section class="bg-sea/40">
+    <div class="max-w-4xl mx-auto px-5 py-16 md:py-20 text-center reveal">
+      <h2 class="font-serif font-600 text-ocean text-2xl md:text-3xl">你也有一題，遲遲解不出來？</h2>
+      <p class="text-ink/70 mt-4 max-w-xl mx-auto leading-relaxed">把它丟給我。也許下一篇考古題，就是為你解的。</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center mt-8">
+        <a href="https://lin.ee/uMYPHQc" class="inline-flex items-center justify-center rounded-full bg-ocean text-paper px-7 py-3 font-500 hover:bg-ocean/90 transition">私訊出題</a>
+        
+      </div>
+    </div>
+  </section>
+
+  <section data-channel-return class="bg-paper border-t border-moss/15" aria-labelledby="channel-return-title">
+    <div class="max-w-4xl mx-auto px-5 py-14 md:py-16 text-center">
+      <p class="bearing text-gold uppercase mb-3">讀完這片海域後</p>
+      <h2 id="channel-return-title" class="font-serif font-600 text-ocean text-2xl md:text-3xl">繼續探索，或回到四片海域選擇方向</h2>
+      <p class="text-ink/70 mt-4 max-w-2xl mx-auto leading-relaxed">每一片海域都從不同角度陪你整理生活與金錢。可以繼續往前，也可以回到全貌，選擇現在最想看的主題。</p>
+      <nav class="flex flex-col sm:flex-row flex-wrap gap-3 justify-center mt-8" aria-label="閱讀後續引導">
+        
+        <a href="comic.html" class="inline-flex min-h-12 items-center justify-center rounded-full border border-gold text-ocean px-6 py-3 font-700 hover:bg-gold/10 transition">下一片：胖胖幣財商漫畫 →</a>
+        
+      </nav>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-ocean text-paper/80">
+  <div class="max-w-6xl mx-auto px-5 py-12">
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+      <div><p class="font-serif text-lg text-paper">財顧芸人生航海圖</p><p class="text-paper/60 text-sm mt-2">幸福財務領航員｜陪你航向更有選擇權的人生。</p></div>
+      <nav class="flex flex-wrap gap-x-8 gap-y-3 text-sm">
+        <a href="index.html" class="hover:text-paper transition">回部落格首頁</a>
+        
+        
+        <a href="https://www.facebook.com/IFA.Fans/" class="hover:text-paper transition">Facebook 粉專</a>
+        <a href="https://open.spotify.com/show/1us537rWraGs4qdY8beG5a" class="hover:text-paper transition">Podcast</a>
+        <a href="https://lin.ee/uMYPHQc" class="hover:text-paper transition">LINE@ 官方群組</a>
+      </nav>
+    </div>
+    <p class="text-paper/45 text-xs mt-10">© <span id="year"></span> 馥芸財富學苑. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+  <script src="public-assets/js/image-loader.js" defer></script>
+  <script src="assets/report.js" defer></script>
+  <script src="assets/public-site-navigation.js" defer></script>
+<script src="assets/footer-recruitment-link-v1.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

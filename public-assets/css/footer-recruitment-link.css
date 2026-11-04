@@ -1,0 +1,20 @@
+/* Prepared style only. No recruitment link is currently rendered or loaded. */
+footer .footer-recruitment-link {
+  display: block;
+  width: fit-content;
+  margin: .55rem auto 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: .78em;
+  font-weight: 400;
+  line-height: 1.6;
+  opacity: .62;
+  text-decoration: none;
+}
+footer .footer-recruitment-link:hover,
+footer .footer-recruitment-link:focus-visible {
+  opacity: .86;
+  text-decoration: none;
+}

@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人生事件雷達｜財顧芸 Angie</title>
+<meta name="description" content="用一張人生事件雷達，把結婚、育兒、買房、退休、傳承等人生轉折，整理成可討論的財務需求與下一步。">
+<meta property="og:title" content="人生事件雷達｜財顧芸 Angie">
+<meta property="og:description" content="人生事件一發生，財務需求就會跟著改變。用雷達圖先看見風險、責任與現金流，再安排下一步。">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:#fffdf8;
+  --cream:#f6f1e6;
+  --moss:#3f6b4f;
+  --moss-deep:#2e5039;
+  --gold:#c79a4a;
+  --rose:#cf7f73;
+  --ocean:#1b4751;
+  --foam:#e6efee;
+  --ink:#2e3a33;
+  --soft:#6f766f;
+  --line:#e5dece;
+  --shadow:0 18px 54px -34px rgba(27,71,81,
+.45);
+  --serif:"Noto Serif TC",
+serif;
+  --sans:"Noto Sans TC",
+sans-serif
+}
+
+* {
+  box-sizing:border-box
+}
+
+html {
+  scroll-behavior:smooth
+}
+
+body {
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased
+}
+
+a {
+  color:inherit
+}
+
+.wrap {
+  max-width:1060px;
+  margin:0 auto;
+  padding:0 22px
+}
+
+.topbar {
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(255,253,248,
+.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line)
+}
+
+.topbar-inner {
+  height:68px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px
+}
+
+.brand {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  font-weight:900;
+  color:var(--ocean)
+}
+
+.brand-mark {
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--ocean);
+  color:#fff;
+  font-family:var(--serif);
+  font-weight:900
+}
+
+.nav {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap
+}
+
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border-radius:999px;
+  padding:11px 20px;
+  text-decoration:none;
+  font-weight:900;
+  border:1px solid transparent;
+  transition:.18s
+}
+
+.btn:hover {
+  transform:translateY(-1px)
+}
+
+.btn-primary {
+  background:var(--moss);
+  color:#fff;
+  box-shadow:0 16px 30px -22px rgba(63,107,79,
+.85)
+}
+
+.btn-gold {
+  background:var(--gold);
+  color:#38280b
+}
+
+.btn-light {
+  background:#fff;
+  color:var(--ocean);
+  border-color:rgba(27,71,81,
+.18)
+}
+
+.hero {
+  padding:62px 0 26px;
+  text-align:center
+}
+
+.eyebrow {
+  font-size:13px;
+  letter-spacing:.22em;
+  color:var(--gold);
+  font-weight:900;
+  text-transform:uppercase
+}
+
+.hero h1,
+.section-head h2,
+.insight p,
+.cta h2 {
+  font-family:var(--serif)
+}
+
+.hero h1 {
+  margin:14px auto 16px;
+  max-width:820px;
+  font-size:clamp(34px,6vw,62px);
+  line-height:1.18;
+  color:var(--ocean);
+  font-weight:900
+}
+
+.hero h1 span {
+  color:var(--gold)
+}
+
+.lead {
+  max-width:720px;
+  margin:0 auto;
+  color:#58635d;
+  font-size:clamp(16px,2vw,19px)
+}
+
+.lead b {
+  color:var(--moss-deep)
+}
+
+.hero-actions {
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:28px
+}
+
+.radar-section {
+  padding:14px 0 18px
+}
+
+.radar-shell {
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(280px,
+.85fr);
+  gap:26px;
+  align-items:center;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:24px;
+  box-shadow:var(--shadow)
+}
+
+.radar-frame {
+  min-height:520px;
+  border-radius:24px;
+  background:radial-gradient(circle at 50% 50%,
+rgba(230,239,238,
+.85),
+transparent 36%),
+linear-gradient(145deg,
+#fffdf8,
+#f8f2e4);
+  display:grid;
+  place-items:center;
+  overflow:hidden
+}
+
+.radar {
+  width:min(100%,600px);
+  height:auto;
+  display:block
+}
+
+.ring {
+  fill:none;
+  stroke:#ded7c6;
+  stroke-width:1.2
+}
+
+.ring.dash {
+  stroke-dasharray:3 9
+}
+
+.spoke {
+  stroke:#e2dac9;
+  stroke-width:1.25
+}
+
+.sweep {
+  transform-origin:380px 380px;
+  animation:sweep 16s linear infinite
+}
+
+.node-label {
+  font-family:var(--sans);
+  font-weight:900;
+  font-size:18px;
+  fill:#fff;
+  text-anchor:middle;
+  dominant-baseline:central
+}
+
+.core-title {
+  font-family:var(--serif);
+  font-weight:900;
+  font-size:31px;
+  fill:#fff;
+  text-anchor:middle
+}
+
+.core-sub {
+  font-size:13px;
+  fill:#deebe6;
+  text-anchor:middle;
+  letter-spacing:.16em
+}
+
+@keyframes sweep {
+  to {
+  transform:rotate(360deg)
+}
+
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .sweep {
+  animation:none
+}
+
+}
+
+.radar-copy {
+  padding:8px
+}
+
+.radar-copy h2 {
+  font-family:var(--serif);
+  font-size:clamp(25px,3vw,34px);
+  line-height:1.28;
+  color:var(--ocean);
+  margin:0 0 14px
+}
+
+.radar-copy p {
+  margin:0;
+  color:var(--soft)
+}
+
+.mini-flow {
+  display:grid;
+  gap:10px;
+  margin-top:22px
+}
+
+.mini-flow span {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid var(--line);
+  background:#fffdf8;
+  border-radius:14px;
+  padding:11px 13px;
+  color:var(--ocean);
+  font-weight:900
+}
+
+.mini-flow i {
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--gold);
+  color:#fff;
+  font-style:normal;
+  font-size:13px;
+  flex:0 0 auto
+}
+
+.section-head {
+  text-align:center;
+  margin:54px auto 22px;
+  max-width:720px
+}
+
+.section-head h2 {
+  font-size:clamp(25px,4vw,36px);
+  line-height:1.25;
+  color:var(--ocean);
+  margin:8px 0 8px
+}
+
+.section-head p {
+  margin:0;
+  color:var(--soft)
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px
+}
+
+.event-card {
+  position:relative;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 9px 28px -24px rgba(27,71,81,
+.55);
+  overflow:hidden
+}
+
+.event-card:before {
+  content:"";
+  position:absolute;
+  inset:0 auto 0 0;
+  width:5px;
+  background:var(--c,
+var(--moss))
+}
+
+.event-card .no {
+  font-family:var(--serif);
+  font-weight:900;
+  color:var(--c,
+var(--moss));
+  letter-spacing:.08em
+}
+
+.event-card h3 {
+  font-family:var(--serif);
+  font-size:22px;
+  line-height:1.2;
+  color:var(--ink);
+  margin:4px 0 10px
+}
+
+.chips {
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap
+}
+
+.chips span {
+  font-size:13px;
+  font-weight:700;
+  color:var(--ocean);
+  background:var(--foam);
+  border-radius:999px;
+  padding:4px 10px
+}
+
+.gold {
+  --c:var(--gold)
+}
+
+.rose {
+  --c:var(--rose)
+}
+
+.moss {
+  --c:var(--moss)
+}
+
+.ocean {
+  --c:var(--ocean)
+}
+
+.method {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:28px
+}
+
+.method-card {
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:22px
+}
+
+.method-card h3 {
+  font-size:19px;
+  color:var(--ocean);
+  margin:0 0 8px
+}
+
+.method-card p {
+  margin:0;
+  color:var(--soft)
+}
+
+.insight {
+  margin:54px 0 0;
+  background:linear-gradient(135deg,
+var(--ocean),
+var(--moss-deep));
+  border-radius:26px;
+  color:#fff;
+  text-align:center;
+  padding:42px 28px
+}
+
+.insight .quote {
+  font-family:var(--serif);
+  font-size:58px;
+  color:var(--gold);
+  line-height:.7
+}
+
+.insight p {
+  font-size:clamp(22px,4vw,34px);
+  line-height:1.55;
+  margin:10px auto 0;
+  max-width:760px;
+  font-weight:700
+}
+
+.insight span {
+  color:#f0d59a
+}
+
+.cta {
+  padding:54px 0 66px;
+  text-align:center
+}
+
+.cta h2 {
+  color:var(--ocean);
+  font-size:clamp(24px,4vw,34px);
+  line-height:1.28;
+  margin:0
+}
+
+.cta p {
+  max-width:660px;
+  margin:14px auto 24px;
+  color:var(--soft)
+}
+
+.notice {
+  max-width:760px;
+  margin:18px auto 0;
+  color:#8b8273;
+  font-size:13px
+}
+
+.footer {
+  border-top:1px solid var(--line);
+  padding:28px 0;
+  text-align:center;
+  color:var(--soft);
+  font-size:14px
+}
+
+.footer strong {
+  display:block;
+  color:var(--moss);
+  font-family:var(--serif);
+  font-size:18px;
+  margin-bottom:4px
+}
+
+@media(max-width:920px) {
+  .radar-shell {
+  grid-template-columns:1fr
+}
+
+.radar-frame {
+  min-height:auto
+}
+
+.grid {
+  grid-template-columns:repeat(2,1fr)
+}
+
+.method {
+  grid-template-columns:1fr
+}
+
+}
+
+@media(max-width:560px) {
+  .topbar-inner {
+  height:auto;
+  padding:12px 0;
+  align-items:flex-start
+}
+
+.nav {
+  justify-content:flex-end
+}
+
+.btn {
+  padding:10px 14px
+}
+
+.hero {
+  padding-top:42px
+}
+
+.radar-shell {
+  padding:14px;
+  border-radius:20px
+}
+
+.grid {
+  grid-template-columns:1fr
+}
+
+.event-card {
+  padding:16px
+}
+
+.hero-actions .btn,
+.cta .btn {
+  width:100%
+}
+
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="wrap topbar-inner">
+<a class="brand" href="index.html">
+<span class="brand-mark">芸</span>
+<span>財顧芸</span>
+</a>
+<nav class="nav" aria-label="頁面導覽">
+<a class="btn btn-light" href="index.html">回首頁</a>
+<a class="btn btn-primary" href="consultation.html#booking">預約諮詢</a>
+</nav>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="wrap">
+<p class="eyebrow">Life Events Radar</p>
+<h1>人生事件一發生，<br>
+<span>財務需求就會跟著改變</span>
+</h1>
+<p class="lead">結婚、育兒、買房、照顧父母、退休與傳承，不只是生活里程碑，也會改變你的責任、風險與現金流。這張雷達先幫你看見：<b>現在最該整理的是哪一塊。</b>
+</p>
+<div class="hero-actions">
+<a class="btn btn-gold" href="#radar">看人生事件雷達</a>
+<a class="btn btn-light" href="#events">查看事件需求</a>
+</div>
+</div>
+</section>
+<section class="radar-section" id="radar">
+<div class="wrap">
+<div class="radar-shell">
+<div class="radar-frame">
+<svg class="radar" viewBox="0 0 760 760" role="img" aria-label="人生事件雷達圖，中心為財顧芸 AI 財務整理，周圍包含結婚、育兒、買房、退休、傳承等人生事件。">
+<defs>
+<radialGradient id="radarCore" cx="50%" cy="45%" r="65%">
+<stop offset="0%" stop-color="#3f6b4f"/>
+<stop offset="100%" stop-color="#1b4751"/>
+</radialGradient>
+<linearGradient id="radarBeam" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0%" stop-color="#c79a4a" stop-opacity="0"/>
+<stop offset="100%" stop-color="#c79a4a" stop-opacity=".24"/>
+</linearGradient>
+</defs>
+<circle class="ring" cx="380" cy="380" r="305"/>
+<circle class="ring dash" cx="380" cy="380" r="235"/>
+<circle class="ring" cx="380" cy="380" r="165"/>
+<g class="sweep">
+<path d="M380 380 L380 75 A305 305 0 0 1 641 223 Z" fill="url(#radarBeam)"/>
+<line x1="380" y1="380" x2="380" y2="75" stroke="#c79a4a" stroke-opacity=".42" stroke-width="1.5"/>
+</g>
+<g class="spoke">
+<line x1="380" y1="380" x2="380" y2="125"/>
+<line x1="380" y1="380" x2="560" y2="200"/>
+<line x1="380" y1="380" x2="635" y2="380"/>
+<line x1="380" y1="380" x2="560" y2="560"/>
+<line x1="380" y1="380" x2="380" y2="635"/>
+<line x1="380" y1="380" x2="200" y2="560"/>
+<line x1="380" y1="380" x2="125" y2="380"/>
+<line x1="380" y1="380" x2="200" y2="200"/>
+</g>
+<g transform="translate(380,125)">
+<rect x="-58" y="-24" width="116" height="48" rx="24" fill="#c79a4a"/>
+<text class="node-label" y="1">結婚</text>
+</g>
+<g transform="translate(560,200)">
+<rect x="-58" y="-24" width="116" height="48" rx="24" fill="#cf7f73"/>
+<text class="node-label" y="1">育兒</text>
+</g>
+<g transform="translate(635,380)">
+<rect x="-58" y="-24" width="116" height="48" rx="24" fill="#3f6b4f"/>
+<text class="node-label" y="1">買房</text>
+</g>
+<g transform="translate(560,560)">
+<rect x="-74" y="-24" width="148" height="48" rx="24" fill="#1b4751"/>
+<text class="node-label" y="1">照顧父母</text>
+</g>
+<g transform="translate(380,635)">
+<rect x="-58" y="-24" width="116" height="48" rx="24" fill="#2b5560"/>
+<text class="node-label" y="1">退休</text>
+</g>
+<g transform="translate(200,560)">
+<rect x="-58" y="-24" width="116" height="48" rx="24" fill="#3f6b4f"/>
+<text class="node-label" y="1">傳承</text>
+</g>
+<g transform="translate(125,380)">
+<rect x="-74" y="-24" width="148" height="48" rx="24" fill="#c79a4a"/>
+<text class="node-label" y="1">資產整理</text>
+</g>
+<g transform="translate(200,200)">
+<rect x="-74" y="-24" width="148" height="48" rx="24" fill="#cf7f73"/>
+<text class="node-label" y="1">現金流</text>
+</g>
+<circle cx="380" cy="380" r="92" fill="url(#radarCore)"/>
+<path d="M380 314 L394 380 L380 446 L366 380 Z" fill="#c79a4a"/>
+<path d="M314 380 L380 366 L446 380 L380 394 Z" fill="#e6efee" opacity=".7"/>
+<text class="core-title" x="380" y="372">財顧芸</text>
+<text class="core-sub" x="380" y="402">AI 財務整理</text>
+</svg>
+</div>
+<div class="radar-copy">
+<h2>不是等問題出現，才開始找答案。</h2>
+<p>每一個人生事件都會帶出新的財務任務。先把事件、責任、風險和資料整理在同一張圖上，才知道下一步要補保障、調現金流，還是安排傳承。</p>
+<div class="mini-flow" aria-label="整理流程">
+<span>
+<i>1</i> 先看見正在發生的人生事件</span>
+<span>
+<i>2</i> 對應背後的財務需求與風險</span>
+<span>
+<i>3</i> 決定要先補哪一份資料</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="events">
+<div class="wrap">
+<div class="section-head">
+<p class="eyebrow">Event to Need</p>
+<h2>八個常見人生事件，背後都有財務任務</h2>
+<p>不用一次整理完所有資料。先找出最貼近你現在的事件，再把需要討論的資料慢慢補齊。</p>
+</div>
+<div class="grid">
+<article class="event-card gold">
+<div class="no">01</div>
+<h3>結婚</h3>
+<div class="chips">
+<span>共同責任</span>
+<span>家庭保障</span>
+<span>現金流</span>
+</div>
+</article>
+<article class="event-card rose">
+<div class="no">02</div>
+<h3>育兒</h3>
+<div class="chips">
+<span>教育金</span>
+<span>父母保障</span>
+<span>預備金</span>
+</div>
+</article>
+<article class="event-card moss">
+<div class="no">03</div>
+<h3>買房</h3>
+<div class="chips">
+<span>房貸風險</span>
+<span>保險額度</span>
+<span>家庭預備金</span>
+</div>
+</article>
+<article class="event-card ocean">
+<div class="no">04</div>
+<h3>照顧父母</h3>
+<div class="chips">
+<span>醫療支出</span>
+<span>照顧資源</span>
+<span>家庭分工</span>
+</div>
+</article>
+<article class="event-card ocean">
+<div class="no">05</div>
+<h3>退休</h3>
+<div class="chips">
+<span>退休現金流</span>
+<span>醫療準備</span>
+<span>長照風險</span>
+</div>
+</article>
+<article class="event-card moss">
+<div class="no">06</div>
+<h3>資產傳承</h3>
+<div class="chips">
+<span>文件整理</span>
+<span>稅務順序</span>
+<span>家族溝通</span>
+</div>
+</article>
+<article class="event-card gold">
+<div class="no">07</div>
+<h3>資產整理</h3>
+<div class="chips">
+<span>資產位置</span>
+<span>流動性</span>
+<span>用途排序</span>
+</div>
+</article>
+<article class="event-card rose">
+<div class="no">08</div>
+<h3>現金流吃緊</h3>
+<div class="chips">
+<span>收支盤點</span>
+<span>負債安排</span>
+<span>急用金</span>
+</div>
+</article>
+</div>
+<div class="section-head">
+<p class="eyebrow">How We Work</p>
+<h2>把複雜的人生題，整理成可行動的下一步</h2>
+</div>
+<div class="method">
+<article class="method-card">
+<h3>先盤點</h3>
+<p>用事件雷達找出你正在面對的責任與風險，不急著推商品。</p>
+</article>
+<article class="method-card">
+<h3>再對應</h3>
+<p>把保單、收入、資產、負債、家庭角色，對應到真正需要處理的缺口。</p>
+</article>
+<article class="method-card">
+<h3>後安排</h3>
+<p>決定先補哪份資料、先談哪個主題，讓諮詢更聚焦。</p>
+</article>
+</div>
+<section class="insight">
+<div class="quote">&ldquo;</div>
+<p>人生事件不是麻煩，<br>它是在提醒你：<span>財務規劃該更新了。</span>
+</p>
+</section>
+<section class="cta">
+<h2>想把你的事件雷達，整理成自己的財務地圖嗎？</h2>
+<p>你可以先預約一對一諮詢，把目前最重要的人生事件、資料缺口與下一步整理清楚。</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="consultation.html#booking">預約一對一財務諮詢</a>
+<a class="btn btn-light" href="https://lin.ee/uMYPHQc">加入 LINE@ 詢問</a>
+</div>
+<p class="notice">本頁為財務整理與諮詢前引導，不構成投資、保險、稅務或法律建議；實際安排仍需依個人資料與專業評估確認。</p>
+</section>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="wrap">
+<strong>財顧芸 Angie</strong>
+<span>陪你把人生事件，看成可整理、可討論、可安排的財務下一步。</span>
+</div>
+</footer>
+<script src="assets/report.js" defer>
+</script>
+<script src="assets/footer-recruitment-link-v1.js" defer></script>
+</body>
+</html>

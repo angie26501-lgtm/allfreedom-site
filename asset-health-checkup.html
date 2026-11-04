@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>資產健診｜財富體質檢測 — 財顧芸</title>
+<meta name="description" content="安心檢視，掌握財富體質。從風險管理、資產累積、資產保全、現金流管理四大面向，3 分鐘檢測你的財富健康狀態。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#fffdf8;
+  --cream-2:#f6f1e6;
+  --moss:#3f6b4f;
+  --moss-d:#2f5340;
+  --gold:#c79a4a;
+  --rose:#cf7f73;
+  --ocean:#1b4751;
+  --ink:#33312c;
+  --muted:#7c766a;
+  --line:#e7e0d0;
+  --c1:#1b4751; /* 風險管理 */
+  --c2:#3f6b4f; /* 資產累積 */
+  --c3:#c79a4a; /* 資產保全 */
+  --c4:#6f9b5e; /* 現金流管理 */
+  --shadow:0 10px 30px rgba(43,60,50,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:"Noto Sans TC",system-ui,sans-serif;
+  line-height:1.7;-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:720px;margin:0 auto;padding:24px 18px 64px}
+
+/* ── header ── */
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;letter-spacing:.18em;
+  color:var(--moss);font-weight:700;text-transform:uppercase;margin-bottom:14px}
+.eyebrow::before{content:"";width:26px;height:1.5px;background:var(--gold)}
+h1{font-family:"Noto Serif TC",serif;font-weight:900;color:var(--moss-d);
+  font-size:clamp(1.7rem,6vw,2.5rem);line-height:1.2;margin:0 0 10px}
+.lead{color:var(--muted);font-size:1rem;margin:0 0 4px}
+.brand-tag{color:var(--gold);font-weight:700;font-size:.9rem;letter-spacing:.05em}
+
+/* ── card ── */
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;
+  box-shadow:var(--shadow);padding:26px 22px;margin-top:22px}
+
+/* ── intro ── */
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0 6px}
+.pillar{border-radius:14px;padding:14px 14px;color:#fff;position:relative;overflow:hidden}
+.pillar .n{font-family:"Noto Serif TC",serif;font-weight:900;font-size:1.15rem;opacity:.55}
+.pillar .t{font-family:"Noto Serif TC",serif;font-weight:700;font-size:1.08rem;margin:2px 0 2px}
+.pillar .d{font-size:.8rem;opacity:.92;line-height:1.5}
+.p1{background:linear-gradient(135deg,#21525e,#143a43)}
+.p2{background:linear-gradient(135deg,#48795a,#33573f)}
+.p3{background:linear-gradient(135deg,#d0a253,#b9863a)}
+.p4{background:linear-gradient(135deg,#7aa766,#5a8447)}
+.meta{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:.85rem;margin-top:18px}
+.meta b{color:var(--moss);font-weight:700}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:none;cursor:pointer;font-family:"Noto Sans TC";font-weight:700;font-size:1rem;
+  padding:15px 28px;border-radius:999px;transition:.18s;text-decoration:none;width:100%}
+.btn-primary{background:var(--moss);color:#fff;box-shadow:0 8px 20px rgba(63,107,79,.28)}
+.btn-primary:hover{background:var(--moss-d);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--moss);border:1.5px solid var(--moss)}
+.btn-ghost:hover{background:var(--cream-2)}
+.btn-gold{background:var(--gold);color:#fff;box-shadow:0 8px 20px rgba(199,154,74,.3)}
+.btn-gold:hover{filter:brightness(.96);transform:translateY(-1px)}
+.btn-row{display:flex;gap:10px;margin-top:14px}
+.btn-row .btn{width:auto;flex:1}
+
+/* ── progress ── */
+.progress{margin:4px 0 20px}
+.progress-bar{height:8px;background:var(--cream-2);border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--moss),var(--gold));
+  width:0;border-radius:99px;transition:width .35s ease}
+.progress-label{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);margin-bottom:8px}
+.dim-chip{display:inline-block;font-size:.78rem;font-weight:700;color:#fff;padding:3px 12px;border-radius:99px;margin-bottom:14px}
+
+/* ── question ── */
+.q-text{font-family:"Noto Serif TC",serif;font-weight:700;font-size:1.25rem;
+  line-height:1.55;color:var(--ink);margin:4px 0 20px}
+.q-hint{color:var(--muted);font-size:.86rem;margin:-12px 0 20px}
+.q-example{background:var(--cream-2);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;
+  padding:12px 14px;color:var(--ink);font-size:.86rem;line-height:1.7}
+.q-example b{color:var(--moss-d)}
+.q-example span{color:var(--muted)}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;align-items:center;gap:12px;border:1.5px solid var(--line);
+  background:#fff;border-radius:14px;padding:14px 16px;cursor:pointer;
+  font-size:1rem;font-weight:500;transition:.15s;text-align:left;width:100%;font-family:inherit;color:var(--ink)}
+.opt:hover{border-color:var(--moss);background:var(--cream)}
+.opt .dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--line);flex:0 0 auto}
+.opt.sel{border-color:var(--moss);background:var(--cream)}
+.opt.sel .dot{border-color:var(--moss);background:var(--moss);box-shadow:inset 0 0 0 3px #fff}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:22px}
+.back-link{background:none;border:none;color:var(--muted);font-size:.9rem;cursor:pointer;font-family:inherit;padding:8px}
+.back-link:hover{color:var(--moss)}
+
+/* ── result ── */
+.score-hero{text-align:center;padding:6px 0 8px}
+.score-badge{display:inline-block;font-size:.85rem;font-weight:700;letter-spacing:.1em;
+  padding:6px 18px;border-radius:99px;margin-bottom:14px}
+.score-num{font-family:"Noto Serif TC",serif;font-weight:900;font-size:3.4rem;line-height:1;color:var(--moss-d)}
+.score-num small{font-size:1.2rem;color:var(--muted);font-weight:500}
+.score-title{font-family:"Noto Serif TC",serif;font-weight:900;font-size:1.5rem;margin:10px 0 6px}
+.score-desc{color:var(--muted);font-size:.95rem;max-width:520px;margin:0 auto}
+
+.radar-box{display:flex;justify-content:center;margin:8px 0 4px}
+.dim-list{margin-top:18px;display:flex;flex-direction:column;gap:14px}
+.dim-row{}
+.dim-row .head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.dim-row .name{font-family:"Noto Serif TC",serif;font-weight:700;font-size:1.02rem}
+.dim-row .pct{font-weight:700;font-size:.92rem}
+.dim-track{height:9px;background:var(--cream-2);border-radius:99px;overflow:hidden}
+.dim-fill{height:100%;border-radius:99px;width:0;transition:width .7s ease}
+.dim-advice{font-size:.86rem;color:var(--muted);margin-top:6px;padding-left:2px}
+.dim-advice.weak{color:var(--rose);font-weight:500}
+
+.cta-card{background:linear-gradient(135deg,var(--moss),var(--ocean));color:#fff;
+  border-radius:20px;padding:26px 22px;margin-top:24px;text-align:center}
+.cta-card h3{font-family:"Noto Serif TC",serif;font-weight:900;font-size:1.35rem;margin:0 0 8px}
+.cta-card p{opacity:.92;font-size:.92rem;margin:0 0 18px}
+.cta-card .btn-gold{max-width:340px;margin:0 auto}
+.cta-sub{display:block;margin-top:12px;color:rgba(255,255,255,.85);font-size:.85rem;text-decoration:underline}
+
+.disclaimer{color:var(--muted);font-size:.78rem;text-align:center;margin-top:26px;line-height:1.7}
+footer{text-align:center;margin-top:30px;color:var(--muted);font-size:.82rem}
+footer a{color:var(--moss);font-weight:700;text-decoration:none}
+
+.hidden{display:none}
+.fade{animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.opt:focus-visible,.btn:focus-visible,.back-link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="eyebrow">財富體質檢測</span>
+    <h1>資產健診</h1>
+    <p class="lead">安心檢視，掌握你的財富體質。</p>
+    <span class="brand-tag">財顧芸 ｜ 幸福財務領航員</span>
+  </header>
+
+  <!-- 開始畫面 -->
+  <section id="intro" class="card fade">
+    <p style="margin:0 0 4px;font-weight:500">就像每年做一次身體健檢，財富也需要定期檢視體質。</p>
+    <p style="margin:0;color:var(--muted);font-size:.92rem">這份檢測從財務的四大面向，幫你看出哪裡強健、哪裡需要調理。</p>
+
+    <div class="pillars">
+      <div class="pillar p1"><div class="n">01</div><div class="t">風險管理</div><div class="d">保險配置・風險防火牆</div></div>
+      <div class="pillar p2"><div class="n">02</div><div class="t">資產累積</div><div class="d">長期投資・複利效應</div></div>
+      <div class="pillar p3"><div class="n">03</div><div class="t">資產保全</div><div class="d">稅務規劃・法律保護</div></div>
+      <div class="pillar p4"><div class="n">04</div><div class="t">現金流管理</div><div class="d">預算規劃・被動收入</div></div>
+    </div>
+
+    <div class="meta">
+      <span>📋 <b>16</b> 題</span>
+      <span>⏱ 約 <b>3</b> 分鐘</span>
+      <span>📊 即時雷達圖</span>
+    </div>
+
+    <div style="margin-top:22px">
+      <button class="btn btn-primary" onclick="start()">開始檢測 →</button>
+    </div>
+    <p style="color:var(--muted);font-size:.78rem;text-align:center;margin:14px 0 0">本檢測為自我檢視工具，結果僅供參考，不構成個別保險或投資建議。</p>
+  </section>
+
+  <!-- 問卷畫面 -->
+  <section id="quiz" class="card hidden">
+    <div class="progress">
+      <div class="progress-label"><span id="q-counter">第 1 / 16 題</span><span id="q-pct">6%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="fill"></div></div>
+    </div>
+    <span class="dim-chip" id="dim-chip">風險管理</span>
+    <div class="q-text" id="q-text"></div>
+    <div class="q-hint" id="q-hint"></div>
+    <div class="opts" id="opts"></div>
+    <div class="nav-row">
+      <button class="back-link" id="back-btn" onclick="back()">← 上一題</button>
+      <span></span>
+    </div>
+  </section>
+
+  <!-- 結果畫面 -->
+  <section id="result" class="card hidden">
+    <div class="score-hero">
+      <span class="score-badge" id="r-badge"></span>
+      <div class="score-num"><span id="r-score">0</span><small> / 100</small></div>
+      <div class="score-title" id="r-title"></div>
+      <p class="score-desc" id="r-desc"></p>
+    </div>
+
+    <div class="radar-box">
+      <svg id="radar" width="280" height="280" viewBox="0 0 280 280" role="img" aria-label="財富體質雷達圖"></svg>
+    </div>
+
+    <div class="dim-list" id="dim-list"></div>
+
+    <div class="cta-card">
+      <h3>想知道怎麼補強體質？</h3>
+      <p>每個人的財富體質都不同。預約一對一健診，由財顧芸用「賓士圖」幫你盤點責任、醫療與資產缺口，量身規劃。</p>
+      <a class="btn btn-gold" href="consultation.html#booking">預約諮詢</a>
+      <a class="cta-sub" href="https://lin.ee/uMYPHQc" rel="noopener">領取補漏行動表：加 LINE@ 一對一群組留言「7 天補漏行動表」→ 即可領取</a>
+    </div>
+
+    
+
+    <div class="btn-row">
+      <button class="btn btn-ghost" onclick="restart()">重新檢測</button>
+      
+    </div>
+
+    <p class="disclaimer">本結果依你的自我勾選即時計算，為財富體質的概略參考，實際規劃仍需依個人保單條款、財務狀況與專業諮詢為準。</p>
+  </section>
+
+  <footer>
+    馥芸財富學苑 ｜ 人生航海圖 ・ 幸福財務領航員<br>
+    <a href="index.html" rel="noopener">allfreedom.info</a>
+  </footer>
+
+</div>
+
+<script>
+/* ── 題庫：四大面向 × 4 題 ── */
+const DIMS = [
+  {key:"risk",  name:"風險管理", color:"#1b4751"},
+  {key:"grow",  name:"資產累積", color:"#3f6b4f"},
+  {key:"keep",  name:"資產保全", color:"#c79a4a"},
+  {key:"flow",  name:"現金流管理", color:"#6f9b5e"},
+];
+
+const QUESTIONS = [
+  // 風險管理
+  {dim:0,
+    q:"我有足夠的壽險保障，能在意外發生時撐住家庭責任（房貸、子女、生活費）。",
+    hint:`<div class="q-example"><b>壽險「夠不夠」怎麼抓？</b>　最快用「雙十原則」：<b>保額 ≈ 年收入 × 10 倍</b>。<br>
+      <span>舉例：年收入 <b>80 萬</b> → 建議壽險保額約 <b>800 萬</b>，足以替家庭撐起房貸、子女與數年生活費。<br>
+      更精準可用遺族需求法：房貸餘額 ＋ 子女教育金 ＋ 家人生活費 −（既有保障與資產）。</span></div>`},
+  {dim:0, q:"我有醫療險與實支實付，住院或手術時不必擔心自費缺口。"},
+  {dim:0, q:"我有重大疾病、失能或長照相關的保障。"},
+  {dim:0, q:"我有 3～6 個月生活費的緊急預備金。"},
+  // 資產累積
+  {dim:1, q:"我有固定的儲蓄或定期定額投資習慣。"},
+  {dim:1, q:"我的投資有適度分散，不是集中押在單一標的。"},
+  {dim:1, q:"我清楚自己的退休金缺口，並已開始準備。", hint:"退休後想要的生活費 − 勞退勞保等既有來源 = 缺口"},
+  {dim:1, q:"若有子女，我已為教育金做規劃（或暫不適用，可選最符合的）。"},
+  // 資產保全
+  {dim:2, q:"我大致了解自己資產的稅務狀況（所得稅、未來遺產稅）。"},
+  {dim:2, q:"我有做過或考慮過傳承安排（遺囑、保單受益人、信託等）。"},
+  {dim:2, q:"我的資產配置有適當的法律保護，能與風險隔離。"},
+  {dim:2, q:"我至少每年檢視一次保單與資產配置是否仍符合現況。"},
+  // 現金流管理
+  {dim:3, q:"我清楚每月的收入與支出，有記帳或預算的概念。"},
+  {dim:3, q:"我的收入大於支出，每月都有結餘。"},
+  {dim:3, q:"我有（或正在建立）被動收入來源。"},
+  {dim:3,
+    q:"以「所得替代率」來看，我退休後每月可動用的金流，估計能達到退休前收入的 70% 以上。",
+    hint:`<div class="q-example"><b>所得替代率</b>＝退休後每月收入 ÷ 退休前每月收入<br>
+      <span>舉例：退休前月薪 <b>5 萬</b>，退休後（勞保＋勞退＋自己準備）每月能領 <b>3.5 萬</b>，替代率＝<b>70%</b>。一般建議至少 70%，才能維持原本的生活品質。</span></div>`,
+    opts:[
+      {label:"是的，估計達 70% 以上", val:2},
+      {label:"大約落在 50～70% 之間", val:1},
+      {label:"低於 50%，或還沒算過", val:0},
+    ]},
+];
+
+const OPTIONS = [
+  {label:"是的，已經做到", val:2},
+  {label:"部分做到 / 不太確定", val:1},
+  {label:"還沒有 / 不清楚", val:0},
+];
+
+let idx = 0;
+let answers = new Array(QUESTIONS.length).fill(null);
+
+const $ = id => document.getElementById(id);
+
+function start(){
+  $("intro").classList.add("hidden");
+  $("quiz").classList.remove("hidden");
+  $("quiz").classList.add("fade");
+  idx = 0; render();
+}
+
+function render(){
+  const item = QUESTIONS[idx];
+  const dim = DIMS[item.dim];
+  const total = QUESTIONS.length;
+  const pct = Math.round(((idx) / total) * 100);
+
+  $("q-counter").textContent = `第 ${idx+1} / ${total} 題`;
+  $("q-pct").textContent = pct + "%";
+  $("fill").style.width = pct + "%";
+
+  const chip = $("dim-chip");
+  chip.textContent = dim.name;
+  chip.style.background = dim.color;
+
+  $("q-text").textContent = item.q;
+  $("q-hint").innerHTML = item.hint || "";
+  $("q-hint").style.display = item.hint ? "block" : "none";
+
+  const wrap = $("opts");
+  wrap.innerHTML = "";
+  (item.opts || OPTIONS).forEach((o,i)=>{
+    const b = document.createElement("button");
+    b.className = "opt" + (answers[idx]===o.val ? " sel" : "");
+    b.innerHTML = `<span class="dot"></span><span>${o.label}</span>`;
+    b.onclick = ()=>choose(o.val);
+    wrap.appendChild(b);
+  });
+
+  $("back-btn").style.visibility = idx===0 ? "hidden" : "visible";
+  $("quiz").classList.remove("fade"); void $("quiz").offsetWidth; $("quiz").classList.add("fade");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function choose(val){
+  answers[idx] = val;
+  setTimeout(()=>{
+    if(idx < QUESTIONS.length-1){ idx++; render(); }
+    else finish();
+  }, 180);
+}
+
+function back(){ if(idx>0){ idx--; render(); } }
+
+function finish(){
+  $("fill").style.width = "100%";
+  // 各面向得分
+  const dimScore = [0,0,0,0], dimMax = [0,0,0,0];
+  QUESTIONS.forEach((item,i)=>{
+    dimScore[item.dim] += (answers[i] ?? 0);
+    dimMax[item.dim] += 2;
+  });
+  const dimPct = dimScore.map((s,i)=> Math.round(s/dimMax[i]*100));
+  const totalPct = Math.round(dimScore.reduce((a,b)=>a+b,0) / dimMax.reduce((a,b)=>a+b,0) * 100);
+
+  showResult(totalPct, dimPct);
+}
+
+function tier(p){
+  if(p>=80) return {badge:"體質強健",bc:"#3f6b4f",bg:"#e8f0e8",title:"財富體質強健 🌳",
+    desc:"四大面向都打下了扎實基礎，像一棵根深葉茂的果樹。接下來重點是定期回診、隨人生階段微調，讓資產持續開花結果。"};
+  if(p>=60) return {badge:"體質良好",bc:"#c79a4a",bg:"#faf2df",title:"體質良好，仍有成長空間 🌿",
+    desc:"整體架構不錯，但有些面向還沒補滿。把較弱的環節補強，財富體質就能再上一個層級。"};
+  if(p>=40) return {badge:"需要調理",bc:"#cf7f73",bg:"#fbeceb",title:"需要調理的階段 🌱",
+    desc:"目前防護與規劃還有明顯缺口。別擔心，現在開始盤點與補強，正是建立體質的好時機。"};
+  return {badge:"建議全面健診",bc:"#cf7f73",bg:"#fbeceb",title:"建議盡早做一次全面健診 🩺",
+    desc:"多數面向尚未建立基礎，財富比較沒有抵抗風險的能力。建議優先處理風險防火牆，再逐步累積與規劃。"};
+}
+
+const ADVICE = [
+  "風險防火牆是地基。建議優先檢視壽險、醫療與長照保障是否足以撐住家庭責任。",
+  "資產要會長大。可從定期定額、分散配置開始，讓時間與複利為你工作。",
+  "守得住才是真的有。稅務、傳承與法律保護，是高資產階段最容易被忽略的一環。",
+  "現金流是生活的血液。先掌握收支與結餘，再讓退休後的所得替代率穩穩站上 70%，生活品質才不縮水。",
+];
+
+function showResult(total, dimPct){
+  $("quiz").classList.add("hidden");
+  const r = $("result");
+  r.classList.remove("hidden"); r.classList.add("fade");
+
+  const t = tier(total);
+  const badge = $("r-badge");
+  badge.textContent = t.badge; badge.style.color = t.bc; badge.style.background = t.bg;
+  $("r-title").textContent = t.title;
+  $("r-desc").textContent = t.desc;
+
+  // 數字滾動
+  animateNum($("r-score"), total);
+
+  // 雷達圖
+  drawRadar(dimPct);
+
+  // 各面向長條 + 建議
+  const list = $("dim-list");
+  list.innerHTML = "";
+  // 找最弱面向
+  const minPct = Math.min(...dimPct);
+  DIMS.forEach((d,i)=>{
+    const weak = dimPct[i] <= minPct && dimPct[i] < 70;
+    const row = document.createElement("div");
+    row.className = "dim-row";
+    row.innerHTML = `
+      <div class="head">
+        <span class="name">${i+1}. ${d.name}</span>
+        <span class="pct" style="color:${d.color}">${dimPct[i]}%</span>
+      </div>
+      <div class="dim-track"><div class="dim-fill" style="background:${d.color}"></div></div>
+      <div class="dim-advice ${weak?'weak':''}">${weak ? "⚠ 較需加強：" : "✓ "}${ADVICE[i]}</div>`;
+    list.appendChild(row);
+    requestAnimationFrame(()=>{ row.querySelector(".dim-fill").style.width = dimPct[i] + "%"; });
+  });
+
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function animateNum(el,target){
+  let cur=0; const step=Math.max(1,Math.round(target/30));
+  const t=setInterval(()=>{ cur+=step; if(cur>=target){cur=target;clearInterval(t);} el.textContent=cur; },24);
+}
+
+/* ── 雷達圖（4 軸）── */
+function drawRadar(pct){
+  const svg = $("radar");
+  const cx=140, cy=140, R=95;
+  const labels = DIMS.map(d=>d.name);
+  const ang = i => (-90 + i*90) * Math.PI/180; // 上、右、下、左
+  const pt = (i,r)=>[cx + Math.cos(ang(i))*r, cy + Math.sin(ang(i))*r];
+  let s = "";
+
+  // 格線環
+  [0.25,0.5,0.75,1].forEach(f=>{
+    const p = [0,1,2,3].map(i=>pt(i,R*f).join(",")).join(" ");
+    s += `<polygon points="${p}" fill="none" stroke="#e7e0d0" stroke-width="1"/>`;
+  });
+  // 軸線
+  [0,1,2,3].forEach(i=>{
+    const [x,y]=pt(i,R);
+    s += `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#e7e0d0" stroke-width="1"/>`;
+  });
+  // 數據多邊形
+  const dp = pct.map((v,i)=>pt(i, R*Math.max(v,2)/100).join(",")).join(" ");
+  s += `<polygon points="${dp}" fill="rgba(63,107,79,.22)" stroke="#3f6b4f" stroke-width="2.5"/>`;
+  pct.forEach((v,i)=>{
+    const [x,y]=pt(i,R*Math.max(v,2)/100);
+    s += `<circle cx="${x}" cy="${y}" r="4" fill="${DIMS[i].color}"/>`;
+  });
+  // 標籤
+  const lp = [[140,20],[266,144],[140,272],[14,144]];
+  const anchor = ["middle","end","middle","start"];
+  labels.forEach((t,i)=>{
+    s += `<text x="${lp[i][0]}" y="${lp[i][1]}" text-anchor="${anchor[i]}" font-size="13" font-weight="700" font-family="Noto Serif TC,serif" fill="${DIMS[i].color}">${t}</text>`;
+  });
+  svg.innerHTML = s;
+}
+
+function restart(){
+  answers = new Array(QUESTIONS.length).fill(null);
+  idx = 0;
+  $("result").classList.add("hidden");
+  $("intro").classList.remove("hidden");
+  $("intro").classList.add("fade");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+</script>
+  <script src="public-assets/js/fuyun-cursor.js" defer></script>
+  <script src="assets/report.js" defer></script>
+<script src="assets/footer-recruitment-link-v1.js" defer></script>
+</body>
+</html>
