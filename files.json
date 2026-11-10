@@ -1,0 +1,958 @@
+[
+  {
+    "dest": "adventure/adventure.html",
+    "sha": "16890945443222de1264d022d50657fc3771a014"
+  },
+  {
+    "dest": "adventure/banner.jpg",
+    "sha": "4a4a75e3715bc5a4a0595a68ca38f6d0621781aa",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/banner.jpg"
+  },
+  {
+    "dest": "adventure/dressup.html",
+    "sha": "52b1a9ecaddb25b198a5a869d803bbfef18a43c1"
+  },
+  {
+    "dest": "adventure/hero.jpg",
+    "sha": "eb62f32a45847ffe4008fe0a4d6da1551da9038f",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/hero.jpg"
+  },
+  {
+    "dest": "adventure/img/angie_chop.png",
+    "sha": "242ab1ad962206ef7d971601382c55ecf8cf432b",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/angie_chop.png"
+  },
+  {
+    "dest": "adventure/img/angie_seal.png",
+    "sha": "5648b2a25463c6ef0c4f89d1a4a6fe531fe30a2d",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/angie_seal.png"
+  },
+  {
+    "dest": "adventure/img/book_cover.jpg",
+    "sha": "1886236b71f3d648d91cc529c6b076cdaca7b2f9",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/book_cover.jpg"
+  },
+  {
+    "dest": "adventure/img/compass_gold.png",
+    "sha": "c7a2407e456e3511b7b96d6eafbc97714ee17b85",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/compass_gold.png"
+  },
+  {
+    "dest": "adventure/img/dress/a_bag.png",
+    "sha": "4bee5997efaec798198f3669390d9e0516e4a019",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/a_bag.png"
+  },
+  {
+    "dest": "adventure/img/dress/a_bow.png",
+    "sha": "13b2638623f9124c2d5969eda91a35884ace8083",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/a_bow.png"
+  },
+  {
+    "dest": "adventure/img/dress/a_bracelet.png",
+    "sha": "cf8a265f2866c3634c71f044d4e14ed2ca956617",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/a_bracelet.png"
+  },
+  {
+    "dest": "adventure/img/dress/a_camera.png",
+    "sha": "6d61a6db482148d92372a696fe25da8de3d221e1",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/a_camera.png"
+  },
+  {
+    "dest": "adventure/img/dress/a_glasses.png",
+    "sha": "fc4810fd1fcaf6877df75fed0f88058f1f96d79d",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/a_glasses.png"
+  },
+  {
+    "dest": "adventure/img/dress/a_headphone.png",
+    "sha": "3d971eb90f3f6d9ad1b68ec9d2feed2018cf1fa1",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/a_headphone.png"
+  },
+  {
+    "dest": "adventure/img/dress/a_pearl.png",
+    "sha": "158a48ae09353773cae3510a7c9ad596eabc0a30",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/a_pearl.png"
+  },
+  {
+    "dest": "adventure/img/dress/a_scarf.png",
+    "sha": "010449171f277728d863516c247a9069c69fb22c",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/a_scarf.png"
+  },
+  {
+    "dest": "adventure/img/dress/c_adventurer.png",
+    "sha": "d52b023fbccc1f0bc9b280bbd4387395f7b63224",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/c_adventurer.png"
+  },
+  {
+    "dest": "adventure/img/dress/c_captain.png",
+    "sha": "911edeb7d94a7e0e8288fdc16fbae680dd83bd97",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/c_captain.png"
+  },
+  {
+    "dest": "adventure/img/dress/c_detective.png",
+    "sha": "18f83b33bd2833d844ab98967dd84aa540a313a8",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/c_detective.png"
+  },
+  {
+    "dest": "adventure/img/dress/c_lifestyle.png",
+    "sha": "68ede949481c72fc67216cd2342bde398d5e5a55",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/c_lifestyle.png"
+  },
+  {
+    "dest": "adventure/img/dress/c_scholar.png",
+    "sha": "ce5576ce106953d2ac4052471b5cd000347068b2",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/c_scholar.png"
+  },
+  {
+    "dest": "adventure/img/dress/d_captain.png",
+    "sha": "17b906952acecd209db280e880e163220343b3d8",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/d_captain.png"
+  },
+  {
+    "dest": "adventure/img/dress/d_chef.png",
+    "sha": "3657bb2e5bddbd60894d3666a71f6aea3810d4ba",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/d_chef.png"
+  },
+  {
+    "dest": "adventure/img/dress/d_explorer.png",
+    "sha": "78de7fdbdff8a6270b9dc904abaeb1c982cccd6b",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/d_explorer.png"
+  },
+  {
+    "dest": "adventure/img/dress/d_scholar.png",
+    "sha": "c050d67a15b71b9298de9b442cf7dc53a035e32a",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/d_scholar.png"
+  },
+  {
+    "dest": "adventure/img/dress/f_coin.png",
+    "sha": "802f96cbcae4304ae6735368033968d4f295a0dd",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/f_coin.png"
+  },
+  {
+    "dest": "adventure/img/dress/f_corgi.png",
+    "sha": "9d7963213ce10a1740b7e482f6ee82b71d7465d1",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/f_corgi.png"
+  },
+  {
+    "dest": "adventure/img/dress/f_parrot.png",
+    "sha": "490bd361c678251c4b50ab61b0d97aaac58b5bf3",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/f_parrot.png"
+  },
+  {
+    "dest": "adventure/img/dress/f_sprout.png",
+    "sha": "eb170b6abf187395b634b0a7af966172b0e3e883",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/f_sprout.png"
+  },
+  {
+    "dest": "adventure/img/dress/p_books.png",
+    "sha": "8156a31193c08331ee2aab8fb77086475ac30cad",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/p_books.png"
+  },
+  {
+    "dest": "adventure/img/dress/p_checklist.png",
+    "sha": "af330658b777e29958b3677cbf2323e23f0a487a",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/p_checklist.png"
+  },
+  {
+    "dest": "adventure/img/dress/p_compass.png",
+    "sha": "737d29e903f078f94f9bced259f12ffa5427b172",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/p_compass.png"
+  },
+  {
+    "dest": "adventure/img/dress/p_magnifier.png",
+    "sha": "5aca53cfaa1d63bd8285e4941d4edf0837378511",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/p_magnifier.png"
+  },
+  {
+    "dest": "adventure/img/dress/p_map.png",
+    "sha": "72c2e663a4481e79dbaf1d26a05d28b971ef2218",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/p_map.png"
+  },
+  {
+    "dest": "adventure/img/dress/p_scope.png",
+    "sha": "19972d6b213666128225a32bb16b5dd7fb8f7b9c",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/p_scope.png"
+  },
+  {
+    "dest": "adventure/img/dress/t_advisor.png",
+    "sha": "3c3b7d6b8a288b844619490200469186fb2b1a22",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/t_advisor.png"
+  },
+  {
+    "dest": "adventure/img/dress/t_captain.png",
+    "sha": "7309593ecb220b22fb5743b54f9ac4a2995bc180",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/t_captain.png"
+  },
+  {
+    "dest": "adventure/img/dress/t_daily.png",
+    "sha": "cf5b1f2e59ab0dfff4b247da85d525f269535561",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/t_daily.png"
+  },
+  {
+    "dest": "adventure/img/dress/t_detective.png",
+    "sha": "5d1573192221996739b8581ce63d3d09cdcf34ff",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/t_detective.png"
+  },
+  {
+    "dest": "adventure/img/dress/t_elegant.png",
+    "sha": "2df45a9c217b46885aabb8582f8f0c698227313a",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/t_elegant.png"
+  },
+  {
+    "dest": "adventure/img/dress/t_traveler.png",
+    "sha": "350d69fd0662a8f965de3aa6be3e3eef7bbd3edc",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/dress/t_traveler.png"
+  },
+  {
+    "dest": "adventure/img/duo.jpg",
+    "sha": "04d12c69f2e216f5eaf16eafd8cb2f336bd4e875",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/duo.jpg"
+  },
+  {
+    "dest": "adventure/img/g0.jpg",
+    "sha": "7ce58ad22aef779cebb860823aad32513084b2cf",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/g0.jpg"
+  },
+  {
+    "dest": "adventure/img/g1.jpg",
+    "sha": "fa83a774bc79a735e259fc7cd4374db73acf4f40",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/g1.jpg"
+  },
+  {
+    "dest": "adventure/img/g2.jpg",
+    "sha": "8e7c760f809ca0ffc98c23ccec4fa70e7687e0a9",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/g2.jpg"
+  },
+  {
+    "dest": "adventure/img/g3.jpg",
+    "sha": "6882b656fc4a9365f1558a11cb5e18723d878f2e",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/g3.jpg"
+  },
+  {
+    "dest": "adventure/img/g4.jpg",
+    "sha": "918b5a71f46fc6a37b6377335a0bae4b0983c3e4",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/g4.jpg"
+  },
+  {
+    "dest": "adventure/img/g5.jpg",
+    "sha": "384666dccecc4d8189cb842773192e9641143dcc",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/g5.jpg"
+  },
+  {
+    "dest": "adventure/img/g6.jpg",
+    "sha": "aca8ac7b1a2f0836b9ca0fc1649a9b65477b1e4d",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/g6.jpg"
+  },
+  {
+    "dest": "adventure/img/gold_compass.png",
+    "sha": "4abf4e86b2b494243df19656cfd0484f9e9eea13",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/gold_compass.png"
+  },
+  {
+    "dest": "adventure/img/qr_site.png",
+    "sha": "6c718d32151a9dccad8124a426aef8fa8d049daa",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/qr_site.png"
+  },
+  {
+    "dest": "adventure/img/s1.jpg",
+    "sha": "f10a2bab9fe25f53c6b553743820f0d67651f7a7",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/s1.jpg"
+  },
+  {
+    "dest": "adventure/img/s2.jpg",
+    "sha": "a95540a9284e83d1294e5dab42e17c34209869c0",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/s2.jpg"
+  },
+  {
+    "dest": "adventure/img/s3.jpg",
+    "sha": "a6c643152e644a6b5f4ea24a225e2ce68204efdd",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/s3.jpg"
+  },
+  {
+    "dest": "adventure/img/s4.jpg",
+    "sha": "d447cfeb2674462c2747c7a9329006546ed7fd7d",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/s4.jpg"
+  },
+  {
+    "dest": "adventure/img/s4guide/card_eat.jpg",
+    "sha": "7762cf48961f380b602e66b00ad21dcbf3d849ab",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/s4guide/card_eat.jpg"
+  },
+  {
+    "dest": "adventure/img/s4guide/card_grow.jpg",
+    "sha": "66dd31f482f1ff620b6b04240a8e5304046ed5b4",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/s4guide/card_grow.jpg"
+  },
+  {
+    "dest": "adventure/img/s4guide/card_tiger.jpg",
+    "sha": "6444bf205971d86d97d626e6354f20d25476ab41",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/s4guide/card_tiger.jpg"
+  },
+  {
+    "dest": "adventure/img/s4guide/card_weak.jpg",
+    "sha": "0420907f459985a7c31ba9895077525cf0fcd810",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/s4guide/card_weak.jpg"
+  },
+  {
+    "dest": "adventure/img/s4guide/step1.jpg",
+    "sha": "b4845bf46a6aba58b66bef0e2e492be5c7165725",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/s4guide/step1.jpg"
+  },
+  {
+    "dest": "adventure/img/s4guide/step2.jpg",
+    "sha": "fd2a9fd6df521f86376c9b1a22f55d6ccdb06cf9",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/s4guide/step2.jpg"
+  },
+  {
+    "dest": "adventure/img/s4guide/step3.jpg",
+    "sha": "d78ade6a11960bead54a5b5cca87e3334e9d98df",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/s4guide/step3.jpg"
+  },
+  {
+    "dest": "adventure/img/s5.jpg",
+    "sha": "ce548857ab3e64dd11107c7b817184d3727bf169",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/s5.jpg"
+  },
+  {
+    "dest": "adventure/img/s6.jpg",
+    "sha": "8989a6559a7348a0de45d1d0daaf8c23419c4762",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/s6.jpg"
+  },
+  {
+    "dest": "adventure/img/s7.jpg",
+    "sha": "781e7b23117afaa620725f67f87babcdc71bfb27",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/s7.jpg"
+  },
+  {
+    "dest": "adventure/img/s8.jpg",
+    "sha": "6a0cf3686b639619f8a74dfc6af06a95116645ac",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/s8.jpg"
+  },
+  {
+    "dest": "adventure/img/team_poster.jpg",
+    "sha": "f7024346be792cc9d7668e797c92e2df59b2795f",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/team_poster.jpg"
+  },
+  {
+    "dest": "adventure/img/team_poster_v2.jpg",
+    "sha": "08ffffc720d88f21a58280a62e839dc95e4d7adc",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/img/team_poster_v2.jpg"
+  },
+  {
+    "dest": "adventure/index.html",
+    "sha": "e656172fe52a1dea5611913142e3633ba4c5e644"
+  },
+  {
+    "dest": "adventure/iv/ep/e1_0.jpg",
+    "sha": "6c155de335cbe34dd54ecc6330bdfd9f84a8ea28",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e1_0.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e1_1.jpg",
+    "sha": "5f888c197417cd0a7fb5f8e972d0d165bffe78e4",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e1_1.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e1_2.jpg",
+    "sha": "ff4728c86808d2e6d713461ffa6084073f929dfb",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e1_2.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e1_3.jpg",
+    "sha": "6ea9300daa5910a7fe528b9b42f8e48d933bfcc7",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e1_3.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e2_0.jpg",
+    "sha": "9f6d3a4cbf2e958b3728ad883457421268444a5e",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e2_0.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e2_1.jpg",
+    "sha": "14fef5ef6218f04379047cd1d49a9fa79743680f",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e2_1.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e2_2.jpg",
+    "sha": "b58bc16152b3f4679869c99a600058140ceabb17",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e2_2.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e2_3.jpg",
+    "sha": "07f0f903ca7114e71109630df3686642889e1711",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e2_3.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e3_0.jpg",
+    "sha": "59e9b58ea0089c25c0f0a1a7501e0916582cfd46",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e3_0.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e3_1.jpg",
+    "sha": "5b4703627348cafc3793db54de8556842c10cfb3",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e3_1.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e3_2.jpg",
+    "sha": "bba3b6febdd1b760e334ad6c7200c7fca674bbf6",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e3_2.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e3_3.jpg",
+    "sha": "f2a439ffd9b27f96bbb51709595df17717ae194f",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e3_3.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e4_0.jpg",
+    "sha": "46eef1a46fdde744c9991ea81537771f95dc7c44",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e4_0.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e4_1.jpg",
+    "sha": "9da10ffeb2acf6184cb81acfb71c28fbd833a6dd",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e4_1.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e4_2.jpg",
+    "sha": "6d2b4b4e5849703279611a8f3654b9d18f46c919",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e4_2.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e4_3.jpg",
+    "sha": "247714e86f66e8e4a97144581288e5610d790d73",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e4_3.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e5_0.jpg",
+    "sha": "2b6af9dc44a978cf382afcc2e3c9830b510104b7",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e5_0.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e5_1.jpg",
+    "sha": "d576db966c346274fbdb080a499ff02845dcbbcc",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e5_1.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e5_2.jpg",
+    "sha": "270c6b68e2bc2b9bd3df923fa611574572aa1b0b",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e5_2.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e5_3.jpg",
+    "sha": "672e93e2a27dc2e3cb9d56f642ed8d8871baabc7",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e5_3.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e6_0.jpg",
+    "sha": "9116ca8eae17f1afea71fb58f02fc7b1a4f9870c",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e6_0.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e6_1.jpg",
+    "sha": "953ec482f65d41467b58a32630ea1e7a6d48837d",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e6_1.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e6_2.jpg",
+    "sha": "d05afb6a5e8cf251a041592f6d54c164dfa6b580",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e6_2.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e6_3.jpg",
+    "sha": "1b666010d03fc9a84c0087825a568c07f3969c42",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e6_3.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e7_0.jpg",
+    "sha": "03003566d54b24e61d8bcd2b3c8134fa714c0e48",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e7_0.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e7_1.jpg",
+    "sha": "caaf9f242bc2bf75009d88d830116680db5d2203",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e7_1.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e7_2.jpg",
+    "sha": "9ed85f1c7f3e7e2659f4378f5b6a014dbdde361c",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e7_2.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e7_3.jpg",
+    "sha": "cbc039f174feac78c7d63fab289157fb3abec0e2",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e7_3.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e8_0.jpg",
+    "sha": "28aebe0cb3db15672462fefa079fd2f1bc31bb49",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e8_0.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e8_1.jpg",
+    "sha": "c9fcd081dedc1c768591770ce82b345e71c3ea02",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e8_1.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e8_2.jpg",
+    "sha": "9c624fe8e4e46b38746d5de0566e0069a5101a0b",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e8_2.jpg"
+  },
+  {
+    "dest": "adventure/iv/ep/e8_3.jpg",
+    "sha": "5f05733d2fb766629cb107848491fa1bd8c718a6",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ep/e8_3.jpg"
+  },
+  {
+    "dest": "adventure/iv/ja1.jpg",
+    "sha": "10a8c1aadf6807616307b860bf4428d8cd172995",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ja1.jpg"
+  },
+  {
+    "dest": "adventure/iv/ja2.jpg",
+    "sha": "655fa0fd2bea304f44ee76d768a65ec58ac9975b",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ja2.jpg"
+  },
+  {
+    "dest": "adventure/iv/ja3.jpg",
+    "sha": "4ccdcc2013b6f86ad95a6e0ebb944e69bf04eed3",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/ja3.jpg"
+  },
+  {
+    "dest": "adventure/iv/jb1.jpg",
+    "sha": "09959f5af159fc3bb4727ca0a95d0fe2931f3884",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/jb1.jpg"
+  },
+  {
+    "dest": "adventure/iv/jb2.jpg",
+    "sha": "fe191b4f4a8354db960f6ece1e7811838889e5e1",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/jb2.jpg"
+  },
+  {
+    "dest": "adventure/iv/jb3.jpg",
+    "sha": "feef0c362e38cc64cd2b52a6459abbe6cdebbe53",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/jb3.jpg"
+  },
+  {
+    "dest": "adventure/iv/jc1.jpg",
+    "sha": "564f426bbfb63dc815845014d09fe33e44c8acdf",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/jc1.jpg"
+  },
+  {
+    "dest": "adventure/iv/jc2.jpg",
+    "sha": "89ce52671208b51b543b3a39f5307e19e715de23",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/jc2.jpg"
+  },
+  {
+    "dest": "adventure/iv/jc3.jpg",
+    "sha": "11c8a757bd493ad5b739c69d85d3bb3b90b9afc5",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/jc3.jpg"
+  },
+  {
+    "dest": "adventure/iv/shot1.jpg",
+    "sha": "9ed85f1c7f3e7e2659f4378f5b6a014dbdde361c",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/shot1.jpg"
+  },
+  {
+    "dest": "adventure/iv/shot2.jpg",
+    "sha": "c1f02db626fd4df76760ccbd4712611faa8a1a54",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/shot2.jpg"
+  },
+  {
+    "dest": "adventure/iv/shot3.jpg",
+    "sha": "2b74efa3da0fe22f80521cee729e3bf8032649ec",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/shot3.jpg"
+  },
+  {
+    "dest": "adventure/iv/shot4.jpg",
+    "sha": "5aebd549268c14e363bba878c8746370d0e2c3e5",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/shot4.jpg"
+  },
+  {
+    "dest": "adventure/iv/shot5.jpg",
+    "sha": "abb51458563e15b88d9f7f990b16011bf19ea665",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/shot5.jpg"
+  },
+  {
+    "dest": "adventure/iv/shot6.jpg",
+    "sha": "c3b443d10e2aebe3b3876ea977814fb3cede6a64",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/shot6.jpg"
+  },
+  {
+    "dest": "adventure/iv/shot7.jpg",
+    "sha": "7376f4854e26800da2b8164edb89b21635bb3882",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/shot7.jpg"
+  },
+  {
+    "dest": "adventure/iv/shot8.jpg",
+    "sha": "b8e816781b5a42f262b200e40b64a1a294b5548e",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/shot8.jpg"
+  },
+  {
+    "dest": "adventure/iv/shots.jpg",
+    "sha": "4d1fd26367b2d1130efcacdfc9a33af86e9523ad",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/iv/shots.jpg"
+  },
+  {
+    "dest": "adventure/start.html",
+    "sha": "c2a2be1aa15cf5625069269a53cb872a47060b1d"
+  },
+  {
+    "dest": "adventure/vid/a.jpg",
+    "sha": "1e1937facc63e01fcc9b8e46a70fcb9e2e3d5129",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/a.jpg"
+  },
+  {
+    "dest": "adventure/vid/a.mp4",
+    "sha": "b9ca22b26cbcbaba47a013a695b41f43f1f5c936",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/a.mp4"
+  },
+  {
+    "dest": "adventure/vid/b.jpg",
+    "sha": "1308490aef25652a0cb81bdd27f824d05829dd89",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/b.jpg"
+  },
+  {
+    "dest": "adventure/vid/b.mp4",
+    "sha": "97bc1bdf8e98fa62ba050589471f044a37cc3845",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/b.mp4"
+  },
+  {
+    "dest": "adventure/vid/c.jpg",
+    "sha": "545d44463004531f8b65b6efbec90b4e6e6bd6e7",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/c.jpg"
+  },
+  {
+    "dest": "adventure/vid/c.mp4",
+    "sha": "2a7d7f0933621764004300d9135494929d234754",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/c.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S1.jpg",
+    "sha": "6d1f9542a780409291572c6483c5b1e3c0337b6f",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S1.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S1.mp4",
+    "sha": "4d0073e55c77fd0954ddc3d7d8cb5d7289b689f6",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S1.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S1e1.jpg",
+    "sha": "84806aaf515a3d1cf81c9e17b9ea0ef42321e1da",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S1e1.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S1e1.mp4",
+    "sha": "8b170c067e2d346ebf5dbc7891e5eb976c428039",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S1e1.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S1e2.jpg",
+    "sha": "968cf3306d9e235332101b575c5ca3bd0660130c",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S1e2.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S1e2.mp4",
+    "sha": "7538d5d4bfe0bf081bb6c065ea4df0fba920f794",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S1e2.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S1e3.jpg",
+    "sha": "3eb6feafa0813cea809bf240a0af41063cdae917",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S1e3.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S1e3.mp4",
+    "sha": "d29c32ded3e6bc80016d906568eb9591f153acf0",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S1e3.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S2.jpg",
+    "sha": "b22210718558bd4fb64f28e23c2da3652b6d68ab",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S2.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S2.mp4",
+    "sha": "73e476c5fbf2d365ba9f40cfb129c1ec9f696832",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S2.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S2e1.jpg",
+    "sha": "9d89151b86b16ab199eabef9b378683e6a320139",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S2e1.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S2e1.mp4",
+    "sha": "14425ecddd68fbd0f7a6e765acea27d2ac35a048",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S2e1.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S2e2.jpg",
+    "sha": "41a4d57387b0f7ee1feb9680059843d1e46448ac",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S2e2.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S2e2.mp4",
+    "sha": "9230be7e4f808f90220616a2006580d8b6eb1d3f",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S2e2.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S3.jpg",
+    "sha": "5edb82d27b7172272e9a390c67c61ce8065f5cab",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S3.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S3.mp4",
+    "sha": "161a4daefd6e6f685bb984091b04843f9f43270a",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S3.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S3e1.jpg",
+    "sha": "7e04da1360ec03663f9433cc8ebb6615be7e56ac",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S3e1.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S3e1.mp4",
+    "sha": "0b387325e4eacb1e6a55fdcc9a976fb1f3522242",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S3e1.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S3e2.jpg",
+    "sha": "e3964a8f7ed4ea49ecedd860f0f27348cbed7a4f",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S3e2.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S3e2.mp4",
+    "sha": "cce719fdee676589b4b38103a396bda6247062a7",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S3e2.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S4.jpg",
+    "sha": "f035e38cc7e5e02fc3b43e0b16be0bbdab60efac",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S4.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S4.mp4",
+    "sha": "4a96bc2261aaa85f84cd039123bdcc7de29b6a41",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S4.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S4e1.jpg",
+    "sha": "876afc5f6307c48a354a672bfd080a625e4a084f",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S4e1.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S4e1.mp4",
+    "sha": "787124e513769f2718d1af169f4dce0d790431a3",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S4e1.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S4e2.jpg",
+    "sha": "6d1739367fedbb04cb88b5bf3aed36d4fb7cbf97",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S4e2.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S4e2.mp4",
+    "sha": "9c28db65597a8f6719e15b091df212f1e8ca85c5",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S4e2.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S4e3.jpg",
+    "sha": "2547f735bff1c1804b8857d9551391b20997013f",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S4e3.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S4e3.mp4",
+    "sha": "c024ba169e7f198ac8bdaeff66dc33a5e35da4b1",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S4e3.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S5.jpg",
+    "sha": "a775f2206c56399a9d18006b27bdeccdb7d114de",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S5.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S5.mp4",
+    "sha": "209a5ed5bec615f49a2c1592757ee33ad54ec44f",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S5.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S5e1.jpg",
+    "sha": "37a913e0fc60df95c6bf88b620ba414094845109",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S5e1.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S5e1.mp4",
+    "sha": "fefe478f9c510ff9f658a0f6b9dc7e1066d06e2e",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S5e1.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S5e2.jpg",
+    "sha": "86b87768beeab4f18b37eb9b8e9131f074b81073",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S5e2.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S5e2.mp4",
+    "sha": "33f320b88988e5766c2fbc2215ef6fd2ecbb250b",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S5e2.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S6.jpg",
+    "sha": "70de223680d4a649d43b7fa73db672765b5e6895",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S6.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S6.mp4",
+    "sha": "21a641821efc5cdb0e931c8d95d0897b17f75742",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S6.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S6e1.jpg",
+    "sha": "45df0c3a4598c3121b113dfc5ff52ef07b614d6c",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S6e1.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S6e1.mp4",
+    "sha": "9e6c4ae3822204398a73595fc42209b7c413ee2a",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S6e1.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S6e2.jpg",
+    "sha": "03b144cffbf92ba888ee810385beac78276b5f53",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S6e2.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S6e2.mp4",
+    "sha": "d0c58ae979fc830c7de0e783b1c70763ed6be02c",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S6e2.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S6e3.jpg",
+    "sha": "c96b86948742db856b2d5b8c7099dafeb0b3c103",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S6e3.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S6e3.mp4",
+    "sha": "684288a0c8b28e9a10d80361febc2b221fb4df2b",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S6e3.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S6e4.jpg",
+    "sha": "005f38841652c479a618fa0466fa7952c3993007",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S6e4.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S6e4.mp4",
+    "sha": "f40b111f0733b6d2e139c71f3277d4e5e31f7c85",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S6e4.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S7.jpg",
+    "sha": "f558036ceb42a568a573cded892ec3d68239756c",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S7.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S7.mp4",
+    "sha": "5a2e51a0eb4cb2810cbffa834fea40b04779cbd3",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S7.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S7e1.jpg",
+    "sha": "1b238d50d4db1593ce3078fb50ca1833adf67157",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S7e1.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S7e1.mp4",
+    "sha": "a84cc548047145dca622a3ffb55ba5ac8ec10145",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S7e1.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S7e2.jpg",
+    "sha": "f77bb3aa117a676c1a6da72cb7aae1ceace13a2b",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S7e2.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S7e2.mp4",
+    "sha": "52937597bfbc43bb33c8a4a65b1e0828a7aa2a47",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S7e2.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S7e3.jpg",
+    "sha": "144d21121b7375192a8768149e1961abf85b429c",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S7e3.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S7e3.mp4",
+    "sha": "47158a52da9e5763f13c5a998e39c73324c910a0",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S7e3.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S7e4.jpg",
+    "sha": "565007eefcd7444e1811d4a3bc9742d62491276a",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S7e4.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S7e4.mp4",
+    "sha": "485c1a9f9f41154c9c3aa3947b9f08019a9f18c2",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S7e4.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S8.jpg",
+    "sha": "f6a06c853023d149db46c580544a70ce9f979fd1",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S8.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S8.mp4",
+    "sha": "03940a73a1c31d6f2925e7a783bda41765ad8de0",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S8.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S8e1.jpg",
+    "sha": "d1a95df22f16f70e54060e23d9f8750dc3d451aa",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S8e1.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S8e1.mp4",
+    "sha": "757c4f1dd5227333fbfd31bcbd213009b5906876",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S8e1.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S8e2.jpg",
+    "sha": "39e13291aec7cb7f5506b8c20ff6351f45a042a5",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S8e2.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S8e2.mp4",
+    "sha": "fb55361b1137cc56efbf4967ddb8fd22707cdf83",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S8e2.mp4"
+  },
+  {
+    "dest": "adventure/vid/ep_S8e3.jpg",
+    "sha": "ff5b07cd37c3639a2367712a9d827f8bc0872fb6",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S8e3.jpg"
+  },
+  {
+    "dest": "adventure/vid/ep_S8e3.mp4",
+    "sha": "7d2e1abb52d4023d850886b6cb2bf4b37b876b5a",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/ep_S8e3.mp4"
+  },
+  {
+    "dest": "adventure/vid/intro.jpg",
+    "sha": "d5e1d875d2331940d4efbbb319bc3f0ee385111d",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/intro.jpg"
+  },
+  {
+    "dest": "adventure/vid/intro.mp4",
+    "sha": "17ff00300410fdabbe1d371c3b1722b94e31b006",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid/intro.mp4"
+  },
+  {
+    "dest": "adventure/vid_v2/ep_S1.mp4",
+    "sha": "ec3926ce3ffe3901ebb84e0b33824f725d8313aa",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid_v2/ep_S1.mp4"
+  },
+  {
+    "dest": "adventure/vid_v2/ep_S4e1.mp4",
+    "sha": "3c5256ec2916d3bc511eb79f07e53736201b0a6e",
+    "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid_v2/ep_S4e1.mp4"
+  }
+]

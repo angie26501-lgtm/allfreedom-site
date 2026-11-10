@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="六題教育基金與家庭財務透明測驗，確認本金、帳戶、保單角色、交付時間與孩子的財務練習是否說得清楚。">
+<title>孩子問你，你答得出來嗎？｜財顧芸 Angie</title>
+<link rel="canonical" href="https://www.allfreedom.info/education-fund-quiz.html">
+<meta property="og:type" content="website"><meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="孩子問你，你答得出來嗎？｜教育基金六題測驗">
+<meta property="og:description" content="六個座標，測測看你對替孩子準備的那筆錢，真的說得清楚嗎。">
+<meta property="og:url" content="https://www.allfreedom.info/education-fund-quiz.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#22201A;
+  --deep:#1B3B32;
+  --deep-soft:#2E5347;
+  --gold:#AE8A3C;
+  --gold-lite:#D9C48A;
+  --paper:#F4ECDB;
+  --paper-2:#EDE2CB;
+  --sea:#CFDFDA;
+  --mark:#9C4229;
+  --line:rgba(27,59,50,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper);
+  background-image:
+    radial-gradient(ellipse at 12% 8%, rgba(207,223,218,.55), transparent 55%),
+    radial-gradient(ellipse at 88% 92%, rgba(207,223,218,.4), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(27,59,50,.035) 0 1px, transparent 1px 68px),
+    repeating-linear-gradient(90deg, rgba(27,59,50,.035) 0 1px, transparent 1px 68px);
+  color:var(--ink);
+  font-family:"Noto Sans TC",system-ui,sans-serif;
+  line-height:1.9;
+  padding:0 20px 80px;
+}
+.wrap{max-width:640px;margin:0 auto}
+.site-nav{max-width:1080px;min-height:64px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-bottom:1px solid var(--line)}
+.site-nav a{color:var(--deep);text-underline-offset:5px}.site-nav .brand{font-family:"Noto Serif TC",serif;font-weight:900;font-size:20px;text-decoration:none}.site-nav .back{font-size:13px}
+
+/* ---------- eyebrow / latin utility ---------- */
+.eyebrow{
+  font-family:"Cormorant Garamond",serif;
+  font-size:12px;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;
+}
+
+/* ---------- header ---------- */
+header{padding:64px 0 34px;text-align:center}
+.brandmark{
+  width:38px;height:38px;margin:0 auto 20px;display:block;color:var(--deep);opacity:.85
+}
+h1{
+  font-family:"Noto Serif TC",serif;font-weight:900;
+  font-size:clamp(29px,7.4vw,44px);line-height:1.28;
+  color:var(--deep);margin:16px 0 14px;letter-spacing:.01em;
+}
+.dek{font-size:15px;color:#5B5B50;max-width:26em;margin:0 auto}
+.rule{
+  width:100%;height:1px;margin:34px 0;
+  background:repeating-linear-gradient(90deg,var(--line) 0 5px,transparent 5px 11px);
+}
+
+/* ---------- route (signature) ---------- */
+.route{position:relative;margin:0 0 40px;padding:0 4px}
+.route-line{
+  position:absolute;left:12px;right:12px;top:11px;height:1px;
+  background:repeating-linear-gradient(90deg,rgba(174,138,60,.55) 0 4px,transparent 4px 9px);
+}
+.route-nodes{position:relative;display:flex;justify-content:space-between}
+.node{
+  width:23px;height:23px;border-radius:50%;
+  border:1px solid rgba(174,138,60,.6);background:var(--paper);
+  display:grid;place-items:center;
+  font-family:"Cormorant Garamond",serif;font-size:12px;color:var(--gold);
+  transition:background .35s ease,color .35s ease,transform .35s ease;
+}
+.node.done{background:var(--gold);color:var(--paper);border-color:var(--gold)}
+.node.miss{background:var(--mark);color:var(--paper);border-color:var(--mark)}
+.node.here{transform:scale(1.32);border-color:var(--deep);box-shadow:0 0 0 4px rgba(27,59,50,.09)}
+.route-label{
+  margin-top:14px;text-align:center;font-size:12.5px;color:#7A7A6C;letter-spacing:.06em;
+}
+
+/* ---------- card ---------- */
+.card{
+  background:var(--paper-2);
+  border:1px solid var(--line);
+  border-radius:2px;
+  padding:34px 26px 30px;
+  box-shadow:0 1px 0 rgba(255,255,255,.6) inset, 0 14px 34px -26px rgba(27,59,50,.5);
+}
+.q-no{margin-bottom:12px}
+.q-text{
+  font-family:"Noto Serif TC",serif;font-weight:700;
+  font-size:clamp(19px,4.6vw,23px);line-height:1.65;color:var(--deep);
+}
+.q-note{font-size:14px;color:#6B6B5E;margin-top:12px}
+
+.opts{margin-top:26px;display:flex;flex-direction:column;gap:10px}
+.opt{
+  width:100%;text-align:left;cursor:pointer;
+  font-family:inherit;font-size:15.5px;line-height:1.7;color:var(--ink);
+  background:var(--paper);border:1px solid var(--line);border-radius:2px;
+  padding:15px 17px 15px 46px;position:relative;
+  transition:border-color .2s ease,background .2s ease;
+}
+.opt::before{
+  content:attr(data-k);
+  position:absolute;left:16px;top:15px;
+  font-family:"Cormorant Garamond",serif;font-size:14px;color:var(--gold);
+}
+.opt:hover:not(:disabled){border-color:var(--gold);background:#F8F2E4}
+.opt:focus-visible{outline:2px solid var(--deep);outline-offset:2px}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--deep);background:#E4EBE4}
+.opt.right::before{color:var(--deep)}
+.opt.wrong{border-color:var(--mark);background:#F2E2DB}
+.opt.wrong::before{color:var(--mark)}
+.opt.dim{opacity:.45}
+
+/* ---------- feedback ---------- */
+.fb{margin-top:22px;border-top:1px solid var(--line);padding-top:20px}
+.fb[hidden]{display:none}
+.verdict{
+  font-family:"Noto Serif TC",serif;font-weight:700;font-size:16px;
+  display:flex;align-items:center;gap:9px;margin-bottom:10px;
+}
+.verdict.ok{color:var(--deep)}
+.verdict.no{color:var(--mark)}
+.fb p{font-size:15px;color:#4A4A40}
+.fb strong{color:var(--deep)}
+
+.next{
+  margin-top:22px;width:100%;cursor:pointer;
+  font-family:"Noto Sans TC",sans-serif;font-size:15px;font-weight:500;letter-spacing:.08em;
+  background:var(--deep);color:var(--paper);border:0;border-radius:2px;padding:15px;
+  transition:background .2s ease;
+}
+.next:hover{background:var(--deep-soft)}
+.next:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* ---------- result ---------- */
+.result{text-align:center}
+.score{
+  font-family:"Cormorant Garamond",serif;font-size:60px;line-height:1;color:var(--gold);
+}
+.score small{font-size:22px;color:#8A8A7A}
+.tier{
+  font-family:"Noto Serif TC",serif;font-weight:900;
+  font-size:clamp(23px,5.6vw,30px);color:var(--deep);margin:18px 0 12px;
+}
+.tier-say{font-size:15.5px;color:#4A4A40;max-width:24em;margin:0 auto}
+
+.checklist{margin-top:34px;text-align:left}
+.cl-head{
+  font-family:"Noto Serif TC",serif;font-weight:700;font-size:17px;color:var(--deep);
+  margin-bottom:6px;
+}
+.cl-sub{font-size:14px;color:#6B6B5E;margin-bottom:18px}
+.cl-item{
+  display:flex;gap:13px;align-items:flex-start;cursor:pointer;
+  padding:13px 15px;border:1px solid var(--line);border-radius:2px;
+  background:var(--paper);margin-bottom:8px;font-size:15px;line-height:1.65;
+  transition:background .2s ease,border-color .2s ease;
+}
+.cl-item:hover{border-color:var(--gold)}
+.cl-item input{
+  appearance:none;-webkit-appearance:none;flex:0 0 17px;width:17px;height:17px;margin-top:5px;
+  border:1px solid var(--gold);border-radius:1px;background:transparent;cursor:pointer;
+}
+.cl-item input:checked{background:var(--deep);border-color:var(--deep)}
+.cl-item input:focus-visible{outline:2px solid var(--deep);outline-offset:2px}
+.cl-item:has(input:checked){background:#E4EBE4;border-color:var(--deep)}
+.cl-count{
+  margin-top:18px;padding:17px;background:var(--deep);color:var(--paper);
+  font-size:14.5px;line-height:1.8;border-radius:2px;
+}
+.cl-count b{color:var(--gold-lite);font-weight:700}
+
+.closing{
+  margin-top:40px;padding-top:28px;border-top:1px solid var(--line);
+  font-family:"Noto Serif TC",serif;font-size:17px;line-height:1.9;color:var(--deep);
+}
+.sig{margin-top:26px;font-size:14px;color:#6B6B5E;letter-spacing:.04em;line-height:1.85}
+.sig .name{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:19px;color:var(--gold)}
+.series{
+  margin-top:24px;padding-top:22px;border-top:1px dashed var(--line);
+  font-size:13px;color:#7A7A6C;line-height:1.95;letter-spacing:.03em;
+}
+.series-tag{
+  display:inline-block;margin-right:8px;padding:3px 11px;
+  background:var(--deep);color:var(--gold-lite);
+  font-family:"Noto Serif TC",serif;font-weight:700;font-size:12.5px;letter-spacing:.1em;
+  border-radius:2px;vertical-align:1px;
+}
+.series em{font-style:normal;color:var(--deep);font-family:"Noto Serif TC",serif}
+.retry{
+  margin-top:26px;background:transparent;border:1px solid var(--line);color:#6B6B5E;
+  font-family:inherit;font-size:14px;padding:12px 26px;border-radius:2px;cursor:pointer;
+}
+.retry:hover{border-color:var(--gold);color:var(--deep)}
+.article-link{display:inline-flex;margin-top:12px;color:var(--deep);font-size:14px;font-weight:700;text-underline-offset:5px}
+.disclaimer{margin-top:44px;font-size:12.5px;color:#8A8A7A;line-height:1.8;text-align:center}
+
+@media (max-width:420px){
+  .card{padding:28px 18px 24px}
+  .opt{font-size:15px;padding:14px 14px 14px 42px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
+</style>
+  <link rel="stylesheet" href="assets/article-funnel.css">
+</head>
+<body>
+<nav class="site-nav" aria-label="主要導覽"><a class="back" href="education-fund-family-transparency.html">回教育基金文章</a></nav>
+<div class="wrap">
+
+<header>
+  <svg class="brandmark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+    <path d="M20 3v34M20 12c0-4 4-7 8-7 0 5-3 9-8 9zM20 12c0-4-4-7-8-7 0 5 3 9 8 9zM20 24c0-4 4-7 8-7 0 5-3 9-8 9zM20 24c0-4-4-7-8-7 0 5 3 9 8 9z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+  </svg>
+  <p class="eyebrow">Wealth Garden</p>
+  <h1>孩子打電話問你<br>你答得出來嗎？</h1>
+  <p class="dek">六個座標，測測看你對「幫孩子準備的那筆錢」，真的說得清楚嗎。<br>大約三分鐘。</p>
+</header>
+
+<div class="route" aria-hidden="true">
+  <div class="route-line"></div>
+  <div class="route-nodes" id="nodes"></div>
+  <p class="route-label" id="routeLabel">第 1 個座標 ／ 共 6 個</p>
+</div>
+
+<main id="stage" aria-live="polite"></main>
+
+
+<p class="disclaimer">本測驗為一般財務規劃觀念分享，不構成法律、稅務、投資或個別財務建議。<br>帳戶權利、贈與是否完成與保單處理方式，請依實際文件向專業人士確認。</p>
+<section class="article-funnel article-funnel--general" data-funnel-version="codex-002" aria-label="閱讀下一步">
+  <p>把照顧、退休與想留給家人的事放在同一張圖上看。</p>
+  
+</section>
+
+</div>
+
+<script>
+const QUESTIONS = [
+  {
+    q: "父母把錢存進孩子名下的帳戶，但印鑑、網銀密碼仍由父母保管。第一步應該先釐清什麼？",
+    note: "帳戶名義、贈與是否完成與實際控制權，需要分開判斷。",
+    opts: [
+      "誰實際保管密碼",
+      "贈與是否完成，以及當初的資金約定",
+      "孩子現在幾歲",
+      "父母誰的收入比較高"
+    ],
+    a: 1,
+    ok: "對，先把法律關係與約定找清楚。",
+    no: "還要再往前一步。",
+    why: "帳戶名義是重要線索，但不能只靠名字判斷所有權。要先看<strong>資金移轉、贈與意思與相關文件</strong>，再分開確認誰保管、誰能動用。這幾件事沒有說清楚，日後就容易出現不同理解。"
+  },
+  {
+    q: "一張保單上有三個名字：要保人、被保險人、受益人。誰有權解約？",
+    note: "解約會拿回保單價值，所以這個權利很關鍵。",
+    opts: [
+      "被保險人",
+      "受益人",
+      "要保人",
+      "誰繳保費就是誰"
+    ],
+    a: 2,
+    ok: "答對了。",
+    no: "這題很多人會錯。",
+    why: "一般由<strong>要保人</strong>行使解約等契約權利——不是只看被保險人、受益人或實際繳費的人。所以「我幫孩子買了保險」之後，還要再確認：要保人欄位寫的是誰？實際權利仍以契約與法令為準。"
+  },
+  {
+    q: "一般而言，要保人過世、被保險人仍健在時，保單價值與契約權利可能涉及誰的遺產？",
+    note: "被保險人還健在，保單也還沒到期。",
+    opts: [
+      "被保險人的遺產",
+      "要保人的遺產",
+      "受益人直接取得，不算遺產",
+      "保單自動失效"
+    ],
+    a: 1,
+    ok: "沒錯。",
+    no: "再想一次。",
+    why: "保單價值與契約權利原則上屬於<strong>要保人的財產範圍</strong>，要保人過世時可能涉及遺產與契約承接。這代表替孩子準備保單時，不能只看被保險人或受益人，也要確認要保人。實際處理仍以保單條款、稅務與繼承情況為準。"
+  },
+  {
+    q: "下面哪一種交付安排，最容易在幾年後產生爭議？",
+    note: "四個都是真的有人這樣做。",
+    opts: [
+      "寫下年齡：滿 25 歲全數交付",
+      "口頭說「以後結婚就給你」",
+      "設條件：完成學業後分三年交付",
+      "現在就交付，父母不再過問"
+    ],
+    a: 1,
+    ok: "對，就是它。",
+    no: "其實是另一個。",
+    why: "問題不在哪一種比較好，而在<strong>有沒有一個雙方都認得出來的時間點</strong>。「以後」「等你成家」「等你穩定」這種說法，每個人心裡的日期都不一樣，而且說的人隨時可以往後挪。其他三個各有優缺點，但至少大家知道什麼時候會發生。"
+  },
+  {
+    q: "如果今天有人要跟你對帳這筆錢，最基本該拿得出來的是什麼？",
+    note: "只能選一個最基本的。",
+    opts: [
+      "現在的總金額",
+      "當初的原始本金與存入紀錄",
+      "報酬率",
+      "口頭說明用途"
+    ],
+    a: 1,
+    ok: "基本功，答對了。",
+    no: "順序反了。",
+    why: "沒有<strong>原始本金與存入紀錄</strong>，後面很難核對——損益、費用與目前價值都失去比較基準。所以對帳應從資金最初如何形成開始，再接到現在的餘額與明細。"
+  },
+  {
+    q: "一個從來沒有管過錢的孩子，25 歲那年拿到一大筆錢。他最需要的是什麼？",
+    note: "最後一題，也是最重要的一題。",
+    opts: [
+      "更高報酬的投資工具",
+      "一份完整的財務報表",
+      "在那之前，就有過自己決定的練習",
+      "父母繼續幫他管幾年"
+    ],
+    a: 2,
+    ok: "這就是全部的重點。",
+    no: "再想想。",
+    why: "<strong>能力不會因為金額變大而自動出現。</strong>報表看不懂就只是紙，工具沒判斷力就只是風險，繼續代管只是把同一天往後延。真正有用的是在金額還小的時候，讓孩子做過幾次自己的決定——包括做錯的那幾次。那是最便宜的一堂課。"
+  }
+];
+
+const TIERS = [
+  { min:6, name:"你看得懂這張海圖", say:"六題全對。你不只知道錢在哪裡，也知道權利在誰手上。接下來值得做的，是把這些答案寫下來，讓家裡其他人也看得懂。" },
+  { min:4, name:"方向對了，還差幾個座標", say:"大方向沒問題，但有一兩個關鍵欄位可能還沒確認過。這些通常不是觀念問題，只是從來沒有人提醒你去翻開來看。" },
+  { min:0, name:"好消息是，現在發現還來得及", say:"這些題目答不出來很正常——它們平常沒有人會問你。真正麻煩的是等到有人問的那一天才發現。而那一天，通常不是你挑的。" }
+];
+
+const CHECKS = [
+  "我說得出這筆錢的原始本金是多少",
+  "我拿得出目前的對帳單或保單",
+  "我知道每一張保單的要保人是誰",
+  "孩子知道這筆錢的存在",
+  "我們約定過交付的時間或條件",
+  "如果我明天不在，有人找得到這筆錢"
+];
+
+let idx = 0, score = 0;
+const marks = [];
+const stage = document.getElementById('stage');
+const nodesEl = document.getElementById('nodes');
+const routeLabel = document.getElementById('routeLabel');
+
+function drawRoute(){
+  nodesEl.innerHTML = '';
+  for(let i=0;i<QUESTIONS.length;i++){
+    const n = document.createElement('div');
+    n.className = 'node';
+    n.textContent = i+1;
+    if(marks[i]==='ok') n.classList.add('done');
+    if(marks[i]==='no') n.classList.add('miss');
+    if(i===idx && idx<QUESTIONS.length) n.classList.add('here');
+    nodesEl.appendChild(n);
+  }
+  routeLabel.textContent = idx < QUESTIONS.length
+    ? `第 ${idx+1} 個座標 ／ 共 ${QUESTIONS.length} 個`
+    : `航行完成 ／ ${QUESTIONS.length} 個座標`;
+}
+
+function renderQ(){
+  const item = QUESTIONS[idx];
+  const keys = ['A','B','C','D'];
+  stage.innerHTML = `
+    <section class="card">
+      <p class="eyebrow q-no">Coordinate ${String(idx+1).padStart(2,'0')}</p>
+      <h2 class="q-text">${item.q}</h2>
+      <p class="q-note">${item.note}</p>
+      <div class="opts" id="opts">
+        ${item.opts.map((o,i)=>`<button class="opt" data-k="${keys[i]}" data-i="${i}">${o}</button>`).join('')}
+      </div>
+      <div class="fb" id="fb" hidden></div>
+    </section>`;
+  document.querySelectorAll('.opt').forEach(b=>{
+    b.addEventListener('click',()=>answer(parseInt(b.dataset.i,10)));
+  });
+  drawRoute();
+}
+
+function answer(pick){
+  const item = QUESTIONS[idx];
+  const right = pick === item.a;
+  if(right) score++;
+  marks[idx] = right ? 'ok' : 'no';
+
+  document.querySelectorAll('.opt').forEach(b=>{
+    const i = parseInt(b.dataset.i,10);
+    b.disabled = true;
+    if(i === item.a) b.classList.add('right');
+    else if(i === pick) b.classList.add('wrong');
+    else b.classList.add('dim');
+  });
+
+  const fb = document.getElementById('fb');
+  const last = idx === QUESTIONS.length - 1;
+  fb.innerHTML = `
+    <p class="verdict ${right?'ok':'no'}">${right ? item.ok : item.no}</p>
+    <p>${item.why}</p>
+    <button class="next" id="next">${last ? '看我的航海日誌' : '下一個座標'}</button>`;
+  fb.hidden = false;
+  const nb = document.getElementById('next');
+  nb.addEventListener('click', ()=>{
+    idx++;
+    if(idx < QUESTIONS.length){ renderQ(); }
+    else { drawRoute(); renderResult(); }
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+  nb.focus();
+  drawRoute();
+}
+
+function renderResult(){
+  const tier = TIERS.find(t => score >= t.min);
+  stage.innerHTML = `
+    <section class="card result">
+      <p class="eyebrow">Ship's Log</p>
+      <p class="score">${score}<small> / ${QUESTIONS.length}</small></p>
+      <h2 class="tier">${tier.name}</h2>
+      <p class="tier-say">${tier.say}</p>
+
+      <div class="checklist">
+        <div class="rule"></div>
+        <p class="cl-head">回家可以做的六個確認</p>
+        <p class="cl-sub">誠實勾選。這份清單只有你自己看得到。</p>
+        <div id="cl"></div>
+        <div class="cl-count" id="clCount">目前勾了 <b>0</b> 項。</div>
+      </div>
+
+      <p class="closing">
+        錢會不會傳到，跟孩子接不接得住，<br>是兩件事。
+      </p>
+      <p class="sig">
+        <span class="name">財顧芸 Angie</span><br>
+        家族傳承生活顧問<br>
+        陪你完成退休、長照、傳承的人生藍圖
+      </p>
+      <p class="series">
+        <span class="series-tag">人生考古題</span>
+        50+ 的人生必修課<br>
+        退休 ・ 長照 ・ 失智 ・ 父母照護 ・ 第二人生<br>
+        <em>那些沒有人教過，但每個人都會考到的題目。</em>
+      </p>
+      <button class="retry" id="retry">重新航行一次</button>
+      <br><a class="article-link" href="education-fund-family-transparency.html">回到文章：替孩子保管的錢，能不能說清楚？</a>
+    </section>`;
+
+  const cl = document.getElementById('cl');
+  CHECKS.forEach((c,i)=>{
+    const l = document.createElement('label');
+    l.className = 'cl-item';
+    l.innerHTML = `<input type="checkbox" data-c="${i}"><span>${c}</span>`;
+    cl.appendChild(l);
+  });
+  cl.addEventListener('change', updateCount);
+
+  document.getElementById('retry').addEventListener('click',()=>{
+    idx = 0; score = 0; marks.length = 0;
+    renderQ();
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+}
+
+function updateCount(){
+  const n = document.querySelectorAll('#cl input:checked').length;
+  const box = document.getElementById('clCount');
+  let tail;
+  if(n === CHECKS.length) tail = '六項全部勾滿。這在我陪過的家庭裡不多見，很值得。';
+  else if(n >= 4) tail = '剩下的那幾項，通常花不到一個下午就能補齊。';
+  else if(n >= 1) tail = '沒勾到的，不代表你做錯了什麼。只代表有幾件事，值得趁現在補上。';
+  else tail = '一項都還沒勾也沒關係。從第一項開始就好——先找出原始本金。';
+  box.innerHTML = `目前勾了 <b>${n}</b> 項。${tail}`;
+}
+
+renderQ();
+</script>
+<script src="assets/article-share.js" defer></script><script src="assets/report.js" defer></script>
+  <script src="assets/hanji-back.js" defer></script>
+</body>
+</html>
+

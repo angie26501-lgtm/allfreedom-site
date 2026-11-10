@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<!--
+  財顧芸人生航海圖 — 生命週期系列〈退休準備〉
+  系列：生命週期風險曲線（社會新鮮人→成家立業→中壯年→退休準備→退休生活）。本篇為第 4 階段。
+  沿用 article-template.html 結構（導覽列／TOC／進度條／頁尾一致）。
+  部署：與 index.html 同一資料夾。待補：封面圖 lifecycle-retirement-cover.png、上一篇/下一篇與相關文章 href。
+-->
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>退休準備：從「拼命累積」轉向「穩穩領出」——50 歲後最關鍵的轉向｜財顧芸人生航海圖</title>
+<meta name="description" content="退休準備期，準備的不只是一個數字，而是一次轉向：從資產累積，轉向資產保全與現金流。看懂自己在生命週期曲線上的位置，把退休後的『月薪』先畫出來。">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: { paper:'#fffdf8', moss:'#3f6b4f', gold:'#c79a4a', rose:'#cf7f73', ocean:'#1b4751', sea:'#e6efee', ink:'#2e3a33' },
+      fontFamily: { serif:['"Noto Serif TC"','serif'], sans:['"Noto Sans TC"','sans-serif'] },
+    } },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color:#fffdf8; color:#2e3a33; }
+  .bearing { letter-spacing:.32em; font-size:.72rem; font-weight:500; }
+  #progress { position:fixed; top:0; left:0; height:3px; width:0; background:#c79a4a; z-index:60; transition:width .1s linear; }
+
+  .prose h2 { font-family:"Noto Serif TC",serif; font-weight:600; color:#1b4751; font-size:1.5rem; margin:2.2rem 0 .9rem; scroll-margin-top:90px; }
+  .prose h3 { font-family:"Noto Serif TC",serif; font-weight:600; color:#3f6b4f; font-size:1.18rem; margin:1.6rem 0 .6rem; scroll-margin-top:90px; }
+  .prose p  { line-height:1.95; margin:.9rem 0; color:rgba(46,58,51,.88); }
+  .prose ul { margin:.8rem 0; padding-left:1.2rem; list-style:disc; }
+  .prose li { line-height:1.9; margin:.3rem 0; color:rgba(46,58,51,.85); }
+  .prose strong { color:#1b4751; }
+
+  /* 公式 / 重點小膠囊 */
+  .chip { display:inline-block; background:#e6efee; color:#1b4751; border:1px solid rgba(63,107,79,.18); border-radius:9999px; padding:.15rem .7rem; margin:.15rem .15rem; font-size:.86rem; font-weight:500; }
+  .formula { background:#fff; border:1px solid rgba(63,107,79,.16); border-radius:1rem; padding:1rem 1.1rem; margin:1.1rem 0; line-height:2.1; }
+
+  /* 財顧芸提醒：金邊引言＋芸印 */
+  .reminder { position:relative; background:#fffaf0; border:1px solid rgba(199,154,74,.4); border-left:4px solid #c79a4a; border-radius:1rem; padding:1.5rem 1.6rem 1.6rem; margin:2rem 0; }
+  .reminder .seal { position:absolute; top:-16px; left:20px; height:36px; width:36px; border-radius:9999px; background:#c79a4a; color:#fff; display:flex; align-items:center; justify-content:center; font-family:"Noto Serif TC",serif; box-shadow:0 4px 10px -4px rgba(199,154,74,.7); }
+  .reminder .label { font-size:.74rem; letter-spacing:.2em; color:#c79a4a; font-weight:600; }
+  .reminder p { font-family:"Noto Serif TC",serif; color:#5a4a2a; line-height:1.95; margin-top:.5rem; font-size:1.06rem; }
+
+  /* AI 生成指示詞 */
+  .ai-box { background:#10241f; color:#e9efe9; border-radius:1rem; padding:1.3rem 1.4rem; margin:1.4rem 0; }
+  .ai-box .head { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+  .ai-box .title { font-weight:600; color:#e7c987; }
+  .ai-box pre { white-space:pre-wrap; word-break:break-word; font-size:.9rem; line-height:1.75; margin-top:.8rem; color:#d6e0d8; font-family:inherit; }
+  .copy-btn { flex:none; background:#c79a4a; color:#10241f; border:none; border-radius:9999px; padding:.4rem .9rem; font-size:.82rem; font-weight:600; cursor:pointer; transition:background .2s; }
+  .copy-btn:hover { background:#d8ab5b; }
+
+  .toc a { display:block; padding:5px 0; color:rgba(46,58,51,.7); font-size:.9rem; border-left:2px solid transparent; padding-left:12px; transition:color .2s,border-color .2s; }
+  .toc a:hover { color:#1b4751; }
+  .toc a.lvl3 { padding-left:26px; font-size:.85rem; }
+  .toc a.active { color:#1b4751; border-left-color:#c79a4a; }
+
+  .reveal { opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity:1; transform:none; }
+  .card-lift { transition:transform .25s ease, box-shadow .25s ease; }
+  .card-lift:hover { transform:translateY(-4px); box-shadow:0 14px 30px -18px rgba(27,71,81,.45); }
+  a:focus-visible, button:focus-visible { outline:2px solid #1b4751; outline-offset:3px; border-radius:4px; }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} .reveal{opacity:1;transform:none;transition:none} .card-lift{transition:none} }
+  :root { font-size: 112.5%; }
+  body { -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; }
+
+  .nav-hint { position: relative; display: inline-flex; align-items: center; justify-content: center; }
+  .nav-hint::after {
+    content: attr(data-tip);
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 12px);
+    transform: translate(-50%, 6px);
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    background: #1b4751;
+    color: #fffdf8;
+    border: 1px solid rgba(199,154,74,.35);
+    border-radius: 999px;
+    padding: .42rem .72rem;
+    font-size: .78rem;
+    line-height: 1;
+    box-shadow: 0 14px 30px -18px rgba(27,71,81,.55);
+    transition: opacity .18s ease, transform .18s ease;
+    z-index: 80;
+  }
+  .nav-hint:hover::after,
+  .nav-hint:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
+  .nav-disabled { cursor: default; color: rgba(46,58,51,.55); }
+</style>
+  <link rel="stylesheet" href="assets/public-site-navigation.css">
+</head>
+<body class="font-sans antialiased">
+
+<div id="progress"></div>
+
+<!-- 導覽列（與 index.html 一致） -->
+<header class="sticky top-0 z-50 bg-paper/90 backdrop-blur border-b border-moss/15">
+  <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <div class="flex items-baseline gap-2">
+      <a href="about-angie-profile.html" class="font-serif text-xl font-700 text-ocean tracking-wide no-underline">財顧芸</a>
+      <details class="relative block group">
+        <summary class="list-none cursor-pointer text-sm text-moss/70 hover:text-ocean transition select-none" style="list-style:none">人生航海圖 ▾</summary>
+        <div class="absolute left-0 mt-3 w-64 rounded-2xl border border-moss/15 bg-paper shadow-xl p-2 text-sm text-ink/80 z-50">
+          <a href="index.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">回首頁</a>
+          
+          <a href="detective.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">人生金錢偵探社</a>
+          <a href="koguti.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">人生考古題</a>
+          <a href="comic.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">胖胖幣財商漫畫</a>
+          <a href="observatory.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">財顧芸觀察室</a>
+          <a href="teacher-recruitment.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">第二曲線</a>
+          <a href="lifecycle-legacy.html#second-half-blueprint" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">50+傳承規劃</a>
+        </div>
+      </details>
+    </div>
+        <ul class="hidden lg:flex items-center gap-5 text-[0.9rem] text-ink/80">
+      <li><span class="hover:text-ocean transition nav-hint nav-disabled" data-tip="建置中" tabindex="0">會員專區</span></li>
+      <li></li>
+      <li><a href="teacher-recruitment.html" title="退休後的專業延續與第二人生方向" class="hover:text-ocean transition nav-hint" data-tip="退休後的專業延續與第二人生方向">第二曲線</a></li>
+      <li><a href="lifecycle-legacy.html#second-half-blueprint" class="hover:text-ocean transition nav-hint" data-tip="打造人生下半場幸福藍圖">50+傳承規劃</a></li>
+      <li><a href="asset-checkup-lite.html" class="hover:text-ocean transition nav-hint" data-tip="開始 60 秒財務體質快篩">財務健診</a></li>
+      <li></li>
+    </ul>
+    <a href="consultation.html#booking" class="inline-flex items-center rounded-full bg-ocean text-paper text-sm px-4 py-2 hover:bg-ocean/90 transition">預約諮詢</a>
+  </nav>
+</header>
+
+<main>
+  <div class="max-w-6xl mx-auto px-5 pt-8 pb-16 md:pb-24">
+
+    <!-- 麵包屑 -->
+    <nav class="text-sm text-ink/55 reveal" aria-label="麵包屑">
+      <a href="index.html" class="hover:text-ocean">首頁</a>
+      <span class="mx-1.5">/</span>
+      <a href="index.html#latest" class="hover:text-ocean">成長種子</a>
+      <span class="mx-1.5">/</span>
+      <span class="text-ink/70">退休準備</span>
+    </nav>
+
+    <!-- 標題與作者列 -->
+    <header class="mt-6 reveal">
+      <span class="text-sm text-rose font-500">成長種子 · 生命週期系列 ④ 退休準備</span>
+      <h1 class="font-serif font-700 text-ocean text-3xl md:text-4xl leading-tight mt-2">
+        退休準備：從「拼命累積」轉向「穩穩領出」
+      </h1>
+      <p class="font-serif font-600 text-gold text-lg md:text-xl mt-2">退休前 10 年，最重要的財務決策</p>
+      <p class="text-ink/65 mt-3 leading-relaxed">50 歲後最關鍵的一次轉向——不是再拼一波，而是把已經有的，安全交棒給未來的自己。</p>
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-5 text-sm text-ink/60">
+        <span class="flex items-center gap-2">
+          <span class="inline-flex h-9 w-9 rounded-full bg-ocean/10 text-ocean items-center justify-center font-serif">芸</span>
+          <span class="text-ink/80 font-500">財顧芸</span>
+        </span>
+        <span class="hidden sm:flex flex-wrap gap-1">
+          <span class="text-xs rounded-full bg-ocean/8 text-ocean px-2 py-0.5">MDRT</span>
+          <span class="text-xs rounded-full bg-ocean/8 text-ocean px-2 py-0.5">RFC</span>
+          <span class="text-xs rounded-full bg-ocean/8 text-ocean px-2 py-0.5">RFA</span>
+          <span class="text-xs rounded-full bg-ocean/8 text-ocean px-2 py-0.5">RFP</span>
+        </span>
+        <span>·</span>
+        <span>待填日期</span>
+        <span>·</span>
+        <span>閱讀 7 分鐘</span>
+      </div>
+    </header>
+
+    <!-- 退休準備主題封面圖 -->
+    <figure class="mt-7 reveal">
+      <img src="public-assets/img/articles/lifecycle-retirement-cover.png" alt="熟齡者站在人生轉折點，從累積財富的山路走向安穩退休生活與豐收果樹" width="1898" height="829" class="w-full aspect-[16/7] rounded-2xl object-cover border border-moss/12 shadow-sm" decoding="async" fetchpriority="high" />
+    </figure>
+
+    <!-- 系列導引 -->
+    <div class="mt-6 reveal">
+      <div class="flex flex-wrap items-center gap-2 text-sm">
+        <span class="text-ink/50">生命週期五階段：</span>
+        <span class="chip">社會新鮮人</span>
+        <span class="chip">成家立業</span>
+        <span class="chip">中壯年</span>
+        <span class="chip" style="background:#c79a4a;color:#fff;border-color:#c79a4a;">退休準備 ←你在這</span>
+        <span class="chip">退休生活</span>
+      </div>
+    </div>
+
+    <!-- 主體：內文 + 側欄 TOC -->
+    <div class="mt-8 grid lg:grid-cols-[1fr_260px] gap-10">
+
+      <!-- 內文 -->
+      <article id="articleBody" class="prose max-w-none reveal">
+        <p>前陣子有位 56 歲的大哥來找我，把存摺、保單、勞保試算表攤在桌上，問了一句很多人都會問的話：「芸，我這樣，到底能不能退休？」</p>
+        <p>他其實很會存，帳戶數字也不難看。讓他卡住的，不是「存了多少」，而是另一個問題——<strong>「接下來，這些錢要怎麼安全地，變成我每個月領得到的生活費？」</strong>這正是退休準備期最核心、卻最少人認真想過的一題。</p>
+
+        <h2>退休準備，準備的其實是一次「轉向」</h2>
+        <p>人生前半場，財務的主旋律是<strong>累積</strong>：努力賺、努力存、努力讓資產長大。但到了退休準備期（大約 50 歲之後），主旋律要換了——<strong>從「累積」轉向「保全」與「現金流」</strong>。</p>
+        <p>這不是要你停下來，而是換一種開法。把油門踩到底拚成長的階段過去了，接下來更像是<strong>慢慢靠岸</strong>：確認手上的成果不要在最後一段路出大錯，並且把它轉換成未來每個月領得到的生活費。退休準備，準備的不是一個漂亮的數字，而是這次轉向本身。</p>
+
+        <h2>先看你在曲線上的位置</h2>
+        <p>把「生命週期風險曲線」攤開來看，退休準備是第四個階段。中壯年那段「風險熱區」剛過——家庭責任開始下降，是好消息；但同時，你最大的一項本錢也在悄悄變少，那就是<strong>時間</strong>。</p>
+        <p>時間為什麼關鍵？因為它決定了你「承受波動的能力」。年輕時資產跌一波，還有十幾二十年可以等它長回來；越接近退休，可以等待的年期越短，<strong>同樣一次大跌，殺傷力完全不同</strong>。所以這個階段，配置的邏輯必須跟著年齡一起轉彎。</p>
+
+        <h2>這個階段，最該做對的三件事</h2>
+
+        <h3>一、從「衝刺累積」轉向「資產保全」</h3>
+        <p>退休前最怕的風險，有個名字叫<strong>「報酬順序風險」</strong>——意思是，<em>剛好在你退休前後幾年遇到大跌</em>，會比退休很久以後才跌，傷害大得多。因為那時你正要開始領錢，跌價又領錢，會把本金啃得特別快。</p>
+        <p>對策不是「全部出場、改抱現金」，而是<strong>調整比例</strong>：逐步把一部分資產，從追成長的部位，移到波動較小、較好預期的部位，讓退休前後幾年的生活費有穩定的來源，不必被迫在低點賣股換飯錢。</p>
+
+        <h3>二、把退休後的「月薪」先畫出來</h3>
+        <p>退休不是「沒有收入」，而是<strong>收入來源換人</strong>——從「工作」換成「年金＋自有資產提領」。台灣人的退休金，大致有三層：</p>
+        <ul>
+          <li><strong>勞保年金</strong>：依投保年資與金額，按月給付（可上勞保局試算）。</li>
+          <li><strong>勞退（新制專戶）</strong>：雇主每月提撥 6%＋自己可自願提繳，退休時一次或分期領。</li>
+          <li><strong>個人準備</strong>：自己的投資、儲蓄、保險年金——這層最能由你掌控，也最該提早佈局。</li>
+        </ul>
+        <p>把前兩層「每月大概能領多少」估出來，再對照你期望的退休生活，就能算出個人準備要補上的缺口：</p>
+        <div class="formula">
+          <span class="chip">每月缺口</span> ＝ <span class="chip">期望退休月支出</span> −（<span class="chip">勞保年金</span> ＋ <span class="chip">勞退月提領</span> ＋ <span class="chip">其他年金</span>）
+        </div>
+        <p>把抽象的「夠不夠」變成一個具體的月數字，焦慮就有了方向——你會知道要補的是「每月還差多少」，而不是一個嚇人的天文數字。</p>
+
+        <h3>三、重新檢視風險：這階段最怕「中途出事」</h3>
+        <p>退休準備期還有一個容易被忽略的風險：<strong>就在最後衝刺階段，自己病倒了</strong>。一場重病、失能或長照需求，會同時打掉「還在賺的收入」和「好不容易累積的資產」，是雙重打擊。</p>
+        <p>所以這階段的保障重點會轉移：年輕時主要靠「責任型壽險」守住家庭責任；接近退休，重心更應該放在<strong>醫療、重大傷病、失能與長照</strong>，守住的是「不要讓一場病，吃掉整個退休金」。（這部分可以用賓士圖一塊一塊檢查，屬於守護種子的範圍。）</p>
+
+        <h2>一個粗估退休準備的方式</h2>
+        <p>下面是抓「方向感」用的估算，不是精算——通膨、長壽、報酬都會變動，重點是<strong>現在就把自己的位置抓出來</strong>，而不是算到小數點。</p>
+        <div class="formula">
+          <div><span class="chip">退休後年支出</span> ≈ 現在年支出 × 7～8 成（但醫療、照顧支出可能反而上升，抓保守一點）</div>
+          <div class="mt-2"><span class="chip">退休所需資產</span> ≈ 退休後年支出 × 退休年數（國人越來越長壽，年數抓 25～30 年較安全）</div>
+          <div class="mt-2"><span class="chip">每年可提領</span> ≈ 可動用資產 × 約 3～4%（常被引用的提領率參考，僅供抓方向，非保證）</div>
+        </div>
+        <p>「3～4% 提領率」是國外常被引用的一個經驗法則，方便你快速反推「這筆資產大概撐得起多少年支出」。但它<strong>不是保證</strong>——市場、通膨、你的實際花費都會讓結果不同，真正規劃時要回到你自己的數字。</p>
+
+        <!-- 財顧芸提醒 -->
+        <div class="reminder reveal">
+          <span class="seal">芸</span>
+          <p class="label">財顧芸提醒</p>
+          <p>退休準備期最珍貴的，往往不是「再多賺一筆」，而是「不要在最後一哩路出大錯」。把前半生累積的成果，穩穩接住、慢慢領出來——這比追高更難，也更重要。提早三五年開始轉向，你會多出最寶貴的東西：選擇的餘裕。</p>
+        </div>
+
+        <h2>現在就可以做的第一步</h2>
+        <p>不必等到一切想清楚。這週你可以先做兩件最簡單的事：<strong>一，上勞保局試算你的勞保年金與勞退；二，把你期望的退休月支出寫下來</strong>。光是這兩個數字，就能讓「夠不夠」從模糊的擔心，變成可以一步步補起來的缺口。</p>
+
+        <!-- AI 生成指示詞 -->
+        <div class="ai-box reveal">
+          <div class="head">
+            <span class="title">🎨 AI 生成指示詞（封面圖）</span>
+            <button class="copy-btn" id="copyPrompt">複製</button>
+          </div>
+          <pre id="promptText">A warm, minimal editorial illustration of a person in their late 50s standing at a gentle bend in a path: behind them a steep mountain climb, ahead a calm garden path leading toward a fruit-laden tree under soft morning light. Conveys a turning point from striving to serenity. Flat vector style, soft textures, muted palette of moss green, warm gold and cream paper tones, generous negative space, no text. 16:7 banner composition.</pre>
+        </div>
+      </article>
+
+      <!-- 側欄 TOC -->
+      <aside class="lg:sticky lg:top-24 self-start reveal">
+        <div class="bg-white rounded-2xl border border-moss/12 p-5">
+          <button id="tocToggle" class="w-full flex items-center justify-between text-left" aria-expanded="true">
+            <span class="font-serif font-600 text-ocean">文章目錄</span>
+            <svg id="tocChevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1b4751" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <nav id="toc" class="toc mt-3" aria-label="文章目錄"></nav>
+        </div>
+      </aside>
+    </div>
+
+    <!-- 行動呼籲 -->
+    <section class="mt-12 bg-ocean text-paper rounded-2xl p-8 md:p-10 reveal">
+      <p class="bearing text-gold uppercase mb-2">下一步</p>
+      <h2 class="font-serif font-600 text-2xl md:text-3xl">想知道自己的退休缺口有多大？</h2>
+      <p class="text-paper/85 mt-3 leading-relaxed">我可以陪你把三層退休金估出來、畫出退休後的「月薪」，再看資產該怎麼從累積轉向保全與現金流。</p>
+      <div class="flex flex-col sm:flex-row gap-3 mt-6">
+        <a href="consultation.html#booking" class="inline-flex items-center justify-center rounded-full bg-paper text-ocean px-7 py-3 font-500 hover:bg-paper/90 transition">預約諮詢</a>
+        
+      </div>
+      <p class="text-paper/55 text-xs mt-5">＊本文為一般退休理財觀念分享，非個別投資或投保建議；提領率、年金試算僅供抓方向，實際規劃請依個人狀況評估，或與專業人員討論。</p>
+    </section>
+
+    <!-- 上一篇／下一篇（生命週期系列） -->
+    <nav class="mt-10 grid sm:grid-cols-2 gap-4 reveal" aria-label="上一篇與下一篇">
+      <a href="lifecycle-midlife.html" class="card-lift bg-white rounded-2xl border border-moss/12 p-6">
+        <span class="text-xs text-ink/50">← 上一篇 · 生命週期 ③</span>
+        <p class="font-serif font-600 text-ink mt-1 leading-snug">中壯年：家庭責任最重的「風險熱區」怎麼撐</p>
+      </a>
+      <a href="lifecycle-retirement-life.html" class="card-lift bg-white rounded-2xl border border-moss/12 p-6 sm:text-right">
+        <span class="text-xs text-ink/50">下一篇 · 生命週期 ⑤ →</span>
+        <p class="font-serif font-600 text-ink mt-1 leading-snug">退休生活：穩定現金流與資產傳承怎麼安排</p>
+      </a>
+    </nav>
+
+    <!-- 相關文章 -->
+    <section class="mt-14 reveal">
+      <h2 class="font-serif font-600 text-ocean text-2xl mb-6">成長種子 · 你可能也想看</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="retirement-asset-structure.html" class="card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden">
+          <img src="public-assets/img/articles/2026-07-30-retirement-asset-structure.jpg" alt="整理退休資產與現金流，讓退休生活更安心" width="1122" height="1402" class="w-full h-32 object-cover" loading="lazy" decoding="async" />
+          <div class="p-5">
+            <span class="text-xs text-rose font-500">退休規劃 · 資產</span>
+            <h3 class="font-serif font-600 text-ink mt-1.5 leading-snug">帳戶裡有錢，為什麼退休後還是不安心？</h3>
+            <p class="text-ink/55 text-xs mt-2">財顧芸 · 待填日期 · 閱讀 6 分鐘</p>
+          </div>
+        </a>
+        <a href="lifecycle-longtermcare.html" class="card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden">
+          <img src="public-assets/img/articles/2026-06-18-long-term-care-family-preparation.jpg" alt="家庭一起討論長期照顧與費用準備" width="1254" height="1254" class="w-full h-32 object-cover" loading="lazy" decoding="async" />
+          <div class="p-5">
+            <span class="text-xs text-rose font-500">守護種子 · 長照</span>
+            <h3 class="font-serif font-600 text-ink mt-1.5 leading-snug">失能不只是醫療：被照顧的日子，錢從哪來？</h3>
+            <p class="text-ink/55 text-xs mt-2">財顧芸 · 待填日期 · 閱讀 7 分鐘</p>
+          </div>
+        </a>
+        <a href="lifecycle-overview.html" class="card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden">
+          <img src="public-assets/img/previews/lifecycle-risk-curve-ba9ec599.webp" alt="人生不同階段的財富累積與風險變化曲線" width="1672" height="941" class="w-full h-32 object-cover" loading="lazy" decoding="async" />
+          <div class="p-5">
+            <span class="text-xs text-rose font-500">觀念種子 · 財商</span>
+            <h3 class="font-serif font-600 text-ink mt-1.5 leading-snug">生命週期風險曲線：財富與風險是動態變化的</h3>
+            <p class="text-ink/55 text-xs mt-2">財顧芸 · 2026/06 · 閱讀 5 分鐘</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- 頁尾（與 index.html 一致） -->
+<footer class="bg-ocean text-paper/80">
+  <div class="max-w-6xl mx-auto px-5 py-12">
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+      <div>
+        <p class="font-serif text-lg text-paper">財顧芸人生航海圖</p>
+        <p class="text-paper/60 text-sm mt-2">幸福財務領航員 · Angie｜陪你航向更有選擇權的人生。</p>
+      </div>
+      <nav class="flex flex-wrap gap-x-8 gap-y-3 text-sm">
+        <a href="https://www.facebook.com/IFA.Fans/" class="hover:text-paper transition">Facebook 粉專</a>
+        <a href="https://open.spotify.com/show/1us537rWraGs4qdY8beG5a" class="hover:text-paper transition">Podcast · 心海羅盤幸福航行誌</a>
+        <a href="https://www.youtube.com/@IFA-Fans" class="hover:text-paper transition">YouTube</a>
+        <a href="https://lin.ee/uMYPHQc" class="hover:text-paper transition">LINE@ 官方群組</a>
+      </nav>
+    </div>
+    <p class="text-paper/45 text-xs mt-10">© <span id="year"></span> 馥芸財富學苑. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // 進場淡入
+  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // 閱讀進度條
+  const progress = document.getElementById('progress');
+  const onScroll = () => {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    progress.style.width = max > 0 ? (h.scrollTop / max * 100) + '%' : '0%';
+  };
+  document.addEventListener('scroll', onScroll, { passive:true }); onScroll();
+
+  // 自動產生文章目錄（依 h2/h3）
+  const body = document.getElementById('articleBody');
+  const toc = document.getElementById('toc');
+  const heads = Array.from(body.querySelectorAll('h2, h3'));
+  const slug = (t,i) => 'sec-' + i + '-' + t.trim().replace(/\s+/g,'-').replace(/[^\w\u4e00-\u9fa5-]/g,'').slice(0,24);
+  const links = [];
+  heads.forEach((h,i)=>{
+    if(!h.id) h.id = slug(h.textContent, i);
+    const a = document.createElement('a');
+    a.href = '#' + h.id;
+    a.textContent = h.textContent;
+    if(h.tagName === 'H3') a.classList.add('lvl3');
+    a.addEventListener('click',(e)=>{ e.preventDefault(); document.getElementById(h.id).scrollIntoView({behavior:'smooth'}); });
+    toc.appendChild(a);
+    links.push({a, el:h});
+  });
+
+  // 目錄展開／收合
+  const tocToggle = document.getElementById('tocToggle');
+  const tocChevron = document.getElementById('tocChevron');
+  tocToggle.addEventListener('click', ()=>{
+    const open = toc.style.display !== 'none';
+    toc.style.display = open ? 'none' : 'block';
+    tocToggle.setAttribute('aria-expanded', String(!open));
+    tocChevron.style.transform = open ? 'rotate(-90deg)' : 'none';
+  });
+
+  // 捲動時標示目前章節
+  const spy = new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.a.classList.toggle('active', l.el === e.target)); } });
+  }, { rootMargin:'-80px 0px -70% 0px', threshold:0 });
+  heads.forEach(h=>spy.observe(h));
+
+  // AI 指示詞一鍵複製
+  const copyBtn = document.getElementById('copyPrompt');
+  copyBtn.addEventListener('click', async ()=>{
+    try { await navigator.clipboard.writeText(document.getElementById('promptText').textContent.trim());
+      copyBtn.textContent='已複製 ✓'; setTimeout(()=>copyBtn.textContent='複製',1800);
+    } catch(e){ copyBtn.textContent='請手動選取'; }
+  });
+</script>
+  <script src="public-assets/js/image-loader.js" defer></script>
+  <script src="public-assets/js/fuyun-cursor.js" defer></script>
+  <script src="assets/article-share.js" defer></script>
+<script src="assets/report.js" defer></script>
+  <script src="assets/public-site-navigation.js" defer></script>
+<script src="assets/footer-recruitment-link-v1.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

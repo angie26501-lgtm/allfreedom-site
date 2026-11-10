@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>冒險島｜風險規劃練功場｜人生金錢偵探社</title>
+<meta name="description" content="選你的人生角色，看懂壽險與產險各保什麼、適合誰、要注意什麼。財顧芸 Angie｜家族傳承生活顧問。">
+<style>
+:root{--ink:#1f3a44;--mut:#5f7680;--card:#fffdf7;--line:#e6dccb;--gold:#d9a441;--green:#2f7f6b;--red:#c0603f;--dg:#1c3a2a}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;background:#f4efe4;color:var(--ink);line-height:1.7}
+a{color:var(--green)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 16px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.top b{font-size:15px}.top a{font-size:14px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--ink);white-space:nowrap}
+.wrap{max-width:980px;margin:0 auto;padding:16px}
+.hero{background:linear-gradient(135deg,#2f5d6a,#3f8f6b);color:#fff;border-radius:20px;padding:22px 20px;margin-bottom:16px}
+.hero h1{margin:0 0 6px;font-size:26px}.hero p{margin:0;opacity:.95}
+.badge{display:inline-block;background:rgba(255,255,255,.18);border-radius:999px;padding:2px 12px;font-size:13px;margin-bottom:8px}
+.sec{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:14px 0}
+.sec h2{margin:0 0 4px;font-size:20px}.sub{color:var(--mut);font-size:14px;margin:0 0 10px}
+.roles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.role{font:inherit;cursor:pointer;border:2px solid var(--line);background:#fff;border-radius:14px;padding:10px 6px;text-align:center}
+.role .e{font-size:26px;display:block}.role b{font-size:15px}
+.role.on{border-color:var(--green);background:#eef7f2}
+#pick{margin-top:10px;font-size:15px;min-height:28px}
+.pk{display:inline-block;background:var(--green);color:#fff;border-radius:999px;padding:1px 10px;margin:2px 4px 2px 0;font-size:14px;cursor:pointer;border:0;font:inherit}
+.stories{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.st{display:block;border:1px solid var(--line);border-left:5px solid var(--green);border-radius:14px;background:#fff;padding:12px 14px;text-decoration:none;color:inherit;transition:.2s}
+.st:hover{box-shadow:0 4px 14px rgba(0,0,0,.08);transform:translateY(-1px)}
+.st .tg{display:inline-block;font-size:12px;font-weight:800;color:var(--dg);background:#e9f5ee;border-radius:99px;padding:1px 9px;margin-bottom:4px}
+.st .hk{display:block;font-size:15px;line-height:1.7;margin:2px 0 6px}.st .go{font-size:13px;font-weight:800;color:var(--green)}
+.ic .bd .sl{display:block;margin-top:8px;padding:8px 10px;border-radius:10px;background:#f3f9f5;font-size:13px;text-decoration:none;color:inherit}
+.ic .bd .sl b{color:var(--green)}
+@media (max-width:640px){.stories{grid-template-columns:1fr}}
+.grp{font-weight:800;color:var(--mut);margin:12px 0 6px;font-size:14px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ic{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;transition:.2s}
+.ic.hl{border:2px solid var(--green);box-shadow:0 0 0 4px #d8efe3}
+.ic summary{list-style:none;cursor:pointer;padding:12px;display:flex;gap:10px;align-items:center}
+.ic summary::-webkit-details-marker{display:none}
+.ic .e{font-size:28px}.ic summary b{display:block;font-size:16px}.ic summary small{color:var(--mut)}
+.ic .bd{padding:0 12px 12px;font-size:14px}.ic .bd p{margin:4px 0}.ic .bd b{color:var(--dg)}
+.lock{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lk{border:2px dashed #c9b88a;border-radius:16px;padding:14px;background:#fffaf0;position:relative}
+.lk h3{margin:0 0 4px;font-size:17px}.lk p{margin:0 0 10px;color:var(--mut);font-size:14px}
+.btn{display:inline-block;font:inherit;cursor:pointer;border:0;border-radius:999px;padding:9px 16px;text-decoration:none;font-weight:700}
+.pri{background:var(--green);color:#fff}.gold{background:var(--gold);color:#fff}.ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.solve{display:block;width:100%;font-size:18px;padding:13px;background:var(--red);color:#fff}
+#fb{margin-top:10px}
+.stamp{display:inline-block;border:3px solid var(--red);color:var(--red);font-weight:900;border-radius:10px;padding:2px 12px;transform:rotate(-6deg);font-size:18px}
+.links{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.pill{display:inline-block;background:var(--dg);color:#e9c878;border:2px solid #e9c878;border-radius:999px;padding:6px 18px;font-weight:700}
+.yt{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yttabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}.yttab{font:inherit;cursor:pointer;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font-size:14px}.yttab.on{background:var(--green);color:#fff;border-color:var(--green)}
+.foot{text-align:center;color:var(--mut);font-size:13px;padding:10px 0 30px}
+.note{font-size:12px;color:var(--mut);margin-top:10px}
+@media(max-width:720px){.roles{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:1fr}.lock{grid-template-columns:1fr}.hero h1{font-size:22px}}
+#shrM{position:fixed;inset:0;background:rgba(20,40,50,.45);display:none;align-items:flex-end;justify-content:center;z-index:10000}
+#shrM.on{display:flex}
+.shr-b{background:#fff;width:100%;max-width:520px;border-radius:20px 20px 0 0;padding:14px 16px 22px;animation:shrUp .2s}
+@keyframes shrUp{from{transform:translateY(40px);opacity:.4}to{transform:none;opacity:1}}
+.shr-h{display:flex;justify-content:space-between;align-items:center;font-size:16px}.shr-h button{border:0;background:#f1ede4;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:15px}
+.shr-t{font-size:13px;color:#5f7680;background:#f7f4ec;border-radius:10px;padding:8px 10px;margin:10px 0;white-space:pre-wrap;word-break:break-all;max-height:90px;overflow:auto}
+.shr-g{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.shr-i{font:inherit;font-size:13px;border:0;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;color:#1f3a44;text-decoration:none}
+.shr-i span{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px}
+.ck-r{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 0;border-bottom:1px dashed var(--line)}.ck-o{display:flex;gap:6px}
+.ck-o label{border:1px solid var(--line);background:#fff;border-radius:999px;padding:3px 12px;font-size:14px;cursor:pointer}.ck-o label:has(input:checked){background:var(--green);color:#fff;border-color:var(--green)}.ck-o input{display:none}
+.ckb{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}#ck{user-select:none;-webkit-user-select:none}
+.ck-res{margin-top:10px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px}.ck-up{margin-top:10px;background:#fff8ea;border:1px solid #e8d3a3;border-radius:12px;padding:10px 12px}
+#ytM{position:fixed;inset:0;z-index:80;background:rgba(15,30,35,.72);display:flex;align-items:center;justify-content:center;padding:12px}
+#ytM[hidden]{display:none}
+#ytM .ytm-b{background:#fff;border-radius:16px;max-width:760px;width:100%;max-height:92vh;overflow:auto;padding:12px 14px}
+#ytM .ytm-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+#ytM .ytm-h button{border:0;background:#eef3f4;border-radius:99px;width:34px;height:34px;font-size:16px;cursor:pointer}
+.ic .bd .vl{font-weight:700}
+.hk-case{margin:10px 0 4px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);min-height:92px}
+.hk-case .q{font-size:19px;font-weight:800;line-height:1.6}.hk-case .q em{font-style:normal;color:#ffe08a}
+.hk-case a{color:#ffe9b0;font-size:13px;font-weight:700}.hk-case .dots{margin-top:6px}.hk-case .dots i{display:inline-block;width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.4);margin-right:5px}.hk-case .dots i.on{background:#ffe08a}
+.hk-promise{margin:6px 0}.hk-gift{margin:8px 0 12px;padding:10px 12px;border-radius:12px;background:#fff8ea;color:#5a3a08;font-size:15px;line-height:1.7}
+.hk-gift small{color:#8a5a12}.hk-go{display:block;text-align:center;font-size:17px;font-weight:800;background:#f2c96b;color:#3a2a10;border:0;padding:13px;border-radius:14px}
+@keyframes hkf{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}.hk-case .q{animation:hkf .5s}
+
+html,body{overflow-x:clip;max-width:100%}
+</style>
+</head>
+<body>
+<div class="top"><b>人生金錢偵探社｜冒險島</b><span style="display:flex;gap:6px"><a href="#" id="advShare">📣 分享</a><a href="index.html">← 回財富航海群島</a></span></div>
+<div class="wrap">
+
+<div class="hero"><span class="badge">⚔️ 加碼島｜風險規劃練功場</span>
+<div class="hk-case" id="hkCase"></div>
+<h1>冒險島：保障，先看懂再決定</h1>
+<p class="hk-promise">⏱️ 5 分鐘・選 1 個角色・看懂 3 張最該注意的保障卡，<b>不用填任何個人資料</b>。</p>
+<div class="hk-gift">🎁 破案就送：<b>ABC 帳戶線上互動版 1 個月免費使用</b>（每破一關加 1 個月，可累加）<br><small>新朋友玩完 3 關，再加送 30 分鐘免費諮詢（每人限用一次）</small></div>
+<a class="btn hk-go" href="#roles" id="hkGo">⚔️ 開始冒險：先選我的角色 ↓</a></div>
+
+<div class="sec"><h2>👤 1. 選你的人生角色</h2><p class="sub">點一個角色，下面的保障圖鑑會亮起建議先看的 3 張卡。</p>
+<div class="roles" id="roles"></div><div id="pick"></div></div>
+
+<div class="sec" id="stories"><h2>📰 先看別人家發生了什麼</h2><p class="sub">每一則都是真實新聞或芸琪身邊的案例。挑一個最有感的，點進去看完整故事。</p>
+<div class="stories" id="stList"></div><p class="note">※ 故事整理自財顧芸網站文章，為一般觀念分享，實際保障依各保單條款為準。</p></div>
+
+<div class="sec"><h2>🗺️ 2. 保障圖鑑</h2><p class="sub">點卡片看：它保什麼、適合誰、要注意什麼。</p>
+<div class="grp">壽險類（保「人」）</div><div class="cards" id="life"></div>
+<div class="grp">產險類（保「財物」與「責任」）</div><div class="cards" id="prop"></div>
+<p class="note">※ 以上為一般保險知識整理，實際保障範圍、理賠條件與除外事項，依各保單條款為準。</p></div>
+
+<div class="sec" id="ck"><h2>🧰 免費簡單版｜我的保障快檢</h2><p class="sub">這 5 種保障，你現在有嗎？每題選一個，30 秒看結果。</p>
+<div id="ckList"></div><div class="ckb"><button class="btn pri" type="button" id="ckGo">看結果</button><button class="btn ghost" type="button" id="ckReset">重新整理選單</button></div><div id="ckR"></div></div>
+
+<div class="sec"><h2>🔒 3. 進階解鎖</h2><p class="sub">想把保障排出優先順序、算出合理的保費，這兩把鑰匙要找芸琪開通。</p>
+<div class="lock">
+ <div class="lk"><h3>🔒 風險賓士圖｜你的保障缺口在哪一塊？</h3><p>一張圖看懂家裡的保障缺口。</p><a class="btn gold" href="https://lin.ee/oOvyuwU" target="_blank" rel="noopener">付費解鎖・加 LINE 洽詢 →</a></div>
+ <div class="lk"><h3>🔒 ABC 帳戶｜保費該放哪、放多少？</h3><p>讓保障和存錢不打架的分帳方法。</p><a class="btn gold" href="https://lin.ee/oOvyuwU" target="_blank" rel="noopener">付費解鎖・加 LINE 洽詢 →</a></div>
+</div></div>
+
+<div class="sec"><h2>✅ 4. 完成冒險島</h2><p class="sub">看完你角色的 3 張保障卡，就可以按下去。</p>
+<button class="btn solve" id="solve" type="button">✅ 我破案了</button><div id="fb"></div>
+<p style="margin:12px 0 0"><button class="btn" type="button" data-yt="0">🎬 想再多懂一點？看芸琪的 8 個影片播放清單</button></p></div>
+
+<div class="sec" style="text-align:center"><h2>想知道自己的保障夠不夠？</h2>
+<p class="sub" style="margin-bottom:12px">加 LINE 找芸琪一對一健檢，把家裡的保單攤開來一起看。</p>
+<a class="btn pri" href="https://lin.ee/oOvyuwU" target="_blank" rel="noopener">加 LINE 找芸琪健檢 →</a>
+<div style="margin-top:16px"><span class="pill">財顧芸 Angie｜家族傳承生活顧問</span></div></div>
+
+<div id="ytM" hidden><div class="ytm-b"><div class="ytm-h"><b id="ytMt">芸琪的影片說明</b><button type="button" id="ytX" aria-label="關閉">✕</button></div>
+<div class="yttabs" id="ytTabs"></div>
+<div class="yt"><iframe id="ytF" title="芸琪的影片說明" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+<p style="margin:8px 0 0;font-size:14px"><a id="ytL" target="_blank" rel="noopener">到 YouTube 看完整播放清單 →</a>　<span style="color:#5f7680">看完關掉視窗，繼續闖關。</span></p></div></div>
+<div class="foot">© 人生金錢偵探社｜財顧芸 陳芸琪　·　引用請註明出處並附連結 <a href="https://reurl.cc/RRZRaG" target="_blank" rel="noopener">reurl.cc/RRZRaG</a></div>
+</div>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const INS=[
+ {id:'term',g:'life',e:'🛡️',n:'定期壽險',s:'用小保費，扛起家人的生活',what:'在保障期間內身故或完全失能，一次給付保險金。',who:'家庭經濟支柱、有房貸或孩子還小的人。',note:'期滿通常沒有返還；保額可以用「負債＋家人幾年生活費」來估。'},
+ {id:'whole',g:'life',e:'🏛️',n:'終身壽險',s:'一輩子的保障，也能預留傳承',what:'終身身故保障，保單有保單價值準備金。',who:'想預留傳承、稅源，或照顧家人到最後的人。',note:'保費比定期壽險高；保障缺口大的時候，先用定期壽險顧好。'},
+ {id:'med',g:'life',e:'🏥',n:'醫療險',s:'住院、手術、自費醫材的荷包防線',what:'住院、手術與醫療費用，分「實支實付」和「住院日額」兩種方式。',who:'每個人都需要，從小孩到長輩。',note:'看收據正本或副本能不能理賠、門診手術有沒有給付、續保條件。'},
+ {id:'ci',g:'life',e:'💗',n:'重大傷病險',s:'重病時，先拿到一筆錢',what:'符合保單約定的重大傷病範圍，一次給付保險金。',who:'擔心生重病、收入中斷的人。',note:'先看除外項目；一次金的額度，想想能撐多久的生活和治療。'},
+ {id:'dis',g:'life',e:'🦽',n:'失能險',s:'不能工作時的薪水替代',what:'依失能等級給付一次金或按月給付扶助金。',who:'靠工作收入養家的人、新手爸媽。',note:'看失能等級表，從第幾級開始給付、按月給付可以領多久。'},
+ {id:'ltc',g:'life',e:'🤝',n:'長照險',s:'需要人照顧時的費用來源',what:'符合長期照顧狀態（生活自理或認知功能退化）後給付保險金。',who:'熟齡族、正在照顧爸媽的三明治世代。',note:'看等待期和認定標準；越晚投保，保費越高。'},
+ {id:'car',g:'prop',e:'🚗',n:'汽機車險',s:'強制險不夠，任意險補上',what:'強制險保對方的體傷；第三人責任險、車體險等任意險補財損和更高額的賠償。',who:'有開車、騎車的每一個人。',note:'強制險不賠對方的車和財物；第三人責任險的保額要夠高。',yt:2},
+ {id:'fire',g:'prop',e:'🏠',n:'住宅火險・地震險',s:'房子的防護罩',what:'火災、地震等造成房屋建築損失時理賠。',who:'有房子、有房貸的家庭。',note:'房貸附的保險常常只保建築本體；室內裝潢和財物要另外看。'},
+ {id:'liab',g:'prop',e:'⚖️',n:'個人責任險',s:'不小心傷到別人時的賠償',what:'因為意外造成他人體傷或財損，依法要賠償時理賠。',who:'有養寵物、家裡會漏水影響鄰居、常騎腳踏車的人。',note:'保費通常不高，但很多人沒想到要買。'}
+];
+const AF='https://www.allfreedom.info/';
+const STORY={
+ term:{h:'保險金下來了，受益人卻還是個孩子。這筆錢誰能動？要怎麼一路陪孩子長大？',u:AF+'detective-insurance-trust-minor-beneficiary.html'},
+ whole:{h:'「趁早把房子過戶給孩子比較省稅」，你也聽過嗎？芸琪的答案是：不一定，搞不好還更貴。',u:AF+'inheritance-house.html'},
+ med:{h:'藝人高欣欣的弟弟赴日旅遊突發腦中風，住院 10 天，醫療費接近新台幣 200 萬元。幾百塊的旅平險接得住嗎？',u:AF+'travel-insurance-overseas-medical-bill.html'},
+ ci:{h:'醫藥費有保險，可是如果明天不能工作了，房貸、生活費照樣要付，家裡還能撐多久？',u:AF+'exam-illness-income-interruption.html'},
+ dis:{h:'家人中風，人救回來了。真正的考驗是出院回家以後：誰陪復健？照顧三年，現金流撐得住嗎？',u:AF+'family-stroke-discharge-care-next-steps.html'},
+ ltc:{h:'71 歲的女兒照顧 102 歲失智母親 12 年。這個家不缺錢，最後卻還是走到了悲劇，卡住的是什麼？',u:AF+'care-needs-someone-to-walk-with-you.html'},
+ car:{h:'車禍發生那一刻，第一步該做什麼？先拍照、先報警，還是先移車？用闖關遊戲走一遍就知道。',u:'../carcrash/index.html',t:'車禍現場應變闖關'},
+ ret:{h:'網路流傳：50 歲起每月存 5 萬，65 歲能存到近兩千萬。芸琪算了一下，背後假設的是每年 9% 報酬。',u:AF+'retirement-saving-at-50.html',n:'退休準備',e:'🌅'}
+};
+const ROLES=[
+ {id:'new',e:'🎒',n:'社會新鮮人',p:['med','ci','car'],t:'剛開始賺錢，先把「醫療」和「意外的賠償」顧好，避免一次大病或事故把存款歸零。'},
+ {id:'sand',e:'👨‍👩‍👧‍👦',n:'三明治家庭支柱',p:['term','ltc','med'],t:'上有爸媽、下有孩子，你是家裡的支柱：先確認「萬一自己倒下」和「爸媽需要照顧」的錢從哪來。'},
+ {id:'parent',e:'👶',n:'新手爸媽',p:['term','med','dis'],t:'孩子還小，最怕收入中斷：用定期壽險和失能險扛住家計，全家都要有醫療險。'},
+ {id:'senior',e:'☕',n:'熟齡退休傳承',p:['ltc','whole','med'],t:'退休後收入變少，先準備長照的費用，再想怎麼把資產好好傳給家人。'}
+];
+const YT=[{n:'🛡️ 保險新手入門六大篇',l:'PL6Jc6ikivmeCR8v-ioWUXAE2JecgfAFz2'},{n:'🏫 保險小學堂',l:'PL6Jc6ikivmeCWXyr3BbkM7kL-MTdVeAsh'},{n:'🚗 保險小學堂・車險',l:'PL6Jc6ikivmeByjE7ZnfTeiQEDxDkzWSUF'},{n:'💡 財商小學堂',l:'PL6Jc6ikivmeDNyhx8HvCMtlnK59My61kO'},{n:'📅 知識日曆',l:'PL6Jc6ikivmeA0MG10G80yICC_ibtNITiN'},{n:'💰 財商',l:'PL6Jc6ikivmeBrtfshRA4LDQ2hUPpDbonC'},{n:'📋 財務規劃個案',l:'PL6Jc6ikivmeAmwhH362P_7v8zOjr2nbF_'},{n:'🌿 馥芸財富學苑',l:'PL6Jc6ikivmeCVXmYEyu-_66wgZnINJzqx'}];
+function yt(i){const y=YT[i];$('#ytM').hidden=false;document.body.style.overflow='hidden';$('#ytF').src='https://www.youtube-nocookie.com/embed/videoseries?list='+y.l;$('#ytL').href='https://www.youtube.com/playlist?list='+y.l;
+ document.querySelectorAll('.yttab').forEach((b,k)=>b.classList.toggle('on',k===i))}
+$('#ytTabs').innerHTML=YT.map((y,i)=>`<button type="button" class="yttab" data-y="${i}">${y.n}</button>`).join('');
+document.querySelectorAll('.yttab').forEach(b=>b.onclick=()=>yt(+b.dataset.y));
+function ytClose(){$('#ytM').hidden=true;$('#ytF').src='about:blank';document.body.style.overflow=''}
+$('#ytX').onclick=ytClose;$('#ytM').onclick=e=>{if(e.target.id==='ytM')ytClose()};document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#ytM').hidden)ytClose()});
+const card=x=>`<details class="ic" id="c-${x.id}"><summary><span class="e">${x.e}</span><span><b>${esc(x.n)}</b><small>${esc(x.s)}</small></span></summary>
+ <div class="bd"><p><b>它保什麼：</b>${esc(x.what)}</p><p><b>適合誰：</b>${esc(x.who)}</p><p><b>要注意：</b>${esc(x.note)}</p><p><a href="#" class="vl" data-yt="${x.yt!=null?x.yt:(x.g==='life'?1:0)}">▶ 看芸琪的影片說明（${x.yt!=null?'車險':x.g==='life'?'保險小學堂':'保險新手入門'}）</a></p>${STORY[x.id]?`<a class="sl" href="${STORY[x.id].u}" ${STORY[x.id].u.startsWith('http')?'target="_blank" rel="noopener"':''}>📰 ${esc(STORY[x.id].h)}　<b>${STORY[x.id].t?'去闖關 →':'看完整故事 →'}</b></a>`:''}</div></details>`;
+const HK=[{q:'幾百塊的旅平險，遇上<em>快 200 萬</em>的海外醫療帳單……如果是你家，接得住嗎？',k:'med'},
+ {q:'家人中風，人救回來了。<em>出院回家那天</em>，全家才開始問：接下來怎麼辦？',k:'dis'},
+ {q:'71 歲的女兒照顧失智母親 <em>12 年</em>。這個家不缺錢，最後卻還是走到了悲劇。',k:'ltc'}];
+let hkI=0;function hkShow(){const h=HK[hkI],s=STORY[h.k];$('#hkCase').innerHTML=`<div class="q">${h.q}</div><a href="${s.u}" target="_blank" rel="noopener">看這個真實故事 →</a><div class="dots">${HK.map((_,k)=>`<i class="${k===hkI?'on':''}"></i>`).join('')}</div>`}
+hkShow();setInterval(()=>{if(document.hidden)return;hkI=(hkI+1)%HK.length;hkShow()},6000);
+$('#hkGo').onclick=e=>{e.preventDefault();$('#roles').scrollIntoView({behavior:'smooth',block:'center'})};
+$('#stList').innerHTML=Object.entries(STORY).map(([k,s])=>{const x=INS.find(i=>i.id===k)||{e:s.e,n:s.n};return `<a class="st" href="${s.u}" ${s.u.startsWith('http')?'target="_blank" rel="noopener"':''}><span class="tg">${x.e} ${esc(x.n)}</span><span class="hk">${esc(s.h)}</span><span class="go">${s.t?'去闖關 →':'看完整故事 →'}</span></a>`}).join('');
+$('#life').innerHTML=INS.filter(x=>x.g==='life').map(card).join('');
+$('#prop').innerHTML=INS.filter(x=>x.g==='prop').map(card).join('');
+$('#roles').innerHTML=ROLES.map(r=>`<button type="button" class="role" data-r="${r.id}"><span class="e">${r.e}</span><b>${esc(r.n)}</b></button>`).join('');
+function pick(id){const r=ROLES.find(x=>x.id===id);if(!r)return;
+ document.querySelectorAll('.role').forEach(b=>b.classList.toggle('on',b.dataset.r===id));
+ document.querySelectorAll('.ic').forEach(d=>{const on=r.p.includes(d.id.slice(2));d.classList.toggle('hl',on);d.open=on});
+ $('#pick').innerHTML=`<p style="margin:0 0 6px">${esc(r.t)}</p>建議先看：${r.p.map(k=>{const x=INS.find(i=>i.id===k);return `<button type="button" class="pk" data-go="${k}">${x.e} ${esc(x.n)}</button>`}).join('')}`;
+ document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>$('#c-'+b.dataset.go).scrollIntoView({behavior:'smooth',block:'center'}));
+ try{localStorage.setItem('hanji_adv_role',id)}catch(e){}}
+document.querySelectorAll('.role').forEach(b=>b.onclick=()=>pick(b.dataset.r));
+document.addEventListener('click',e=>{const a=e.target.closest('[data-yt]');if(!a)return;e.preventDefault();yt(+a.dataset.yt)});
+function done(){try{return !!localStorage.getItem('hanji_adv_done')}catch(e){return false}}
+function showFb(){$('#solve').textContent='✅ 冒險島已破案';
+ $('#fb').innerHTML=`<span class="stamp">冒險島破案！</span><div style="margin:10px 0;padding:10px 12px;border:2px solid #2E7D4F;border-radius:12px;background:#f0f8ee">🎁 <b>破案獎勵</b>：ABC 帳戶線上互動版加送 1 個月（可和其他島累加）。<br><a class="btn pri" href="https://angie26501-lgtm.github.io/business/money-detective/abc-online.html" target="_blank" rel="noopener" style="margin-top:6px">開始使用 ABC 帳戶 →</a></div><div style="margin:10px 0;padding:10px 12px;border:2px dashed #c0603f;border-radius:12px;background:#fff6ef">☕ <b>新朋友 3 關</b>：迷霧港、體質島、冒險島都完成，就送你 <b>30 分鐘免費諮詢</b>（每人限用一次）。<br><a class="btn pri" href="index.html" style="margin-top:6px">回群島看我的見面禮 →</a></div><p style="margin:10px 0 0">再挑戰兩個加碼關卡：</p><div class="links">
+ <a class="btn pri" href="../carcrash/index.html">🚗 車禍現場應變闖關 →</a>
+ <a class="btn ghost" href="https://www.allfreedom.info/mature-assessment-center.html?from=hanji&hanjiSite=adventure&isl=ADV" target="_blank" rel="noopener">🧭 熟齡檢測中心 →</a>
+ <a class="btn ghost" href="index.html">⚓ 回財富航海群島</a><button class="btn ghost" type="button" id="advInv">📣 邀朋友一起闖冒險島</button></div>`;
+ $('#advInv').onclick=()=>shareSheet(ADV_URL,'⚔️ 我闖過「冒險島」了！選你的人生角色，看看自己最該注意哪 3 種保障 👉')}
+// ===== 轉分享選單 =====
+function shareSheet(u,txt){let m=document.getElementById('shrM');if(!m){m=document.createElement('div');m.id='shrM';document.body.appendChild(m);m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('on')})}
+ const full=txt+'\n'+u,E=encodeURIComponent;
+ m.innerHTML=`<div class="shr-b" role="dialog" aria-label="分享"><div class="shr-h"><b>📣 分享給朋友</b><button type="button" id="shrX" aria-label="關閉">✕</button></div><div class="shr-t"></div>
+ <div class="shr-g"><a class="shr-i" href="https://line.me/R/share?text=${E(full)}" target="_blank" rel="noopener"><span style="background:#06c755">💚</span>LINE</a>
+ <a class="shr-i" href="https://www.facebook.com/sharer/sharer.php?u=${E(u)}" target="_blank" rel="noopener"><span style="background:#1877f2">📘</span>Facebook</a>
+ ${navigator.share?'<button type="button" class="shr-i" id="shrN"><span style="background:#5f7680">📲</span>更多</button>':''}
+ <button type="button" class="shr-i" id="shrC"><span style="background:#d9a441">🔗</span>複製連結</button></div></div>`;
+ m.querySelector('.shr-t').textContent=full;m.classList.add('on');
+ m.querySelector('#shrX').onclick=()=>m.classList.remove('on');
+ const n=m.querySelector('#shrN');if(n)n.onclick=()=>navigator.share({text:txt,url:u}).catch(()=>{});
+ m.querySelector('#shrC').onclick=()=>{const ok=()=>{const b=m.querySelector('#shrC');b.lastChild.textContent='已複製 ✓'};
+  try{navigator.clipboard.writeText(full).then(ok,()=>shrFb(full,ok))}catch(e){shrFb(full,ok)}}}
+function shrFb(t,ok){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');ok()}catch(e){}a.remove()}
+const CK=[['🏥','醫療險（住院、手術）'],['💗','重大傷病一次金'],['🦽','失能扶助'],['🛡️','壽險（家人的生活費）'],['🤝','長照保障']];
+$('#ckList').innerHTML=CK.map((c,i)=>`<div class="ck-r"><span>${c[0]} ${c[1]}</span><span class="ck-o">${['有','沒有','不確定'].map((o,j)=>`<label><input type="radio" name="ck${i}" value="${j}"> ${o}</label>`).join('')}</span></div>`).join('');
+const ckBox=$('#ck');['copy','cut','paste','contextmenu'].forEach(ev=>ckBox.addEventListener(ev,e=>e.preventDefault()));
+$('#ckReset').onclick=()=>{ckBox.querySelectorAll('input').forEach(x=>x.checked=false);$('#ckR').innerHTML=''};
+$('#ckGo').onclick=()=>{const a=CK.map((_,i)=>{const c=ckBox.querySelector(`input[name=ck${i}]:checked`);return c?+c.value:null});
+ if(a.includes(null)){$('#ckR').innerHTML='<p style="color:var(--red);font-size:14px">5 項都選好，才能看結果喔。</p>';return}
+ const gap=a.filter(x=>x>0).length,unk=a.filter(x=>x===2).length;
+ const R=gap===0?['🌱 5 項都有','很好！接下來要看的是「保額夠不夠」。']:gap<=2?['🧩 有 '+gap+' 個缺口或不確定','先把不確定的那幾項，翻出保單確認。']:['🚨 有 '+gap+' 個缺口或不確定','保障可能有破洞，建議找人一起把保單攤開來看。'];
+ $('#ckR').innerHTML=`<div class="ck-res"><b style="font-size:18px">${R[0]}</b><p style="margin:4px 0">${R[1]}${unk?`（其中 ${unk} 項不確定）`:''}</p><small style="color:var(--mut)">這是簡易判斷，只看「有沒有」，不看保額夠不夠。</small></div>
+ <div class="ck-up"><b style="color:#8a5a12">🔓 想知道保額夠不夠？升級完整版</b><div style="margin-top:4px"><b>風險賓士圖分析表＋風險需求問診・規劃建議</b>｜12,800 元</div><ul style="margin:4px 0;padding-left:20px;font-size:14px"><li>依你家的狀況，算出每一類保障該有多少</li><li>60～90 分鐘深談＋書面建議</li></ul>
+ <div class="ckb"><a class="btn pri" href="https://lin.ee/oOvyuwU" target="_blank" rel="noopener">加 LINE 升級完整版 →</a><button class="btn ghost" type="button" id="ckKw">複製關鍵字「升級 冒險島」</button></div><small style="color:var(--mut)">價格為顧問服務費，不含保費。</small></div>`;
+ $('#ckKw').onclick=()=>{const t='升級 冒險島';try{navigator.clipboard.writeText(t).then(()=>{$('#ckKw').textContent='已複製 ✓'})}catch(e){}}}
+const ADV_URL='https://www.allfreedom.info/adventure/adventure.html';
+$('#advShare').onclick=e=>{e.preventDefault();shareSheet(ADV_URL,'⚔️ 冒險島｜選你的人生角色，3 分鐘看懂壽險和產險各保什麼 👉')};
+$('#solve').onclick=()=>{try{const wasDone=!!localStorage.getItem('hanji_adv_done');localStorage.setItem('hanji_adv_done',Date.now());if(!wasDone)localStorage.setItem('hanji_abc_until',String(Math.max(Date.now(),+localStorage.getItem('hanji_abc_until')||0)+30*864e5))}catch(e){}showFb();$('#fb').scrollIntoView({behavior:'smooth',block:'center'})};
+if(done())showFb();
+try{const r=localStorage.getItem('hanji_adv_role');if(r)pick(r)}catch(e){}
+</script>
+</body>
+</html>

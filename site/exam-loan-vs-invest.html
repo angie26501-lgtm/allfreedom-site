@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!-- 人生考古題 Q3〈該先還房貸，還是先投資？〉 與站上 lifecycle.html 同結構與連結。獨立 HTML 檔，與 index.html 同層。封面圖留底色佔位（之後上傳 static/img/articles/cover-exam-loan-vs-invest.jpg）。 -->
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>考古題 Q3：該先還房貸，還是先投資？｜人生考古題 · Q3 · 財顧芸</title>
+<meta name="description" content="該先還房貸，還是把錢拿去投資？比的不是利率高低，而是你的『睡得著指數』。人生考古題帶你拆解這道幾乎人人都會考的財務選擇題。">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { paper:'#fffdf8', moss:'#3f6b4f', gold:'#c79a4a', rose:'#cf7f73', ocean:'#1b4751', sea:'#e6efee', ink:'#2e3a33' },
+    fontFamily: { serif:['"Noto Serif TC"','serif'], sans:['"Noto Sans TC"','sans-serif'] },
+  } } };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color:#fffdf8; color:#2e3a33; }
+  .bearing { letter-spacing:.32em; font-size:.72rem; font-weight:500; }
+  #progress { position:fixed; top:0; left:0; height:3px; width:0; background:#c79a4a; z-index:60; transition:width .1s linear; }
+  .prose h2 { font-family:"Noto Serif TC",serif; font-weight:600; color:#1b4751; font-size:1.5rem; margin:2.2rem 0 .9rem; scroll-margin-top:90px; }
+  .prose h3 { font-family:"Noto Serif TC",serif; font-weight:600; color:#3f6b4f; font-size:1.18rem; margin:1.6rem 0 .6rem; scroll-margin-top:90px; }
+  .prose p  { line-height:1.95; margin:.9rem 0; color:rgba(46,58,51,.88); }
+  .prose ul { margin:.8rem 0; padding-left:1.2rem; list-style:disc; }
+  .prose li { line-height:1.9; margin:.3rem 0; color:rgba(46,58,51,.85); }
+  .prose strong { color:#1b4751; }
+  .chip { display:inline-block; background:#e6efee; color:#1b4751; border:1px solid rgba(63,107,79,.18); border-radius:9999px; padding:.15rem .7rem; margin:.15rem .15rem; font-size:.86rem; font-weight:500; }
+  .formula { background:#fff; border:1px solid rgba(63,107,79,.16); border-radius:1rem; padding:1rem 1.1rem; margin:1.1rem 0; line-height:2.1; }
+  .reminder { position:relative; background:#fffaf0; border:1px solid rgba(199,154,74,.4); border-left:4px solid #c79a4a; border-radius:1rem; padding:1.5rem 1.6rem 1.6rem; margin:2rem 0; }
+  .reminder .seal { position:absolute; top:-16px; left:20px; height:36px; width:36px; border-radius:9999px; background:#c79a4a; color:#fff; display:flex; align-items:center; justify-content:center; font-family:"Noto Serif TC",serif; box-shadow:0 4px 10px -4px rgba(199,154,74,.7); }
+  .reminder .label { font-size:.74rem; letter-spacing:.2em; color:#c79a4a; font-weight:600; }
+  .reminder p { font-family:"Noto Serif TC",serif; color:#5a4a2a; line-height:1.95; margin-top:.5rem; font-size:1.06rem; }
+  .ai-box { background:#10241f; color:#e9efe9; border-radius:1rem; padding:1.3rem 1.4rem; margin:1.4rem 0; }
+  .ai-box .head { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+  .ai-box .title { font-weight:600; color:#e7c987; }
+  .ai-box pre { white-space:pre-wrap; word-break:break-word; font-size:.9rem; line-height:1.75; margin-top:.8rem; color:#d6e0d8; font-family:inherit; }
+  .copy-btn { flex:none; background:#c79a4a; color:#10241f; border:none; border-radius:9999px; padding:.4rem .9rem; font-size:.82rem; font-weight:600; cursor:pointer; transition:background .2s; }
+  .copy-btn:hover { background:#d8ab5b; }
+  .toc a { display:block; padding:5px 0; color:rgba(46,58,51,.7); font-size:.9rem; border-left:2px solid transparent; padding-left:12px; transition:color .2s,border-color .2s; }
+  .toc a:hover { color:#1b4751; } .toc a.lvl3 { padding-left:26px; font-size:.85rem; } .toc a.active { color:#1b4751; border-left-color:#c79a4a; }
+  .reveal { opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity:1; transform:none; }
+  .card-lift { transition:transform .25s ease, box-shadow .25s ease; }
+  .card-lift:hover { transform:translateY(-4px); box-shadow:0 14px 30px -18px rgba(27,71,81,.45); }
+  a:focus-visible, button:focus-visible { outline:2px solid #1b4751; outline-offset:3px; border-radius:4px; }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} .reveal{opacity:1;transform:none;transition:none} .card-lift{transition:none} }
+  :root { font-size: 112.5%; }
+  body { -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; }
+
+  .nav-hint { position: relative; display: inline-flex; align-items: center; justify-content: center; }
+  .nav-hint::after {
+    content: attr(data-tip);
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 12px);
+    transform: translate(-50%, 6px);
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    background: #1b4751;
+    color: #fffdf8;
+    border: 1px solid rgba(199,154,74,.35);
+    border-radius: 999px;
+    padding: .42rem .72rem;
+    font-size: .78rem;
+    line-height: 1;
+    box-shadow: 0 14px 30px -18px rgba(27,71,81,.55);
+    transition: opacity .18s ease, transform .18s ease;
+    z-index: 80;
+  }
+  .nav-hint:hover::after,
+  .nav-hint:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
+  .nav-disabled { cursor: default; color: rgba(46,58,51,.55); }
+</style>
+  
+  <link rel="stylesheet" href="public-assets/css/site-usability.css">
+  <link rel="stylesheet" href="assets/article-funnel.css">
+</head>
+<body class="font-sans antialiased">
+<div id="progress"></div>
+<header class="sticky top-0 z-50 bg-paper/90 backdrop-blur border-b border-moss/15">
+  <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <div class="flex items-baseline gap-2">
+      <a href="about-angie-profile.html" class="font-serif text-xl font-700 text-ocean tracking-wide no-underline">財顧芸</a>
+      <details class="relative block group">
+        <summary class="list-none cursor-pointer text-sm text-moss/70 hover:text-ocean transition select-none" style="list-style:none">人生航海圖 ▾</summary>
+        <div class="absolute left-0 mt-3 w-64 rounded-2xl border border-moss/15 bg-paper shadow-xl p-2 text-sm text-ink/80 z-50">
+          <a href="index.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">回首頁</a>
+          
+          <a href="detective.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">人生金錢偵探社</a>
+          <a href="koguti.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">人生考古題</a>
+          <a href="comic.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">胖胖幣財商漫畫</a>
+          <a href="observatory.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">財顧芸觀察室</a>
+          <a href="teacher-recruitment.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">第二曲線</a>
+          <a href="lifecycle-legacy.html#second-half-blueprint" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">50+傳承規劃</a>
+        </div>
+      </details>
+    </div>
+        <ul class="hidden lg:flex items-center gap-5 text-[0.9rem] text-ink/80">
+      <li><span class="hover:text-ocean transition nav-hint nav-disabled" data-tip="建置中" tabindex="0">會員專區</span></li>
+      <li></li>
+      <li><a href="teacher-recruitment.html" title="退休後的專業延續與第二人生方向" class="hover:text-ocean transition nav-hint" data-tip="退休後的專業延續與第二人生方向">第二曲線</a></li>
+      <li><a href="lifecycle-legacy.html#second-half-blueprint" class="hover:text-ocean transition nav-hint" data-tip="打造人生下半場幸福藍圖">50+傳承規劃</a></li>
+      <li><a href="asset-checkup-lite.html" class="hover:text-ocean transition nav-hint" data-tip="開始 60 秒財務體質快篩">財務健診</a></li>
+      <li></li>
+    </ul>
+    <a href="consultation.html#booking" class="inline-flex items-center rounded-full bg-ocean text-paper text-sm px-4 py-2 hover:bg-ocean/90 transition">預約諮詢</a>
+    
+</nav>
+</header>
+<main>
+  <div class="max-w-6xl mx-auto px-5 pt-8 pb-16 md:pb-24">
+    <nav class="text-sm text-ink/55 reveal" aria-label="麵包屑">
+      <a href="index.html" class="hover:text-ocean">首頁</a><span class="mx-1.5">/</span>
+      <a href="koguti.html" class="hover:text-ocean">人生考古題</a><span class="mx-1.5">/</span>
+      <span class="text-ink/70">先還房貸還是先投資？</span>
+    </nav>
+    <header class="mt-6 reveal">
+      <span class="text-sm text-rose font-500">人生考古題 · Q3</span>
+      <h1 class="font-serif font-700 text-ocean text-3xl md:text-4xl leading-tight mt-2">考古題 Q3：該先還房貸，還是先投資？</h1>
+      <p class="text-ink/65 mt-3 leading-relaxed">手上有一筆閒錢，該拿去多還一點房貸，還是投資讓它長大？這題沒有標準答案——但有適合你的答案。</p>
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-5 text-sm text-ink/60">
+        <span class="flex items-center gap-2">
+          <span class="inline-flex h-9 w-9 rounded-full bg-ocean/10 text-ocean items-center justify-center font-serif">芸</span>
+          <span class="text-ink/80 font-500">財顧芸</span>
+        </span>
+        <span class="hidden sm:flex flex-wrap gap-1">
+          <span class="text-xs rounded-full bg-ocean/8 text-ocean px-2 py-0.5">MDRT</span>
+          <span class="text-xs rounded-full bg-ocean/8 text-ocean px-2 py-0.5">RFC</span>
+          <span class="text-xs rounded-full bg-ocean/8 text-ocean px-2 py-0.5">RFA</span>
+          <span class="text-xs rounded-full bg-ocean/8 text-ocean px-2 py-0.5">RFP</span>
+        </span>
+        <span>·</span><span>2026/06/29</span><span>·</span><span>閱讀 6 分鐘</span>
+      </div>
+    </header>
+    <figure class="mt-7">
+            <img src="static/img/articles/cover-exam-loan-vs-invest.jpg" class="w-full rounded-2xl border border-moss/12 shadow-xl shadow-ocean/10 object-cover" alt="人生考古題 Q3 整理種子房貸，該先還房貸還是先投資圖卡。" width="1100" height="825" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+    </figure>
+    <div class="mt-8 grid lg:grid-cols-[1fr_260px] gap-10">
+      <article id="articleBody" class="prose max-w-none reveal">
+        <p>「芸，我每個月多出一點錢，到底該拿去多還房貸，還是拿去投資？」這大概是考古題裡的「常考題」，幾乎人人都會遇到。</p>
+        <p>網路上兩派吵翻天：一派說「無債一身輕，先還清最安心」；一派說「房貸利率這麼低，拿去投資賺更多才聰明」。兩邊聽起來都有理——因為這題的答案，本來就因人而異。</p>
+        <h2>大家的直覺答案，常常太簡化</h2>
+        <p>多數人會把它簡化成一道數學題：「房貸利率 2%，投資能賺 6%，當然投資啊！」<strong>但這個算法漏掉了最重要的兩個變數：風險，和你的睡眠。</strong></p>
+        <h2>為什麼沒那麼簡單</h2>
+        <p>還房貸省下的利息，是<strong>「確定的、無風險的報酬」</strong>——還了就一定省到。但投資的報酬<strong>不保證、會波動</strong>，遇到大跌時，帳面虧損加上身上還揹著貸款，很多人會睡不著、甚至恐慌賣在低點。所以這題比的，從來不只是「利率 vs 報酬率」，而是<strong>「數字」加上「你的風險承受度」。</strong></p>
+        <h2>解題方向：先問三個問題</h2>
+        <ul>
+          <li><strong>緊急預備金夠了嗎？</strong>不管選哪邊，都要先留 3～6 個月生活費。別為了還貸或投資，把救命錢花光。</li>
+          <li><strong>有沒有「高利率債務」？</strong>信用卡、信貸這類高利率的債，一定<strong>優先還清</strong>，沒有懸念——它的「報酬」幾乎沒有投資追得上。</li>
+          <li><strong>房貸利率高還是低？</strong>利率偏高，多還划算；利率很低，則可以「<strong>部分還、部分投資</strong>」兼顧，不必非黑即白。</li>
+        </ul>
+        <div class="formula"><span class="chip">怎麼選</span> ≈ 比較（房貸利率 vs 你能穩定拿到的報酬）＋ 你的風險承受度 ＋ 緊急金是否足夠</div>
+        <div class="reminder reveal"><span class="seal">芸</span><p class="label">財顧芸提醒</p><p>這道題真正的解答，不在計算機裡，在你心裡。理財的選擇，要能讓你「晚上睡得著」。如果多還房貸讓你安心，那份安心本身就是報酬；如果你扛得住波動、也守得住紀律，投資讓時間幫你工作也很好。沒有最賺的答案，只有最適合你的答案。</p></div>
+        <h2>現在就能做的第一步</h2>
+        <p>先確認一件事：<strong>你的緊急預備金到位了嗎？</strong>還沒，就先補它；補滿了，再用上面三個問題，決定「多還」與「投資」的比例。不必全押一邊，找到讓你安心的中間點，就是好答案。</p>
+        <div class="ai-box reveal">
+          <div class="head">
+            <span class="title">🎨 AI 生成指示詞（封面／插圖）</span>
+            <button class="copy-btn" id="copyPrompt">複製</button>
+          </div>
+          <pre id="promptText">A warm, minimal editorial illustration of a person at a balance scale weighing a house (mortgage) against a growing plant in a pot (investment), looking calm and thoughtful. Conveys a personal trade-off decision about peace of mind. Flat vector style, soft textures, muted palette of morandi green, warm gold and cream paper tones, generous negative space, no text. 16:7 banner composition.</pre>
+        </div>
+      <section class="article-funnel article-funnel--general" data-funnel-version="codex-002" aria-label="閱讀下一步">
+  <p>把照顧、退休與想留給家人的事放在同一張圖上看。</p>
+  
+</section>
+</article>
+      <aside class="lg:sticky lg:top-24 self-start reveal">
+        <div class="bg-white rounded-2xl border border-moss/12 p-5">
+          <button id="tocToggle" class="w-full flex items-center justify-between text-left" aria-expanded="true">
+            <span class="font-serif font-600 text-ocean">文章目錄</span>
+            <svg id="tocChevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1b4751" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <nav id="toc" class="toc mt-3" aria-label="文章目錄"></nav>
+        </div>
+      </aside>
+    </div>
+    <section class="mt-12 bg-ocean text-paper rounded-2xl p-8 md:p-10 reveal">
+      <p class="bearing text-gold uppercase mb-2">下一步</p>
+      <h2 class="font-serif font-600 text-2xl md:text-3xl">不確定你的閒錢該還貸還是投資？</h2>
+      <p class="text-paper/85 mt-3 leading-relaxed">我可以陪你把利率、風險承受度與緊急金一起看，找出讓你「晚上睡得著」又能往前走的那個比例。</p>
+      <div class="flex flex-col sm:flex-row gap-3 mt-6">
+        <a href="consultation.html#booking" class="inline-flex items-center justify-center rounded-full bg-paper text-ocean px-7 py-3 font-500 hover:bg-paper/90 transition">預約諮詢</a>
+        
+      </div>
+      <p class="text-paper/55 text-xs mt-5">＊本文為一般理財觀念分享，非個別投資建議；實際做法請依個人狀況評估。</p>
+    </section>
+    <section class="mt-14 reveal">
+      <h2 class="font-serif font-600 text-ocean text-2xl mb-6">人生考古題 · 系列延伸</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="comic.html" class="card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden">
+          <img src="public-assets/img/articles/cover-etf.png" alt="ETF 投資筆記插圖" class="h-32 w-full object-cover" loading="lazy" decoding="async" fetchpriority="low" width="352" height="286">
+          <div class="p-5">
+            <span class="text-xs text-rose font-500">成長種子 · 投資</span>
+            <h3 class="font-serif font-600 text-ink mt-1.5 leading-snug">第一次買 ETF，先搞懂這 4 件事再下單</h3>
+            <p class="text-ink/55 text-xs mt-2">財顧芸 · 2026/06/29</p>
+          </div>
+        </a>
+        <a href="comic.html" class="card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden">
+          <img src="public-assets/img/articles/cover-abc-account.png" alt="ABC 帳戶法與家庭預算表插圖" class="h-32 w-full object-cover" loading="lazy" decoding="async" fetchpriority="low" width="343" height="286">
+          <div class="p-5">
+            <span class="text-xs text-rose font-500">整理種子 · 記帳</span>
+            <h3 class="font-serif font-600 text-ink mt-1.5 leading-snug">不用記帳，也能管好一家的錢：ABC 帳戶法</h3>
+            <p class="text-ink/55 text-xs mt-2">財顧芸 · 2026/06/29</p>
+          </div>
+        </a>
+        <a href="lifecycle-newgrad.html" class="card-lift bg-white rounded-2xl border border-moss/12 overflow-hidden">
+          <img src="public-assets/img/articles/cover-risk-curve.png" alt="生命週期風險曲線與社會新鮮人財務時間規劃插圖" class="h-32 w-full object-cover" loading="lazy" decoding="async" fetchpriority="low" width="348" height="286">
+          <div class="p-5">
+            <span class="text-xs text-rose font-500">觀念種子 · 財商</span>
+            <h3 class="font-serif font-600 text-ink mt-1.5 leading-snug">社會新鮮人：薪水不多，更要先贏在「時間」</h3>
+            <p class="text-ink/55 text-xs mt-2">財顧芸 · 2026/06/29</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+</main>
+<footer class="bg-ocean text-paper/80">
+  <div class="max-w-6xl mx-auto px-5 py-12">
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+      <div>
+        <p class="font-serif text-lg text-paper">財顧芸人生航海圖</p>
+        <p class="text-paper/60 text-sm mt-2">幸福財務領航員｜陪你航向更有選擇權的人生。</p>
+      </div>
+      <nav class="flex flex-wrap gap-x-8 gap-y-3 text-sm">
+        <a href="https://www.facebook.com/IFA.Fans/" class="hover:text-paper transition">Facebook 粉專</a>
+        <a href="https://open.spotify.com/show/1us537rWraGs4qdY8beG5a" class="hover:text-paper transition">Podcast · 心海羅盤幸福航行誌</a>
+        <a href="https://www.youtube.com/@IFA-Fans" class="hover:text-paper transition">YouTube</a>
+        <a href="https://lin.ee/uMYPHQc" class="hover:text-paper transition">LINE@ 官方群組</a>
+      </nav>
+    </div>
+    <p class="text-paper/45 text-xs mt-10">© <span id="year"></span> 馥芸財富學苑. All rights reserved.</p>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const progress = document.getElementById('progress');
+  const onScroll = () => { const h=document.documentElement; const max=h.scrollHeight-h.clientHeight; progress.style.width = max>0?(h.scrollTop/max*100)+'%':'0%'; };
+  document.addEventListener('scroll', onScroll, { passive:true }); onScroll();
+  const body=document.getElementById('articleBody'), toc=document.getElementById('toc');
+  const heads=Array.from(body.querySelectorAll('h2, h3'));
+  const slug=(t,i)=>'sec-'+i+'-'+t.trim().replace(/\s+/g,'-').replace(/[^\w\u4e00-\u9fa5-]/g,'').slice(0,24);
+  const links=[];
+  heads.forEach((h,i)=>{ if(!h.id) h.id=slug(h.textContent,i);
+    const a=document.createElement('a'); a.href='#'+h.id; a.textContent=h.textContent;
+    if(h.tagName==='H3') a.classList.add('lvl3');
+    a.addEventListener('click',(e)=>{ e.preventDefault(); document.getElementById(h.id).scrollIntoView({behavior:'smooth'}); });
+    toc.appendChild(a); links.push({a, el:h}); });
+  const tocToggle=document.getElementById('tocToggle'), tocChevron=document.getElementById('tocChevron');
+  tocToggle.addEventListener('click', ()=>{ const open=toc.style.display!=='none'; toc.style.display=open?'none':'block';
+    tocToggle.setAttribute('aria-expanded',String(!open)); tocChevron.style.transform=open?'rotate(-90deg)':'none'; });
+  const spy=new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.a.classList.toggle('active', l.el===e.target)); } }); }, { rootMargin:'-80px 0px -70% 0px', threshold:0 });
+  heads.forEach(h=>spy.observe(h));
+  const copyBtn=document.getElementById('copyPrompt');
+  copyBtn.addEventListener('click', async ()=>{ try{ await navigator.clipboard.writeText(document.getElementById('promptText').textContent.trim());
+    copyBtn.textContent='已複製 ✓'; setTimeout(()=>copyBtn.textContent='複製',1800); }catch(e){ copyBtn.textContent='請手動選取'; } });
+</script>
+  <script src="public-assets/js/fuyun-cursor.js" defer></script>
+  
+  <script src="assets/article-share.js" defer></script>
+<script src="assets/report.js" defer></script>
+<script src="assets/footer-recruitment-link-v1.js" defer></script>
+  <script src="assets/hanji-back.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

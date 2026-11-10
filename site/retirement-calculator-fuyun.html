@@ -1,0 +1,1957 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>勞保老年年金與勞退試算｜退休缺口初步試算｜財顧芸</title>
+<meta name="description" content="輸入勞保年資、平均月投保薪資與預計退休年齡，初步比較勞保老年年金、勞退及退休生活缺口。試算結果僅供參考，實際金額以主管機關核定為準。">
+<link rel="canonical" href="https://www.allfreedom.info/retirement-calculator-fuyun.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="勞保老年年金與勞退試算｜退休缺口初步試算">
+<meta property="og:description" content="初步比較勞保老年年金、勞退與退休生活缺口。結果僅供參考，非勞保局官方試算。">
+<meta property="og:url" content="https://www.allfreedom.info/retirement-calculator-fuyun.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#111511;
+    --soft:#4A554E;
+    --line:#C2CAC4;
+    --wash:#F3F6F3;
+    --orange:#C24500;
+    --orange-bg:#FFF1E6;
+    --green:#08543C;
+    --green-bg:#E4F0EA;
+    --red:#A81818;
+    --red-bg:#FDEDED;
+    --f:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--wash);color:var(--ink);
+    font-family:var(--f);font-size:21px;line-height:1.8;font-weight:500;
+    padding:28px 16px 90px;
+  }
+  .wrap{max-width:680px;margin:0 auto}
+  .num{font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+
+  /* ---------- header ---------- */
+  header{text-align:center;margin-bottom:34px}
+  header h1{font-size:44px;font-weight:900;line-height:1.25;letter-spacing:-.01em}
+  header h1 em{font-style:normal;color:var(--orange)}
+  header p{font-size:22px;color:var(--soft);margin-top:14px}
+
+  /* ---------- card ---------- */
+  .card{background:#fff;border:2px solid var(--line);padding:26px 22px;margin-bottom:22px}
+  .card > h2{
+    font-size:28px;font-weight:900;margin-bottom:8px;
+    display:flex;align-items:center;gap:12px;line-height:1.3;
+  }
+  .n{
+    flex:none;width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;
+    font-size:24px;font-weight:900;display:flex;align-items:center;justify-content:center;
+  }
+  .say{font-size:19px;color:var(--soft);margin-bottom:22px;line-height:1.75}
+
+  /* ---------- inputs ---------- */
+  .f{margin-bottom:22px}
+  .f:last-child{margin-bottom:0}
+  .f > label,.f > .lab{display:block;font-size:22px;font-weight:900;margin-bottom:4px}
+  .tip{font-size:17px;color:var(--soft);margin-bottom:10px;line-height:1.6}
+  .row{display:flex;align-items:center;gap:12px}
+  input[type=number]{
+    width:100%;padding:14px 16px;font-family:var(--f);font-size:30px;font-weight:700;
+    border:2.5px solid var(--line);background:#fff;color:var(--ink);border-radius:8px;
+    text-align:center;font-variant-numeric:tabular-nums;-moz-appearance:textfield;
+  }
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  input:focus{outline:4px solid var(--orange);outline-offset:2px;border-color:var(--ink)}
+  .unit{font-size:22px;font-weight:900;flex:none}
+  .echo{
+    margin-top:10px;font-size:19px;font-weight:700;color:var(--green);
+    background:var(--green-bg);padding:8px 14px;border-radius:8px;display:inline-block;
+  }
+  .when{
+    margin-top:10px;font-size:19px;line-height:1.8;background:#fff;
+    border:2.5px solid var(--ink);padding:14px 16px;
+  }
+  .when:empty{display:none}
+  .when b{color:var(--orange);font-weight:900;font-size:21px}
+  .when .r{display:block}
+  .when .r + .r{margin-top:8px;padding-top:8px;border-top:1.5px dashed var(--line)}
+  .when small{color:var(--soft);font-size:16px;font-weight:500}
+  /* ---- 誰來付：制度的錢倒進三包 ---- */
+  .match{display:grid;gap:14px;margin-top:6px}
+  .mrow{border:2px solid var(--line);background:#fff;padding:14px 16px}
+  .mrow.none{opacity:.5}
+  .mtop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px}
+  .mtop b{font-size:20px;font-weight:900}
+  .mtop .amt{font-size:22px;font-weight:900;font-variant-numeric:tabular-nums}
+  .bar2{display:flex;height:26px;border:2px solid var(--ink);overflow:hidden}
+  .bar2 i{display:block;height:100%}
+  .bar2 .cov{background:var(--green)}
+  .bar2 .own{background:repeating-linear-gradient(45deg,#F5C6C6,#F5C6C6 5px,#FADDDD 5px,#FADDDD 10px)}
+  .mleg{display:flex;justify-content:space-between;gap:10px;margin-top:8px;font-size:16px;font-weight:700}
+  .mleg .c{color:var(--green)}
+  .mleg .o{color:var(--red)}
+  .mleg span i{font-style:normal;font-variant-numeric:tabular-nums}
+  .mnote{
+    margin-top:6px;font-size:16px;font-weight:900;color:var(--red);
+    background:var(--red-bg);padding:10px 12px;line-height:1.6;
+  }
+  .mnote:empty{display:none}
+
+  /* ---- 退休三包錢 ---- */
+  .pack{display:grid;gap:14px;margin-top:8px}
+  .pk{border:2px solid var(--line);background:#fff;padding:16px 18px;border-left:6px solid var(--orange)}
+  .pk:nth-child(2){border-left-color:var(--red)}
+  .pk:nth-child(3){border-left-color:var(--green)}
+  .pn{font-size:15px;font-weight:700;color:var(--soft);margin-bottom:6px}
+  .pn b{display:block;font-size:24px;color:var(--ink);font-weight:900;margin-top:2px}
+  .pt{font-size:16px;color:var(--soft);line-height:1.7;margin-bottom:12px}
+  .pt b{color:var(--ink);font-weight:700}
+  .pt:empty{display:none}
+  .pk .row{margin-bottom:0}
+  .row.sub .or{font-size:14px;font-weight:700;color:var(--soft);flex:none}
+  .row.sub input{font-size:18px!important;padding:8px 10px!important;border-width:1.5px!important}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 12px}
+  .chip{
+    font-family:var(--f);font-size:17px;font-weight:900;cursor:pointer;line-height:1.3;
+    border:2.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);
+    padding:9px 13px;display:flex;flex-direction:column;align-items:center;gap:1px;
+  }
+  .chip i{font-style:normal;font-size:13px;font-weight:700;color:var(--soft);font-variant-numeric:tabular-nums}
+  .chip:hover{border-color:var(--ink);background:var(--wash)}
+  .chip:focus-visible{outline:4px solid var(--orange);outline-offset:2px}
+  .chip[aria-pressed="true"]{background:var(--orange);border-color:var(--ink);color:#fff}
+  .chip[aria-pressed="true"] i{color:#FFE2CD}
+  .chip.care[aria-pressed="true"]{background:var(--red)}
+  .chip.care{border-color:var(--red);color:var(--red)}
+  .chip.care i{color:var(--red)}
+
+  .pickLv{margin-top:12px}
+  .pickLv label{display:block;font-size:17px;font-weight:700;color:var(--soft);margin-bottom:6px}
+  .pickLv select{
+    width:100%;padding:13px 14px;font-family:var(--f);font-size:19px;font-weight:700;
+    border:2.5px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);
+    font-variant-numeric:tabular-nums;
+  }
+  .pickLv select:focus{outline:4px solid var(--orange);outline-offset:2px;border-color:var(--ink)}
+
+  .tenY{
+    margin-top:24px;border:3px solid var(--green);background:var(--green-bg);padding:24px 20px;
+  }
+  .tenY .t{font-size:26px;font-weight:900;color:var(--green);margin-bottom:8px}
+  .tenY .q{font-size:19px;color:var(--soft);line-height:1.7;margin-bottom:18px}
+  .tenY .q b{color:var(--ink)}
+  .tenG{display:grid;gap:12px}
+  .tenG > div{
+    background:#fff;border:2px solid var(--green);padding:14px 16px;
+    display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;
+  }
+  .tenG .k{font-size:19px;font-weight:900}
+  .tenG .v{font-size:32px;font-weight:900;color:var(--green);font-variant-numeric:tabular-nums}
+  .tenY .s{
+    font-size:20px;font-weight:900;color:var(--ink);line-height:1.7;
+    margin-top:18px;padding-top:16px;border-top:2px dashed var(--green);
+  }
+  .tenY .s em{font-style:normal;color:var(--green)}
+
+  .memo{
+    margin-top:12px;background:var(--wash);border-left:5px solid var(--line);
+    padding:14px 16px;font-size:17px;line-height:1.75;color:var(--soft);
+  }
+  .memo p{margin-bottom:10px}
+  .memo p:last-child{margin-bottom:0}
+  .memo b{color:var(--ink);font-weight:700}
+  .memo .k{
+    margin-top:12px;padding-top:10px;border-top:1.5px dashed var(--line);
+    color:var(--ink);font-weight:700;
+  }
+
+  .alert{
+    margin-top:14px;font-size:19px;background:var(--orange-bg);color:#7A2C00;
+    border-left:6px solid var(--orange);padding:14px 16px;line-height:1.7;
+  }
+  .alert:empty{display:none}
+
+  /* ---------- 餘命大按鈕（本頁主角） ---------- */
+  .picks{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(min-width:560px){.picks{grid-template-columns:repeat(4,1fr)}}
+  .pick{
+    font-family:var(--f);cursor:pointer;background:#fff;color:var(--ink);
+    border:3px solid var(--line);border-radius:12px;padding:16px 8px;
+    display:flex;flex-direction:column;align-items:center;gap:2px;
+    transition:transform .12s, background .2s, border-color .2s;
+  }
+  .pick .y{font-size:38px;font-weight:900;line-height:1.1;font-variant-numeric:tabular-nums}
+  .pick .t{font-size:15px;font-weight:700;color:var(--soft);line-height:1.4;text-align:center}
+  .pick:hover{border-color:var(--ink)}
+  .pick:focus-visible{outline:4px solid var(--orange);outline-offset:3px}
+  .pick[aria-pressed="true"]{background:var(--orange);border-color:var(--ink);color:#fff}
+  .pick[aria-pressed="true"] .t{color:#FFE2CD}
+  .pick:active{transform:scale(.96)}
+
+  /* ---------- 答案 ---------- */
+  .ans{border:4px solid var(--ink);background:#fff;padding:30px 22px;text-align:center;margin-bottom:22px}
+  .ans .k{font-size:20px;font-weight:700;color:var(--soft)}
+  .big{
+    font-size:80px;font-weight:900;line-height:1.05;color:var(--orange);
+    font-variant-numeric:tabular-nums;letter-spacing:-.03em;margin:2px 0;
+  }
+  .big.flash{animation:pop .5s ease}
+  @keyframes pop{0%{transform:scale(.86);opacity:.4}60%{transform:scale(1.05)}100%{transform:scale(1)}}
+  .ans hr{border:none;border-top:2px dashed var(--line);margin:22px 0}
+  .mid{font-size:56px;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1.1}
+  .foot{font-size:19px;color:var(--soft);margin-top:6px}
+  .nudge{
+    margin-top:20px;background:var(--orange-bg);padding:14px 16px;
+    font-size:19px;font-weight:700;color:#7A2C00;line-height:1.7;text-align:left;
+  }
+
+  /* ---------- 結果卡 ---------- */
+  .three{display:grid;gap:14px}
+  .b{border:2px solid var(--line);background:#fff;padding:18px 20px;display:flex;
+     align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .b .t{font-size:21px;font-weight:900}
+  .b .t small{display:block;font-size:16px;font-weight:500;color:var(--soft);line-height:1.5}
+  .b .v{font-size:38px;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+  .b.sum{background:var(--green-bg);border:3px solid var(--green)}
+  .b.sum .v{color:var(--green)}
+  .b.gap{background:var(--red-bg);border:3px solid var(--red)}
+  .b.gap .v{color:var(--red)}
+
+  /* ---------- 折疊 ---------- */
+  details{border:2px solid var(--line);background:#fff;margin-bottom:22px}
+  summary{
+    padding:18px 22px;font-size:22px;font-weight:900;cursor:pointer;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"＋";font-size:30px;font-weight:900;color:var(--orange)}
+  details[open] summary::after{content:"－"}
+  summary:focus-visible{outline:4px solid var(--orange);outline-offset:-4px}
+  .dbody{padding:0 22px 22px}
+  table{width:100%;border-collapse:collapse}
+  th,td{padding:12px 8px;font-size:20px;text-align:right;border-bottom:1.5px solid var(--line)}
+  th{font-size:17px;color:var(--soft);font-weight:700;border-bottom:3px solid var(--ink)}
+  th:first-child,td:first-child{text-align:left}
+  td.num{font-weight:700}
+  tr.win td{background:var(--orange-bg);font-weight:900}
+  tr.win td:first-child::after{content:" ★";color:var(--orange)}
+  tr.no td{color:#9AA5A0}
+  tr.no td:first-child::after{content:" 年資還不夠";font-size:15px;font-weight:500}
+
+  .picks.two{grid-template-columns:1fr 1fr}
+  .picks.two .pick{padding:18px 8px}
+  .picks.two .y{font-size:30px}
+
+  /* 一次領 vs 月領 並排 */
+  .vs{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch;margin-top:6px}
+  @media(max-width:560px){
+    .vs{grid-template-columns:1fr}
+    .vs-mid{padding:4px 0}
+  }
+  .vs-side{border:3px solid var(--line);background:#fff;padding:20px 12px;text-align:center}
+  .vs-side.hi{border-color:var(--green);background:var(--green-bg)}
+  .vs-t{font-size:20px;font-weight:900;margin-bottom:6px}
+  .vs-v{font-size:40px;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1.1}
+  .vs-side.hi .vs-v{color:var(--green)}
+  .vs-s{font-size:16px;color:var(--soft);font-weight:700;line-height:1.5;margin-top:4px}
+  .vs-mid{display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:var(--soft)}
+
+  details.tax{margin-top:22px;border-color:var(--line)}
+  details.tax summary{font-size:20px}
+  details.tax .dbody p{font-size:19px;line-height:1.75;color:var(--soft)}
+  details.tax .dbody p b{color:var(--ink)}
+  details.tax .picks{grid-template-columns:repeat(3,1fr)}
+  details.tax .pick{padding:12px 4px}
+  details.tax .pick .y{font-size:26px}
+  details.tax .pick .t{font-size:13px}
+  details.tax .b{margin-top:14px}
+
+  /* ---- 分層詢問 ---- */
+  .gate{
+    background:#fff;border:2px dashed var(--line);padding:22px;margin-bottom:22px;text-align:center;
+  }
+  .gate .q{font-size:24px;font-weight:900;line-height:1.4}
+  .gate .qs{font-size:17px;color:var(--soft);margin:6px 0 16px}
+  .gate .picks{max-width:420px;margin:0 auto}
+  .gate.on{border-style:solid;border-color:var(--green);background:var(--green-bg)}
+
+  /* ---- LINE 引導 ---- */
+  .cta{background:#fff;border:3px solid var(--ink);padding:34px 24px;margin-bottom:22px;text-align:center}
+  .cta .lead{font-size:16px;font-weight:700;letter-spacing:.18em;color:var(--orange);margin-bottom:12px}
+  .cta h2{font-size:36px;font-weight:900;line-height:1.3;margin-bottom:22px}
+  .cta .ctaP{font-size:19px;color:var(--soft);line-height:1.8;margin-bottom:24px}
+  .cta .ctaP b{color:var(--ink)}
+  .recap{
+    text-align:left;background:var(--wash);border:2px solid var(--line);
+    padding:18px 20px;margin-bottom:24px;
+  }
+  .recap div{
+    display:flex;justify-content:space-between;gap:12px;padding:9px 0;font-size:18px;
+    border-bottom:1px dashed var(--line);
+  }
+  .recap div:last-child{border-bottom:none}
+  .recap span:first-child{font-weight:700;color:var(--soft)}
+  .recap span:last-child{font-weight:900;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .line{border:3px solid var(--green);background:var(--green-bg);padding:24px 18px;margin-bottom:22px}
+  .lineName{font-size:26px;font-weight:900;margin-bottom:16px}
+  .lineMark{
+    background:#06C755;color:#fff;font-size:15px;font-weight:900;
+    padding:3px 9px;border-radius:6px;margin-right:8px;vertical-align:middle;letter-spacing:.05em;
+  }
+  .way{
+    text-align:left;font-size:17px;color:var(--soft);font-weight:700;
+    margin:28px 0 12px;padding-top:18px;border-top:2px solid var(--line);
+  }
+  .way b{font-size:22px;color:var(--ink);font-weight:900}
+  .way span{font-size:16px;font-weight:500}
+  .wayS{text-align:left;font-size:17px;color:var(--soft);line-height:1.75;margin-bottom:16px}
+  .wayS b{color:var(--ink)}
+  .form{text-align:left;background:var(--wash);border:2px solid var(--line);padding:20px}
+  .form label{display:block;font-size:19px;font-weight:900;margin:0 0 6px}
+  .form label i{font-style:normal;font-size:15px;color:var(--red);font-weight:700}
+  .form input[type=text],.form input:not([type]),.form textarea{
+    width:100%;padding:13px 14px;font-family:var(--f);font-size:20px;font-weight:500;
+    border:2.5px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);margin-bottom:16px;
+  }
+  .form textarea{min-height:86px;resize:vertical}
+  .form input:focus,.form textarea:focus{outline:4px solid var(--orange);outline-offset:2px;border-color:var(--ink)}
+  .agree{display:flex!important;gap:10px;align-items:flex-start;font-size:17px!important;font-weight:500!important;margin-bottom:16px!important}
+  .agree input{width:26px;height:26px;flex:none;margin-top:3px}
+  .sendBtn{
+    font-family:var(--f);font-size:22px;font-weight:900;cursor:pointer;width:100%;
+    background:var(--green);color:#fff;border:3px solid var(--ink);border-radius:10px;padding:18px;
+  }
+  .sendBtn:active{transform:scale(.98)}
+  .sendBtn:disabled{opacity:.6;cursor:wait}
+  .sendBtn:focus-visible{outline:4px solid var(--orange);outline-offset:3px}
+  .status{margin-top:14px;padding:14px;border-radius:8px;font-size:18px;line-height:1.7;display:none}
+  .status.ok{display:block;background:var(--green-bg);border:2px solid var(--green);color:var(--green)}
+  .status.err{display:block;background:var(--red-bg);border:2px solid var(--red);color:var(--red)}
+  .bk{font-size:15px;color:var(--soft);margin-top:14px;line-height:1.7}
+  .bk a{color:var(--green);font-weight:700}
+  .bk b{color:var(--ink)}
+
+  .copyBtn{
+    font-family:var(--f);font-size:22px;font-weight:900;cursor:pointer;width:100%;
+    background:var(--orange);color:#fff;border:3px solid var(--ink);border-radius:10px;padding:18px;
+  }
+  .copyBtn:active{transform:scale(.98)}
+  .copyBtn:focus-visible{outline:4px solid var(--ink);outline-offset:3px}
+  .copyBtn.done{background:var(--green)}
+  #sumTA{
+    width:100%;height:210px;font-family:var(--mono,monospace);font-size:14px;line-height:1.6;
+    border:2px solid var(--line);border-radius:8px;padding:12px;background:var(--wash);
+    color:var(--ink);resize:vertical;margin-bottom:22px;white-space:pre;
+  }
+  .lineBtn{
+    display:block;background:#06C755;color:#fff;font-size:21px;font-weight:900;
+    text-decoration:none;padding:16px;border-radius:10px;border:3px solid var(--ink);margin-bottom:18px;
+  }
+  .lineBtn:focus-visible{outline:4px solid var(--ink);outline-offset:3px}
+  .subBtn{
+    display:block;margin-top:18px;font-size:18px;font-weight:700;color:var(--green);
+    text-decoration:none;padding:12px;border-top:2px dashed var(--green);
+  }
+  .subBtn:hover{text-decoration:underline}
+
+  .cta .fine{font-size:17px;color:var(--soft);line-height:1.8;margin-bottom:20px}
+  .cta .fine b{color:var(--ink)}
+  .printBtn{
+    font-family:var(--f);font-size:18px;font-weight:700;cursor:pointer;
+    background:#fff;border:2.5px solid var(--line);border-radius:8px;padding:14px 22px;color:var(--soft);
+  }
+  .printBtn:hover{border-color:var(--ink);color:var(--ink)}
+  .printBtn:focus-visible{outline:4px solid var(--orange);outline-offset:3px}
+  @media print{
+    .gate,.cta,.picks,footer{display:none}
+    body{background:#fff;font-size:12pt}
+    .card,details{break-inside:avoid}
+  }
+  @media(max-width:520px){
+    .cta h2{font-size:28px}
+    .gate .q{font-size:20px}
+  }
+
+  /* 收尾：整頁唯一反白的一段，留給最重要的那句話 */
+  .closer{
+    background:var(--ink);color:#fff;padding:38px 26px;margin:34px 0 22px;text-align:center;
+  }
+  .closer .lead{
+    font-size:16px;font-weight:700;letter-spacing:.2em;color:#8FA69C;margin-bottom:14px;
+  }
+  .closer h2{font-size:38px;font-weight:900;line-height:1.35;margin-bottom:24px;letter-spacing:-.01em}
+  .closer h2 em{font-style:normal;color:#FF9A52}
+  .closer p{font-size:19px;line-height:1.85;color:#C8D4CE;margin-bottom:18px}
+  .closer p b{color:#fff;font-weight:900}
+  .closer .rule{
+    height:0;border:none;border-top:1px solid #3A4A44;width:40%;margin:30px auto;
+  }
+  .closer .ask{
+    font-size:21px;font-weight:700;color:#C8D4CE;line-height:1.6;margin-bottom:12px;
+  }
+  .closer .punch{
+    font-size:24px;font-weight:900;color:#fff;line-height:1.55;
+    margin:24px 0;padding:18px 0;border-top:1px solid #3A4A44;border-bottom:1px solid #3A4A44;
+  }
+  .closer .punch.big{
+    font-size:34px;border:none;padding:6px 0 0;margin:0 0 26px;letter-spacing:-.01em;
+  }
+  .closer .punch.big em{font-style:normal;color:#FF9A52}
+  .closer .creed{
+    text-align:left;border-left:4px solid var(--orange);padding:4px 0 4px 20px;
+    margin:0 auto 26px;max-width:34em;
+  }
+  .closer .creed{
+    text-align:left;background:#FBFCF8;color:#2B2B28;border-left:5px solid var(--orange);
+    padding:20px;margin:0 auto 24px;max-width:34em;border-radius:4px;
+  }
+  .closer .creed .ch{
+    font-size:19px;font-weight:900;color:var(--green);margin-bottom:14px;
+    padding-bottom:12px;border-bottom:1px solid #DCE4DE;letter-spacing:0;
+  }
+  .closer .creed p{color:#5A6560;font-size:17px;margin-bottom:12px}
+  .closer .creed p b{color:#2B2B28;font-weight:900}
+  .closer .creed .here{
+    margin:16px 0 0;padding-top:14px;border-top:1px dashed #DCE4DE;text-align:center;
+  }
+  .closer .creed .here em{
+    font-style:normal;font-size:38px;font-weight:900;color:var(--green);letter-spacing:.06em;
+  }
+  .closer .creed p{margin-bottom:16px;font-size:18px}
+  .closer .creed p:last-child{margin-bottom:0}
+  .closer .creed .oath{
+    color:#fff;font-size:19px;font-weight:700;margin-top:20px;padding-top:16px;
+    border-top:1px dashed #4A5A54;
+  }
+  .closer .creed .oath b{color:#FF9A52}
+  .closer .creed .oath span{
+    display:block;margin-top:12px;font-size:17px;font-weight:500;color:#C8D4CE;
+  }
+  .closer .creed .oath span b{color:#fff;font-weight:900}
+
+  .closer .last{
+    font-size:24px;font-weight:900;color:#fff;margin:26px 0 0;
+    padding-top:24px;border-top:2px solid #3A4A44;line-height:1.6;
+  }
+  .closer .last span{display:block;font-size:17px;font-weight:500;color:#8FA69C;margin-top:8px}
+  @media(max-width:520px){
+    .closer{padding:30px 18px}
+    .closer h2{font-size:30px}
+    .closer .punch{font-size:21px}
+    .closer .punch.big{font-size:28px}
+    .closer .last{font-size:21px}
+  }
+
+
+  /* ---- v2：首屏、進度、合規標示 ---- */
+  .eyebrow{font-size:16px;font-weight:900;letter-spacing:.1em;color:var(--orange);margin-bottom:8px}
+  header .sub{font-size:19px;color:var(--soft);margin-top:12px;line-height:1.7}
+  header .meta{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+  header .mins{
+    font-size:15px;font-weight:900;background:var(--green-bg);color:var(--green);
+    border:2px solid var(--green);border-radius:999px;padding:5px 14px;
+  }
+  header .priv{font-size:15px;color:var(--soft);padding:5px 0}
+  .notgov{
+    font-size:15px;color:var(--soft);margin-top:14px;padding:8px 12px;
+    background:var(--wash);border:1px solid var(--line);display:inline-block;
+  }
+  .notgov b{color:var(--ink)}
+
+  .steps{
+    display:flex;gap:6px;margin-bottom:20px;padding:12px;background:#fff;
+    border:2px solid var(--line);align-items:center;overflow-x:auto;
+  }
+  .steps .sN{font-size:14px;font-weight:900;color:var(--soft);flex:none;margin-right:4px}
+  .steps i{
+    flex:1;min-width:26px;height:8px;background:var(--line);display:block;border-radius:99px;
+  }
+  .steps i.on{background:var(--orange)}
+  .steps i.cur{background:var(--ink)}
+
+  .ansNote{
+    font-size:15px;color:var(--soft);background:var(--wash);border:1px solid var(--line);
+    padding:9px 12px;margin-bottom:18px;line-height:1.6;
+  }
+  .ansNote b{color:var(--ink)}
+  .vsTag{
+    font-size:16px;font-weight:900;color:var(--ink);background:var(--wash);
+    border-left:5px solid var(--line);padding:12px 14px;margin-top:12px;line-height:1.7;
+  }
+  .vsTag span{font-size:15px;font-weight:500;color:var(--soft)}
+  .vsTag:empty{display:none}
+
+  details.pdpa{margin:0 0 16px;border-width:1.5px}
+  details.pdpa summary{font-size:16px;padding:10px 14px}
+  details.pdpa .dbody{padding:0 14px 14px}
+  details.pdpa p{font-size:15px;line-height:1.75;color:var(--soft);margin-bottom:8px}
+  details.pdpa p b{color:var(--ink)}
+  details.pdpa a{color:var(--green);font-weight:700}
+
+  footer .must{margin:10px 0 0 22px}
+  footer .must li{margin-bottom:8px;font-size:17px}
+  details.fd{margin-top:18px}
+  details.fd summary{font-size:17px;padding:12px 14px}
+  details.fd .dbody{padding:0 14px 14px}
+  details.fd p{font-size:15px;line-height:1.75;margin-bottom:10px}
+  details.fd a{color:var(--green);font-weight:700}
+  details.fd .ver{
+    margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);
+    font-size:14px;font-weight:700;
+  }
+
+  .errMsg{
+    font-size:16px;font-weight:700;color:var(--red);background:var(--red-bg);
+    border-left:5px solid var(--red);padding:8px 12px;margin-top:8px;line-height:1.6;
+  }
+  .errMsg:empty{display:none}
+  input[aria-invalid="true"]{border-color:var(--red)!important;background:var(--red-bg)}
+
+  /* 手機優先：375px 下不得溢出 */
+  @media(max-width:400px){
+    .big{font-size:52px}
+    .mid{font-size:38px}
+    .b .v,.vs-v{font-size:28px}
+    .recap span:last-child{white-space:normal;text-align:right}
+    .scrollHint{display:block}
+  }
+  .scrollHint{display:none;font-size:14px;color:var(--soft);margin-bottom:6px}
+  .tblWrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+  footer{font-size:17px;color:var(--soft);line-height:1.8;border-top:3px solid var(--ink);padding-top:22px}
+  footer b{color:var(--ink)}
+  footer li{margin:0 0 10px 20px}
+  .sign{margin-top:22px;padding:22px;background:#fff;border:2px solid var(--line);text-align:center}
+  .sign b{display:block;font-size:24px;font-weight:900;color:var(--ink);margin-bottom:4px}
+  .sign span{display:block;font-size:17px;color:var(--soft);margin-bottom:10px}
+  .sign a{font-size:18px;font-weight:700;color:var(--green)}
+  .sign p{font-size:15px;color:var(--soft);margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);line-height:1.7}
+  .sign p b{display:inline;font-size:inherit;color:var(--ink)}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+  @media(max-width:520px){
+    body{font-size:20px;padding:20px 12px 70px}
+    header h1{font-size:36px}
+    .big{font-size:64px}
+    .mid{font-size:44px}
+    .b .v{font-size:32px}
+  }
+/* ══════════════════════════════════════════════
+   專業版皮膚（?pro 或右上角切換）
+   同一份邏輯，只換密度與配色。改功能只要改一次。
+   ══════════════════════════════════════════════ */
+  body[data-skin=pro]{
+    font-size:16px;line-height:1.65;
+    background:#E4E9E5;
+    background-image:linear-gradient(#DDE5E0 1px,transparent 1px),
+                     linear-gradient(90deg,#DDE5E0 1px,transparent 1px);
+    background-size:26px 26px;
+    padding:20px 14px 60px;
+  }
+  body[data-skin=pro] .wrap{max-width:980px}
+  body[data-skin=pro] .num,
+  body[data-skin=pro] input[type=number]{
+    font-family:"Roboto Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  body[data-skin=pro] header{text-align:left;margin-bottom:22px}
+  body[data-skin=pro] header h1{font-size:34px}
+  body[data-skin=pro] header p{font-size:16px;margin-top:6px}
+
+  body[data-skin=pro] .card,
+  body[data-skin=pro] .gate,
+  body[data-skin=pro] .cta{padding:16px 18px;margin-bottom:14px;border-width:1px;border-radius:0}
+  body[data-skin=pro] .card > h2{font-size:19px;margin-bottom:4px}
+  body[data-skin=pro] .n{width:28px;height:28px;font-size:15px;border-radius:0}
+  body[data-skin=pro] .say,body[data-skin=pro] .tip,body[data-skin=pro] .pt{font-size:14px;line-height:1.6}
+  body[data-skin=pro] .say{margin-bottom:12px}
+
+  /* 表單排成多欄，一眼看完 */
+  body[data-skin=pro] .card > .f{
+    display:inline-block;vertical-align:top;width:calc(50% - 8px);margin:0 6px 12px 0;
+  }
+  body[data-skin=pro] .f > label,body[data-skin=pro] .f > .lab{font-size:15px;margin-bottom:2px}
+  body[data-skin=pro] input[type=number]{padding:8px 10px;font-size:19px;border-width:1.5px;border-radius:4px}
+  body[data-skin=pro] .unit{font-size:15px}
+  body[data-skin=pro] .echo,body[data-skin=pro] .when{font-size:14px;padding:8px 10px;margin-top:6px}
+  body[data-skin=pro] .memo{font-size:13.5px;padding:10px 12px}
+  body[data-skin=pro] .alert{font-size:14px;padding:9px 12px}
+
+  body[data-skin=pro] .pick{padding:8px 4px;border-width:1.5px;border-radius:6px}
+  body[data-skin=pro] .pick .y{font-size:22px}
+  body[data-skin=pro] .pick .t{font-size:11px}
+  body[data-skin=pro] .picks{gap:8px}
+
+  body[data-skin=pro] .ans{padding:18px;border-width:2px}
+  body[data-skin=pro] .big{font-size:52px}
+  body[data-skin=pro] .mid{font-size:34px}
+  body[data-skin=pro] .ans .k,body[data-skin=pro] .foot{font-size:14px}
+  body[data-skin=pro] .nudge{font-size:14px;padding:10px 12px}
+
+  body[data-skin=pro] .three{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+  body[data-skin=pro] .b{padding:10px 12px;border-width:1px}
+  body[data-skin=pro] .b .t{font-size:14px}
+  body[data-skin=pro] .b .t small{font-size:12px}
+  body[data-skin=pro] .b .v{font-size:24px}
+  body[data-skin=pro] .pack{grid-template-columns:repeat(3,1fr)}
+  body[data-skin=pro] .pk{padding:10px 12px;border-left-width:4px}
+  body[data-skin=pro] .pn b{font-size:17px}
+  body[data-skin=pro] .chip{font-size:13px;padding:5px 9px;border-width:1.5px}
+
+  body[data-skin=pro] th,body[data-skin=pro] td{padding:6px 8px;font-size:14px}
+  body[data-skin=pro] summary{padding:10px 14px;font-size:16px}
+  body[data-skin=pro] .dbody{padding:0 14px 14px}
+  body[data-skin=pro] .gate .q{font-size:17px}
+  body[data-skin=pro] .gate .qs{font-size:13px;margin-bottom:10px}
+  body[data-skin=pro] .vs-v{font-size:28px}
+  body[data-skin=pro] .tenY{padding:14px 16px;border-width:2px}
+  body[data-skin=pro] .tenY .t{font-size:19px}
+  body[data-skin=pro] .tenY .q,body[data-skin=pro] .tenY .s{font-size:14px}
+  body[data-skin=pro] .tenG .v{font-size:22px}
+  body[data-skin=pro] .closer{padding:22px}
+  body[data-skin=pro] .closer h2{font-size:26px}
+  body[data-skin=pro] .closer .punch{font-size:17px;margin:16px 0;padding:12px 0}
+  body[data-skin=pro] .closer .punch.big{font-size:24px}
+  body[data-skin=pro] .closer .ask{font-size:16px}
+  body[data-skin=pro] .closer .rule{margin:20px auto}
+  @media(max-width:640px){
+    body[data-skin=pro] .card > .f{width:100%;margin-right:0}
+    body[data-skin=pro] .pack{grid-template-columns:1fr}
+  }
+
+  /* 皮膚切換鈕 */
+  .skin{
+    font-family:var(--f);font-size:16px;font-weight:900;cursor:pointer;
+    background:#fff;color:var(--ink);border:2.5px solid var(--line);border-radius:999px;
+    padding:10px 20px;margin-top:14px;min-height:48px;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .skin::before{content:"Aa";font-size:19px;font-weight:900;color:var(--orange)}
+  .skin:hover{border-color:var(--ink);background:var(--wash)}
+  .skin:focus-visible{outline:4px solid var(--orange);outline-offset:3px}
+  @media print{.skin{display:none}}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">財顧芸｜退休給付初步試算</p>
+  <h1>你的勞保，<br><em>一個月大約能領多少？</em></h1>
+  <p class="sub">填入幾個數字，快速試算勞保、勞退與退休生活缺口。</p>
+  <div class="meta">
+    <span class="mins">約 3 分鐘完成</span>
+    <span class="priv">不用登入，也不會自動儲存你的試算資料</span>
+  </div>
+  <button type="button" class="skin" id="skinBtn" aria-pressed="false"></button>
+  <p class="notgov">本工具<b>非勞保局官方網站</b>，試算結果僅供參考。</p>
+</header>
+
+<nav class="steps" id="steps" aria-label="試算進度"></nav>
+
+<!-- 1 -->
+<section class="card">
+  <h2><span class="n">1</span>你的資料</h2>
+  <p class="say">這些數字，勞保局的網站上都查得到。查不到沒關係，先隨便填，之後再改。</p>
+
+  <div class="f">
+    <span class="lab">你的生日是民國幾年幾月幾日？</span>
+    <div class="tip">身分證上那個。例如民國 55 年 3 月 15 日，就填 55、3、15</div>
+    <div class="row">
+      <input type="number" id="bY" value="55" min="20" max="95" aria-label="出生民國年"><span class="unit">年</span>
+      <input type="number" id="bM" value="3" min="1" max="12" aria-label="出生月"><span class="unit">月</span>
+      <input type="number" id="bD" value="15" min="1" max="31" aria-label="出生日"><span class="unit">日</span>
+    </div>
+    <div class="echo" id="echoAge"></div>
+    <div class="when" id="echoWhen"></div>
+  </div>
+
+  <div class="f">
+    <span class="lab">你的勞保年資有多久？</span>
+    <div class="tip">勞保局網站上寫「幾年幾月」，照抄就好</div>
+    <div class="row">
+      <input type="number" id="senY" value="24" min="0" max="50" aria-label="年資幾年"><span class="unit">年</span>
+      <input type="number" id="senM" value="9" min="0" max="11" aria-label="年資幾月"><span class="unit">月</span>
+    </div>
+    <div class="echo" id="echoSen"></div>
+  </div>
+
+  <div class="f">
+    <label for="sal">你的平均月投保薪資是多少？</label>
+    <div class="tip">網站上寫「投保期間最高60個月之月投保薪資計算」的那一個</div>
+    <div class="row"><input type="number" id="sal" value="29500" min="11100" max="45800" step="100"><span class="unit">元</span></div>
+    <div class="pickLv">
+      <label for="salLv">不確定？看你的月薪落在哪一格，用挑的：</label>
+      <select id="salLv"></select>
+    </div>
+    <div class="memo">
+      <p>可以填你<b>現在查到的</b>數字，也可以填你<b>想試算看看的</b>數字——這是試算工具，多按幾個沒關係。</p>
+      <p class="k">這裡算的是<b>參考值</b>。實際能領多少，要等你退休那天，
+      再拿<b>「投保期間最高 60 個月」重新算一次平均</b>——那個才是真的。</p>
+    </div>
+    <div class="alert" id="salAlert"></div>
+  </div>
+
+  <div class="f">
+    <label for="work">你打算做到幾歲就不做了？</label>
+    <div class="tip">不做了以後，勞保年資就不會再增加了</div>
+    <div class="row"><input type="number" id="work" value="65" min="45" max="75"><span class="unit">歲</span></div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="card">
+  <h2><span class="n">2</span>你想先試算到幾歲？</h2>
+  <p class="say"><b>這不是預測壽命，而是試算期間。</b>選擇不同年齡，可以比較各種領法的累計金額。<br>
+  <b>可切換不同年齡，比較結果如何改變。</b></p>
+  <div class="picks" id="picks"></div>
+  <div class="alert" id="lifeSay"></div>
+</section>
+
+<!-- 3 -->
+<section class="ans" aria-live="polite">
+  <p class="ansNote">這是依你目前輸入條件計算的<b>比較結果</b>，不代表唯一適合的選擇。</p>
+  <div class="k">依目前設定，累計領取總額較高的起領年齡</div>
+  <div class="big num" id="bestAge">—</div>
+  <div class="k" id="bestWhy"></div>
+  <hr>
+  <div class="k">預估每月可領</div>
+  <div class="mid num" id="bestM">—</div>
+  <div class="foot">元（試算值）</div>
+  <hr>
+  <div class="k">試算期間累計可領</div>
+  <div class="mid num" id="bestT">—</div>
+  <div class="foot">元（依你設定的試算年齡計算，非終身保證總額）</div>
+  <div class="nudge" id="nudge"></div>
+</section>
+
+<details>
+  <summary>比較不同起領年齡</summary>
+  <div class="dbody">
+    <p class="scrollHint">← 左右滑動查看更多 →</p>
+    <div class="tblWrap">
+    <table>
+      <thead><tr><th>開始領取年齡</th><th>預估年資</th><th>每月預估金額</th><th>試算期間累計金額</th></tr></thead>
+      <tbody id="tb"></tbody>
+    </table>
+    </div>
+    <p class="tip" style="margin-top:14px">
+      ★ 代表<b>依目前試算條件，累計金額相對較高</b>，不代表一定最適合你。<br>
+      勞保有規定：<b>年資要滿 15 年</b>才可以按月領。<br>
+      比法定年齡早領，<b>早一年少 4%</b>，最多早 5 年。<br>
+      比法定年齡晚領，<b>晚一年多 4%</b>，最多晚 5 年。
+    </p>
+  </div>
+</details>
+
+<!-- gate 3 -->
+<section class="gate">
+  <p class="q">想知道你可不可以「<b>一次領</b>」嗎？</p>
+  <p class="qs">有些人可以選擇一次全部領完，有些人不行</p>
+  <div class="picks two" id="g3"></div>
+</section>
+
+<!-- 3 一次領 vs 月領 -->
+<section class="card" id="sec3" hidden>
+  <h2><span class="n">3</span>你可以「一次領」嗎？</h2>
+  <p class="say">有些人可以選擇「一次全部領完」，有些人不行。<b>要看你什麼時候開始保勞保。</b></p>
+
+  <div class="f">
+    <span class="lab">民國 97 年 12 月 31 日以前，你就有勞保了嗎？</span>
+    <div class="tip">也就是民國 97 年底以前，就開始保勞保了</div>
+    <div class="picks two" id="old98"></div>
+  </div>
+
+  <div id="oldBox" hidden>
+    <div class="f">
+      <label for="sal3">你退休前 3 年的平均月投保薪資</label>
+      <div class="tip">一次領用的是這個，跟月領用的<b>不一樣</b></div>
+      <div class="row"><input type="number" id="sal3" value="29500" min="11100" max="45800" step="100"><span class="unit">元</span></div>
+      <div class="pickLv">
+        <label for="sal3Lv">用挑的：</label>
+        <select id="sal3Lv"></select>
+      </div>
+      <div class="memo">
+        <p>月領看的是「<b>最高</b> 60 個月」，一次領看的是「<b>退保前 3 年</b>」。</p>
+        <p>差別很大：月領的基準<b>只會往上</b>——你只要有 60 個月頂到過某個級距，之後就算調降也保得住。
+        一次領的基準<b>會被你最後幾年拖下來</b>。<br>
+        所以退休前把級距調低，<b>一次領會變少，月領不受影響</b>。</p>
+        <p class="k">如果你的投保薪資這幾年都沒變，填一樣的數字就好。</p>
+      </div>
+    </div>
+
+    <div class="vs">
+      <div class="vs-side" id="lumpSide">
+        <div class="vs-t">一次請領試算</div>
+        <div class="vs-v num" id="lumpV">—</div>
+        <div class="vs-s">元（試算值）<br><span id="lumpM"></span></div>
+      </div>
+      <div class="vs-mid">或</div>
+      <div class="vs-side" id="monSide">
+        <div class="vs-t">老年年金月領試算</div>
+        <div class="vs-v num" id="monV">—</div>
+        <div class="vs-s">元 / 月（試算值）<br>核付後按月給付至死亡當月止</div>
+      </div>
+    </div>
+    <p class="vsTag" id="vsTag"></p>
+    <div class="alert" id="vsSay"></div>
+    <div class="alert" id="capSay"></div>
+  </div>
+</section>
+
+<!-- gate 4 -->
+<section class="gate">
+  <p class="q">想知道<b>加上勞退，一共有多少</b>嗎？</p>
+  <p class="qs">勞保只是第一層，勞退是第二層</p>
+  <div class="picks two" id="g4"></div>
+</section>
+
+<!-- 4 -->
+<section class="card" id="sec4" hidden>
+  <h2><span class="n">4</span>第二層：你的勞退有多少？</h2>
+  <p class="say">勞保是<b>保險</b>，領到過世為止。勞退是<b>帳戶</b>，是你自己的錢，<b>領完就沒了</b>。兩個要分開看。</p>
+
+  <div class="f">
+    <label for="pw">你的月提繳工資</label>
+    <div class="tip">公司每個月幫你提繳 6% 的那個薪水。<b>如果你的勞退已經「已停繳」，這裡填 0</b></div>
+    <div class="row"><input type="number" id="pw" value="0" min="0" step="100"><span class="unit">元</span></div>
+  </div>
+
+  <div class="f">
+    <span class="lab">勞退累計提繳年資有多久？</span>
+    <div class="tip">網站上「累計提繳年資」寫的那個，例如「5年1月」就填 5 和 1</div>
+    <div class="row">
+      <input type="number" id="ldY" value="5" min="0" max="50" aria-label="勞退年資幾年"><span class="unit">年</span>
+      <input type="number" id="ldM" value="1" min="0" max="11" aria-label="勞退年資幾月"><span class="unit">月</span>
+    </div>
+    <div class="alert" id="ldGate"></div>
+  </div>
+
+  <div class="f">
+    <label for="bal">勞退帳戶現在有多少錢？</label>
+    <div class="tip">網站上四筆金額全部加起來（雇主提繳、雇主收益、個人提繳、個人收益）</div>
+    <div class="row"><input type="number" id="bal" value="214754" min="0" step="1000"><span class="unit">元</span></div>
+  </div>
+
+  <div class="vs" id="ldVs">
+    <div class="vs-side" id="ldLumpSide">
+      <div class="vs-t">勞退一次領試算</div>
+      <div class="vs-v num" id="ldLump">—</div>
+      <div class="vs-s">元<br>一次拿完</div>
+    </div>
+    <div class="vs-mid">還是</div>
+    <div class="vs-side" id="ldMonSide">
+      <div class="vs-t">勞退月領試算</div>
+      <div class="vs-v num" id="ldMon">—</div>
+      <div class="vs-s" id="ldMonS">元 / 月</div>
+    </div>
+  </div>
+  <div class="alert" id="ldSay"></div>
+
+  <details class="tax">
+    <summary>想試算自願提繳嗎？</summary>
+    <div class="dbody">
+      <p>除了公司提繳的 6%，你還可以<b>自己再提繳</b>，最多也是 6%。自己提繳的錢
+      <b>不計入當年度所得課稅</b>（勞工退休金條例第 14 條）。<br>
+      <b>符合自願提繳資格並持續提繳時，可累積相應的提繳年資；實際認定以主管機關規定為準。</b></p>
+
+      <div class="f" style="margin-top:20px">
+        <span class="lab">你現在是哪一種？</span>
+        <div class="tip">自營作業者、老闆、自由工作者，法律也允許你自願提繳</div>
+        <div class="picks two" id="whoPicks"></div>
+      </div>
+
+      <div class="f">
+        <label for="volSal">你打算用多少錢來提繳？</label>
+        <div class="tip" id="volSalTip"></div>
+        <div class="row"><input type="number" id="volSal" value="29500" min="0" max="150000" step="500"><span class="unit">元 / 月</span></div>
+      </div>
+
+      <div class="f">
+        <span class="lab">你想自己提繳幾 %？</span>
+        <div class="picks" id="volPicks"></div>
+      </div>
+
+      <div class="f">
+        <span class="lab">你的所得稅率是多少？</span>
+        <div class="tip">不確定就看報稅單，大部分人是 5% 或 12%</div>
+        <div class="picks" id="taxPicks"></div>
+      </div>
+
+      <div class="three" style="margin-top:24px">
+        <div class="b" id="volGateBox">
+          <span class="t">年資滿 15 年<small>月領選項就回來了</small></span>
+          <span class="v num" id="volGate">—</span>
+        </div>
+        <div class="b"><span class="t">提繳到最後，帳戶會有<small id="volTilSub"></small></span><span class="v num" id="volFv">—</span></div>
+        <div class="b sum"><span class="t">每個月可以月領<small id="volMonSub"></small></span><span class="v num" id="volMon">—</span></div>
+        <div class="b sum"><span class="t">預估節稅金額<small id="volTaxSub"></small></span><span class="v num" id="volTax">—</span></div>
+      </div>
+      <div class="alert" id="volSay"></div>
+
+      <p style="margin-top:22px"><b>但有三件事要一起想：</b></p>
+      <p>一、這筆錢會<b>鎖到 60 歲</b>才能領，中間拿不出來。</p>
+      <p>二、<b>稅率越低，省的稅越少。</b>5% 級距的人一年才省一千多——那點錢換十幾年的流動性，值不值得要自己判斷。</p>
+      <p>三、勞退基金具有<b>制度保障機制</b>（最低保證收益不低於當地銀行 2 年期定存利率），但收益仍依基金運用結果及法定保障規定辦理，<b>不宜與個人投資直接視為相同工具</b>。</p>
+    </div>
+  </details>
+
+  <div class="three" style="margin-top:26px">
+    <div class="b"><span class="t">勞保，一個月<small>領到過世為止</small></span><span class="v num" id="r1">—</span></div>
+    <div class="b"><span class="t">勞退，一個月<small>用你填的錢算，報酬率抓 4%</small></span><span class="v num" id="r2">—</span></div>
+    <div class="b sum"><span class="t">勞保＋勞退，每月預估合計<small>試算值</small></span><span class="v num" id="r3">—</span></div>
+  </div>
+</section>
+
+<!-- gate 5 -->
+<section class="gate">
+  <p class="q">想知道<b>你的退休生活，一個月要花多少</b>嗎？</p>
+  <p class="qs">知道要花多少，才知道制度給的夠不夠</p>
+  <div class="picks two" id="g5"></div>
+</section>
+
+<!-- 5 退休生活要花多少 -->
+<section class="card" id="sec5" hidden>
+  <h2><span class="n">5</span>你的退休生活，一個月要花多少？</h2>
+  <p class="say">這筆錢要<b>分成三包來想</b>，不是一整包。<br>
+  分開看，你才知道<b>哪一包是可以省的、哪一包不能省</b>。</p>
+
+  <div class="pack">
+    <div class="pk">
+      <div class="pn">第 1 包<b>基本生活</b></div>
+      <p class="pt">食、衣、住、行，每天都要花的。<br>
+      預設值 <b>26,640 元</b>：行政院主計總處<b>家庭收支調查（113 年）</b>「平均每人月消費支出」總平均。<br>
+      <b>可先參考預設值，再依自己的生活調整。</b></p>
+      <div class="chips" id="chips1"></div>
+      <div class="row sub"><span class="or">或自己填</span><input type="number" id="need1" value="26640" min="0" step="500" aria-label="生活費"><span class="unit">元</span></div>
+    </div>
+
+    <div class="pk">
+      <div class="pn">第 2 包<b>醫療照護</b></div>
+      <p class="pt">包含門診、用藥、保健及可能增加的照護支出，<b>請依自己的健康與保障狀況調整</b>。</p>
+      <div class="chips" id="chips2"></div>
+      <div class="row sub"><span class="or">或自己填</span><input type="number" id="need2" value="6000" min="0" step="500" aria-label="醫療費"><span class="unit">元</span></div>
+    </div>
+
+    <div class="pk">
+      <div class="pn">第 3 包<b>彈性生活</b></div>
+      <p class="pt">包含旅遊、休閒、學習、家庭支持及其他希望保留的生活選擇。<br>
+      <b>這包沒有標準答案——你想過什麼日子，自己決定。</b></p>
+      <div class="chips" id="chips3"></div>
+      <div class="row sub"><span class="or">或自己填</span><input type="number" id="need3" value="0" min="0" step="500" aria-label="彈性花費"><span class="unit">元</span></div>
+      <p class="pt" id="pt3"></p>
+    </div>
+  </div>
+
+  <p class="say" style="margin-top:26px"><b>這些錢，誰來付？</b><br>
+  把制度給你的錢，<b>由上往下倒進三包裡</b>，看它蓋得到哪裡。</p>
+  <div class="match" id="match"></div>
+
+  <div class="three" style="margin-top:18px">
+    <div class="b"><span class="t">三包加起來，一個月要<small id="needSub"></small></span><span class="v num" id="needTot">—</span></div>
+    <div class="b"><span class="t">制度給你的<small>勞保 ＋ 勞退</small></span><span class="v num" id="haveTot">—</span></div>
+    <div class="b gap"><span class="t">還差多少<small id="gapSub"></small></span><span class="v num" id="r4">—</span></div>
+  </div>
+  <div class="alert" id="gapSay"></div>
+  <div class="alert" id="needWarn"></div>
+</section>
+
+<!-- gate 6 -->
+<section class="gate">
+  <p class="q">想知道<b>你自己還要準備多少</b>嗎？</p>
+  <p class="qs">順便看看：多存一點，可以<b>多幾年安心</b></p>
+  <div class="picks two" id="g6"></div>
+</section>
+
+<!-- 6 第三層 -->
+<section class="card" id="sec6" hidden>
+  <h2><span class="n">6</span>第三層：你自己要準備多少？</h2>
+  <p class="say">前面算出來的缺口，是<b>今天的物價</b>。等你真的退休，同樣的日子會更貴。<br>
+  這一段幫你把它換算成：<b>從現在開始，每個月要存多少</b>——
+  以及<b>多存一點，可以多幾年安心。</b></p>
+
+  <div class="f">
+    <span class="lab">你打算怎麼準備？</span>
+    <div class="tip">沒有標準答案，看你手上有什麼</div>
+    <div class="picks" id="m5"></div>
+  </div>
+
+  <div class="f">
+    <span class="lab">物價一年漲多少？</span>
+    <div class="tip">台灣長期大約 2% 左右</div>
+    <div class="picks" id="infPicks"></div>
+  </div>
+
+  <div class="f">
+    <span class="lab">預估年化報酬率</span>
+    <div class="tip"><b>這只是試算假設，不是保證報酬。</b>建議使用較保守的數值評估。<br>試算未必反映市場波動、費用、稅負及實際投資結果。</div>
+    <div class="picks" id="rtnPicks"></div>
+  </div>
+
+  <div class="f" id="potIn">
+    <label for="pot">目前可用於退休準備的資產</label>
+    <div class="tip"><b>只填入確定願意留作退休用途的資產</b>，不必把所有資產都算進來。</div>
+    <div class="row"><input type="number" id="pot" value="0" min="0" step="10000"><span class="unit">元</span></div>
+  </div>
+
+  <div class="three" style="margin-top:24px">
+    <div class="b">
+      <span class="t">退休那天，同樣的缺口<small id="l3InfSub"></small></span>
+      <span class="v num" id="l3Inf">—</span>
+    </div>
+    <div class="b sum">
+      <span class="t">退休當下，要準備好<small id="l3NeedSub"></small></span>
+      <span class="v num" id="l3Need">—</span>
+    </div>
+    <div class="b" id="potBox" hidden>
+      <span class="t">你這桶金到時候會變成<small id="l3PotSub"></small></span>
+      <span class="v num" id="l3Pot">—</span>
+    </div>
+    <div class="b gap" id="saveBox">
+      <span class="t">從現在開始，每個月要存<small id="l3SaveSub"></small></span>
+      <span class="v num" id="l3Save">—</span>
+    </div>
+  </div>
+  <div class="alert" id="l3Say"></div>
+
+  <div class="tenY" id="tenY">
+    <p class="t">如果希望多準備 10 年呢？</p>
+    <p class="q" id="tenQ"></p>
+    <div class="tenG">
+      <div><span class="k">退休當下要多準備</span><span class="v num" id="tenNeed">—</span></div>
+      <div><span class="k">每個月要多存</span><span class="v num" id="tenSave">—</span></div>
+    </div>
+    <p class="s" id="tenSay"></p>
+  </div>
+
+  <details class="tax">
+    <summary>一筆退休金，每月大約可以用多少？</summary>
+    <div class="dbody">
+      <p>同樣一桶錢，有兩種用法。<b>先看清楚差別，再決定要哪一種。</b></p>
+
+      <div class="f" style="margin-top:18px">
+        <label for="cfPot">這桶金有多少？</label>
+        <div class="row"><input type="number" id="cfPot" value="1000000" min="0" step="100000"><span class="unit">元</span></div>
+      </div>
+      <div class="f">
+        <label for="cfYrs">打算讓它撐幾年？</label>
+        <div class="tip">例如 65 歲開始領、領到 85 歲，就是 20 年</div>
+        <div class="row"><input type="number" id="cfYrs" value="20" min="1" max="45"><span class="unit">年</span></div>
+      </div>
+
+      <div class="vs" style="margin-top:6px">
+        <div class="vs-side">
+          <div class="vs-t">用法一：在設定年限內逐步使用</div>
+          <div class="vs-v num" id="cfBurn">—</div>
+          <div class="vs-s">元 / 月<br><span id="cfBurnS"></span></div>
+        </div>
+        <div class="vs-mid">還是</div>
+        <div class="vs-side">
+          <div class="vs-t">用法二：只使用試算收益</div>
+          <div class="vs-v num" id="cfInt">—</div>
+          <div class="vs-s">元 / 月<br><span id="cfIntS"></span></div>
+        </div>
+      </div>
+      <div class="alert" id="cfSay"></div>
+
+      <p style="margin-top:20px"><b>三件要想清楚的事：</b></p>
+      <p>一、逐步使用本金，每月可用金額較高，<b>但資金可能在設定期間後用完</b>。</p>
+      <p>二、只使用試算收益，每月可用金額較低，<b>且實際收益並不固定</b>。</p>
+      <p>三、<b>退休初期若遇市場下跌，持續提領可能加快資產消耗。</b></p>
+      <p class="k">以上只是依輸入的年限與假設報酬率換算。<b>真實結果會受到市場波動、通膨、費用、
+      稅負及提領順序影響。</b></p>
+    </div>
+  </details>
+
+  <details class="tax">
+    <summary>如果晚 5 年才開始準備？</summary>
+    <div class="dbody">
+      <div class="three">
+        <div class="b"><span class="t">現在就開始<small>每個月</small></span><span class="v num" id="l3Now">—</span></div>
+        <div class="b gap"><span class="t">晚 5 年開始<small>每個月</small></span><span class="v num" id="l3Late">—</span></div>
+      </div>
+      <p style="margin-top:18px" id="l3LateSay"></p>
+      <p style="margin-top:14px"><b>準備時間縮短後，每月需要投入的金額通常會提高。</b>越早開始，調整空間越大。</p>
+    </div>
+  </details>
+</section>
+
+<section class="closer">
+  <p class="lead">最後，一句真心話</p>
+  <h2>錢算得出來，<br><em>命算不出來</em>。</h2>
+
+  <p>試算建立在假設上，<b>但健康、家庭與人生想法，都可能改變。</b></p>
+  <p class="punch big">所以退休規劃沒有絕對的「最划算」，<br><em>只有當下最適合你的選擇</em>。</p>
+  <p>試算，幫你看見數字；<br><b>觀念與紀律，才能陪你走完全程。</b></p>
+
+  <div class="creed">
+    <p class="ch">一次領還是月領？60 歲還是 65 歲領？</p>
+    <p>顧問不是替你決定，<br>
+    而是了解你的年資、健康與家庭，<b>陪你把重要的選擇看得更完整</b>。</p>
+    <p>制度會改、物價會漲，人生也會變。<br>當你需要重新評估時——</p>
+    <p class="here"><em>我還在。</em></p>
+  </div>
+
+  <p class="last">把身體顧好、把觀念顧好、把紀律守住。<br>
+  <span>這三件事，是試算表算不出來，卻最值錢的人生資產。</span></p>
+</section>
+
+<section class="cta">
+  <p class="lead">帶走你今天算的東西</p>
+  <h2>這一頁關掉，<br>數字就沒了。</h2>
+
+  <div class="recap" id="recap"></div>
+
+  <p class="ctaP">今天算出來的這些，值得留下來——<b>而且值得每年重算一次</b>。<br>
+  因為制度會改、物價會漲，你的年資也還在長。</p>
+
+  <p class="way">方法一　<b>自己帶走</b>　<span>不用留任何資料</span></p>
+  <button type="button" class="copyBtn" id="copyBtn">複製我的試算摘要</button>
+  <textarea id="sumTA" readonly aria-label="試算摘要"></textarea>
+  <button type="button" class="printBtn" onclick="window.print()">列印或另存 PDF</button>
+
+  <p class="way">方法二　<b>讓顧問幫你看一遍</b>　<span>透過 LINE 討論</span></p>
+  <p class="wayS">這張表算不到你的<b>國民年金、84 年以前的舊制年資、軍保公保年資</b>——
+  那些要人工幫你查，而且<b>加起來常常差很多錢</b>。</p>
+
+  
+
+  <div class="line">
+    <div class="lineName"><span class="lineMark">LINE</span><b>馥芸財富學苑</b></div>
+    <a class="lineBtn" href="https://lin.ee/uMYPHQc" rel="noopener">加入 LINE@ 官方群組</a>
+    <a class="subBtn" href="consultation.html#booking" rel="noopener">
+      想談得更完整 → 預約一對一諮詢</a>
+  </div>
+
+  <p class="fine">你今天學會的算法，本來就是你的。這一頁隨時可以再打開，重算一次。</p>
+</section>
+
+<footer>
+  <b>看試算結果前，請記得：</b>
+  <ol class="must">
+    <li>本工具提供<b>初步試算</b>，不是勞保局正式核定結果。</li>
+    <li>實際資格、年資與給付金額，<b>仍以主管機關最新規定及核定為準</b>。</li>
+    <li><b>老年給付一經核付，原則上不得任意變更</b>，申請前請再次確認。</li>
+  </ol>
+
+  <details class="fd">
+    <summary>查看完整試算說明與資料版本</summary>
+    <div class="dbody">
+      <p><b>本工具涵蓋</b>：勞保老年年金（月領）、勞保一次請領老年給付、勞工退休金新制（個人專戶）、
+      退休生活支出與缺口、自備退休金試算。</p>
+      <p><b>本工具未涵蓋</b>：國民年金、民國 84 年以前的勞保舊制年資、軍保、公保、
+      公教退撫，以及其他特殊年資。<b>若你有多重身分，加總結果可能與本頁差異很大。</b></p>
+      <p><b>一次請領資格</b>：限民國 97 年 12 月 31 日以前有勞保年資者，且須符合勞工保險條例
+      第 58 條第 2 項各款之一。給付月數依同條例第 59 條估算（60 歲前上限 45 個月，
+      合併 60 歲後年資上限 50 個月）。<b>實際資格與月數請洽勞保局確認</b>。</p>
+      <p><b>投保薪資分級表版本</b>：民國 114 年 11 月 21 日公布、自 115 年 1 月 1 日施行之版本。</p>
+      <p><b>假設參數</b>：勞退報酬率固定 4%；第三層試算之通膨率與報酬率由使用者自行設定，
+      並以<b>實質報酬率</b>換算（全程以今日物價為單位）。勞退月領採年金化簡算，
+      勞保局實際依<b>年金生命表</b>計算，數字會有落差，請以
+      <a href="https://calcr2.mol.gov.tw/trial" rel="noopener">勞動部官方試算表</a>核對。</p>
+      <p><b>勞保局客服</b>：02-2396-1266　｜　
+      <a href="https://edesk.bli.gov.tw" rel="noopener">勞保局 e 化服務系統</a></p>
+      <p><b>本頁提供試算與初步整理使用，不構成投資、保險、稅務或法律建議。</b></p>
+      <p class="ver">制度資料版本：民國 115 年　｜　網頁最後更新：<span id="upd"></span></p>
+    </div>
+  </details>
+
+  <div class="sign">
+    <b>馥芸財富學苑</b>
+    <span>財顧芸 Angie｜陪你整理財務、保障與人生下一步</span>
+    <a href="index.html" rel="noopener">www.allfreedom.info</a>
+    <p>本頁提供試算與初步整理使用，<b>不構成投資、保險、稅務或法律建議</b>。</p>
+  </div>
+</footer>
+</div>
+
+<script>
+const $ = i => document.getElementById(i);
+const nf = n => Math.round(n).toLocaleString('en-US');
+let LIFE = 85;
+let OLD98 = true;                    // 97年底前是否已有勞保年資
+
+/* 一次請領老年給付：給付月數（勞保條例第59條）
+   ・60歲以前年資最多計30年：前15年每年1個月，超過部分每年2個月，上限45個月
+   ・60歲以後年資最多再計5年，每年1個月
+   ・合併上限50個月
+   ・畸零月數不計（每滿1年才算），所以先無條件捨去到整年 */
+function lumpMonths(senTotal, claimAge){
+  const sen   = Math.floor(senTotal);
+  const after = Math.min(5, Math.max(0, Math.floor(Math.max(0, claimAge - 60))));
+  const sen60 = Math.min(30, Math.max(0, sen - after));
+  const m60   = Math.min(45, Math.min(15, sen60) + Math.max(0, sen60 - 15) * 2);
+  const aY    = Math.min(after, Math.max(0, sen - sen60));
+  return { months: Math.min(50, m60 + aY), sen, sen60, m60, aY,
+           capped: (m60 + aY) > 50 || m60 >= 45 };
+}
+
+/* 一次請領的資格（第58條第2項主要款項，簡化） */
+const canLump = (sen, age) =>
+  OLD98 && ((sen >= 1 && age >= 60) || (sen >= 15 && age >= 55) || (sen >= 25 && age >= 50));
+
+const PICKS = [
+  {y:77, t:'網路上常用的<br>「出生時平均餘命」'},
+  {y:85, t:'65 歲時的<br>平均餘命'},
+  {y:90, t:'比平均<br>長壽一些'},
+  {y:95, t:'很長壽'}
+];
+
+function legalAge(b){
+  if(b <= 46) return 60;
+  if(b >= 51) return 65;
+  return 60 + (b - 46);
+}
+
+/* 民國 → 西元日期 */
+const rocDate = (y,m,d) => new Date(y+1911, m-1, d);
+/* 把西元日期印成民國 */
+const rocStr = dt => `民國 ${dt.getFullYear()-1911} 年 ${dt.getMonth()+1} 月`;
+
+/* 精確年齡：幾歲又幾個月 */
+function exactAge(bd, now){
+  let y = now.getFullYear() - bd.getFullYear();
+  let m = now.getMonth() - bd.getMonth();
+  if(now.getDate() < bd.getDate()) m--;
+  if(m < 0){ y--; m += 12; }
+  return { y, m, dec: y + m/12 };
+}
+
+function read(){
+  const bY = +$('bY').value || 55;
+  const bM = Math.min(12, Math.max(1, +$('bM').value || 1));
+  const bD = Math.min(31, Math.max(1, +$('bD').value || 1));
+  const bd = rocDate(bY, bM, bD);
+  const ea = exactAge(bd, new Date());
+  const sen0 = (+$('senY').value||0) + Math.min(11, Math.max(0, +$('senM').value||0))/12;
+  const sal  = Math.min(+$('sal').value||0, 45800);
+  const work = +$('work').value || ea.y;
+  return { bY, bd, ea, age: ea.dec, sen0, sal, work, legal: legalAge(bY) };
+}
+
+function rowAt(s, a, life){
+  const sen = s.sen0 + Math.max(0, Math.min(s.work, a) - s.age);
+  const ok  = sen >= 15;
+  const f1 = s.sal*sen*0.00775 + 3000;
+  const f2 = s.sal*sen*0.0155;
+  let adj = Math.max(0.8, Math.min(1.2, 1 + 0.04*(a - s.legal)));
+  const amt = ok ? Math.max(f1,f2)*adj : 0;
+  const months = Math.max(0, (life - a)*12);
+  return { a, sen, ok, adj, amt, months, total: amt*months };
+}
+const allRows = (s, life) => {
+  const o = [];
+  for(let a = s.legal-5; a <= s.legal+5; a++) o.push(rowAt(s, a, life));
+  return o;
+};
+const pickBest = rs => rs.filter(r=>r.ok).reduce((a,b)=> b.total>a.total?b:a, {total:-1,a:null,amt:0});
+
+/* 勞工保險投保薪資分級表
+   （114年11月21日勞動部公布，自115年1月1日施行）
+   ⚠️ 分級表會調整，每次使用前請至勞保局確認最新版本 */
+const LEVELS = [
+  [29500, '29,500 元以下'],
+  [30300, '29,501 ~ 30,300'],
+  [31800, '30,301 ~ 31,800'],
+  [33300, '31,801 ~ 33,300'],
+  [34800, '33,301 ~ 34,800'],
+  [36300, '34,801 ~ 36,300'],
+  [38200, '36,301 ~ 38,200'],
+  [40100, '38,201 ~ 40,100'],
+  [42000, '40,101 ~ 42,000'],
+  [43900, '42,001 ~ 43,900'],
+  [45800, '43,901 元以上'],
+];
+
+function buildLevels(){
+  const opts = '<option value="">— 請挑選 —</option>' +
+    LEVELS.map(([v,r],i) =>
+      `<option value="${v}">第 ${i+1} 級　月薪 ${r}　→　${v.toLocaleString()} 元</option>`).join('');
+  [['salLv','sal'], ['sal3Lv','sal3']].forEach(([sel, inp]) => {
+    $(sel).innerHTML = opts;
+    $(sel).onchange = e => {
+      if(e.target.value){ $(inp).value = e.target.value; render(false); }
+    };
+  });
+}
+
+function buildPicks(){
+  $('picks').innerHTML = PICKS.map(p =>
+    `<button type="button" class="pick" data-y="${p.y}" aria-pressed="${p.y===LIFE}">
+       <span class="y">${p.y}</span><span class="t">${p.t}</span></button>`).join('');
+  $('picks').querySelectorAll('.pick').forEach(b =>
+    b.onclick = () => { LIFE = +b.dataset.y; render(true); });
+}
+
+let TAXR = 5;
+let EMPLOYED = false;                 // true=受僱於公司（雇主另提6%），false=自營/雇主
+let VOLR = 6;                         // 自提 %
+
+function mkPicks(el, arr, cur, cb, cls){
+  el.innerHTML = arr.map(o =>
+    `<button type="button" class="pick" data-v="${o.v}" aria-pressed="${o.v===cur}">
+       <span class="y">${o.y}</span>${o.t ? `<span class="t">${o.t}</span>` : ''}</button>`).join('');
+  el.querySelectorAll('.pick').forEach(b => b.onclick = () => {
+    /* 立刻更新按下的樣子，不等 render */
+    el.querySelectorAll('.pick').forEach(x => x.setAttribute('aria-pressed', x === b));
+    cb(b.dataset.v); render(false);
+  });
+}
+function buildTax(){
+  mkPicks($('taxPicks'), [5,12,20,30,40].map(t=>({v:t,y:t+'%'})), TAXR, v => TAXR = +v);
+  mkPicks($('volPicks'), [0,3,6].map(t=>({v:t,y:t+'%'})), VOLR, v => VOLR = +v);
+  mkPicks($('whoPicks'), [
+    {v:1,y:'受僱',t:'公司另外<br>幫我提繳 6%'},
+    {v:0,y:'自營',t:'自營作業者<br>老闆、自由工作者'}
+  ], EMPLOYED?1:0, v => EMPLOYED = v === '1');
+}
+
+let INF = 2;                          // 通膨假設 %
+let RTN = 4;                          // 報酬率假設 %
+
+/* 分層詢問：每一層要不要展開，由使用者決定 */
+const GATE = { g3:false, g4:false, g5:false, g6:false };
+/* 複製摘要：navigator.clipboard 在非 https 或舊瀏覽器會失敗，備援用 select+execCommand */
+/* 送出建檔：打與預約頁同一支 API、同一套 payload 結構。
+   失敗時一律先把摘要備好，請使用者貼 LINE@（比照 consultation.html 的處理） */
+function initSend(){}
+
+async function copySummary(){
+  const ta = $('sumTA');
+  try{ await navigator.clipboard.writeText(ta.value); return true; }
+  catch(e){
+    ta.select(); ta.setSelectionRange(0, 99999);
+    try{ return document.execCommand('copy'); }catch(_){ return false; }
+  }
+}
+/* 字級版本：使用者自己選，一律顯示按鈕。
+   ・大字版（預設）＝熟齡友善
+   ・一般版＝密度較高，字較小
+   切換時同步更新網址，方便加書籤或分享。
+
+   另外：網址帶 ?pro 時，除了套一般版，還會把分層詢問全部展開——
+   那是講師上台用的捷徑，跟字級是兩回事。 */
+function initSkin(){
+  const params = new URLSearchParams(location.search);
+  const lecturer = params.has('pro');
+
+  const setSkin = compact => {
+    document.body.dataset.skin = compact ? 'pro' : 'senior';
+    $('skinBtn').textContent = compact ? '切換成大字版' : '切換成一般版';
+    $('skinBtn').setAttribute('aria-pressed', String(compact));
+    const u = new URL(location.href);
+    compact ? u.searchParams.set('view','compact') : u.searchParams.delete('view');
+    if(history.replaceState) history.replaceState(null,'',u);
+    render(false);
+  };
+
+  const openAll = () => Object.keys(GATE).forEach(g => {
+    GATE[g] = true;
+    $(g.replace('g','sec')).hidden = false;
+    $(g).closest('.gate').classList.add('on');
+    $(g).querySelectorAll('.pick').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === '1'));
+  });
+
+  setSkin(lecturer || params.get('view') === 'compact');
+  if(lecturer) openAll();
+  $('skinBtn').onclick = () => setSkin(document.body.dataset.skin !== 'pro');
+}
+
+function initCopy(){
+  $('copyBtn').onclick = async () => {
+    const btn = $('copyBtn');
+    if(await copySummary()){
+      btn.textContent = '✓ 複製好了，去貼到 LINE@';
+      btn.classList.add('done');
+      setTimeout(() => { btn.textContent = '複製我的試算摘要'; btn.classList.remove('done'); }, 3000);
+    }else{
+      btn.textContent = '請長按上面的文字，手動複製';
+    }
+  };
+}
+
+function buildGates(){
+  const yn = [{v:1,y:'想',t:'幫我算'},{v:0,y:'不用',t:'先跳過'}];
+  [['g3','sec3'],['g4','sec4'],['g5','sec5'],['g6','sec6']].forEach(([g, sec]) => {
+    /* cur 傳 null：一開始兩顆都不反白，不要看起來像已經幫他選了「不用」 */
+    mkPicks($(g), yn, null, v => {
+      GATE[g] = v === '1';
+      $(sec).hidden = !GATE[g];
+      $(g).closest('.gate').classList.toggle('on', GATE[g]);
+      if(GATE[g] && $(sec).scrollIntoView)
+        setTimeout(() => $(sec).scrollIntoView({behavior:'smooth', block:'start'}), 60);
+    });
+    $(sec).hidden = !GATE[g];
+  });
+}
+
+let MODE5 = 'save';                   // save=定時定額 / pot=一桶金 / both=兩個都有
+
+/* 三包錢：用選的，不用打字。數字後面才是給想填精確金額的人用的。
+   26,106 是外籍看護的實際總成本（底薪＋加班＋就業安定費＋健保＋職災），不是只有底薪 20,000 */
+const CHIPS = {
+  need1: [
+    {v:20000, t:'省一點'},
+    {v:26640, t:'一般'},
+    {v:35000, t:'寬裕一點'},
+    {v:45000, t:'過得好一點'},
+  ],
+  need2: [
+    {v:2000,  t:'很少看病'},
+    {v:6000,  t:'一般'},
+    {v:10000, t:'常跑醫院'},
+    {v:15000, t:'有慢性病', hot:true},
+  ],
+  need3: [
+    {v:0,     t:'都不用'},
+    {v:3000,  t:'偶爾走走'},
+    {v:8000,  t:'常常旅遊'},
+    {v:15000, t:'過得寬裕'},
+    {v:26106, t:'請看護', hot:true},
+  ],
+};
+function buildChips(){
+  Object.entries(CHIPS).forEach(([inp, list]) => {
+    const box = $('chips' + inp.slice(-1));
+    box.innerHTML = list.map(c =>
+      `<button type="button" class="chip${c.hot?' care':''}" data-v="${c.v}">
+         ${c.t}<i>${c.v.toLocaleString()}</i></button>`).join('');
+    box.querySelectorAll('.chip').forEach(b =>
+      b.onclick = () => { $(inp).value = b.dataset.v; render(false); });
+  });
+}
+/* 目前的金額對到哪一顆，就把那顆點亮 */
+function syncChips(){
+  Object.keys(CHIPS).forEach(inp => {
+    const v = +$(inp).value;
+    $('chips' + inp.slice(-1)).querySelectorAll('.chip')
+      .forEach(b => b.setAttribute('aria-pressed', +b.dataset.v === v));
+  });
+}
+
+function buildL3(){
+  mkPicks($('infPicks'), [0,2,3].map(v=>({v,y:v+'%',t:v===0?'不算通膨':(v===2?'長期平均':'比較保守')})),
+          INF, v => INF = +v);
+  mkPicks($('rtnPicks'), [2,4,6].map(v=>({v,y:v+'%',t:v===2?'很保守':(v===4?'保守':'樂觀')})),
+          RTN, v => RTN = +v);
+  mkPicks($('m5'), [
+    {v:'save', y:'定時定額', t:'每個月<br>存一點'},
+    {v:'pot',  y:'一桶金',   t:'手上已經有<br>一筆錢'},
+    {v:'both', y:'兩個都有', t:'有存款<br>也還能存'},
+  ], MODE5, v => MODE5 = v);
+}
+
+function buildOld98(){
+  const opts = [{v:1,y:'有',t:'97 年底以前<br>就保勞保了'},{v:0,y:'沒有',t:'98 年以後<br>才開始保'}];
+  $('old98').innerHTML = opts.map(o =>
+    `<button type="button" class="pick" data-v="${o.v}" aria-pressed="${!!o.v===OLD98}">
+       <span class="y">${o.y}</span><span class="t">${o.t}</span></button>`).join('');
+  $('old98').querySelectorAll('.pick').forEach(b =>
+    b.onclick = () => { OLD98 = b.dataset.v === '1'; render(false); });
+}
+
+let prevBest = null;
+
+
+/* ── v2：進度指示。依 gate 展開狀態更新，不影響既有流程 ── */
+const STEPS = ['基本資料','領取年齡','一次領比較','勞退試算','退休生活費','自備退休金'];
+function renderSteps(){
+  const done = [true, true, GATE.g3, GATE.g4, GATE.g5, GATE.g6];
+  const cur = Math.max(0, done.lastIndexOf(true));
+  $('steps').innerHTML = `<span class="sN">第 ${cur+1} 步，共 ${STEPS.length} 步｜${STEPS[cur]}</span>` +
+    STEPS.map((s,i) => `<i class="${done[i] ? (i===cur?'cur':'on') : ''}" title="${s}"></i>`).join('');
+}
+
+/* ── v2：輸入驗證。不靜默修正、不清空、錯誤訊息貼在欄位旁 ── */
+const daysIn = (y,m) => new Date(y+1911, m, 0).getDate();
+function showErr(id, msg){
+  const el = $(id);
+  let box = document.getElementById(id + '_err');
+  if(!box){
+    box = document.createElement('div');
+    box.id = id + '_err'; box.className = 'errMsg';
+    box.setAttribute('role','alert');
+    (el.closest('.f') || el.parentElement).appendChild(box);
+    el.setAttribute('aria-describedby', box.id);
+  }
+  box.textContent = msg || '';
+  el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+  return !msg;
+}
+function validate(s){
+  let ok = true;
+  const v = id => +$(id).value;
+  ok &= showErr('bY', (v('bY') < 20 || v('bY') > 95) ? '出生年請填民國 20～95 年之間。' : '');
+  ok &= showErr('bM', (v('bM') < 1 || v('bM') > 12) ? '月份請填 1～12。' : '');
+  const dmax = (v('bM') >= 1 && v('bM') <= 12) ? daysIn(v('bY'), v('bM')) : 31;
+  ok &= showErr('bD', (v('bD') < 1 || v('bD') > dmax)
+        ? `民國 ${v('bY')} 年 ${v('bM')} 月只有 ${dmax} 天，請重新確認日期。` : '');
+  ok &= showErr('senM', (v('senM') < 0 || v('senM') > 11) ? '年資的「月」請填 0～11（滿 12 個月請進位到年）。' : '');
+  ok &= showErr('senY', v('senY') < 0 ? '年資不可為負數。' : '');
+  ok &= showErr('work', v('work') < Math.floor(s.age)
+        ? `「預計工作到幾歲」不可小於你目前的年齡（${Math.floor(s.age)} 歲）。` : '');
+  ok &= showErr('ldM', (v('ldM') < 0 || v('ldM') > 11) ? '勞退年資的「月」請填 0～11。' : '');
+  ['sal','pw','bal','need1','need2','need3','pot','cfPot','volSal'].forEach(id => {
+    if($(id)) ok &= showErr(id, v(id) < 0 ? '金額不可為負數。' : '');
+  });
+  return !!ok;
+}
+
+function render(flash){
+  const s = read();
+
+  $('echoAge').textContent = `你今年 ${s.ea.y} 歲 ${s.ea.m} 個月，法定可以領的年齡是 ${s.legal} 歲`;
+
+  /* 真正能去領的時間點 */
+  const dOf = a => new Date(s.bd.getFullYear()+a, s.bd.getMonth(), s.bd.getDate());
+  const now = new Date();
+  const dLegal = dOf(s.legal), dEarly = dOf(s.legal-5);
+  const line = (dt, label, note) => {
+    const past = dt <= now;
+    return `<span class="r">${label}：<b>${past ? '你已經到了' : rocStr(dt)}</b>` +
+           (note ? `<br><small>${note}</small>` : '') + `</span>`;
+  };
+  $('echoWhen').innerHTML =
+    line(dEarly, `最早可以領（${s.legal-5} 歲）`, '提前 5 年，一輩子每個月都少 20%') +
+    line(dLegal, `不打折可以領（${s.legal} 歲）`, '這是法定年齡，不加不減');
+  $('echoSen').textContent = `＝ ${s.sen0.toFixed(2)} 年`;
+  /* 手動改了數字 → 下拉回到未選狀態，避免顯示不一致 */
+  [['salLv','sal'], ['sal3Lv','sal3']].forEach(([sel, inp]) => {
+    const v = +$(inp).value;
+    $(sel).value = LEVELS.some(l => l[0] === v) ? String(v) : '';
+  });
+
+  $('salAlert').textContent = (+$('sal').value > 45800)
+    ? '勞保最高只認到 45,800 元。不管你薪水多少，超過的部分勞保不算，已經幫你用 45,800 計算。' : '';
+
+  $('picks').querySelectorAll('.pick').forEach(b =>
+    b.setAttribute('aria-pressed', +b.dataset.y === LIFE));
+
+  const say = $('lifeSay');
+  if(LIFE <= 78) say.innerHTML = '這是<b>「從出生時起算」的平均餘命</b>，統計上包含了很年輕就過世的人，所以數字偏低。<b>對已經進入熟齡的人來說，這個設定並不合適。</b>';
+  else if(LIFE <= 86) say.innerHTML = '這比較接近實際。<b>依內政部簡易生命表，65 歲的平均餘命大約還有 20 年</b>，女性通常更長一些。';
+  else say.innerHTML = '長壽情境。<b>「平均」的意思是，統計上有一半的人會超過這個歲數。</b>';
+
+  const rows = allRows(s, LIFE);
+  const best = pickBest(rows);
+  const b77  = pickBest(allRows(s, 77));
+
+  if(best.a === null){
+    $('bestAge').textContent = '—';
+    $('bestM').textContent = $('bestT').textContent = '—';
+    $('bestWhy').textContent = '';
+    $('nudge').innerHTML = '你目前的年資還不到 15 年，還不能按月領。<b>先別急——你可能還有國民年金、或以前的年資可以合併計算。這個一定要找人幫你查清楚。</b>';
+  }else{
+    if(flash && prevBest !== best.a){
+      $('bestAge').classList.remove('flash'); void $('bestAge').offsetWidth;
+      $('bestAge').classList.add('flash');
+    }
+    prevBest = best.a;
+    $('bestAge').textContent = best.a + ' 歲';
+    $('bestWhy').textContent = best.a === s.legal ? '剛好就是你的法定年齡'
+                    : best.a < s.legal ? `比法定年齡早 ${s.legal-best.a} 年` : `比法定年齡晚 ${best.a-s.legal} 年`;
+    $('bestM').textContent = nf(best.amt);
+    $('bestT').textContent = nf(best.total);
+
+    $('nudge').innerHTML = (b77.a !== null && b77.a !== best.a)
+      ? `注意看：如果把試算年齡改成常見的 <b>77 歲</b>，累計金額較高的起領年齡會變成 <b>${b77.a} 歲</b>。<br>
+         <b>同一個人、同一套公式，只改試算年齡這一個設定，比較結果就不同。</b><br>
+         所以任何「幾歲領比較好」的說法，都建立在某個假設上——<b>那是他的假設，不一定是你的條件。</b>`
+      : `按按上面的 77 和 95，看看結果會不會變。<b>會變，就表示這件事沒有標準答案。</b>`;
+  }
+
+  $('tb').innerHTML = rows.map(r => {
+    const c = !r.ok ? 'no' : (r.a === best.a ? 'win' : '');
+    return `<tr class="${c}">
+      <td>${r.a} 歲</td>
+      <td class="num">${r.sen.toFixed(1)} 年</td>
+      <td class="num">${r.ok ? nf(r.amt) : '—'}</td>
+      <td class="num">${r.ok ? nf(r.total) : '—'}</td></tr>`;
+  }).join('');
+
+  /* ---- 一次領 vs 月領 ---- */
+  $('old98').querySelectorAll('.pick').forEach(b =>
+    b.setAttribute('aria-pressed', (b.dataset.v === '1') === OLD98));
+
+  const rBest = rows.find(r => r.a === best.a);
+  $('oldBox').hidden = !OLD98;
+
+  if(OLD98 && rBest){
+    if(!canLump(rBest.sen, rBest.a)){
+      $('lumpV').textContent = '—';
+      $('lumpM').textContent = '';
+      $('monV').textContent = nf(rBest.amt);
+      $('vsSay').innerHTML = '你有 97 年底以前的勞保，但<b>在這個年齡還不一定符合一次請領的條件</b>。條件不只一種，建議打電話問勞保局（02-2396-1266）確認。';
+      $('capSay').textContent = '';
+    }else{
+      const L = lumpMonths(rBest.sen, rBest.a);
+      const sal3 = Math.min(+$('sal3').value || 0, 45800);
+      const lump = sal3 * L.months;
+      const monTotal = rBest.amt * rBest.months;
+      const evenY = rBest.amt > 0 ? (lump / rBest.amt) / 12 : 0;
+
+      $('lumpV').textContent = nf(lump);
+      $('lumpM').innerHTML = `${L.months} 個月的投保薪資，核付後結案`;
+      $('monV').textContent  = nf(rBest.amt);
+      /* 只在依「目前試算條件」比較後才標示，不預設任何一邊勝出 */
+      const monHigher = monTotal > lump;
+      $('monSide').classList.toggle('hi', monHigher);
+      $('lumpSide').classList.toggle('hi', !monHigher);
+      $('vsTag').innerHTML = `依目前試算條件（試算年齡 ${LIFE} 歲），` +
+        `<b>${monHigher ? '月領' : '一次領'}的累計金額較高</b>。` +
+        `<br><span>換一個試算年齡，結果可能就不同——這不代表哪一種一定適合你。</span>`;
+
+      $('vsSay').innerHTML =
+        `以 ${rBest.a} 歲起領試算：<br><br>` +
+        `一次請領約 <b>${nf(lump)}</b> 元，核付後結案。<br>` +
+        `月領約 <b>${nf(rBest.amt)}</b> 元／月，按月給付至死亡當月止。<br><br>` +
+        `月領累計約需 <b>${evenY.toFixed(1)} 年</b>（約 <b>${Math.round(rBest.a + evenY)} 歲</b>）達到一次請領的金額。<br>` +
+        `依試算年齡 ${LIFE} 歲計算，月領累計約 <b>${nf(monTotal)}</b> 元，` +
+        `與一次請領相差約 <b>${nf(Math.abs(monTotal - lump))}</b> 元。`;
+
+      $('capSay').innerHTML = L.capped
+        ? `⚠️ 這裡要特別注意：<b>一次領有上限</b>。你的年資 ${L.sen} 年，照理可以換更多個月，` +
+          `但法律規定最多只給 <b>${L.months} 個月</b>。<br>` +
+          `<b>意思是：你有好幾年的年資，在一次領裡面是不算錢的。年資越長的人，一次領越吃虧。</b>`
+        : '';
+    }
+  }
+
+  // 勞退（報酬率固定 4%，不讓使用者亂填）
+  const pw = +$('pw').value||0, bal = +$('bal').value||0, r = 0.04;
+  const claim = Math.max(60, Math.min(s.work, 65));
+  const n = Math.max(0, Math.min(s.work, claim) - s.age);
+  /* 按月累積。s.age 精確到月，n 是小數——若用 for(i=0;i<n;i++) 逐年跑，
+     迴圈次數會被無條件進位，造成「年齡差 1 個月、結果跳一階」的假斷崖。
+     與下方「自願提繳」用同一套算法，保持一致。 */
+  const nM = Math.round(n*12);
+  let fv = bal * Math.pow(1+r, n);
+  for(let i=0;i<nM;i++) fv += pw*0.06*Math.pow(1+r, (nM-i-1)/12);
+  const N = Math.max(1, (LIFE - claim)*12), rm = r/12;
+  const pmtRaw = fv>0 ? fv*rm/(1-Math.pow(1+rm,-N)) : 0;
+
+  /* 勞退月領的門檻：提繳年資滿15年。未滿15年 → 只能一次領 */
+  const ldNow  = (+$('ldY').value||0) + Math.min(11, Math.max(0, +$('ldM').value||0))/12;
+  const ldAtClaim = ldNow + (pw > 0 ? n : 0);      // 已停繳就不會再長
+  const ldCanMonthly = ldAtClaim >= 15;
+  const pmt = ldCanMonthly ? pmtRaw : 0;           // 不能月領就沒有月現金流
+
+  $('ldLump').textContent = nf(fv);
+  $('ldMon').textContent  = ldCanMonthly ? nf(pmtRaw) : '不能選';
+  $('ldMonS').innerHTML   = ldCanMonthly ? '元 / 月<br>領完就沒了' : '提繳年資不到 15 年';
+  $('ldMonSide').classList.toggle('hi', ldCanMonthly);
+  $('ldLumpSide').classList.toggle('hi', !ldCanMonthly);
+
+  const need15 = 15 - ldAtClaim;
+  $('ldGate').innerHTML = ldCanMonthly
+    ? `你的勞退提繳年資到請領時會有 <b>${ldAtClaim.toFixed(1)} 年</b>，<b>滿 15 年了，一次領和月領可以二選一</b>。`
+    : `你的勞退提繳年資到請領時是 <b>${ldAtClaim.toFixed(1)} 年</b>，<b>不到 15 年 → 60 歲時只能一次領，沒有月領這個選項</b>。` +
+      `<br>還差 <b>${need15.toFixed(1)} 年</b>。` +
+      (pw === 0 ? `<br><br>你的勞退目前是<b>停繳</b>狀態，年資不會再增加。如果你是自營作業者或雇主，<b>法律允許你自願提繳</b>——繳滿 15 年，月領這個選項就回來了。這件事值得單獨算一次。` : '');
+
+  $('ldSay').innerHTML = ldCanMonthly
+    ? `勞退不管選哪個，都是<b>你自己帳戶裡的錢，領完就沒了</b>。這一點跟勞保不一樣——勞保是保險，活多久領多久。`
+    : `你的勞退是<b>一筆 ${nf(fv)} 元的錢</b>，不是每個月的收入。所以下面算「一個月有多少」的時候，勞退不計入。` +
+      `<br><b>這筆錢要怎麼撐往後的日子，是你要自己安排的。</b>`;
+
+  const have = (best.amt||0) + pmt;
+  /* ---- 自願提繳試算 ---- */
+  const setP = (el, cur) => $(el).querySelectorAll('.pick')
+        .forEach(b => b.setAttribute('aria-pressed', b.dataset.v == cur));
+  setP('taxPicks', TAXR); setP('volPicks', VOLR); setP('whoPicks', EMPLOYED ? 1 : 0);
+
+  $('volSalTip').textContent = EMPLOYED
+    ? '你的月薪。公司會提繳 6%，你自己再提繳的部分才有節稅效果'
+    : '你每月的執行業務所得。自營沒有雇主幫你繳，全部要自己來';
+
+  const vSal   = +$('volSal').value || 0;
+  const vRate  = (EMPLOYED ? 0.06 : 0) + VOLR/100;   // 總提繳率
+  const vSelf  = vSal * (VOLR/100) * 12;             // 一年自己掏多少（節稅基礎）
+  const vYrs   = Math.max(0, s.work - s.age);
+  const vClaim = Math.max(60, s.work);
+
+  let vFv = bal * Math.pow(1+r, vYrs);
+  const vM = Math.round(vYrs*12);
+  for(let i=0;i<vM;i++) vFv += vSal*vRate*Math.pow(1+r, (vM-i-1)/12);
+
+  const vTotalYrs = ldNow + (vRate > 0 ? vYrs : 0);
+  const vCanMon = vTotalYrs >= 15;
+  const vPmt = vCanMon ? vFv*rm/(1-Math.pow(1+rm, -Math.max(1,(LIFE-vClaim)*12))) : 0;
+
+  const hitAge = s.age + (15 - ldNow);
+  const gateSub = $('volGateBox').querySelector('small');
+  if(ldNow >= 15){
+    $('volGate').textContent = '已經滿了'; gateSub.textContent = '你已經有月領的選項';
+  }else if(vRate === 0){
+    $('volGate').textContent = '不會滿'; gateSub.textContent = '沒有提繳，年資不會長';
+  }else if(hitAge <= s.work){
+    $('volGate').textContent = hitAge.toFixed(1) + ' 歲';
+    gateSub.innerHTML = `大約民國 ${Math.round(115 + hitAge - s.age)} 年<br>月領選項就回來了`;
+  }else{
+    $('volGate').textContent = '差一點';
+    gateSub.innerHTML = `要繳到 ${hitAge.toFixed(1)} 歲才滿 15 年，<br>比你打算做到的 ${s.work} 歲還晚`;
+  }
+
+  $('volFv').textContent = nf(vFv);
+  $('volTilSub').textContent = `提繳到 ${s.work} 歲，一共 ${vYrs.toFixed(1)} 年`;
+  $('volMon').textContent = vCanMon ? nf(vPmt) : '不能選';
+  $('volMonSub').textContent = vCanMon ? `${vClaim} 歲開始，領完為止` : '年資還是不到 15 年';
+  $('volTax').textContent = nf(vSelf * TAXR/100 * vYrs);
+  $('volTaxSub').innerHTML = `一年自己提 ${nf(vSelf)} 元<br>稅率 ${TAXR}%，繳 ${vYrs.toFixed(1)} 年`;
+
+  const putIn = vSelf * vYrs;
+  $('volSay').innerHTML = (VOLR === 0)
+    ? '你現在選的是自提 0%。<b>按上面的 3% 或 6% 看看差多少。</b>'
+    : `你自己一共要掏出 <b>${nf(putIn)}</b> 元。<br>` +
+      `換到的是：帳戶裡多出來的錢、少繳的稅` +
+      (vCanMon && !ldCanMonthly ? `，還有<b>原本沒有的「月領」選項</b>` : '') + `。<br><br>` +
+      `<b>這筆錢沒有不見，它只是先進了你自己的帳戶，鎖到 60 歲。</b>`;
+
+  /* 缺口 */
+  /* 三包錢 */
+  syncChips();
+  const n1 = +$('need1').value||0, n2 = +$('need2').value||0, n3 = +$('need3').value||0;
+  const need = n1 + n2 + n3;
+  $('needTot').textContent = nf(need);
+  $('needSub').innerHTML = `生活 ${nf(n1)} ＋ 醫療 ${nf(n2)} ＋ 彈性 ${nf(n3)}`;
+  $('pt3').innerHTML = n3 >= 26106
+    ? '⚠️ <b>你按的是「請看護」。</b>26,106 元是<b>實際總成本</b>——底薪 20,000 只是其中一部分，' +
+      '還有加班費、就業安定費、健保、職災保險。<br>' +
+      '<b>這一包平常是「彈性」，需要的時候就變成「不能省」。</b>這就是為什麼它要先算進來。'
+    : '';
+  const gap  = need - have;
+  const yrs  = Math.max(0, LIFE - (best.a ?? s.legal));
+
+  $('r1').textContent = nf(best.amt||0);
+  $('r2').textContent = ldCanMonthly ? nf(pmt) : '0';
+  document.querySelector('#r2').closest('.b').querySelector('small').innerHTML =
+    ldCanMonthly ? '用你填的錢算，報酬率抓 4%'
+                 : `只能一次領，沒有月收入<br>（另外有一筆 ${nf(fv)} 元）`;
+  $('r3').textContent = nf(have);
+  $('haveTot').textContent = nf(have);   // 第 5 關也要顯示制度給你的總額
+
+  /* ---- 誰來付：把制度的錢由上往下倒進三包 ---- */
+  const BK = [['第 1 包　生活費', n1], ['第 2 包　醫療', n2], ['第 3 包　彈性', n3]];
+  let left = have, firstUncovered = null;
+  $('match').innerHTML = BK.map(([name, amt], idx) => {
+    if(amt <= 0) return `<div class="mrow none"><div class="mtop"><b>${name}</b><span class="amt">0</span></div>
+      <div class="mleg"><span>沒填</span></div></div>`;
+    const cov = Math.min(left, amt);
+    left -= cov;
+    const own = amt - cov;
+    if(own > 0 && firstUncovered === null) firstUncovered = idx;
+    const pc = Math.round(cov/amt*100);
+    return `<div class="mrow">
+      <div class="mtop"><b>${name}</b><span class="amt num">${nf(amt)}</span></div>
+      <div class="bar2">
+        ${cov > 0 ? `<i class="cov" style="width:${pc}%"></i>` : ''}
+        ${own > 0 ? `<i class="own" style="width:${100-pc}%"></i>` : ''}
+      </div>
+      <div class="mleg">
+        <span class="c">制度付 <i>${nf(cov)}</i></span>
+        <span class="o">${own > 0 ? `你自己付 <i>${nf(own)}</i>` : '✓ 蓋住了'}</span>
+      </div>
+    </div>`;
+  }).join('') + `<div class="mnote">${
+    firstUncovered === 0
+      ? '看到了嗎？<b>制度給你的錢，連第 1 包「生活費」都蓋不完。</b><br>' +
+        '醫療跟彈性那兩包，一毛錢都沒輪到——<b>那是你自己要扛的。</b>'
+    : firstUncovered === 1
+      ? '制度剛好蓋住生活費，<b>但醫療那包開始沒錢了</b>。<br>而醫療是<b>你想省也省不掉</b>的那一包。'
+    : firstUncovered === 2
+      ? '生活費和醫療蓋住了，<b>但想過得舒服一點的那一包，得靠自己。</b>'
+    : ''}</div>`;
+  $('r4').textContent = gap > 0 ? nf(gap) : '0';
+  $('gapSub').textContent = gap > 0 ? `${yrs} 年加起來要準備 ${nf(gap*12*yrs)} 元` : '制度給的就夠了';
+  $('gapSay').innerHTML = gap > 0
+    ? `每個月差 <b>${nf(gap)}</b> 元。這個洞，勞保和勞退都補不了，<b>只能靠自己準備</b>。`
+    : '<b>制度給的就夠你花了。</b>但物價會漲、醫療會變多，<b>建議每年重算一次。</b>';
+  $('needWarn').innerHTML = (n3 === 0)
+    ? '第 3 包你填 0——意思是<b>退休以後不旅遊、不休閒，也不需要人照顧</b>。<br>' +
+      '真的是這樣就沒問題。如果不是，<b>按上面的快速填入試試看，數字會很不一樣。</b>'
+    : '';
+
+  /* ---- 第三層：自己要準備多少 ---- */
+  setP('infPicks', INF); setP('rtnPicks', RTN); setP('m5', MODE5);
+  const useP = MODE5 !== 'save';        // 有沒有一桶金
+  const useS = MODE5 !== 'pot';         // 要不要算每月存
+  $('potIn').hidden  = !useP;
+  $('saveBox').hidden = !useS;
+
+  const retire = best.a ?? s.legal;
+  const nAcc   = Math.max(0, retire - s.age);   // 還能存幾年
+  const nDraw  = Math.max(1, LIFE - retire);    // 要撐幾年
+  const i = INF/100, rr = RTN/100;
+
+  /* 用「實質報酬率」計算，全程以今天的物價為單位 */
+  const realR = (1+rr)/(1+i) - 1;
+  const rmR = realR/12, nD = Math.round(nDraw*12), nA = Math.round(nAcc*12);
+  const pvF = rmR !== 0 ? (1-Math.pow(1+rmR,-nD))/rmR : nD;
+  const needAtRetire = Math.max(0, gap) * pvF;
+  const sinkF = n => rmR !== 0 ? rmR/(Math.pow(1+rmR,n)-1) : 1/n;
+
+  /* 已經存的那桶金，也會滾到退休（同樣用實質報酬，維持今天的物價單位） */
+  const pot   = useP ? (+$('pot').value || 0) : 0;
+  const potFV = pot * Math.pow(1+realR, nAcc);
+  const short = Math.max(0, needAtRetire - potFV);
+
+  const saveNow  = (useS && nA > 0) ? short*sinkF(nA) : 0;
+  const saveLate = (useS && nA > 60) ? short*sinkF(nA-60) : 0;
+  const gapNominal = Math.max(0, gap) * Math.pow(1+i, nAcc);
+
+  $('potBox').hidden = !useP || pot <= 0;
+  $('l3Pot').textContent = nf(potFV);
+  $('l3PotSub').innerHTML = `現在的 ${nf(pot)} 元<br>滾 ${nAcc.toFixed(0)} 年（已扣掉物價上漲）`;
+
+  $('l3Inf').textContent = gap > 0 ? nf(gapNominal) : '0';
+  $('l3InfSub').innerHTML = gap > 0
+    ? `今天差 ${nf(gap)} 元<br>${nAcc.toFixed(0)} 年後要 ${nf(gapNominal)} 元才過一樣的日子`
+    : '目前沒有缺口';
+  $('l3Need').textContent = nf(needAtRetire);
+  $('l3NeedSub').innerHTML = `${retire} 歲退休，要撐 ${nDraw.toFixed(0)} 年<br>（用今天的錢表示）`;
+  $('l3Save').textContent = nf(saveNow);
+  $('l3SaveSub').innerHTML = nAcc > 0
+    ? `還有 ${nAcc.toFixed(0)} 年可以存<br>假設一年滾 ${RTN}%、物價漲 ${INF}%`
+    : '已經沒有時間可以存了';
+
+  $('l3Say').innerHTML = gap <= 0
+    ? '你目前沒有缺口，第三層不用特別準備。<b>但制度會變、物價會漲，還是建議每年重算一次。</b>'
+    : (MODE5 === 'pot'
+        ? (short <= 0
+            ? `<b>你這桶金夠了。</b>滾到退休大約 ${nf(potFV)} 元，足以補上缺口。<br>` +
+              '<b>接下來的問題不是「夠不夠」，是「怎麼領」。</b>可以看下面那一段。'
+            : `你這桶金滾到退休大約 <b>${nf(potFV)}</b> 元，<b>還差 ${nf(short)} 元</b>。<br><br>` +
+              '差的部分可以從三個方向處理：<b>少花一點、多做幾年、或是每個月再存一些</b>（按上面的「兩個都有」看看要存多少）。<br><br>' +
+              '<b>怎麼做、要不要做，是你的決定。這張表只負責讓你看清楚。</b>')
+        : (short <= 0
+            ? '<b>你已經存夠了。</b>那桶金滾到退休，就足以補上缺口——不用再額外存。<br>' +
+              '<b>接下來的問題不是「怎麼存」，是「怎麼領」。</b>可以看下面那一段。'
+            : (nAcc <= 0
+                ? '你已經到請領年齡了，沒有累積的時間。<b>這時候要處理的不是「怎麼存」，是「怎麼用手上有的撐下去」——可以看下面那一段。</b>'
+                : (pot > 0
+                    ? `你那桶金幫你扛掉了 <b>${nf(Math.min(potFV, needAtRetire))}</b> 元，剩下 <b>${nf(short)}</b> 元要靠接下來存。<br><br>` +
+                      '<b>這只是數學，不是判決。</b>缺口可以從三個方向處理：<b>少花一點、多做幾年、或把錢準備起來。</b>' +
+                      '多數人是三個一起用一點，不會全押在一個上面。<br><br>' +
+                      '<b>怎麼做、要不要做，是你的決定。這張表只負責讓你看清楚。</b>'
+                    : '數字看起來很大，但先別緊張。<b>這只是數學，不是判決。</b><br><br>' +
+                      '缺口可以從三個方向處理：<b>少花一點、多做幾年、或把錢準備起來。</b>多數人是三個一起用一點，不會全押在一個上面。<br><br>' +
+                      '<b>怎麼做、要不要做，是你的決定。這張表只負責讓你看清楚。</b>'))));
+
+  /* ---- 多十年安心，要多少？ ---- */
+  const t10 = LIFE + 10;
+  const nD10 = Math.round(Math.max(1, t10 - retire)*12);
+  const pv10 = rmR !== 0 ? (1-Math.pow(1+rmR,-nD10))/rmR : nD10;
+  const need10 = Math.max(0, gap) * pv10;
+  const short10 = Math.max(0, need10 - potFV);
+  const save10 = nA > 0 ? short10*sinkF(nA) : 0;
+  const dNeed = need10 - needAtRetire;
+  const dSave = Math.max(0, save10 - saveNow);
+
+  $('tenY').hidden = !(gap > 0 && nAcc > 0);
+  $('tenQ').innerHTML =
+    `你現在算的是<b>活到 ${LIFE} 歲</b>。<br>` +
+    `但如果你活到 <b>${t10} 歲</b>呢？那多出來的十年，錢從哪裡來？`;
+  $('tenNeed').textContent = nf(dNeed);
+  $('tenSave').textContent = nf(dSave);
+  $('tenSay').innerHTML = (MODE5 === 'pot')
+    ? (short10 <= 0
+        ? '<em>你這桶金連這十年都撐得住。</em><br><span style="font-size:17px;font-weight:500;color:var(--soft)">活得久，對你是福氣，不是問題。</span>'
+        : `想多安心十年，這桶金要再多 <b>${nf(dNeed)}</b> 元。<br>` +
+          '<span style="font-size:17px;font-weight:500;color:var(--soft)">' +
+          '這筆錢買的不是報酬率，是「就算活得比想像久，也不用跟孩子開口」。</span>')
+    : dSave > 0
+    ? `每個月多 <b>${nf(dSave)}</b> 元，換到的是<em>十年的安心</em>。<br>` +
+      `<span style="font-size:17px;font-weight:500;color:var(--soft)">` +
+      `這筆錢買的不是報酬率，是「就算活得比想像久，也不用跟孩子開口」。</span>`
+    : `<em>你那桶金已經夠撐這十年了。</em><br>` +
+      `<span style="font-size:17px;font-weight:500;color:var(--soft)">` +
+      `活得久，對你是福氣，不是問題。</span>`;
+
+  /* ---- 一桶金能生出多少現金流 ---- */
+  /* 選「一桶金」模式時，把他填的金額同步過去，省得再填一次 */
+  if(MODE5 === 'pot' && pot > 0 && !$('cfPot').dataset.touched) $('cfPot').value = pot;
+  const cfP = +$('cfPot').value || 0, cfY = Math.max(1, +$('cfYrs').value || 1);
+  const cfN = cfY*12;
+  const burn = rmR !== 0 ? cfP*rmR/(1-Math.pow(1+rmR,-cfN)) : cfP/cfN;  // 領到完
+  const intOnly = cfP * rmR;                                            // 只花孳息
+  $('cfBurn').textContent = nf(burn);
+  $('cfBurnS').textContent = `領 ${cfY} 年，領完歸零`;
+  $('cfInt').textContent = intOnly > 0 ? nf(intOnly) : '0';
+  $('cfIntS').innerHTML = '依假設報酬率換算<br>本金於試算中維持實質水準';
+  const nomInt = cfP * rr / 12;                     // 若把名目利息全花掉
+  $('cfSay').innerHTML = intOnly <= 0
+    ? `你把報酬率設成 ${RTN}%、物價漲 ${INF}%——<b>錢滾的速度追不上物價</b>，實質孳息等於沒有，這條路走不通。<b>這就是「錢放著不動也會變薄」的意思。</b>`
+    : `同樣 <b>${nf(cfP)}</b> 元：領到完每月 <b>${nf(burn)}</b> 元，本金不動每月 <b>${nf(intOnly)}</b> 元——<b>差 ${nf(burn-intOnly)} 元</b>。<br>` +
+      '多出來的那些，是你<b>把本金一起吃掉</b>換來的。<br><br>' +
+      `<b>為什麼「本金不動」只能領 ${nf(intOnly)}，不是 ${nf(nomInt)}？</b><br>` +
+      `因為 ${RTN}% 裡面有 ${INF}% 要留著讓本金跟上物價。<b>真正能花的只有 ${(realR*100).toFixed(2)}%。</b><br>` +
+      `如果你每月真的領 ${nf(nomInt)} 元，本金數字是不變，但<b>購買力會一年一年變薄</b>——` +
+      '<b>留住的是數字，不是購買力。</b>';
+
+  /* ---- 帶走的重點：只列出他真的算過的 ---- */
+  const R = [];
+  R.push(['法定可以領的年齡', `${s.legal} 歲`]);
+  if(best.a !== null){
+    R.push(['最適合的請領年齡', `${best.a} 歲（依平均餘命 ${LIFE} 歲）`]);
+    R.push(['勞保月領', nf(best.amt) + ' 元']);
+  }
+  if(GATE.g3 && OLD98 && rBest && canLump(rBest.sen, rBest.a))
+    R.push(['一次領', nf(Math.min(+$('sal3').value||0,45800) * lumpMonths(rBest.sen,rBest.a).months) + ' 元']);
+  if(GATE.g4){
+    R.push(['勞退', ldCanMonthly ? nf(pmt) + ' 元 / 月' : nf(fv) + ' 元（只能一次領）']);
+  }
+  if(GATE.g5) R.push(['一個月要花', `${nf(need)} 元（生活${nf(n1)}／醫療${nf(n2)}／彈性${nf(n3)}）`]);
+  if(GATE.g6 && gap > 0){
+    R.push(['每月缺口', nf(gap) + ' 元']);
+    if(pot > 0) R.push(['已有的一桶金', `${nf(pot)} 元（退休時約 ${nf(potFV)} 元）`]);
+    R.push(['從現在起每月要存', nf(saveNow) + ' 元']);
+    if(nAcc > 0) R.push([`想多安心十年（到 ${LIFE+10} 歲）`, `每月再多存 ${nf(dSave)} 元`]);
+  }
+  $('recap').innerHTML = R.map(([k,v]) => `<div><span>${k}</span><span>${v}</span></div>`).join('');
+
+  /* 可貼到 LINE@ 的文字摘要 */
+  const bar = '－－－－－－－－－－';
+  $('sumTA').value =
+    '【我的退休金試算摘要】\n' + bar + '\n' +
+    `生日：民國 ${s.bY}/${$('bM').value}/${$('bD').value}（${s.ea.y} 歲 ${s.ea.m} 個月）\n` +
+    `勞保年資：${$('senY').value} 年 ${$('senM').value} 月\n` +
+    `平均月投保薪資：${nf(s.sal)} 元\n` +
+    `打算做到：${s.work} 歲\n` +
+    `平均餘命設定：${LIFE} 歲\n` + bar + '\n' +
+    R.map(([k,v]) => `${k}：${v}`).join('\n') + '\n' + bar + '\n' +
+    '（本摘要為參考試算，實際金額以勞保局核定為準）\n' +
+    '由 財顧芸 退休金試算工具產生';
+
+  $('l3Now').textContent  = nf(saveNow);
+  $('l3Late').textContent = nA > 60 ? nf(saveLate) : '來不及了';
+  $('l3LateSay').innerHTML = (nA > 60 && saveNow > 0)
+    ? `現在開始，每月預估需準備 <b>${nf(saveNow)}</b> 元；晚 5 年開始，每月預估需準備 <b>${nf(saveLate)}</b> 元，`
+      + `<b>每月增加約 ${nf(saveLate-saveNow)} 元</b>。`
+    : '你距離退休不到 5 年，這個比較已經不適用了。';
+
+  validate(s);
+  renderSteps();
+}
+
+buildLevels();
+buildChips();
+buildPicks();
+buildOld98();
+buildTax();
+buildL3();
+buildGates();
+initCopy();
+initSend();
+initSkin();
+if($('upd')) $('upd').textContent = new Date().toLocaleDateString('zh-TW');
+$('cfPot').addEventListener('input', e => { e.target.dataset.touched = '1'; });
+document.querySelectorAll('input').forEach(el => el.addEventListener('input', () => render(false)));
+render(false);
+</script>
+
+  <script src="assets/report.js" defer></script>
+<script src="assets/public-site-navigation.js" defer></script>
+<script src="assets/footer-recruitment-link-v1.js" defer></script>

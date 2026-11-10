@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<!--
+  財顧芸人生航海圖 — 航道 I：人生金錢偵探社（內容航道落地頁）
+  依「人生金錢偵探社_品牌設定」製作。偵探事務所風格，置於 blog 的「開花種子（傳承）」主題下。
+  部署：與 blog.html 同一資料夾。blog.html 航道 I 的連結可指向本檔 detective.html。
+  角色頭像目前用佔位徽章；有插畫圖檔可替換 .avatar 內容。
+-->
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人生金錢偵探社｜陪你破解人生與金錢的大小案件 · 財顧芸</title>
+<meta name="description" content="探索家族故事 × 守護財富價值 × 傳承美好未來。傳承不只是錢，更是愛、信任、智慧與責任的延續。四大角色聯手，陪你打造有愛、有序、有未來的家族傳承藍圖。">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: { paper:'#fffdf8', moss:'#3f6b4f', gold:'#c79a4a', rose:'#cf7f73', ocean:'#1b4751', sea:'#e6efee', ink:'#2e3a33' },
+      fontFamily: { serif:['"Noto Serif TC"','serif'], sans:['"Noto Sans TC"','sans-serif'] },
+    } },
+  };
+</script>
+<style>
+  html { scroll-behavior:smooth; }
+  body { background-color:#fffdf8; color:#2e3a33; }
+  .bearing { letter-spacing:.3em; font-size:.72rem; font-weight:500; }
+  /* 卷宗：偵探檔案的虛線金框 */
+  .dossier { border:1.5px dashed rgba(199,154,74,.55); border-radius:1rem; }
+  .reveal { opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity:1; transform:none; }
+  .card-lift { transition:transform .25s ease, box-shadow .25s ease; }
+  .card-lift:hover { transform:translateY(-4px); box-shadow:0 14px 30px -18px rgba(27,71,81,.45); }
+  .character-avatar { width:7rem; height:7rem; border:3px solid #fffdf8; background-image:url('public-assets/img/detective/detective-character-cast.png'); background-repeat:no-repeat; background-size:500px auto; box-shadow:0 8px 20px -12px rgba(27,71,81,.7),0 0 0 1px rgba(199,154,74,.4); }
+  .character-angie { background-position:-10px -88px; }
+  .character-coin { background-position:-260px -144px; }
+  .character-duo { background-position:-22px -310px; }
+  .character-yaya { background-position:-255px -310px; }
+  a:focus-visible, button:focus-visible { outline:2px solid #c79a4a; outline-offset:3px; border-radius:4px; }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} .reveal{opacity:1;transform:none;transition:none} .card-lift{transition:none} }
+  /* 可讀性：預設字級放大≈18px，並尊重使用者裝置/瀏覽器的文字縮放 */
+  :root { font-size: 112.5%; }
+  body { -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; }
+
+  .nav-hint { position: relative; display: inline-flex; align-items: center; justify-content: center; }
+  .nav-hint::after {
+    content: attr(data-tip);
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 12px);
+    transform: translate(-50%, 6px);
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    background: #1b4751;
+    color: #fffdf8;
+    border: 1px solid rgba(199,154,74,.35);
+    border-radius: 999px;
+    padding: .42rem .72rem;
+    font-size: .78rem;
+    line-height: 1;
+    box-shadow: 0 14px 30px -18px rgba(27,71,81,.55);
+    transition: opacity .18s ease, transform .18s ease;
+    z-index: 80;
+  }
+  .nav-hint:hover::after,
+  .nav-hint:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
+  .nav-disabled { cursor: default; color: rgba(46,58,51,.55); }
+</style>
+  <link rel="stylesheet" href="public-assets/css/site-usability.css">
+  <link rel="stylesheet" href="assets/public-site-navigation.css">
+</head>
+<body class="font-sans antialiased">
+
+<!-- 導覽列（與 blog.html 一致） -->
+<header class="sticky top-0 z-50 bg-paper/90 backdrop-blur border-b border-moss/15">
+  <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <div class="flex items-baseline gap-2">
+      <a href="about-angie-profile.html" class="font-serif text-xl font-700 text-ocean tracking-wide no-underline">財顧芸</a>
+      <details class="relative block group">
+        <summary class="list-none cursor-pointer text-sm text-moss/70 hover:text-ocean transition select-none" style="list-style:none">人生航海圖 ▾</summary>
+        <div class="absolute left-0 mt-3 w-64 rounded-2xl border border-moss/15 bg-paper shadow-xl p-2 text-sm text-ink/80 z-50">
+          <a href="index.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">回首頁</a>
+          
+          <a href="detective.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">人生金錢偵探社</a>
+          <a href="koguti.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">人生考古題</a>
+          <a href="comic.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">胖胖幣財商漫畫</a>
+          <a href="observatory.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">財顧芸觀察室</a>
+          <a href="teacher-recruitment.html" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">第二曲線</a>
+          <a href="lifecycle-legacy.html#second-half-blueprint" class="block rounded-xl px-3 py-2 hover:bg-sea/60 hover:text-ocean transition">50+傳承規劃</a>
+        </div>
+      </details>
+    </div>
+        <ul class="hidden lg:flex items-center gap-5 text-[0.9rem] text-ink/80">
+      <li><span class="hover:text-ocean transition nav-hint nav-disabled" data-tip="建置中" tabindex="0">會員專區</span></li>
+      <li></li>
+      <li><a href="teacher-recruitment.html" title="退休後的專業延續與第二人生方向" class="hover:text-ocean transition nav-hint" data-tip="退休後的專業延續與第二人生方向">第二曲線</a></li>
+      <li><a href="lifecycle-legacy.html#second-half-blueprint" class="hover:text-ocean transition nav-hint" data-tip="打造人生下半場幸福藍圖">50+傳承規劃</a></li>
+      <li><a href="asset-checkup-lite.html" class="hover:text-ocean transition nav-hint" data-tip="開始 60 秒財務體質快篩">財務健診</a></li>
+      <li></li>
+    </ul>
+    <div class="flex items-center gap-2">
+      <a href="consultation.html#booking" class="inline-flex items-center rounded-full bg-ocean text-paper text-sm px-4 py-2 hover:bg-ocean/90 transition">預約諮詢</a>
+    </div>
+    
+</nav>
+</header>
+
+<main>
+
+  <!-- Hero：偵探事務所 -->
+  <section class="relative overflow-hidden bg-ink text-paper">
+    <div class="absolute inset-0 opacity-[0.07] pointer-events-none" aria-hidden="true">
+      <svg class="absolute -right-10 -top-10 w-80 h-80" viewBox="0 0 24 24" fill="none" stroke="#c79a4a" stroke-width="1"><circle cx="11" cy="11" r="7"/><path d="m21 21-5-5"/></svg>
+      <svg class="absolute -left-8 bottom-0 w-64 h-64" viewBox="0 0 24 24" fill="none" stroke="#c79a4a" stroke-width="1"><circle cx="11" cy="11" r="7"/><path d="m21 21-5-5"/></svg>
+    </div>
+    <div class="relative max-w-5xl mx-auto px-5 pt-16 pb-20 md:pt-24 md:pb-24 text-center">
+      <p class="bearing text-gold uppercase mb-5 reveal">看懂人生 · 理財有方 · 世代傳承</p>
+      <h1 class="font-serif font-700 text-gold text-4xl md:text-6xl leading-tight reveal">人生金錢偵探社</h1>
+      <p class="font-serif text-lg md:text-2xl text-paper/90 mt-5 reveal">探索家族故事　×　守護財富價值　×　傳承美好未來</p>
+      <p class="max-w-2xl mx-auto text-paper/70 mt-6 leading-relaxed reveal">陪你破解人生與金錢的大小案件，把愛與價值，好好交到下一代手上。</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center mt-9 reveal">
+        <a href="consultation.html#booking" class="inline-flex items-center justify-center rounded-full bg-gold text-ink px-7 py-3 font-500 hover:bg-gold/90 transition">預約諮詢</a>
+        <a href="#cases" class="inline-flex items-center justify-center rounded-full border border-paper/40 text-paper px-7 py-3 font-500 hover:bg-paper/10 transition">看我們如何協助</a>
+      </div>
+      <aside class="max-w-3xl mx-auto mt-10 rounded-3xl border border-gold/50 bg-paper/10 p-5 md:p-6 text-left shadow-xl reveal" aria-label="救國團人生金錢偵探課程預告">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="rounded-full bg-gold px-3 py-1 text-xs font-700 text-ink">救國團課程預告</span>
+          <span class="rounded-full border border-paper/30 px-3 py-1 text-xs text-paper/90">開放預先登記</span>
+        </div>
+        <h2 class="mt-4 font-serif text-2xl md:text-3xl font-600 text-gold">人生金錢偵探｜破解學校沒教的 10 個金錢秘密</h2>
+        <p class="mt-3 leading-relaxed text-paper/80">把理財課變成一場金錢尋寶。透過五堂課與桌遊任務，帶你看懂資產、負債、時間、複利與現金流；零基礎也能參加。</p>
+        <div class="mt-5 flex flex-col sm:flex-row gap-3">
+          <a href="academy-course-life-money-detective.html" class="inline-flex items-center justify-center rounded-full bg-paper text-ocean px-6 py-3 font-700 hover:bg-paper/90 transition">查看課程預告</a>
+          
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="case-files">
+    <div class="max-w-5xl mx-auto px-5 py-16 md:py-20">
+      <div class="text-center mb-10 reveal">
+        <p class="bearing text-gold uppercase mb-3">偵探案例簿</p>
+        <h2 class="font-serif font-600 text-ocean text-3xl md:text-4xl">從生活議題，看見金錢背後的選擇</h2>
+      </div>
+      <a href="detective-insurance-trust-minor-beneficiary.html" class="dossier card-lift reveal block bg-white p-7 md:p-9">
+        <div class="flex flex-col md:flex-row md:items-center gap-6">
+          <div class="h-16 w-16 shrink-0 rounded-full bg-gold/15 text-gold flex items-center justify-center" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 6v5c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6l-8-3Z"/><path d="M9 12.5 11 14l4-4"/></svg>
+          </div>
+          <div class="flex-1">
+            <span class="text-xs text-rose font-500">案件整理 · 保險金信託</span>
+            <h3 class="font-serif font-600 text-2xl text-ocean mt-2">未成年孩子收到大額保險金，誰替他守住？</h3>
+            <p class="text-ink/70 mt-3 leading-relaxed">保險留下的是一筆錢；信託處理的是這筆錢往後如何依照約定，持續用在孩子的生活、教育與照顧。</p>
+          </div>
+          <span class="text-ocean font-700 md:shrink-0">閱讀案件整理 →</span>
+        </div>
+      </a>
+      <a href="detective-parent-child-money-ability.html" class="dossier card-lift reveal mt-6 block bg-white p-7 md:p-9">
+  <div class="flex flex-col md:flex-row md:items-center gap-6">
+    <div class="h-16 w-16 shrink-0 rounded-full bg-gold/15 text-gold flex items-center justify-center" aria-hidden="true">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M8.5 6.5c0-1.4 1.4-2.5 3.5-2.5s3.5 1.1 3.5 2.5S14.1 9 12 9s-3.5 1.1-3.5 2.5S9.9 14 12 14s3.5 1.1 3.5 2.5S14.1 19 12 19s-3.5-1.1-3.5-2.5"/></svg>
+    </div>
+    <div class="flex-1">
+      <span class="text-xs text-rose font-500">議題整理 · 親子財商</span>
+      <h3 class="font-serif font-600 text-2xl text-ocean mt-2">孩子收到一筆錢，真的守得住嗎？</h3>
+      <p class="text-ink/70 mt-3 leading-relaxed">留下一筆資產，可能改變孩子的起點；陪他理解金錢，才能影響往後的選擇。</p>
+    </div>
+    <span class="text-ocean font-700 md:shrink-0">閱讀完整文章 →</span>
+  </div>
+</a>
+    </div>
+  </section>
+  <!-- 傳承不只是錢 -->
+  <section class="bg-sea/40">
+    <div class="max-w-4xl mx-auto px-5 py-16 md:py-20 text-center reveal">
+      <p class="bearing text-gold uppercase mb-3">本社信念</p>
+      <h2 class="font-serif font-600 text-ocean text-3xl md:text-4xl">傳承，不只是錢</h2>
+      <p class="text-ink/80 leading-relaxed mt-5 text-lg">
+        更是愛、信任、智慧與責任的延續，<br class="hidden sm:block">
+        讓下一代擁有面對未來的能力，而不只是繼承資產。
+      </p>
+      <p class="text-moss font-serif text-xl mt-6">傳承不是給予財富，而是延續價值。</p>
+    </div>
+  </section>
+
+  <!-- 我們協助你 -->
+  <section id="cases">
+    <div class="max-w-5xl mx-auto px-5 py-16 md:py-24">
+      <div class="text-center mb-12 reveal">
+        <p class="bearing text-gold uppercase mb-3">承辦案件</p>
+        <h2 class="font-serif font-600 text-ocean text-3xl md:text-4xl">我們協助你</h2>
+      </div>
+      <div class="dossier bg-white p-7 md:p-10 reveal">
+        <ul class="grid sm:grid-cols-2 gap-x-10 gap-y-4">
+          <li class="flex items-start gap-3"><svg class="mt-0.5 shrink-0" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="text-ink/85">盤點家族資產與現況</span></li>
+          <li class="flex items-start gap-3"><svg class="mt-0.5 shrink-0" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="text-ink/85">擬定傳承策略與安排</span></li>
+          <li class="flex items-start gap-3"><svg class="mt-0.5 shrink-0" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="text-ink/85">降低稅務風險與糾紛</span></li>
+          <li class="flex items-start gap-3"><svg class="mt-0.5 shrink-0" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="text-ink/85">兼顧公平與愛的平衡</span></li>
+          <li class="flex items-start gap-3 sm:col-span-2"><svg class="mt-0.5 shrink-0" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="text-ink/85">讓家族關係更緊密</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 家族傳承計畫書 · 四種傳承 -->
+  <section class="bg-sea/40">
+    <div class="max-w-6xl mx-auto px-5 py-16 md:py-24">
+      <div class="text-center mb-12 reveal">
+        <p class="bearing text-gold uppercase mb-3">家族傳承計畫書</p>
+        <h2 class="font-serif font-600 text-ocean text-3xl md:text-4xl">四種傳承，缺一不可</h2>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="bg-white rounded-2xl border border-moss/12 p-6 text-center card-lift reveal">
+          <svg class="mx-auto" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#cf7f73" stroke-width="1.8" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 12 5 5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>
+          <h3 class="font-serif font-600 text-lg text-ocean mt-3">價值觀傳承</h3>
+          <p class="text-ink/65 text-sm mt-1.5">家族信念與處世態度</p>
+        </div>
+        <div class="bg-white rounded-2xl border border-moss/12 p-6 text-center card-lift reveal">
+          <svg class="mx-auto" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#c79a4a" stroke-width="1.8" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/><path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg>
+          <h3 class="font-serif font-600 text-lg text-ocean mt-3">財富傳承</h3>
+          <p class="text-ink/65 text-sm mt-1.5">資產的安排與移轉</p>
+        </div>
+        <div class="bg-white rounded-2xl border border-moss/12 p-6 text-center card-lift reveal">
+          <svg class="mx-auto" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1b4751" stroke-width="1.8" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14Z"/><path d="M4 5.5V19"/></svg>
+          <h3 class="font-serif font-600 text-lg text-ocean mt-3">知識傳承</h3>
+          <p class="text-ink/65 text-sm mt-1.5">經驗、智慧與決策能力</p>
+        </div>
+        <div class="bg-white rounded-2xl border border-moss/12 p-6 text-center card-lift reveal">
+          <svg class="mx-auto" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#3f6b4f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-7"/><path d="M9 9a3 3 0 1 1 6 0c0 2-3 3-3 6 0-3-3-4-3-6Z"/><path d="M12 9c0-3 2-5 5-5-1 3-3 4-5 5Z"/><path d="M12 9C12 6 10 4 7 4c1 3 3 4 5 5Z"/></svg>
+          <h3 class="font-serif font-600 text-lg text-ocean mt-3">精神傳承</h3>
+          <p class="text-ink/65 text-sm mt-1.5">家風與生命意義</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 四大角色 -->
+  <section id="team">
+    <div class="max-w-6xl mx-auto px-5 py-16 md:py-24">
+      <div class="text-center mb-12 reveal">
+        <p class="bearing text-gold uppercase mb-3">四大角色 · 聯手協助</p>
+        <h2 class="font-serif font-600 text-ocean text-3xl md:text-4xl">偵探社辦案陣容</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <article class="dossier bg-white p-6 text-center card-lift reveal">
+          <div class="character-avatar character-angie mx-auto rounded-full" role="img" aria-label="財顧芸偵探角色"></div>
+          <h3 class="font-serif font-600 text-xl text-ocean mt-4">財顧芸</h3>
+          <p class="text-rose text-sm font-500 mt-1">人生與財務導航員</p>
+          <ul class="text-ink/70 text-sm mt-4 space-y-1.5 text-left inline-block">
+            <li>· 看懂整體藍圖</li>
+            <li>· 擬定傳承策略</li>
+            <li>· 整合資源規劃</li>
+          </ul>
+        </article>
+
+        <article class="dossier bg-white p-6 text-center card-lift reveal">
+          <div class="character-avatar character-coin mx-auto rounded-full" role="img" aria-label="胖胖幣 Fat Fat Coin 角色"></div>
+          <h3 class="font-serif font-600 text-xl text-ocean mt-4">胖胖幣 Fat Fat Coin</h3>
+          <p class="text-rose text-sm font-500 mt-1">資產守護員</p>
+          <ul class="text-ink/70 text-sm mt-4 space-y-1.5 text-left inline-block">
+            <li>· 資產盤點管理</li>
+            <li>· 稅務優化規劃</li>
+            <li>· 守護財富價值</li>
+          </ul>
+        </article>
+
+        <article class="dossier bg-white p-6 text-center card-lift reveal">
+          <div class="character-avatar character-duo mx-auto rounded-full" role="img" aria-label="多多 Duo-Duo 鸚鵡角色"></div>
+          <h3 class="font-serif font-600 text-xl text-ocean mt-4">多多 Duo-Duo</h3>
+          <p class="text-rose text-sm font-500 mt-1">關鍵提醒員</p>
+          <ul class="text-ink/70 text-sm mt-4 space-y-1.5 text-left inline-block">
+            <li>· 發現潛在風險</li>
+            <li>· 提醒盲點問題</li>
+            <li>· 確保權益完整</li>
+          </ul>
+        </article>
+
+        <article class="dossier bg-white p-6 text-center card-lift reveal">
+          <div class="character-avatar character-yaya mx-auto rounded-full" role="img" aria-label="小綠芽 Ya-Ya 角色"></div>
+          <h3 class="font-serif font-600 text-xl text-ocean mt-4">小綠芽 Ya-Ya</h3>
+          <p class="text-rose text-sm font-500 mt-1">行動紀錄員</p>
+          <ul class="text-ink/70 text-sm mt-4 space-y-1.5 text-left inline-block">
+            <li>· 紀錄傳承文件</li>
+            <li>· 追蹤執行進度</li>
+            <li>· 陪伴落地實踐</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 五大價值 -->
+  <section class="bg-ink text-paper">
+    <div class="max-w-6xl mx-auto px-5 py-16 md:py-20">
+      <div class="text-center mb-12 reveal">
+        <p class="bearing text-gold uppercase mb-3">我們相信</p>
+        <h2 class="font-serif font-600 text-2xl md:text-3xl">最好的傳承，是讓愛與價值延續下去</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+        <div class="reveal">
+          <svg class="mx-auto" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c79a4a" stroke-width="1.6" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 12 5 5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>
+          <p class="font-serif text-paper mt-3">愛的延續</p>
+          <p class="text-paper/60 text-xs mt-1">凝聚家族情感</p>
+        </div>
+        <div class="reveal">
+          <svg class="mx-auto" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c79a4a" stroke-width="1.6" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+          <p class="font-serif text-paper mt-3">財富守護</p>
+          <p class="text-paper/60 text-xs mt-1">保障家族未來</p>
+        </div>
+        <div class="reveal">
+          <svg class="mx-auto" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c79a4a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"/><path d="M16 20c0-2 .8-3.4 2-4"/></svg>
+          <p class="font-serif text-paper mt-3">世代共好</p>
+          <p class="text-paper/60 text-xs mt-1">創造共同願景</p>
+        </div>
+        <div class="reveal">
+          <svg class="mx-auto" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c79a4a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-9"/><path d="M9 9a3 3 0 1 1 6 0c0 2-3 3-3 6 0-3-3-4-3-6Z"/></svg>
+          <p class="font-serif text-paper mt-3">價值傳承</p>
+          <p class="text-paper/60 text-xs mt-1">培養下一代能力</p>
+        </div>
+        <div class="reveal col-span-2 md:col-span-1">
+          <svg class="mx-auto" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c79a4a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7"/><path d="M5 9v11h14V9"/><path d="M10 20v-6h4v6"/></svg>
+          <p class="font-serif text-paper mt-3">幸福家族</p>
+          <p class="text-paper/60 text-xs mt-1">共創美好人生</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-sea/40">
+    <div class="max-w-4xl mx-auto px-5 py-16 md:py-24 text-center reveal">
+      <p class="bearing text-gold uppercase mb-3">立案調查</p>
+      <h2 class="font-serif font-600 text-ocean text-3xl md:text-4xl">一起打造「有愛 · 有序 · 有未來」的家族傳承藍圖</h2>
+      <p class="text-ink/70 mt-4 max-w-xl mx-auto leading-relaxed">先從一次對話開始，把家族的故事、資產與心願好好整理一遍。</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center mt-8">
+        <a href="consultation.html#booking" class="inline-flex items-center justify-center rounded-full bg-ocean text-paper px-7 py-3 font-500 hover:bg-ocean/90 transition">預約諮詢</a>
+        
+      </div>
+      <p class="text-ink/50 text-xs mt-6">人生金錢偵探社 · 陪你破解人生與金錢的大小案件</p>
+    </div>
+  </section>
+
+
+  <section data-channel-return class="bg-paper border-t border-moss/15" aria-labelledby="channel-return-title">
+    <div class="max-w-4xl mx-auto px-5 py-14 md:py-16 text-center">
+      <p class="bearing text-gold uppercase mb-3">讀完這片海域後</p>
+      <h2 id="channel-return-title" class="font-serif font-600 text-ocean text-2xl md:text-3xl">繼續探索，或回到四片海域選擇方向</h2>
+      <p class="text-ink/70 mt-4 max-w-2xl mx-auto leading-relaxed">每一片海域都從不同角度陪你整理生活與金錢。可以繼續往前，也可以回到全貌，選擇現在最想看的主題。</p>
+      <nav class="flex flex-col sm:flex-row flex-wrap gap-3 justify-center mt-8" aria-label="閱讀後續引導">
+        
+        <a href="koguti.html" class="inline-flex min-h-12 items-center justify-center rounded-full border border-gold text-ocean px-6 py-3 font-700 hover:bg-gold/10 transition">下一片：人生考古題 →</a>
+        
+      </nav>
+    </div>
+  </section>
+</main>
+
+<!-- 頁尾（與 blog.html 一致） -->
+<footer class="bg-ocean text-paper/80">
+  <div class="max-w-6xl mx-auto px-5 py-12">
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+      <div>
+        <p class="font-serif text-lg text-paper">財顧芸人生航海圖</p>
+        <p class="text-paper/60 text-sm mt-2">幸福財務領航員｜陪你航向更有選擇權的人生。</p>
+      </div>
+      <nav class="flex flex-wrap gap-x-8 gap-y-3 text-sm">
+        <a href="index.html" class="hover:text-paper transition">回部落格首頁</a>
+        
+        
+        <a href="https://www.facebook.com/IFA.Fans/" class="hover:text-paper transition">Facebook 粉專</a>
+        <a href="https://open.spotify.com/show/1us537rWraGs4qdY8beG5a" class="hover:text-paper transition">Podcast · 心海羅盤幸福航行誌</a>
+        <a href="https://lin.ee/uMYPHQc" class="hover:text-paper transition">LINE@ 官方群組</a>
+      </nav>
+    </div>
+    <p class="text-paper/45 text-xs mt-10">© <span id="year"></span> 馥芸財富學苑. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+  <script src="public-assets/js/image-loader.js" defer></script>
+  <script src="public-assets/js/fuyun-cursor.js" defer></script>
+  <script src="assets/report.js" defer></script>
+  <script src="assets/public-site-navigation.js" defer></script>
+<script src="assets/footer-recruitment-link-v1.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

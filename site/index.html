@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>宜蘭長照與退休規劃｜家族傳承生活顧問 財顧芸</title>
+  <meta name="description" content="以 50+ 家庭為核心，也陪伴 45 歲以上及家有高齡長輩的家庭，提早整理退休、長照與傳承，讓照顧的安排、家裡的錢與長輩自己的意願，都能好好說清楚。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #173e46;
+      --ink-soft: #3d5e62;
+      --gold: #b7832e;
+      --gold-soft: #f2e4c6;
+      --cream: #fbf8f1;
+      --sea: #edf5f2;
+      --white: #fff;
+      --line: #d9e2dd;
+      --shadow: 0 18px 50px rgba(23, 62, 70, .1);
+      --serif: 'Noto Serif TC', 'PingFang TC', 'Microsoft JhengHei', serif;
+      --sans: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--cream); font: 18px/1.8 var(--sans); }
+    a { color: inherit; }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+    .skip-link { position: fixed; top: -80px; left: 16px; z-index: 100; padding: 10px 16px; background: var(--ink); color: white; }
+    .skip-link:focus { top: 16px; }
+    .topbar { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid rgba(23,62,70,.1); background: rgba(251,248,241,.95); backdrop-filter: blur(12px); }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { text-decoration: none; font: 900 28px/1 var(--serif); letter-spacing: .08em; }
+    .links { display: flex; align-items: center; gap: 24px; font-size: 16px; font-weight: 700; }
+    .links a { text-decoration: none; }
+    .links a:hover, .links a:focus-visible { color: var(--gold); }
+    .nav-cta, .btn { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; padding: 11px 23px; border-radius: 999px; text-decoration: none; font-weight: 800; }
+    .nav-cta, .btn-primary { background: var(--ink); color: white; }
+    .btn-secondary { border: 1px solid var(--ink); background: white; color: var(--ink); }
+    .hero { padding: clamp(76px, 10vw, 132px) 0 82px; background: radial-gradient(circle at 78% 22%, rgba(183,131,46,.2), transparent 28%), linear-gradient(135deg, #fbf8f1 0%, #edf5f2 100%); }
+    .hero-grid { max-width: 900px; text-align: center; }
+    .eyebrow { margin: 0 0 14px; color: var(--gold); font-size: 16px; font-weight: 900; letter-spacing: .12em; }
+    h1, h2, h3 { font-family: var(--serif); }
+    h1 { max-width: 760px; margin: 0 auto; font-size: clamp(44px, 6.5vw, 76px); line-height: 1.22; letter-spacing: .02em; }
+    .lead { max-width: 760px; margin: 25px auto 0; color: var(--ink-soft); font-size: clamp(19px, 2vw, 23px); }
+    .lead-line { display: block; }
+    .trust-line { max-width: 760px; margin: 28px auto 0; padding-top: 24px; border-top: 1px solid rgba(23,62,70,.18); color: var(--ink); font-weight: 700; }
+    .trust-line span { display: block; }
+    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 13px; margin-top: 32px; }
+    .promise { padding: 34px; border: 1px solid rgba(183,131,46,.28); border-radius: 26px; background: rgba(255,255,255,.84); box-shadow: var(--shadow); }
+    .promise h2 { margin: 0 0 16px; font-size: 27px; }
+    .promise ul { margin: 0; padding: 0; list-style: none; }
+    .promise li { position: relative; padding: 10px 0 10px 31px; border-bottom: 1px solid var(--line); }
+    .promise li:last-child { border-bottom: 0; }
+    .promise li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: 900; }
+    .section { padding: clamp(70px, 9vw, 108px) 0; }
+    .section-white { background: white; }
+    .section-sea { background: var(--sea); }
+    .section-head { max-width: 760px; margin: 0 auto 42px; text-align: center; }
+    .section-head h2 { margin: 6px 0 12px; font-size: clamp(32px, 4vw, 48px); line-height: 1.35; }
+    .section-head p { margin: 0; color: var(--ink-soft); }
+    .path-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .path-card, .service-card, .article-card { border: 1px solid var(--line); border-radius: 24px; background: white; box-shadow: 0 12px 32px rgba(23,62,70,.06); }
+    .path-card { padding: clamp(28px, 4vw, 44px); }
+    .path-card span { color: var(--gold); font-weight: 900; }
+    .path-card h3 { margin: 8px 0 10px; font-size: 29px; }
+    .path-card p { color: var(--ink-soft); }
+    .text-link { color: var(--ink); font-weight: 900; text-underline-offset: 5px; }
+    .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .service-card[hidden] { display: none !important; }
+    .service-card--focus { grid-column: 1 / -1; padding: clamp(34px, 5vw, 54px); border-left: 4px solid var(--gold); background: linear-gradient(135deg, #fffdf8, #f6eddc); }
+    .service-card--focus .service-kicker { display: block; margin-bottom: 8px; color: var(--gold); font-weight: 900; }
+    .service-card--focus h3 { margin-top: 0; font-size: clamp(29px, 3.3vw, 40px); }
+    .service-card { padding: 30px; }
+    .service-number { display: inline-grid; width: 42px; height: 42px; place-items: center; border-radius: 50%; background: var(--gold-soft); color: #76531d; font-weight: 900; }
+    .service-card h3 { margin: 18px 0 10px; font-size: 25px; }
+    .service-card p { color: var(--ink-soft); }
+    .team { display: grid; grid-template-columns: .85fr 1.15fr; gap: 48px; align-items: start; }
+    .team h2 { margin: 0 0 16px; font-size: clamp(32px, 4vw, 46px); line-height: 1.35; }
+    .team-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .team-item { padding: 20px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.78); }
+    .team-item strong { display: block; margin-bottom: 3px; }
+    .articles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .article-card { display: flex; flex-direction: column; padding: 28px; }
+    .article-card small { color: var(--gold); font-weight: 900; }
+    .article-card h3 { margin: 10px 0; font-size: 24px; line-height: 1.5; }
+    .article-card p { flex: 1; color: var(--ink-soft); }
+    .site-search { width: min(100%, 720px); margin: 0 auto 30px; }
+    .site-search label { display: block; margin-bottom: 8px; color: var(--ocean); font-weight: 900; }
+    .site-search-row { display: flex; gap: 10px; }
+    .site-search input { min-width: 0; flex: 1; min-height: 52px; padding: 10px 17px; border: 1px solid var(--line); border-radius: 14px; background: white; color: var(--ink); font: inherit; box-shadow: 0 8px 22px rgba(23,62,70,.06); }
+    .site-search input:focus { outline: 3px solid rgba(183,131,46,.25); border-color: var(--gold); }
+    .site-search button { min-width: 92px; min-height: 52px; padding: 10px 18px; border: 0; border-radius: 14px; background: var(--ocean); color: white; font: 900 16px var(--sans); cursor: pointer; }
+    .resource-band { padding: 38px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #f8f3e8; }
+    .resource-intro { display: flex; align-items: end; justify-content: space-between; gap: 30px; }
+    .resource-intro h2 { margin: 4px 0 0; font-size: clamp(27px, 3vw, 36px); line-height: 1.4; }
+    .resource-intro > p { max-width: 520px; margin: 0; color: var(--ink-soft); }
+    .resource-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 22px; }
+    .resource-link { display: block; padding: 21px 22px; border: 1px solid var(--line); border-radius: 17px; background: rgba(255,255,255,.72); text-decoration: none; transition: transform .18s ease, border-color .18s ease, background .18s ease; }
+    .resource-link strong { display: block; margin-bottom: 4px; color: var(--ink); font-size: 18px; }
+    .resource-link span { color: var(--ink-soft); font-size: 15px; }
+    .resource-link:hover, .resource-link:focus-visible { transform: translateY(-2px); border-color: var(--gold); background: white; }
+    .about { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; align-items: center; }
+    .portrait { min-height: 360px; margin: 0; overflow: hidden; border-radius: 30px; background: linear-gradient(145deg, #dcebe5, #f4e7ca); box-shadow: var(--shadow); }
+    .portrait picture, .portrait img { display: block; width: 100%; height: 100%; }
+    .portrait img { min-height: 360px; object-fit: cover; object-position: center 18%; }
+
+    .about h2 { margin: 0 0 16px; font-size: clamp(34px, 4vw, 48px); }
+    .consult { padding: 76px 0; text-align: center; color: white; background: var(--ink); }
+    .consult h2 { margin: 0 0 12px; font-size: clamp(32px, 4vw, 47px); }
+    .consult p { max-width: 720px; margin: 0 auto; color: #d8e6e4; }
+    .consult .btn { margin-top: 28px; background: #d3a24c; color: #173e46; }
+    footer { padding: 38px 0; background: #102f35; color: #d8e6e4; font-size: 15px; }
+    .footer-inner { display: grid; grid-template-columns: minmax(260px, .9fr) minmax(420px, 1.1fr); gap: 28px; align-items: center; }
+    .footer-brand strong { display: block; color: #fff; font-size: 18px; }
+    .footer-brand p { margin: 5px 0 0; color: #bcd0ce; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px 20px; }
+    .footer-links a { color: #fff; font-weight: 700; text-underline-offset: 5px; }
+    @media (max-width: 900px) {
+      .links a:not(.nav-cta) { display: none; }
+      .team, .about { grid-template-columns: 1fr; }
+      .service-grid, .articles, .resource-grid { grid-template-columns: 1fr; }
+      .resource-intro { align-items: flex-start; flex-direction: column; gap: 8px; }
+      .path-grid { grid-template-columns: 1fr; }
+      .promise { max-width: 640px; }
+      .portrait { min-height: 260px; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-links { justify-content: flex-start; }
+    }
+    @media (max-width: 560px) {
+      body { font-size: 17px; }
+      .wrap { width: min(100% - 32px, 1160px); }
+      .nav { min-height: 68px; }
+      .brand { font-size: 24px; }
+      .nav-cta { padding: 9px 15px; min-height: 44px; }
+      .hero { padding-top: 62px; }
+      h1 { font-size: 43px; }
+      .lead-line, .trust-line span { display: inline; }
+      .lead-line::after, .trust-line span::after { content: " "; }
+      .actions .btn { width: 100%; }
+      .team-list { grid-template-columns: 1fr; }
+    }
+  .menu-toggle{display:none;min-height:44px;padding:8px 15px;border:1px solid var(--ink);border-radius:999px;background:transparent;color:var(--ink);font:800 15px var(--sans)}
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    @media(max-width:900px){.nav{position:relative;flex-wrap:wrap}.menu-toggle{display:inline-flex;align-items:center}.links{display:none;width:100%;padding:12px 0 18px;flex-direction:column;align-items:stretch;gap:4px}.links.is-open{display:flex}.links.is-open a:not(.nav-cta){display:block}.links a{padding:9px 4px}.links .nav-cta{margin-top:4px}}
+  </style>
+  <link rel="canonical" href="https://www.allfreedom.info/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.allfreedom.info/">
+  <meta property="og:title" content="宜蘭長照與退休規劃｜家族傳承生活顧問 財顧芸">
+  <meta property="og:description" content="以 50+ 家庭為核心，也陪伴 45 歲以上及家有高齡長輩的家庭，提早整理退休、長照與傳承，讓照顧的安排、家裡的錢與長輩自己的意願，都能好好說清楚。">
+  <meta property="og:image" content="https://www.allfreedom.info/public-assets/img/og/caiguyun-family-life-advisor.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.allfreedom.info/public-assets/img/og/caiguyun-family-life-advisor.png">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="財顧芸首頁">財顧芸</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">選單</button>
+      <nav class="links" id="main-nav" aria-label="主要導覽">
+        <a href="ilan-care.html">宜蘭長照</a>
+        <a href="lifecycle-retirement.html">退休規劃</a>
+        <a href="legacy-planning.html">家庭傳承</a>
+        <a href="articles.html">文章專欄</a>
+        
+        <a href="adventure/">財富航海地圖闖關</a>
+        <a class="nav-cta" href="consultation.html#booking">預約聊聊</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div id="top"></div>
+<!-- ══════════════════════════════════════════════════════════
+     allfreedom.info 首頁主視覺區塊
+     版本 v2 ｜ 2026-08-26｜主標與信任線更新
+     用法：整段複製，貼到首頁 <body> 最上方（導覽列下方）
+     ══════════════════════════════════════════════════════════ -->
+
+<style>
+.fy-hero{
+  --hero-gold:#b78935;
+  --hero-gold-deep:#8f6928;
+  --hero-ink:#153f47;
+  --hero-copy:#49656a;
+  --hero-cream:#fbf7ef;
+  position:relative;
+  overflow:hidden;
+  padding:clamp(52px,7vw,82px) 20px clamp(58px,7vw,86px);
+  color:var(--hero-ink);
+  background:
+    radial-gradient(circle at 86% 12%,rgba(183,137,53,.18),transparent 27%),
+    radial-gradient(circle at 10% 90%,rgba(64,125,111,.12),transparent 30%),
+    linear-gradient(135deg,#fffdf8 0%,#f7f1e5 53%,#edf5f1 100%);
+}
+.fy-hero::before{
+  content:"";position:absolute;right:-120px;top:-170px;width:500px;height:500px;
+  border:1px solid rgba(183,137,53,.16);border-radius:50%;box-shadow:0 0 0 60px rgba(183,137,53,.035);pointer-events:none;
+}
+.fy-hero__inner{
+  position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.03fr) minmax(380px,.97fr);
+  gap:clamp(42px,6vw,78px);align-items:center;max-width:1160px;margin:0 auto;
+}
+.fy-hero__copy{text-align:left;}
+.fy-hero__eyebrow{margin:0 0 17px;color:var(--hero-gold-deep);font-size:15px;font-weight:900;letter-spacing:.12em;}
+.fy-hero__title{max-width:none;margin:0;font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif;font-size:clamp(48px,5.6vw,72px);font-weight:900;line-height:1.18;letter-spacing:.02em;}
+.fy-hero__title em{color:var(--hero-gold-deep);font-style:normal;}
+.fy-hero__desc{margin:25px 0 0;color:var(--hero-copy);font-size:clamp(17px,1.7vw,20px);line-height:1.92;}
+.fy-hero__desc span{display:block;}
+.fy-hero__trust{max-width:650px;margin:26px 0 0;padding:17px 21px;border-left:4px solid var(--hero-gold);border-radius:0 14px 14px 0;background:rgba(255,255,255,.7);color:#66797c;font-size:15px;line-height:1.85;box-shadow:0 10px 26px rgba(21,63,71,.06);}
+.fy-hero__trust b{color:var(--hero-ink);font-weight:800;}
+.fy-hero__actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:29px;}
+.fy-hero__cta{display:inline-flex;min-height:56px;align-items:center;justify-content:center;gap:10px;padding:14px 30px;border-radius:999px;background:var(--hero-ink);color:#fff;text-decoration:none;font-weight:900;box-shadow:0 12px 28px rgba(21,63,71,.2);transition:transform .18s ease,box-shadow .18s ease;}
+.fy-hero__cta:hover,.fy-hero__cta:focus-visible{transform:translateY(-2px);box-shadow:0 16px 34px rgba(21,63,71,.26);}
+.fy-hero__about{color:var(--hero-ink);font-weight:900;text-underline-offset:6px;}
+.fy-hero__proof{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;padding:0;list-style:none;}
+.fy-hero__proof li{padding:6px 12px;border:1px solid rgba(21,63,71,.16);border-radius:999px;background:rgba(255,255,255,.55);color:#47666b;font-size:13px;font-weight:800;}
+.fy-hero__visual{position:relative;margin:0 auto;width:min(100%,520px);}
+.fy-hero__portrait{position:relative;overflow:hidden;aspect-ratio:3/4;border:1px solid rgba(183,137,53,.28);border-radius:30px;background:#fff;box-shadow:0 28px 70px rgba(21,63,71,.18);}
+.fy-hero__portrait::after{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.6);border-radius:22px;pointer-events:none;}
+.fy-hero__portrait picture{display:block;width:100%;height:100%;}
+.fy-hero__portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;}
+.fy-hero__identity{position:relative;width:calc(100% - 42px);margin:-48px auto 0;padding:17px 22px;border:1px solid rgba(183,137,53,.25);border-radius:18px;background:rgba(255,253,248,.94);box-shadow:0 16px 38px rgba(21,63,71,.16);backdrop-filter:blur(12px);text-align:center;}
+.fy-hero__identity small{display:block;color:var(--hero-gold-deep);font-weight:900;letter-spacing:.1em;}
+.fy-hero__identity strong{display:block;margin:2px 0;color:var(--hero-ink);font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif;font-size:25px;}
+.fy-hero__identity span{display:block;color:#61777b;font-size:12px;line-height:1.6;}
+@media(max-width:900px){
+  .fy-hero__inner{grid-template-columns:1fr;gap:42px;}
+  .fy-hero__copy{order:1;text-align:center;}
+  .fy-hero__trust{margin-left:auto;margin-right:auto;text-align:left;}
+  .fy-hero__actions,.fy-hero__proof{justify-content:center;}
+  .fy-hero__visual{order:2;width:min(82vw,430px);}
+}
+@media(max-width:520px){
+  .fy-hero{padding:45px 16px 58px;}
+  .fy-hero__title{font-size:clamp(40px,12vw,50px);}
+  .fy-hero__desc{font-size:16px;line-height:1.85;}
+  .fy-hero__trust{font-size:14px;}
+  .fy-hero__actions{align-items:stretch;flex-direction:column;}
+  .fy-hero__cta{width:100%;}
+  .fy-hero__about{padding:8px;}
+  .fy-hero__proof{gap:7px;}
+  .fy-hero__proof li{font-size:12px;}
+  .fy-hero__visual{width:min(92vw,380px);}
+  .fy-hero__identity{width:calc(100% - 24px);margin-top:-34px;padding:14px 16px;}
+  .fy-hero__identity strong{font-size:22px;}
+}
+</style>
+
+<section class="fy-hero" aria-labelledby="home-hero-title">
+  <div class="fy-hero__inner">
+    <div class="fy-hero__copy">
+      <p class="fy-hero__eyebrow">財顧芸｜家族傳承生活顧問</p>
+      <h1 class="fy-hero__title" id="home-hero-title">家裡的事，<br><em>提早說清楚</em></h1>
+      <p class="fy-hero__desc">
+        <span>聚焦 50+ 家庭，也陪伴 45 歲以上提早準備，</span>
+        <span>一起整理退休、長照與傳承。</span>
+        <span>讓誰來照顧、錢怎麼準備、</span>
+        <span>長輩想怎麼過日子，</span>
+        <span>都在還有選擇的時候說清楚。</span>
+      </p>
+      <div class="fy-hero__trust">
+        我媽媽因意外失能，爸爸成為主要照顧者。<br>
+        <b>這條路我自己走過，所以知道——<br>
+        一個家會卡住的，常常不只是錢，<br>
+        而是很多事來不及說。</b>
+      </div>
+      <div class="fy-hero__actions">
+        
+        <a class="fy-hero__about" href="about-angie.html">先認識財顧芸</a>
+      </div>
+      <ul class="fy-hero__proof" aria-label="財顧芸的服務特色">
+        <li>宜蘭在地陪伴</li>
+        <li>走過家庭長照</li>
+        <li>退休・長照・傳承一起看</li>
+      </ul>
+    </div>
+    <figure class="fy-hero__visual">
+      <div class="fy-hero__portrait">
+        <picture>
+          <source srcset="assets/img/brand/scene-family-table.webp?v=20261025" type="image/webp">
+          <img src="assets/img/brand/scene-family-table.jpg" width="1536" height="1024" alt="財顧芸與家人圍桌討論家庭未來安排" fetchpriority="high" decoding="async">
+        </picture>
+      </div>
+      <figcaption class="fy-hero__identity">
+        <small>幸福財務領航員</small>
+        <strong>財顧芸・陳芸琪</strong>
+        <span>RFC｜RFA｜RFP 美國註冊財務策劃師｜MDRT 百萬圓桌會員</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="wrap" style="padding-top:18px;text-align:center">
+  <a class="text-link" href="financial-needs-check.html">用 1 分鐘，看看最想先解決什麼 →</a>
+</div>
+
+    <!-- 舊第一屏保留於原檔案中，但不再顯示。 -->
+    <section class="hero" id="top-legacy" hidden aria-hidden="true">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">家族傳承生活顧問</p>
+          <h1>把錢、愛與責任<br>放對位置</h1>
+          <p class="lead">
+            <span class="lead-line">聚焦 50+ 家庭，也陪伴 45 歲以上提早準備，</span>
+            <span class="lead-line">一起整理退休、長照與傳承。</span>
+            <span class="lead-line">讓照顧的安排、家裡的錢，</span>
+            <span class="lead-line">還有長輩自己的意願，都能好好說清楚。</span>
+          </p>
+          <p class="trust-line">
+            <span>我媽媽因意外失能，爸爸是主要照顧者。</span>
+            <span>這條路我自己走過，所以知道哪裡會卡。</span>
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="financial-needs-check.html">用 1 分鐘找到財務整理起點 →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="paths">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">從最需要的一步開始</p>
+          <h2>你們家現在，最想先整理哪件事？</h2>
+          <p>多數家庭是因為照顧才找上我，<br>但真正要解的，往往是照顧、錢與家人意願三件事綁在一起。</p>
+          <p>不用一次把所有問題解決，先從眼前最需要的情境開始。</p>
+        </div>
+        <div class="path-grid">
+          <article class="path-card">
+            <span>家裡開始需要照顧了</span>
+            <h3>先找到照顧資源與家庭分工</h3>
+            <p>從宜蘭在地長照資訊、服務選擇、費用缺口到照顧者休息，把下一步整理清楚。</p>
+            <a class="text-link" href="ilan-care.html">前往宜蘭長照・長照234 →</a>
+          </article>
+          <article class="path-card">
+            <span>想提早安排未來</span>
+            <h3>整理退休、保障與傳承</h3>
+            <p>把生活費、照顧費、資產安排與家人的想法放在同一張圖上，先看見需要討論的事。</p>
+            <a class="text-link" href="lifecycle-retirement.html">整理退休與家庭財務 →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-sea" id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">三個服務重點</p>
+          <h2>陪家庭走過人生下半場的重要轉彎</h2>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="service-number">01</span>
+            <h3>宜蘭長照與家庭照顧</h3>
+            <p>整理在地資源、照顧選擇、費用缺口與家人分工，讓主要照顧者不必一個人摸索。</p>
+            <a class="text-link" href="ilan-care.html">查看宜蘭長照整理 →</a>
+          </article>
+          <article class="service-card" hidden aria-hidden="true">
+            <span class="service-number">02</span>
+            <h3>50＋退休與家庭財務</h3>
+            <p>盤點收入、生活費、保障與照顧準備，讓退休後的每筆錢都有任務，也保有生活選擇。</p>
+            
+          </article>
+          <article class="service-card">
+            <span class="service-number">02</span>
+            <h3>家庭傳承與共識</h3>
+            <p>陪家人提早說清楚照顧、醫療與資產安排的意願，需要時協助你找到適合的專業人員。</p>
+            <a class="text-link" href="legacy-planning.html">了解傳承整理 →</a>
+          </article>
+          <article class="service-card service-card--focus">
+            <span class="service-kicker">把三件事放在同一張圖上</span>
+            <h3>家庭財務盤點</h3>
+            <p>照顧要花多少、退休夠不夠用、想留給家人的能不能實現——<br>這三件事其實是同一題。先盤點一次，再決定從哪裡開始。</p>
+            
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="green-sprout-checkup" aria-labelledby="green-sprout-title">
+      <div class="wrap">
+        <article class="service-card service-card--focus">
+          <span class="service-kicker">綠芽財務健檢</span>
+          <h2 id="green-sprout-title">綠芽｜看懂你的財務體質</h2>
+          <p>透過 LINE 做財務體質初步檢視，搭配日常收支記錄與金錢整理實踐，一步一步看見自己的金錢流動。由財顧芸陪你看懂報告。</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://liff.line.me/2008875286-mv3Yq7SB?code=FKJ5589" target="_blank" rel="noopener noreferrer">🌱 透過芸琪的專屬連結加入綠芽</a>
+          </div>
+          <p><small>也可以在 LINE 搜尋 @green_dot，付費時輸入推薦碼 FKJ5589</small></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-white">
+      <div class="wrap team">
+        <div>
+          <p class="eyebrow">家族傳承生活顧問的角色</p>
+          <h2>先把問題整理清楚，再找到適合的專業</h2>
+          <p>我不替代律師、會計師、醫療或信託專業，而是先陪家庭看見彼此的需求、資產與責任，再依情況協助你找到適合的專業資源，讓每一項安排能接得起來。</p>
+        </div>
+        <div class="team-list" aria-label="可協同的專業領域">
+          <div class="team-item"><strong>家庭意願整理</strong><span>釐清家人的想法，以及需要找誰確認</span></div>
+          <div class="team-item"><strong>該問的問題清單</strong><span>整理好要請教專業人員的事項</span></div>
+          <div class="team-item"><strong>銀行與信託</strong><span>安養、保險金與財產給付安排</span></div>
+          <div class="team-item"><strong>醫療與照顧</strong><span>預立醫療、長照資源與照顧計畫</span></div>
+          <div class="team-item"><strong>保險與風險</strong><span>保障缺口、保單與受益人盤點</span></div>
+          <div class="team-item"><strong>家庭溝通</strong><span>會議準備、意願整理與進度追蹤</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-sea" id="articles">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">先讀懂，再決定下一步</p>
+          <h2>從家庭正在面對的問題開始</h2>
+          <p>先從長照、退休財務與家族傳承三個常見問題開始，慢慢找到現在需要的答案。</p>
+        </div>
+        <form class="site-search" action="articles.html" method="get" role="search">
+          <label for="site-article-search">搜尋網站文章</label>
+          <div class="site-search-row">
+            <input id="site-article-search" name="q" type="search" autocomplete="off" placeholder="例如：長照、退休、教育金、信託">
+            <button type="submit">搜尋</button>
+          </div>
+        </form>
+        <div class="articles">
+          <article class="article-card">
+            <small>家庭照顧</small>
+            <h3>長照最需要的，不只是錢，還有人願意一起走</h3>
+            <p>照顧需要金錢支撐，也需要家人的陪伴、分工與及時接手。</p>
+            <a class="text-link" href="care-needs-someone-to-walk-with-you.html">繼續閱讀 →</a>
+          </article>
+          <article class="article-card">
+            <small>退休財務</small>
+            <h3>有一種人，帳戶裡有錢，卻比沒有錢的人更不安心</h3>
+            <p>退休安全感不只看資產總額，也要看現金流與每筆錢的任務。</p>
+            <a class="text-link" href="retirement-asset-structure.html">繼續閱讀 →</a>
+          </article>
+          <article class="article-card">
+            <small>家族傳承</small>
+            <h3>傳承怎麼開始？先把愛與重要資料說清楚</h3>
+            <p>先整理家人的意願與重要資料，讓彼此知道放在哪裡、需要找誰一起確認。</p>
+            <a class="text-link" href="legacy-family-conversation.html">繼續閱讀 →</a>
+          </article>
+        </div>
+        <div class="actions" style="justify-content:center">
+          <a class="btn btn-secondary" href="articles.html">查看全部文章與觀察</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-band" aria-labelledby="resource-title">
+      <div class="wrap">
+        <div class="resource-intro">
+          <div>
+            <p class="eyebrow">延伸資源</p>
+            <h2 id="resource-title">想再多看一點，可以從這裡開始</h2>
+          </div>
+          <p>想找日常知識、課程或更完整的宜蘭長照經驗，可以依現在的需要繼續看看。</p>
+        </div>
+        <nav class="resource-grid" aria-label="延伸資源">
+          <a class="resource-link" href="mature-assessment-center.html"><strong>熟齡檢測中心</strong><span>先找出想解決的財務問題，再選適合的檢測</span></a>
+          
+          
+          <a class="resource-link" href="https://yunplan.tw/"><strong>宜蘭長照筆記</strong><span>一個宜蘭女兒，把走過的路整理給你</span></a>
+        </nav>
+      </div>
+    </section>
+    <section class="section section-white" id="about">
+      <div class="wrap about">
+        <figure class="portrait">
+          <picture>
+            <img src="assets/img/brand/portrait-angie-introduction-20261003.jpg" width="1144" height="1430" alt="財顧芸陳芸琪穿著米白色西裝、手持平板的形象照" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+        <div>
+          <p class="eyebrow">認識財顧芸</p>
+          <h2>一位財務顧問，也是一個陪媽媽走過復健與長照的宜蘭女兒</h2>
+          <p>當長照真正走進自己的家庭，我更明白：很多人需要的不是更多零散資訊，而是有人陪著把財務、照顧、家人與未來的選擇放在一起看。</p>
+          <p>RFC 國際認證財務顧問｜RFA 退休理財顧問｜RFP 美國註冊財務策劃師｜MDRT 百萬圓桌會員</p>
+          <a class="text-link" href="about-angie.html">閱讀財顧芸的完整故事 →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="consult" id="consult">
+      <div class="wrap">
+        <h2>不用等到事情發生，才開始討論</h2>
+        <p>如果家裡正面對退休、長照或傳承的交叉問題，可以先從一次家庭現況整理開始。</p>
+        <a class="btn" href="consultation.html#booking">預約聊聊</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>財顧芸｜家族傳承生活顧問</strong>
+        <p>馥芸財富學苑是財顧芸的財商教育品牌</p>
+      </div>
+      <nav class="footer-links" aria-label="網站延伸連結">
+        <a href="index.html">財顧芸品牌首頁</a>
+        
+        <a href="mature-assessment-center.html">熟齡檢測中心</a>
+        
+        <a href="about-angie.html">認識財顧芸</a>
+        <a href="articles.html">文章專欄</a>
+        <a href="ilan-care.html">宜蘭長照整理</a>
+        <a href="https://yunplan.tw/">宜蘭長照筆記</a>
+        <a href="teacher-recruitment.html">教師招募</a>
+        <a href="lifecycle-legacy.html#second-half-blueprint">50+傳承規劃</a>
+      </nav>
+    </div>
+  </footer>
+  <script>
+    (() => {
+      const button = document.querySelector('.menu-toggle');
+      const menu = document.getElementById('main-nav');
+      if (!button || !menu) return;
+      button.addEventListener('click', () => {
+        const open = menu.classList.toggle('is-open');
+        button.setAttribute('aria-expanded', String(open));
+      });
+      menu.addEventListener('click', () => { menu.classList.remove('is-open'); button.setAttribute('aria-expanded', 'false'); });
+    })();
+  </script>
+<script src="assets/footer-recruitment-link-v1.js" defer></script>
+</body>
+</html>

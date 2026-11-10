@@ -1,0 +1,23 @@
+/* 財顧芸公開網站：跨裝置可識性與圖片排版保護 */
+:root { --site-focus: #b97816; --site-touch-size: 44px; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 5.5rem; }
+body { overflow-x: hidden; }
+img, picture, video, svg { max-width: 100%; }
+img, video { height: auto; }
+figure { max-width: 100%; margin-inline: auto; overflow: hidden; }
+button, .btn, [class*="button"], nav a, header a { min-height: var(--site-touch-size); display: inline-flex; align-items: center; justify-content: center; }
+a, button, input, select, textarea { touch-action: manipulation; }
+:focus-visible { outline: 3px solid var(--site-focus); outline-offset: 3px; }
+.nav-links, header nav, .site-nav { flex-wrap: wrap; }
+.site-academy-link { white-space: nowrap; }
+main, section, article, .container, .wrap { min-width: 0; }
+p, li, h1, h2, h3, h4, a { overflow-wrap: break-word; }
+@media (max-width: 760px) {
+  html { scroll-padding-top: 4.5rem; }
+  .nav-links, header nav, .site-nav { gap: .5rem .75rem; }
+  .nav-links a, header nav a, .site-nav a { padding-block: .55rem; }
+  figure, .hero-image, .article-cover, .card-image, .course-image { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
