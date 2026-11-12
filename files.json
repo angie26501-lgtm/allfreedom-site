@@ -339,7 +339,7 @@
   },
   {
     "dest": "adventure/index.html",
-    "sha": "bfc40ae62b294f89889437d6ea3f641c156a3579"
+    "sha": "ac76865f19b8f7fe0a589d301cc833048ac84cc7"
   },
   {
     "dest": "adventure/iv/ep/e1_0.jpg",
@@ -954,5 +954,9 @@
     "dest": "adventure/vid_v2/ep_S4e1.mp4",
     "sha": "3c5256ec2916d3bc511eb79f07e53736201b0a6e",
     "url": "https://raw.githubusercontent.com/angie26501-lgtm/business/b9d6d8e8d7686b8f1cf46edfdab5d144cfb264ce/money-detective/vid_v2/ep_S4e1.mp4"
+  },
+  {
+    "dest": "adventure/img/cfo-banner.jpg",
+    "sha": "78d4c0f7f41dfab332c755c4754ab9767543c833"
   }
 ]
