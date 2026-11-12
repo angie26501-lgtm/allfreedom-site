@@ -31,7 +31,8 @@ a{color:var(--green)}
 #map{width:100%;display:block;transition:transform 1.2s ease}
 .isle{cursor:pointer;transition:transform .25s}
 .isle:hover,.isle.focus{transform:translateY(-6px)}
-.nametag{font-size:13px;font-weight:700}
+.nametag{font-size:14px;font-weight:800;fill:#244750}
+#map .isle:focus-visible{outline:3px solid #275f66;outline-offset:4px}
 .hideTags .nametag,.hideTags .tagbg{display:none}
 .guide{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;margin-top:12px;align-items:center}
 .guide .who{text-align:center;font-size:12px;color:var(--mut)}
@@ -340,7 +341,7 @@ body:not(.lite) #vMap+.toggles{margin:6px 0 10px}
 .deck-cap{text-align:center;font-size:13px;color:#6b6250;margin-bottom:6px}
 </style></head>
 <body>
-<div class="top"><div class="brand">人生金錢偵探社<small>Angie｜家族傳承生活顧問</small></div><div class="topbtns" style="display:flex;gap:6px"><a class="btn" href="https://angie26501-lgtm.github.io/business/quiz/">複習闖關</a><a class="btn" href="https://www.allfreedom.info/" target="_blank" rel="noopener">認識財顧芸</a><button class="btn" id="shareTop">分享此區</button></div></div>
+<div class="top"><div class="brand">人生金錢偵探社<small>Angie｜家族傳承生活顧問</small></div><div class="topbtns" style="display:flex;gap:6px"><a class="btn" href="https://angie26501-lgtm.github.io/business/quiz/">複習闖關</a><a class="btn" href="https://www.allfreedom.info/about-angie.html">認識財顧芸</a><button class="btn" id="shareTop">分享此區</button></div></div>
 <div class="wrap">
 <div class="wmark" aria-hidden="true"></div>
 <section id="liteBox" aria-label="新朋友 3 關快速體驗"></section>
@@ -432,7 +433,7 @@ const CAMP_DEADLINE='12/1（二）23:59';
 // 管理者看進度用：部署 progress-script.gs 後，把網址（…/exec）填在這裡；空白時進度只存在學員自己的手機
 const PROGRESS_URL='';
 const RANKS=['旅人','新手船員','副船長','船長','家庭財務長','傳承者'];
-const POS=[[110,330],[540,230],[680,300],[820,220],[930,330],[790,420]];
+const POS=[[220,157],[520,157],[820,157],[820,343],[520,343],[220,343]];
 const GAMES = {
  S1:{type:'quiz',title:'症狀偵查：哪些是財務亞健康警訊？',qs:[
   {q:'薪水入帳不到兩週就快用完了',a:['是警訊','不是'],c:0,why:'月光是最常見的亞健康症狀。'},
@@ -529,13 +530,15 @@ function island(s,i,big){const [x,y]=POS[i];const d=st.done[s.id],lk=!unlocked(i
  ${im?`<clipPath id="cp${i}"><circle cx="${x}" cy="${y-38}" r="46"/></clipPath><circle cx="${x}" cy="${y-38}" r="50" fill="#fff"/><image href="${im}" x="${x-70}" y="${y-85}" width="140" height="94" preserveAspectRatio="xMidYMid slice" clip-path="url(#cp${i})" ${lk?'opacity=".45"':''}/>`:`<circle cx="${x}" cy="${y-38}" r="50" fill="#fff"/><circle cx="${x}" cy="${y-38}" r="46" fill="${s.color}" opacity=".18"/><text x="${x}" y="${y-30}" text-anchor="middle" font-size="26">🏝️</text>`}
  ${lk?`<g transform="translate(${x+30},${y-74})"><circle r="15" fill="#1f3a44"/><rect x="-7" y="-2" width="14" height="10" rx="2" fill="#fff"/><path d="M-4 -2 v-4 a4 4 0 0 1 8 0 v4" stroke="#fff" stroke-width="2" fill="none"/></g>`:''}
  ${d?`<circle cx="${x-38}" cy="${y-74}" r="13" fill="#fff" stroke="#c0603f" stroke-width="2"/><text x="${x-38}" y="${y-70}" text-anchor="middle" font-size="11" fill="#c0603f" font-weight="800">破案</text>`:''}
- <rect class="tagbg" x="${x-58}" y="${y+44}" width="116" height="24" rx="12" fill="#fff" opacity=".92"/>
+ <rect class="tagbg" x="${x-58}" y="${y+44}" width="116" height="26" rx="13" fill="#fff" stroke="#9abac1"/>
  <text class="nametag" x="${x}" y="${y+61}" text-anchor="middle" fill="${s.color}">${i+1}. ${esc(s.island)}</text></g>`}
 function mapSvg(){let route='';for(let i=0;i<POS.length-1;i++){const[a,b]=POS[i],[c,d]=POS[i+1];route+=`M${a} ${b+10} Q${(a+c)/2} ${(b+d)/2+60} ${c} ${d+10} `}
  let waves='';for(let k=0;k<14;k++){const x=40+((k*137)%960),y=60+((k*89)%400);waves+=`<path d="M${x} ${y} q8 -6 16 0 q8 6 16 0" stroke="#ffffff" stroke-width="2" fill="none" opacity=".6"/>`}
- return `<svg id="map" viewBox="0 0 1040 500" role="img" aria-label="財富航海群島地圖">${waves}
- <path d="${route}" stroke="#2f5d6a" stroke-width="2" stroke-dasharray="6 8" fill="none" opacity=".5"/>
- ${ST.map((s,i)=>island(s,i)).join('')}${guardPin()}${dreamPin()}${advPin()}
+ return `<svg id="map" viewBox="0 0 1040 535" role="group" aria-label="財富航海群島地圖">`+
+  `<defs><linearGradient id="ocean" x2="0%" y2="100%"><stop stop-color="#e6f3f0"/><stop offset="1" stop-color="#b9dce6"/></linearGradient></defs><rect width="1040" height="535" fill="url(#ocean)"/>
+  ${waves}
+ <path d="${route}" stroke="#437684" stroke-width="3" stroke-dasharray="4 8" stroke-linecap="round" fill="none" opacity=".65"/>
+ ${ST.map((s,i)=>island(s,i)).join('')}<g transform="translate(-142,285)">${guardPin()}</g><g transform="translate(100,365)">${dreamPin()}</g><g transform="translate(-40,36)">${advPin()}</g>
  <g transform="translate(965,60)"><circle r="26" fill="#fff" opacity=".85"/><text y="-8" text-anchor="middle" font-size="12" fill="#2f5d6a">N</text><polygon points="0,-18 5,0 0,18 -5,0" fill="#c0603f"/></g></svg>`}
 
 const SHORT_URL='https://reurl.cc/RRZRaG';
@@ -650,7 +653,7 @@ function renderGuard(){$('#vGuard').innerHTML=`<div class="gd-hero">${gdImg(0,'�
  <p style="font-size:13px;color:#5f7680;margin:8px 0 0">還不是保戶也沒關係，可以先從 <a href="#s1" id="gdS1">1. 迷霧港</a> 開始，一島一島認識自己的財務。</p></div></div>
  ${duoSay('多多來了！守護灣有 6 個站，每一站都是芸琪陪你照顧家人的方式。想要哪一項，加入 LINE@ 後傳訊息告訴芸琪就好！')}
  <div class="gd-grid">${GUARD.map((g,k)=>`<div class="gd-card" style="--c:${g.c}">${gdImg(k+1,g.t)}<div class="bd"><b>${k+1}. ${esc(g.t)}</b><p>${esc(g.p)}</p><div class="gd-say">${esc(g.say)}</div><a class="gd-cta sm" href="${GUARD_LINE}" target="_blank" rel="noopener">${esc(g.b)} →</a></div></div>`).join('')}</div>
- <p style="font-size:13px;color:#5f7680;margin-top:12px">財顧芸 陳芸琪｜家族傳承生活顧問　·　<a href="https://www.allfreedom.info/" target="_blank" rel="noopener">認識財顧芸</a></p>`;
+ <p style="font-size:13px;color:#5f7680;margin-top:12px">財顧芸 陳芸琪｜家族傳承生活顧問　·　<a href="https://www.allfreedom.info/about-angie.html">認識財顧芸</a></p>`;
  $('#gdS1').onclick=e=>{e.preventDefault();view('map');openSt('S1')}}
 function dreamPin(){return `<g class="isle" id="drPin" tabindex="0" role="button" aria-label="購買天堂夢幻島 隱藏版 尚未開放" style="cursor:pointer;opacity:.8;filter:grayscale(1)">
  <ellipse cx="120" cy="112" rx="62" ry="18" fill="#cfe7ee"/><path d="M64 108 q56 -52 112 0" fill="#f3e2b5"/><ellipse cx="120" cy="106" rx="46" ry="14" fill="#e6c98a"/>
@@ -703,10 +706,10 @@ const SVC={
  report:{n:'客製化報告加購',p:800,pt:'800 元起／單項',u:'',fit:'規劃後想要一份給家人看的報告',inc:['周年檢視報告書（熟齡大字版）、人生財務設計藍圖簡報等','以你家的真實數字製作']},
  care:{n:'安心樂活規劃（退休與安養）',p:0,pt:'依需求另外報價',u:'',fit:'開始想退休後的生活與照護安排',inc:['安養財務評估、照護費用估算','意定監護、安養信託：協助媒合專業窗口']},
  lk1:{lock:1,n:'三日營 人生下半場財務覺醒',nx:'迷霧港',fit:'想先輕鬆體驗，跟大家一起找回對錢的感覺',peekT:'先偷看：三天在做什麼？',peek:()=>CAMP3.map(c=>c.d+'｜'+c.t),unlock:'三日營免費，不用公開任何財務數字。',url:'https://reurl.cc/0k0dR6',ul:'看三日營怎麼參加'},
- lk2:{lock:1,n:'金錢整理五日實踐營',nx:'掌舵島',fit:'測完體質、想五天跟著做，把收支、家底、預算一次整理好',peekT:'先偷看：五天在做什麼？',peek:()=>CAMP.map(c=>c.d+'｜'+c.t),unlock:'購買綠芽財務管理系統，就能參加五日營；完成五日營，再送 ABC 帳戶線上互動版 3 個月。',url:'../greensprout/how-to-buy.html',ul:'購買綠芽就能參加'},
+ lk2:{lock:1,n:'金錢整理五日實踐營',nx:'掌舵島',fit:'測完體質、想五天跟著做，把收支、家底、預算一次整理好',peekT:'先偷看：五天在做什麼？',peek:()=>CAMP.map(c=>c.d+'｜'+c.t),unlock:'購買綠芽財務管理系統，就能參加五日營；完成五日營，再送 ABC 帳戶線上互動版 3 個月。',url:'https://angie26501-lgtm.github.io/business/greensprout/how-to-buy.html',ul:'購買綠芽就能參加'},
  lk3:{lock:1,n:'你是哪一種財務體質？',nx:'體質島',fit:'想知道自己的錢是「生龍活虎」還是「坐吃山空」',peekT:'先偷看：四種財務體質',peek:()=>['🐯 生龍活虎：收支有餘，家底也穩','🌱 後勢看好：收支有餘，家底累積中','🥣 坐吃山空：有家底，但每月吃緊','🌧️ 弱不禁風：收支吃緊，家底也還不夠'],unlock:'從迷霧港出發，下一站就到體質島。',url:'https://reurl.cc/zOaa40',ul:'先免費體驗綠芽'},
  lk4:{lock:1,n:'綠芽完整版＋保單現況盤點',nx:'解鎖之門',fit:'測完體質，想看懂全家的財務和保障',peekT:'先偷看：門後面有什麼？',peek:()=>['完整體質說明與改善建議','ABC 帳戶 1 年','保單跨公司放在同一張表上看','看得懂的保障報告＋保障圖'],unlock:'體質島破案後打開這道門；保單盤點 30 天內升級規劃建議，已付金額全額折抵。',url:SVC_PAGE,ul:'看方案與價格'},
- lk5:{lock:1,n:'五日營＋家庭記帳陪跑',nx:'掌舵島',fit:'想五天把錢理清楚，之後每個月有人陪你看',peekT:'先偷看：五天在做什麼？',peek:()=>CAMP.map(c=>c.d+'｜'+c.t),unlock:'通過解鎖之門後掌舵；完成五日營，再送 ABC 帳戶線上互動版 3 個月。',url:'../greensprout/how-to-buy.html',ul:'購買綠芽就能參加'},
+ lk5:{lock:1,n:'五日營＋家庭記帳陪跑',nx:'掌舵島',fit:'想五天把錢理清楚，之後每個月有人陪你看',peekT:'先偷看：五天在做什麼？',peek:()=>CAMP.map(c=>c.d+'｜'+c.t),unlock:'通過解鎖之門後掌舵；完成五日營，再送 ABC 帳戶線上互動版 3 個月。',url:'https://angie26501-lgtm.github.io/business/greensprout/how-to-buy.html',ul:'購買綠芽就能參加'},
  lk6:{lock:1,n:'幸福財務年度顧問',nx:'遠洋航線',fit:'希望全家的保單、收支、理賠，一整年都有人照看',peekT:'先偷看：一整年陪你做什麼？',peek:()=>['工作坊＋規劃建議＋人生財富藍圖','一整年記帳陪跑、年中再看一次、隔年周年檢視','每月 40 分鐘諮詢（預約申請制，不累計）','理賠協助、預約優先'],unlock:'掌舵島結業、成為家庭財務長後啟航。',url:SVC_PAGE,ul:'看方案與價格'},
  lk7:{lock:1,n:'三力平衡與家族傳承',nx:'幸福藍海',fit:'想把資產和心意好好交到家人手上',peekT:'先偷看：傳承要準備什麼？',peek:()=>['財力、心力、體力三力平衡','傳承深度會談、家族繼承系統表','遺贈稅試算','信託、遺囑：協助媒合專業窗口'],unlock:'遠洋航線走穩後抵達；依需求另外報價。',url:SVC_PAGE,ul:'看方案與價格'},
  lk8:{lock:1,n:'家族傳承延伸航線',nx:'傳家港',fit:'想邀家人一起上船，把這份準備傳下去',peekT:'先偷看：傳家港有什麼？',peek:()=>['家族船員邀請卡','和家人一起做財務健檢','安心樂活：退休與照護安排','財富傳承規劃'],unlock:'六島全破後開放，敬請期待。',url:SVC_PAGE,ul:'看方案與價格'},
@@ -949,7 +952,7 @@ function campPath(){const e3=campEnded('c3'),e5=campEnded('c5');
   <div class="c3btns"><button class="btn" type="button" data-c3="intro">📋 三天在做什麼</button><a class="btn pri" href="${CIRCLE_URL}" target="_blank" rel="noopener">${e3?'加入共學圈・預約下一梯 →':'免費報名三日營 →'}</a></div></div>
  <div class="cp-i"><div class="cp-h">🧭 五日營｜動手整理・購買綠芽贈送</div><p>5 天跟著影片，用綠芽系統把自己的財務一次理清楚，每天 20 分鐘以內。適合測完體質、想馬上開始調整的人。</p>
   <details class="cp-d"><summary>五天在做什麼？</summary><ol>${CAMP.map(c=>`<li><b>${esc(c.d)}</b>｜${esc(c.t)}</li>`).join('')}</ol></details>
-  <div class="c3btns"><a class="btn" href="../greensprout/how-to-buy.html" target="_blank" rel="noopener">🌱 認識綠芽・訂購教學</a><a class="btn pri" href="${ORDER_LINE}" target="_blank" rel="noopener">${e5?'預約下一梯五日營 →':'報名五日營 →'}</a></div></div>
+  <div class="c3btns"><a class="btn" href="https://angie26501-lgtm.github.io/business/greensprout/how-to-buy.html" target="_blank" rel="noopener">🌱 認識綠芽・訂購教學</a><a class="btn pri" href="${ORDER_LINE}" target="_blank" rel="noopener">${e5?'預約下一梯五日營 →':'報名五日營 →'}</a></div></div>
  <div class="cp-n">🎫 已經參加過？<button class="lnk" type="button" data-c3="camp">打開營隊任務複習</button></div></div>`}
 // ===== 每站 3 題免費簡單版＋付費升級 =====
 const QZ={
