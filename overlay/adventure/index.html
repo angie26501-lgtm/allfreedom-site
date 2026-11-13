@@ -340,7 +340,18 @@ body:not(.lite) #vMap+.toggles{margin:6px 0 10px}
 .deck img.out{transform:translate(-40px,-6px) rotate(-8deg);opacity:0}
 .deck-cap{text-align:center;font-size:13px;color:#6b6250;margin-bottom:6px}
 </style>
-<style>.map-guide summary{cursor:pointer;color:#245449;font-weight:750;padding:8px 0}.map-guide figure{margin:8px 0}.map-guide img{display:block;width:100%;height:auto;border-radius:12px}.map-guide figcaption{margin-top:6px}</style>
+<style>
+.map-guide{margin:12px 0;max-width:900px}
+.map-guide summary{display:flex;align-items:center;gap:10px;width:fit-content;max-width:100%;padding:10px 14px;background:#fffdf7;border:1px solid #c9dcd2;border-radius:12px;color:#244f45;font-weight:750;cursor:pointer;list-style:none}
+.map-guide summary::-webkit-details-marker{display:none}
+.map-guide summary::before{content:"▸";font-size:1.1em}
+.map-guide[open] summary::before{content:"▾"}
+.map-guide summary:focus-visible,.map-guide a:focus-visible{outline:3px solid #27695a;outline-offset:3px}
+.map-guide figure{margin:8px 0 0;padding:12px;border:1px solid #c9dcd2;border-radius:12px;background:#fffdf7}
+.map-guide img{display:block;width:100%;height:auto;border-radius:8px;margin:auto}
+.map-guide--yearend img{max-width:560px}
+.map-guide figcaption{margin-top:8px;line-height:1.6;color:#425e58}
+</style>
 </head>
 <body>
 <div class="top"><div class="brand">人生金錢偵探社<small>Angie｜家族傳承生活顧問</small></div><div class="topbtns" style="display:flex;gap:6px"><a class="btn" href="https://angie26501-lgtm.github.io/business/quiz/">複習闖關</a><a class="btn" href="https://www.allfreedom.info/about-angie.html">認識財顧芸</a><button class="btn" id="shareTop">分享此區</button></div></div>
