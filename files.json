@@ -339,7 +339,7 @@
   },
   {
     "dest": "adventure/index.html",
-    "sha": "80f9cf24e818434286315fa1b391f2450a317fb1"
+    "sha": "f7eb1961bf01b542a675270de7fddbe868ee52c2"
   },
   {
     "dest": "adventure/iv/ep/e1_0.jpg",
@@ -958,5 +958,9 @@
   {
     "dest": "adventure/img/cfo-banner.jpg",
     "sha": "78d4c0f7f41dfab332c755c4754ab9767543c833"
+  },
+  {
+    "dest": "adventure/img/yearend-financial-review-2027.jpg",
+    "sha": "118d244670c7d336d6ad7ba5c98943d1102e5b6c"
   }
 ]
