@@ -346,7 +346,25 @@ body:not(.lite) #vMap+.toggles{margin:6px 0 10px}
 <div class="wmark" aria-hidden="true"></div>
 <section id="liteBox" aria-label="新朋友 3 關快速體驗"></section>
 <section id="vMap">
- <div id="mapHead"><img src="img/cfo-banner.jpg" alt="家庭財務長養成計劃：收支管理、資產布局、風險保障、照護準備與傳承規劃" width="1600" height="533" style="display:block;width:100%;height:auto;border-radius:16px;margin-bottom:14px"><span class="badge">馥芸財富成長計畫｜家庭財務長養成航記</span><h1>財富航海群島</h1><p class="vision">🌱 從財務覺醒開始，成為有生活選擇權的家庭財務長。</p><div class="qz-b" aria-label="近期活動"><a class="btn" href="https://angie26501-lgtm.github.io/business/events/1214-camp.html">12/14–12/16 共學圈三日營</a><a class="btn" href="https://angie26501-lgtm.github.io/business/greensprout/">12/27–12/31 金錢整理五日實踐營</a></div><p>別把今年的金錢狀態直接帶進2027<br>先看清才能規劃下一步</p><a href="img/yearend-financial-review-2027.jpg" aria-label="放大年底財務回看圖卡"><img src="img/yearend-financial-review-2027.jpg" alt="年底財務回看：盤點收入、存款與金錢壓力，先整理今年再規劃明年" width="800" height="1000" loading="lazy" style="display:block;width:100%;max-width:480px;height:auto;border-radius:14px;margin:12px 0"></a></div>
+ <div id="mapHead"><img src="img/cfo-banner.jpg" alt="家庭財務長養成計劃：收支管理、資產布局、風險保障、照護準備與傳承規劃" width="1600" height="533" style="display:block;width:100%;height:auto;border-radius:16px;margin-bottom:14px"><span class="badge">馥芸財富成長計畫｜家庭財務長養成航記</span><h1>財富航海群島</h1><p class="vision">🌱 從財務覺醒開始，成為有生活選擇權的家庭財務長。</p>
+<section aria-labelledby="learning-title" style="margin:18px 0;padding:clamp(14px,3vw,24px);background:#fffdf6;border:1px solid #d5dfcc;border-radius:16px">
+  <h2 id="learning-title" style="margin:0;color:#245449">從零開始，練習成為家庭財務長</h2>
+  <p>先看懂自己的錢，再練習分配、規劃和定期檢視。每次做一小步，逐漸養成自己的財務規劃能力。</p>
+  <a class="btn pri" href="#s1" id="learning-start">從迷霧港免費開始 →</a>
+  <ol style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:10px;padding:0;list-style:none">
+    <li><b>1. 初航者</b><br>三日覺醒，找出最想整理的財務問題。</li>
+    <li><b>2. 實踐者</b><br>五日實作，整理收支與家底，練習 ABC 帳戶。</li>
+    <li><b>3. 養成者</b><br>用 90 天行動計畫，養成定期檢視的習慣。</li>
+    <li><b>4. 掌舵者</b><br>安排家庭現金流、預算和財務目標。</li>
+    <li><b>5. 陪跑者</b><br>陪家人和親友整理金錢，練習溝通。</li>
+    <li><b>6. 財務長</b><br>整合家庭資源，規劃長期財務與傳承。</li>
+  </ol>
+  <details>
+    <summary>展開六級成長旅程圖卡</summary>
+    <p>圖卡呈現課程學習階段，下方互動地圖提供闖關練習。</p>
+    <a href="img/cfo-learning-journey.png"><img src="img/cfo-learning-journey.png" alt="財富航海成長旅程，從初航者循序練習到家庭財務長" loading="lazy" decoding="async" style="display:block;width:100%;max-width:760px;height:auto;border-radius:12px"></a>
+  </details>
+</section><div class="qz-b" aria-label="近期活動"><a class="btn" href="https://angie26501-lgtm.github.io/business/events/1214-camp.html">12/14–12/16 共學圈三日營</a><a class="btn" href="https://angie26501-lgtm.github.io/business/greensprout/">12/27–12/31 金錢整理五日實踐營</a></div><p>別把今年的金錢狀態直接帶進2027<br>先看清才能規劃下一步</p><a href="img/yearend-financial-review-2027.jpg" aria-label="放大年底財務回看圖卡"><img src="img/yearend-financial-review-2027.jpg" alt="年底財務回看：盤點收入、存款與金錢壓力，先整理今年再規劃明年" width="800" height="1000" loading="lazy" style="display:block;width:100%;max-width:480px;height:auto;border-radius:14px;margin:12px 0"></a></div>
  <div id="liteMapH"><b>🗺️ 完整版航海圖｜學員 6 座島</b><span>點任何一座島，就切換到完整版開始航行</span></div>
  <div class="mapbox" id="mapbox"></div>
  <div class="list" id="listView" style="display:none"></div>
@@ -1236,6 +1254,7 @@ setInterval(()=>{idle+=1;if($('#tgAuto').checked&&idle>=3&&$('#vMap').style.disp
 (()=>{const vb=$('#tgVoice'),vl=$('#tgVoiceL');if(!VOICE_OK){vl.style.display='none';return}
  try{vb.checked=localStorage.getItem('md_voice')==='1'}catch(e){}
  vb.onchange=()=>{try{localStorage.setItem('md_voice',vb.checked?'1':'0')}catch(e){}if(vb.checked)say('語音導覽開啟！多多會唸給你聽喔。');else sayStop()}})();
+$('#learning-start').onclick=e=>{e.preventDefault();view('map');openSt('S1')};
 $('#shareTop').onclick=()=>shareSheet(SHORT_URL,'⚓ 推薦你玩「人生金錢偵探社｜財富航海群島」：6 座島、生活財務案件，破案還有機會領書 🎁');
 renderMap();
 function fromHash(){const h=(location.hash||'').slice(1).toUpperCase();if(h==='GUARD'){view('guard');return}if(h==='SUPPLY'){view('supply');return}if(h==='CAMP'||h==='CAMP5'||h==='CAMP3'){if(h==='CAMP3')campSel='c3';if(h==='CAMP5')campSel='c5';view('camp');return}if(h==='S2'||h==='S3'){openSt('S1',true);return}if(ST.some(s=>s.id===h))openSt(h,true)}
