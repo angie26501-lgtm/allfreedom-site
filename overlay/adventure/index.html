@@ -339,7 +339,9 @@ body:not(.lite) #vMap+.toggles{margin:6px 0 10px}
  transform:translate(calc(var(--i)*10px),calc(var(--i)*8px)) rotate(calc(var(--i)*2.5deg));z-index:calc(10 - var(--i));transition:transform .26s,opacity .26s}
 .deck img.out{transform:translate(-40px,-6px) rotate(-8deg);opacity:0}
 .deck-cap{text-align:center;font-size:13px;color:#6b6250;margin-bottom:6px}
-</style></head>
+</style>
+<style>.map-guide summary{cursor:pointer;color:#245449;font-weight:750;padding:8px 0}.map-guide figure{margin:8px 0}.map-guide img{display:block;width:100%;height:auto;border-radius:12px}.map-guide figcaption{margin-top:6px}</style>
+</head>
 <body>
 <div class="top"><div class="brand">人生金錢偵探社<small>Angie｜家族傳承生活顧問</small></div><div class="topbtns" style="display:flex;gap:6px"><a class="btn" href="https://angie26501-lgtm.github.io/business/quiz/">複習闖關</a><a class="btn" href="https://www.allfreedom.info/about-angie.html">認識財顧芸</a><button class="btn" id="shareTop">分享此區</button></div></div>
 <div class="wrap">
@@ -364,7 +366,17 @@ body:not(.lite) #vMap+.toggles{margin:6px 0 10px}
     <p>圖卡呈現課程學習階段，下方互動地圖提供闖關練習。</p>
     <a href="img/cfo-learning-journey.png"><img src="img/cfo-learning-journey.png" alt="財富航海成長旅程，從初航者循序練習到家庭財務長" loading="lazy" decoding="async" style="display:block;width:100%;max-width:760px;height:auto;border-radius:12px"></a>
   </details>
-</section><div class="qz-b" aria-label="近期活動"><a class="btn" href="https://angie26501-lgtm.github.io/business/events/1214-camp.html">12/14–12/16 共學圈三日營</a><a class="btn" href="https://angie26501-lgtm.github.io/business/greensprout/">12/27–12/31 金錢整理五日實踐營</a></div><p>別把今年的金錢狀態直接帶進2027<br>先看清才能規劃下一步</p><a href="img/yearend-financial-review-2027.jpg" aria-label="放大年底財務回看圖卡"><img src="img/yearend-financial-review-2027.jpg" alt="年底財務回看：盤點收入、存款與金錢壓力，先整理今年再規劃明年" width="800" height="1000" loading="lazy" style="display:block;width:100%;max-width:480px;height:auto;border-radius:14px;margin:12px 0"></a></div>
+</section><div class="qz-b" aria-label="近期活動"><a class="btn" href="https://angie26501-lgtm.github.io/business/events/1214-camp.html">12/14–12/16 共學圈三日營</a><a class="btn" href="https://angie26501-lgtm.github.io/business/greensprout/">12/27–12/31 金錢整理五日實踐營</a></div><section aria-labelledby="year-review" style="margin:16px 0;padding:clamp(14px,3vw,24px);background:#fffaf0;border:1px solid #dccba6;border-radius:16px">
+<h2 id="year-review" style="margin:0;color:#245449">年底財務回看</h2>
+<p>別把今年的金錢狀態直接帶進 2027。先從這三個問題開始。</p>
+<ul style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:8px 22px;padding-left:22px">
+<li><strong>收入</strong>｜今年有變化嗎？</li>
+<li><strong>存款</strong>｜有慢慢累積嗎？</li>
+<li><strong>壓力</strong>｜你對錢更安心了嗎？</li>
+</ul>
+<details class="map-guide"><summary>展開年底財務回看圖卡</summary>
+<figure><a href="img/yearend-financial-review-2027.jpg" aria-label="查看年底財務回看原圖"><img src="img/yearend-financial-review-2027.jpg" alt="回顧收入、存款與金錢壓力，先整理今年，再規劃明年" width="800" height="1000" loading="lazy" decoding="async" style="max-width:520px"></a><figcaption>點圖片查看原尺寸。</figcaption></figure>
+</details></section></div>
  <div id="liteMapH"><b>🗺️ 完整版航海圖｜學員 6 座島</b><span>點任何一座島，就切換到完整版開始航行</span></div>
  <div class="mapbox" id="mapbox"></div>
  <div class="list" id="listView" style="display:none"></div>
