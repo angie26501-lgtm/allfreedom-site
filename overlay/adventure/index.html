@@ -691,8 +691,9 @@ function guardPin(){return `<g class="isle" id="gdPin" tabindex="0" role="button
 // ===== 航程補給站（服務項目對應航海圖；價格依 2026/10/09 服務方案頁） =====
 const SVC_PAGE='https://angie26501-lgtm.github.io/private/course/service.html';
 const ORDER_LINE='https://lin.ee/oOvyuwU';
+const ABC_REQUEST_FORM_URL="https://forms.gle/tJmK95KzoLYWGP2X7";
 const SVC={
- abc:{n:'ABC 帳戶試算（網頁版）',p:0,pt:'免費',u:'631 法則 × ABC 三帳戶',fit:'想把每月收入分成 A 生活、B 年度、C 夢想三個帳戶',inc:['先填收入，631 幫你抓好目標','先付給自己（C 夢想），再排 A、B，一眼看懂有沒有收支有餘'],free:1,url:'https://angie26501-lgtm.github.io/business/payyourself.html',ul:'打開 ABC 試算'},
+ abc:{n:'ABC 帳戶試算（網頁版）',p:0,pt:'免費',u:'631 法則 × ABC 三帳戶',fit:'想把每月收入分成 A 生活、B 年度、C 夢想三個帳戶',inc:['先填收入，631 幫你抓好目標','先付給自己（C 夢想），再排 A、B，一眼看懂有沒有收支有餘','到財顧芸官方 LINE 傳送「ABC 試算」，或填問卷用 Email 索取'],free:1,url:LINE_URL,ul:'到官方 LINE 索取'},
  lazy:{n:'保單自己盤點懶人包',p:990,pt:'990 元',u:'個人／家庭同價',fit:'想先自己動手，看清楚家裡有哪些保單',inc:['Excel 保單整理表、自我檢核小工具','到期與繳費日曆、看懂保單 5 重點','30 天內升級其他方案，可折抵 990 元']},
  consult:{n:'預約諮詢 30 分鐘',p:2000,pt:'2,000 元',u:'',fit:'不知道從哪裡開始，想先聊聊',inc:['說說你的狀況，芸琪幫你看適合從哪一步開始','30 天內購買「保單現況盤點」以上方案，可全額折抵']},
  camp3:{n:'三日營｜人生下半場財務覺醒',p:0,pt:'免費',u:'',fit:'想先輕鬆體驗，跟大家一起起步',inc:['三天圖文任務，在共學圈一起完成','不用公開任何財務數字'],free:1,url:'https://reurl.cc/0k0dR6',ul:'免費報名'},
@@ -735,7 +736,7 @@ function svCard(k){const v=SVC[k];const inC=!!cart[k];
  return `<div class="sv"><b>${esc(v.n)}${v.free?'<span class="tag-free">'+(v.p===0&&v.pt==='免費'?'免費':'入口')+'</span>':''}</b>
  <div class="pr">${esc(v.pt)}${v.u?` <small>${esc(v.u)}</small>`:''}</div><div class="fit">適合：${esc(v.fit)}</div>
  <ul>${v.inc.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
- <div class="act">${v.url?`<a class="btn pri" href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.ul)} →</a>`:''}${v.url2?`<a class="lk" href="${esc(v.url2)}" target="_blank" rel="noopener">${esc(v.ul2)}</a>`:''}
+ <div class="act">${k==="abc"?`<a class="btn" href="${esc(ABC_REQUEST_FORM_URL)}">填問卷，用 Email 索取 →</a>`:""}${v.url?`<a class="btn pri" href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.ul)} →</a>`:''}${v.url2?`<a class="lk" href="${esc(v.url2)}" target="_blank" rel="noopener">${esc(v.ul2)}</a>`:''}
  ${v.free?'':`<button type="button" class="add ${inC?'in':''}" data-sv="${k}">${inC?'✓ 已加入補給清單':'＋ 加入補給清單'}</button>`}</div></div>`}
 function supplyBlock(s){const ks=SUP[s.id]||[];if(!ks.length)return '';
  return `<div class="sup"><h3>🧳 ${esc(s.island)}｜航程補給站</h3><p class="sub">${esc(SUP_SAY[s.id]||'')}　想再往前走一步，可以從這裡挑；先加入清單，不會直接付款。</p>
